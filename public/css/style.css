@@ -1,1 +1,28 @@
 /* GENERAL CSS STYLE SHEET */
+header {
+    position: sticky;
+}
+
+nav {
+    display: flex;
+}
+
+nav > * {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+li {
+    list-style-type: none;
+}
+
+#site-logo {
+    width: 100px;
+}
+
+#menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px black;
+}
