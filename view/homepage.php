@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php ob_start();?>
     <h1>Pro Photo</h1>
 
