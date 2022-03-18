@@ -1,22 +1,22 @@
 <?php ob_start();?>
     <h1>Pro Photo</h1>
 
-	<div id="call-to-action">
+	<div id="callToAction">
 		Placeholder Call-To-Action.
 	</div>
-	<div id="call-to-action-secondary">
+	<div id="callToActionSecondary">
 		Secondary Call-To-Action text.
 	</div>
 	
-	<div class="search-bar">
-	<div id="search-options">
+	<div class="searchBar">
+	<div id="searchOptions">
 			<a href="#">Options</a>
-			<ul class=sub-nav>
+			<ul class=subNav>
 				<li>Tags</li>
 				<li>Photographer</li>
 			</ul>
 		</div>
-		<div class="bar-container">
+		<div class="barContainer">
 			<input type="text" placeholder="Search for images">
 			<button type="submit">Search</button>
 		</div>
@@ -27,33 +27,33 @@
 
 
 	<h2>Heading about the basic images</h2>
-	<div id="popular-images">
-		<div class="photo-card">
+	<div id="popularImages">
+		<div class="photoCard">
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photo-card-footer">
-				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Matt</div>
-				<div class="purchase-button"><a href="">Purchase</a></div>
+			<div class="photoCardFooter">
+				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Matt</div>
+				<div class="purchaseButton"><a href="">Purchase</a></div>
 			</div>
 		</div>
-		<div class="photo-card">
+		<div class="photoCard">
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photo-card-footer">
-				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">JK</div>
-				<div class="purchase-button"><a href="">Purchase</a></div>
+			<div class="photoCardFooter">
+				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">JK</div>
+				<div class="purchaseButton"><a href="">Purchase</a></div>
 			</div>
 		</div>
-		<div class="photo-card">
+		<div class="photoCard">
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photo-card-footer">
-				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Camila</div>
-				<div class="purchase-button"><a href="">Purchase</a></div>
+			<div class="photoCardFooter">
+				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Camila</div>
+				<div class="purchaseButton"><a href="">Purchase</a></div>
 			</div>
 		</div>
 
 	</div>
 
 	<h2>Popular Tags</h2>
-	<div id="popular-tags">
+	<div id="popularTags">
 		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Street</a></div>
 		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Landscape</a></div>
 		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Portrait</a></div>
@@ -66,7 +66,7 @@
 
     <!-- Logged In -->
 
-    <div id="profile-information">
+    <div id="profileInformation">
 
     </div>
 
