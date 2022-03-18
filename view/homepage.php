@@ -1,5 +1,5 @@
 <?php ob_start();?>
-    <h1>Pro Photo</h1>
+    <h1>proPhoto</h1>
 
 	<div id="callToAction">
 		Placeholder Call-To-Action.
@@ -49,18 +49,33 @@
 				<div class="purchaseButton"><a href="">Purchase</a></div>
 			</div>
 		</div>
+	</div>
+
+	<div id="sectionTwo">
+		<div id="aboutUs">
+			<h2>About proPhoto</h2>
+			<p>
+				Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, 
+			</p>
+
+		</div>
+
+		<div class="outerContainer">
+			<h2>Most Popular Tags</h2>
+			<div id="popularTags">
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Street</a></div>
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Landscape</a></div>
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Portrait</a></div>
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Wildlife</a></div>
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Photojournalism</a></div>
+				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Sport</a></div>
+			</div>
+		</div>
+
 
 	</div>
 
-	<h2>Popular Tags</h2>
-	<div id="popularTags">
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Street</a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Landscape</a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Portrait</a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Wildlife</a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Photojournalism</a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Sport</a></div>
-	</div>
+
 
 
 
