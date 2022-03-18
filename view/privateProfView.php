@@ -56,7 +56,7 @@
             </div>
             <div id="addAlbum">
                 <div>
-                    <button>Add Album</button>
+                    <button>Add More</button>
                 </div>
             </div>
         </div>
@@ -64,6 +64,3 @@
 </body>
 
 </html>
-<!-- description -->
-<!-- tags -->
-<!-- price -->
