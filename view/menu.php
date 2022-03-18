@@ -10,8 +10,8 @@
     <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="site-logo"></div>
     <h1>Pro Photo</h1>
     <nav>
-        <li>My Profile</li>
-        <li>Log Out</li>
+        <li><a href="#">My Profile</a></li>
+        <li><a href="#">Log Out</a></li>
     </nav>
     </div>
 
@@ -25,8 +25,8 @@
     <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="site-logo"></div>
     <h1>Pro Photo</h1>
     <nav>
-        <li>Register</li>
-        <li>Log In</li>
+        <li><a href="">Register</a></li>
+        <li><a href="">Log In</a></li>
     </nav>
     </div>
 
