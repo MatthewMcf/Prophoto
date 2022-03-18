@@ -1,0 +1,63 @@
+/* SECTION */
+section {
+	width: 80%;
+	margin: auto;
+}
+
+/* PRIVATE PROFILE HEADER */
+#profileHeader {
+	border: 1px solid black;
+	padding: 5px 50px;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#profilePic {
+	border: 1px solid black;
+	border-radius: 90px;
+}
+#profilePic,
+#profilePic img {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+}
+
+/* PRIVATE PROFILE ALBUMS */
+#profileAlbums {
+	border: 1px solid black;
+	height: fit-content;
+	margin-top: 20px;
+	display: flex;
+	/* flex-direction: row; */
+	flex-wrap: wrap;
+	justify-content: space-around;
+	/* align-items: center; */
+}
+.album {
+	border: 1px solid black;
+	width: 30%;
+	height: 250px;
+	margin: 15px;
+	display: flex;
+	align-items: flex-end;
+}
+.albumShadow {
+	background-image: linear-gradient(grey, darkgrey, lightgrey, white);
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#addAlbum {
+	border: 1px solid black;
+	background-image: radial-gradient(white, lightgrey);
+	width: 30%;
+	height: 250px;
+	margin: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
