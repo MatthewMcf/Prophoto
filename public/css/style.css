@@ -16,7 +16,7 @@
     justify-content: space-around;
 }
 
-#popular-images > .placeholder {
+#popular-images > .photo-card {
     width: 30%;
     margin-bottom: 5px;
 }
@@ -24,4 +24,38 @@
 #popular-tags > .placeholder {
     width: 30%;
     margin-bottom: 5px;
+}
+
+.search-bar {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.bar-container {
+    width: 60%;
+}
+
+.bar-container > input {
+    width: 80%;
+}
+
+.bar-container > button {
+    width: 15%;
+}
+
+.icon {
+    width: 50px;
+}
+
+.photo-card-footer {
+    display: flex;
+    justify-content: space-between;
 }

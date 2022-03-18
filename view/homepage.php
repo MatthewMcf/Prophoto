@@ -9,12 +9,48 @@
 	</div>
 	
 	<div class="search-bar">
-		<input type="text" placeholder="Search for images">
-		<button type="submit">Search</button>
+	<div id="search-options">
+			<a href="#">Options</a>
+			<ul class=sub-nav>
+				<li>Tags</li>
+				<li>Photographer</li>
+			</ul>
+		</div>
+		<div class="bar-container">
+			<input type="text" placeholder="Search for images">
+			<button type="submit">Search</button>
+		</div>
+
 	</div>
 
 	<br>
 
+
+	<h2>Heading about the basic images</h2>
+	<div id="popular-images">
+		<div class="photo-card">
+			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
+			<div class="photo-card-footer">
+				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Matt</div>
+				<div class="purchase-button"><a href="">Purchase</a></div>
+			</div>
+		</div>
+		<div class="photo-card">
+			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
+			<div class="photo-card-footer">
+				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">JK</div>
+				<div class="purchase-button"><a href="">Purchase</a></div>
+			</div>
+		</div>
+		<div class="photo-card">
+			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
+			<div class="photo-card-footer">
+				<div class="photographer-info"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Camila</div>
+				<div class="purchase-button"><a href="">Purchase</a></div>
+			</div>
+		</div>
+
+	</div>
 
 	<h2>Popular Tags</h2>
 	<div id="popular-tags">
@@ -26,16 +62,7 @@
 		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Sport</a></div>
 	</div>
 
-	<h2>Popular Images</h2>
-	<div id="popular-images">
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-		<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
 
-	</div>
 
     <!-- Logged In -->
 
