@@ -1,1 +1,27 @@
 /* GENERAL CSS STYLE SHEET */
+
+.placeholder > a > img {
+    width: 100%;
+}
+
+#popular-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#popular-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#popular-images > .placeholder {
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+#popular-tags > .placeholder {
+    width: 30%;
+    margin-bottom: 5px;
+}
