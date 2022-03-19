@@ -1,1 +1,25 @@
 /* GENERAL CSS STYLE SHEET */
+
+.imageContainer {
+    background-color: darkgray;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 30rem;
+}
+
+.icon {
+    width: 50px;
+}
+
+.imageInfo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftContainer {
+    display: flex;
+}
