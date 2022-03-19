@@ -10,7 +10,7 @@
                 <img class="icon" src="./public/images/default_profile_picture.png" alt="profile picture">
             </div>
             <div id="photographerName">
-                Camila
+                <a href="#">Camila</a> 
             </div>
         </div>
         <div id="desciptorContainer">
