@@ -16,11 +16,11 @@ li {
     list-style-type: none;
 }
 
-#site-logo {
+#siteLogo {
     width: 100px;
 }
 
-#menu-bar {
+#menuBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
