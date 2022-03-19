@@ -1,27 +1,31 @@
 <?php ob_start();?>
     <h1>proPhoto</h1>
 
-	<div id="callToAction">
-		Placeholder Call-To-Action.
-	</div>
-	<div id="callToActionSecondary">
-		Secondary Call-To-Action text.
-	</div>
-	
-	<div class="searchBar">
-	<div id="searchOptions">
-			<a href="#">Options</a>
-			<ul class=subNav>
-				<li>Tags</li>
-				<li>Photographer</li>
-			</ul>
-		</div>
-		<div class="barContainer">
-			<input type="text" placeholder="Search for images">
-			<button type="submit">Search</button>
-		</div>
 
+	<div id="topContainer">
+		<div id="callToAction">
+			Placeholder Call-To-Action.
+		</div>
+		<div id="callToActionSecondary">
+			Secondary Call-To-Action text.
+		</div>
+		
+		<div class="searchBar">
+		<div id="searchOptions">
+				<a href="#">Options</a>
+				<ul class=subNav>
+					<li>Tags</li>
+					<li>Photographer</li>
+				</ul>
+			</div>
+			<div class="barContainer">
+				<input type="text" placeholder="Search for images">
+				<button type="submit">Search</button>
+			</div>
+
+		</div>
 	</div>
+
 
 	<br>
 

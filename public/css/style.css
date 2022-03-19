@@ -28,6 +28,7 @@
 
 .searchBar {
     display: flex;
+    justify-content: center;
 }
 
 li {
@@ -85,4 +86,32 @@ ul {
 
 #sectionTwo > * {
     width: 50%;
+}
+
+#topContainer {
+    background: url("../images/corgi-wallpaper-2560x1080.jpg"),
+        rgba(50, 50, 50, 0.5);
+    background-blend-mode: multiply;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#topContainer > * {
+    width: 100%;
+    text-align: center;
+}
+
+#callToAction {
+    color: white;
+    font-size: xx-large;
+}
+
+#callToActionSecondary {
+    color: white;
+    font-size: large;
 }
