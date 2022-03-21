@@ -1,0 +1,17 @@
+/* SECTION */
+section {
+	width: 80%;
+	margin: auto;
+}
+/* FORM */
+#asterisk {
+	font-size: 0.9rem;
+}
+textarea {
+	resize: none;
+	vertical-align: middle;
+}
+.labelWidth {
+	display: inline-block;
+	width: 100px;
+}

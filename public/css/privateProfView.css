@@ -16,24 +16,37 @@ section {
 #profilePic {
 	border: 1px solid black;
 	border-radius: 90px;
-}
-#profilePic,
-#profilePic img {
 	width: 90px;
 	height: 90px;
 	overflow: hidden;
+	position: relative;
+}
+#profilePic img {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	z-index: -1;
+}
+#profilePic:hover {
+	background-color: rgba(120, 120, 120, 0.3);
 }
 
 /* PRIVATE PROFILE ALBUMS */
+.yourPhotos {
+	margin-top: 20px;
+}
 #profileAlbums {
 	border: 1px solid black;
 	height: fit-content;
-	margin-top: 20px;
 	display: flex;
 	/* flex-direction: row; */
 	flex-wrap: wrap;
 	justify-content: space-around;
 	/* align-items: center; */
+}
+.sectionHeader {
+	border: 1px solid black;
+	padding-left: 15px;
 }
 .album {
 	border: 1px solid black;

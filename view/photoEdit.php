@@ -43,7 +43,7 @@
             </fieldset>
         </form>
     </section>
-    <script src="../public/js/photoEdit.js"></script>
+    <script type="text/javascript" src="../public/js/photoEdit.js"></script>
 </body>
 
 </html>
