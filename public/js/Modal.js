@@ -1,34 +1,34 @@
 class Modal {
-    constructor(content) {
-        let modal = document.createElement("dialog");
-        modal.id = "modal";
+	constructor(content) {
+		let modal = document.createElement("dialog");
+		modal.id = "modal";
 
-        let modalInner = document.createElement("div");
-        modalInner.id = "modalInner";
-        let closeButton = document.createElement("span");
-        closeButton.classList.add("close");
-        closeButton.textContent = "×";
+		let modalInner = document.createElement("div");
+		modalInner.id = "modalInner";
+		let closeButton = document.createElement("span");
+		closeButton.classList.add("close");
+		closeButton.textContent = "x";
 
-        modalInner.innerHTML = content;
-        modalInner.insertBefore(closeButton, modalInner.firstChild);
-        closeButton.addEventListener("click", (e) => {
-            modal.close();
-            modal.parentNode.removeChild(modal);
-        });
+		modalInner.innerHTML = content;
+		modalInner.insertBefore(closeButton, modalInner.firstChild);
+		closeButton.addEventListener("click", (e) => {
+			modal.close();
+			modal.parentNode.removeChild(modal);
+		});
 
-        modal.addEventListener("click", function (e) {
-            // Check if the modal is clicked, not an element inside the modal:
-            if (e.target === e.currentTarget) {
-                modal.close();
-                modal.parentNode.removeChild(modal);
-            }
-        });
+		modal.addEventListener("click", function (e) {
+			// Check if the modal is clicked, not an element inside the modal:
+			if (e.target === e.currentTarget) {
+				modal.close();
+				modal.parentNode.removeChild(modal);
+			}
+		});
 
-        modal.appendChild(modalInner);
-        document.body.appendChild(modal);
+		modal.appendChild(modalInner);
+		document.body.appendChild(modal);
 
-        modal.showModal();
-    }
+		modal.showModal();
+	}
 }
 
 // Example for testing
