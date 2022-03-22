@@ -38,8 +38,6 @@
                 <br><br>
                 <!-- submit button will save and return to privateProfView.php -->
                 <button type="submit" id="save">Save</button>
-                <!-- cancel button will return to privateProfView -->
-                <button>Cancel</button>
             </fieldset>
         </form>
     </section>

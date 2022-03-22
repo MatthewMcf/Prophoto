@@ -17,7 +17,7 @@
                 <img src="../public/images/default_profile_picture.png" alt="profilePic">
             </div>
             <h3>My profile@information</h3>
-            <button>Edit</button>
+            <button id="profileInfo">Edit</button>
         </div>
         <div>
             <div class="yourPhotos">
@@ -28,14 +28,14 @@
                     <div class="album">
                         <div class="albumShadow">
                             <div>
-                                <button>Edit</button>
+                                <button class="editPic">Edit</button>
                             </div>
                         </div>
                     </div>
                     <div class="album">
                         <div class="albumShadow">
                             <div>
-                                <button>Edit</button>
+                                <button class="editPic">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -108,5 +108,7 @@
         </div>
     </section>
 </body>
+<script type="text/javascript" src="../public/js/script.js"></script>
+<script type="text/javascript" src="../public/js/Modal.js"></script>
 
 </html>
