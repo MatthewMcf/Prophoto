@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://kit.fontawesome.com/68fcd009c8.js"
+			crossorigin="anonymous"
+		></script>
+		<title>Global css</title>
+	</head>
+	<body>
+	<div class="container">
+		<!-- H tags -->
+		<fieldset>
+			<legend>H tags</legend>
+			<h1>Hello</h1>
+			<h2>Hello</h2>
+			<h3>Hello</h3>
+			<h4>Hello</h4>
+		</fieldset>
+
+		<!-- Paragraph -->
+		<fieldset>
+			<legend>Paragraph</legend>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+				quos aspernatur quo doloribus aliquid et, mollitia ad eaque
+				error ducimus ab neque voluptate molestias cumque, unde numquam
+				iure repellendus quaerat. Optio facere autem veritatis officiis
+				necessitatibus ipsam minima temporibus eos deserunt iste
+				laboriosam, doloremque tenetur libero labore reprehenderit
+				corporis quas 
+			</p>
+		</fieldset>
+
+		<!-- Buttons -->
+		<fieldset>
+			<legend>Buttons</legend>
+			<button class="btnPrimary">Primary buton</button>
+			<button class="btnSecondary">Secondary buton</button>
+			<button class="btnHollow">Hollow buton</button>
+		</fieldset>
+
+		<!-- Buttons -->
+		<fieldset>
+			<legend>Input fields</legend>
+			<form class="form" id="form">
+
+				<!-- Input -->
+				<div class="inputContainer">
+					<h4>Input example</h4>
+					<input
+						type="text"
+						class="input"
+						placeholder="Input example"
+					/>
+				</div>
+
+				<!-- Error input -->
+				<div class="inputContainer" data-error="Error message goes here">
+					<h4>Error message example</h4>
+					<input
+						type="text"
+						class="input"
+						placeholder="Error message example"
+						value="User input example"
+					/>
+				</div>
+
+				<!-- Textarea -->
+				<div class="inputContainer">
+					<h4>Textarea question</h4>
+					<textarea name="message" placeholder="Placeholder text"></textarea>
+				</div>
+
+				<!-- Checkbox -->
+				<div class="inputContainer">
+					<h4>Checkbox</h4>
+					<label class="checkboxContainer">Option one
+						<input type="checkbox" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkboxContainer">Option two
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					  </label>
+				</div>
+
+				<!-- Radio button -->
+				<div class="inputContainer">
+					<h4>Radio button</h4>
+					<label class="radioContainer">One
+						<input type="radio" checked="checked" name="radio">
+						<span class="radioCheckmark"></span>
+					</label>
+					<label class="radioContainer">Two
+						<input type="radio" name="radio">
+						<span class="radioCheckmark"></span>
+					</label>
+				</div>
+			</form>
+		</fieldset>
+
+		<!-- Card landing page -->
+		<fieldset>
+			<legend>Card landing page</legend>
+			<div class="cardContainer">
+				<div class="cardContent">
+					<button class="price">2 Credits</button>
+					<div class="likeContainer">
+						<div class="likeUnselected">
+							<i class="fa-regular fa-heart"></i>
+						</div>
+					</div>
+				</div>
+				<div class="cardInfo">
+					<a href="">
+					<div class="photographerInfo">
+						<div class="photographerSmallProfilePic"></div>
+						<h4>Username</h4>
+					</div>
+					</a>
+					<div class="purchase">
+						<button class="btnPrimary">purchase</button> 
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Card profile page (customer perspective) -->
+		<fieldset>
+			<legend>Card profile page (customer perspective)</legend>
+			<div class="cardContainer">
+				<div class="cardContent">
+					<button class="price">2 Credits</button>
+					<div class="likeContainer">
+						<div class="likeUnselected">
+							<i class="fa-regular fa-heart"></i>
+						</div>
+					</div>
+				</div>
+				<div class="purchaseOnly">
+					<div class="purchase">
+						<button class="btnPrimary">purchase</button> 
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Card profile page (photographer perspective) -->
+		<fieldset>
+			<legend>Card profile page (photographer perspective)</legend>
+			<div class="cardContainer">
+				<div class="cardContentEdit">
+					<button class="btnEdit">Edit image</button>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Like icon -->
+		<fieldset>
+			<legend>Like icon</legend>
+			<div class="likeContainer">
+				<div class="likeUnselected">
+					<i class="fa-regular fa-heart"></i>
+				</div>
+			</div>
+			<div class="likeContainer">
+				<div class="likeSelected">
+					<i class="fa-regular fa-heart"></i>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Close icon -->
+		<fieldset>
+			<legend>Close</legend>
+			<div class="close">
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+		</fieldset>
+
+		<!-- Pagination -->
+		<fieldset>
+			<legend>Pagination</legend>
+			<div class="pagination">
+				<a href="#"><i class="fa-solid fa-caret-left"></i></i></a>
+				<a href="#" class="active">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#"><i class="fa-solid fa-caret-right"></i></a>
+			</div>
+		</fieldset>
+
+		<!-- Filter dropdown -->
+		<fieldset>
+			<legend>Filter dropdown</legend>
+			<div class="dropdownContainer">
+				<div class='dropdown'>
+					<div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
+					
+					<div class='menu pointerCursor hide'>
+						<div class="dropdownResults">
+							<div class='option' id='option1'>Hot</div>
+							<div class='option' id='option2'>Option 2</div>
+							<div class='option' id='option3'>Option 3</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Banner searchbar -->
+		<fieldset>
+			<legend>Banner searchbar</legend>
+				<div class="searchContainer">
+					<form class="form" id="form">
+						<div class="inputContainer">
+							<label>Input example</label>
+							<input
+								type="text"
+								class="input"
+								placeholder="Input example"
+							/>
+						</div>
+					</form>
+				</div>
+			</fieldset>
+	</div>
+
+		<script>
+			// ERROR FORM INPUT JS
+			// document
+			// 	.querySelectorAll(".input-container[data-error] .input")
+			// 	.forEach((inpEl) => {
+			// 		inpEl.addEventListener("input", () =>
+			// 			inpEl.parentElement.removeAttribute("data-error")
+			// 		);
+			// 	});
+
+			// DROP DOWN JS
+			function toggleClass(elem,className){
+			if (elem.className.indexOf(className) !== -1){
+			elem.className = elem.className.replace(className,'');
+			}
+			else{
+			elem.className = elem.className.replace(/\s+/g,' ') + 	' ' + className;
+			}
+
+			return elem;
+			}
+
+			function toggleDisplay(elem){
+			const curDisplayStyle = elem.style.display;			
+
+			if (curDisplayStyle === 'none' || curDisplayStyle === ''){
+			elem.style.display = 'block';
+			}
+			else{
+			elem.style.display = 'none';
+			}
+
+			}
+
+			function toggleMenuDisplay(e){
+			const dropdown = e.currentTarget.parentNode;
+			const menu = dropdown.querySelector('.menu');
+			const icon = dropdown.querySelector('.fa-caret-down');
+
+			toggleClass(menu,'hide');
+			toggleClass(icon,'rotate-180');
+			}
+
+			function handleOptionSelected(e){
+			toggleClass(e.target.parentNode, 'hide');			
+
+			const id = e.target.id;
+			const newValue = e.target.textContent + ' ';
+			const titleElem = document.querySelector('.dropdown .title');
+			const icon = document.querySelector('.dropdown .title .fa-caret-down');
+
+
+			titleElem.textContent = newValue;
+			titleElem.appendChild(icon);
+
+			//trigger custom event
+			document.querySelector('.dropdown .title').dispatchEvent(new Event('change'));
+			//setTimeout is used so transition is properly shown
+			setTimeout(() => toggleClass(icon,'rotate-180',0));
+			}
+
+			function handleTitleChange(e){
+			const result = document.getElementById('result');
+
+			result.innerHTML = 'The result is: ' + e.target.textContent;
+			}
+
+			//get elements
+			const dropdownTitle = document.querySelector('.dropdown .title');
+			const dropdownOptions = document.querySelectorAll('.dropdown .option');
+
+			//bind listeners to these elements
+			dropdownTitle.addEventListener('click', toggleMenuDisplay);
+
+			dropdownOptions.forEach(option => option.addEventListener('click',handleOptionSelected));
+
+			document.querySelector('.dropdown .title').addEventListener('change',handleTitleChange);
+		</script>
+	</body>
+</html>
