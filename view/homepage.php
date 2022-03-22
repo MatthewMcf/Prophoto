@@ -40,29 +40,71 @@
 
 	<h2>Heading about the basic images</h2>
 	<div id="popularImages">
-		<div class="photoCard">
-			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photoCardFooter">
-				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Matt</div>
-				<button class="btnPrimary purchaseButton">Purchase</button>
-			</div>
-		</div>
-		<div class="photoCard">
-			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photoCardFooter">
-				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">JK</div>
-				<button class="btnPrimary purchaseButton">Purchase</button>
-                
-			</div>
-		</div>
-		<div class="photoCard">
-			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
-			<div class="photoCardFooter">
-				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Camila</div>
-				<button class="btnPrimary purchaseButton">Purchase</button>
-			</div>
-		</div>
-	</div>
+    <div class="cardContainer">
+        <div class="cardContent photoCard">
+            <button class="price">2 Credits</button>
+            <div class="likeContainer">
+                <div class="likeUnselected">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="cardInfo">
+            <a href="">
+            <div class="photographerInfo">
+                <div class="photographerSmallProfilePic"></div>
+                <h4>Username</h4>
+            </div>
+            </a>
+            <div class="purchase">
+                <button class="btnPrimary">purchase</button> 
+            </div>
+        </div>
+    </div>
+
+    <div class="cardContainer">
+        <div class="cardContent photoCard">
+            <button class="price">2 Credits</button>
+            <div class="likeContainer">
+                <div class="likeUnselected">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="cardInfo">
+            <a href="">
+            <div class="photographerInfo">
+                <div class="photographerSmallProfilePic"></div>
+                <h4>Username</h4>
+            </div>
+            </a>
+            <div class="purchase">
+                <button class="btnPrimary">purchase</button> 
+            </div>
+        </div>
+    </div>
+
+    <div class="cardContainer">
+        <div class="cardContent photoCard">
+            <button class="price">2 Credits</button>
+            <div class="likeContainer">
+                <div class="likeUnselected">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="cardInfo">
+            <a href="">
+            <div class="photographerInfo">
+                <div class="photographerSmallProfilePic"></div>
+                <h4>Username</h4>
+            </div>
+            </a>
+            <div class="purchase">
+                <button class="btnPrimary">purchase</button> 
+            </div>
+        </div>
+    </div>
 
 	<div id="sectionTwo">
 		<div id="aboutUs">

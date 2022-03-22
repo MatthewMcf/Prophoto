@@ -727,6 +727,10 @@ ul {
     justify-content: space-between;
 }
 
+.photoCard {
+    background-image: url("../images/seoul.jpeg");
+}
+
 /* .purchaseButton {
     vertical-align: bottom;
     padding: 10px;
