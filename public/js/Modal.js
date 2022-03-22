@@ -36,7 +36,7 @@ function setModalContentPhotoView() {
     var xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("GET", "view/photo.php");
+    xhr.open("GET", "view/modalPhotoView.php");
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
