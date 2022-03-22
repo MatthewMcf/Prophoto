@@ -10,7 +10,7 @@
                 <img class="icon" src="./public/images/default_profile_picture.png" alt="profile picture">
             </div>
             <div id="photographerName">
-                <a href="#">Camila</a> 
+                <a href="#"><?php $getUserFromDB = false;  echo $getUserFromDB ? 'userName' : 'Default' ?></a> 
             </div>
         </div>
         <div id="desciptorContainer">
