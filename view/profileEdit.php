@@ -12,7 +12,7 @@
 
 <body>
     <section>
-        <form action="phototable" method="post">
+        <form action="profileEdit.php" method="post">
             <fieldset>
                 <legend> Profile Edit </legend>
                 <br>
@@ -23,7 +23,7 @@
                 <textarea name="aboutMe" id="aboutMe" cols="30" rows="10" placeholder="Max 255 characters"></textarea>
                 <br><br>
                 <label for="website" class="labelWidth">Website: </label>
-                <input type="text" name="website" id="website" maxlength="255">
+                <i class="fa-solid fa-link"> <input type="text" name="website" id="website" maxlength="255"></i>
                 <br><br>
                 <label for="findMe" class="labelWidth">Find me on: </label>
                 <i class="fa-brands fa-facebook-square"> <input type="text" name="facebook" id="findMe" maxlength="255" value="@"></i>

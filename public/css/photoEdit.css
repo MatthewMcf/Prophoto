@@ -5,13 +5,8 @@ section {
 }
 /* FORM */
 #asterisk {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
 textarea {
 	resize: none;
-	vertical-align: middle;
-}
-.labelWidth {
-	display: inline-block;
-	width: 100px;
 }

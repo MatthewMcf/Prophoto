@@ -11,22 +11,22 @@
 
 <body>
     <section>
-        <form action="phototable" method="post">
+        <form action="photoEdit.php" method="post">
             <fieldset>
                 <legend> Photo Edit </legend>
 
                 <p id="asterisk"><strong>All fields marked with * are required</strong></p>
                 <br>
-                <label for="title" class="labelWidth">*Title: </label>
+                <label for="title">*Title: </label><br>
                 <input type="text" name="title" id="title" maxlength="255">
                 <br><br>
-                <label for="description" class="labelWidth">Description: </label>
+                <label for="description">Description: </label><br>
                 <textarea name="description" id="description" cols="30" rows="5" maxlength="255"></textarea>
                 <br><br>
-                <label for="price" class="labelWidth">*Price: </label>
+                <label for="price">*Price: </label><br>
                 <input type="number" name="price" id="price" min=5.00 step="0.01" value=5.00> USD
                 <br><br>
-                <label for="tags" class="labelWidth">Tags: </label>
+                <label for="tags">Tags: </label><br>
                 <input type="checkbox" name="nature" id="tagNature">
                 <label for="tagNature">Nature</label>
                 <input type="checkbox" name="city" id="tagCity">

@@ -62,6 +62,7 @@ function setModalContent() {
 	xhr.send(null);
 }
 
+// Edit Profile Information
 function setModalProfileInfo() {
 	// Set up the request
 	var xhr = new XMLHttpRequest();
@@ -92,6 +93,7 @@ function setModalProfileInfo() {
 	xhr.send(null);
 }
 
+// Edit Profile Picture
 function setModalEditPic() {
 	// Set up the request
 	var xhr = new XMLHttpRequest();

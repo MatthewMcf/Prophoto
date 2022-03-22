@@ -6,7 +6,7 @@ profilePic.addEventListener("click", function () {
 });
 
 // Trigger Modal to edit Profile Info
-let profileInfo = document.getElementById("profileInfo");
+let profileInfo = document.getElementById("editProfileInfo");
 profileInfo.addEventListener("click", function () {
 	setModalProfileInfo();
 });

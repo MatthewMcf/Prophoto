@@ -8,27 +8,45 @@ section {
 #profileHeader {
 	border: 1px solid black;
 	padding: 5px 50px;
-	height: 100px;
+	max-height: 250px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 #profilePic {
 	border: 1px solid black;
-	border-radius: 90px;
-	width: 90px;
-	height: 90px;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
 	overflow: hidden;
 	position: relative;
 }
 #profilePic img {
-	width: 90px;
-	height: 90px;
+	width: 100px;
+	height: 100px;
 	position: absolute;
 	z-index: -1;
 }
 #profilePic:hover {
-	background-color: rgba(120, 120, 120, 0.3);
+	background-color: rgba(120, 120, 120, 0.2);
+	cursor: pointer;
+}
+#profileInfo {
+	max-height: 250px;
+	width: 750px;
+}
+#profileInfo p {
+	text-align: justify;
+}
+#socialMedia {
+	margin: 10px 0;
+}
+#socialMedia a {
+	font-size: 1.3rem;
+	color: black;
+}
+.fa-link {
+	font-size: 1.1rem;
 }
 
 /* PRIVATE PROFILE ALBUMS */

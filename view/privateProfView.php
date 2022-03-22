@@ -16,8 +16,18 @@
             <div id="profilePic">
                 <img src="../public/images/default_profile_picture.png" alt="profilePic">
             </div>
-            <h3>My profile@information</h3>
-            <button id="profileInfo">Edit</button>
+            <div id="profileInfo">
+                <h4>camila@1234</h4>
+                <h2>Camila Lee</h2>
+                <p><strong>About Me:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas earum in commodi magni facilis! Soluta, perferendis ipsam possimus maiores fuga similique ducimus obcaecati laboriosam? Veniam consequatur harum repudiandae laboriosam deserunt. Fifteen More!!</p>
+                <div id="socialMedia">
+                    <a href="http://mywebsite.com" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="http://facebook.com/leegihe95" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="http://instagram.com/camilaglee/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="http://linkedin.com/leegihe95" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <button id="editProfileInfo">Edit</button>
         </div>
         <div>
             <div class="yourPhotos">
