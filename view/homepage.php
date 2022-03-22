@@ -3,25 +3,33 @@
 
 
 	<div id="topContainer">
-		<div id="callToAction">
+		<h2 id="callToAction">
 			Placeholder Call-To-Action.
-		</div>
-		<div id="callToActionSecondary">
+        </h2>
+		<h3 id="callToActionSecondary">
 			Secondary Call-To-Action text.
-		</div>
+        </h3>
 		
 		<div class="searchBar">
-		<div id="searchOptions">
-				<a href="#">Options</a>
-				<ul class=subNav>
-					<li>Tags</li>
-					<li>Photographer</li>
-				</ul>
+            <div class="searchContainer">
+                <div id="searchOptions">
+                    <a href="#">Options</a>
+                    <ul class=subNav>
+                        <li>Tags</li>
+                        <li>Photographer</li>
+                    </ul>
+                </div>
+                <form class="form" id="form">
+                    <div class="inputContainer">
+                        <input
+                            type="text"
+                            class="input"
+                            placeholder="Input example"
+                        />
+                    </div>
+                </form>
 			</div>
-			<div class="barContainer">
-				<input type="text" placeholder="Search for images">
-				<button type="submit">Search</button>
-			</div>
+
 
 		</div>
 	</div>
@@ -36,21 +44,22 @@
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
 			<div class="photoCardFooter">
 				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Matt</div>
-				<div class="purchaseButton"><a href="">Purchase</a></div>
+				<button class="btnPrimary purchaseButton">Purchase</button>
 			</div>
 		</div>
 		<div class="photoCard">
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
 			<div class="photoCardFooter">
 				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">JK</div>
-				<div class="purchaseButton"><a href="">Purchase</a></div>
+				<button class="btnPrimary purchaseButton">Purchase</button>
+                
 			</div>
 		</div>
 		<div class="photoCard">
 			<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a></div>
 			<div class="photoCardFooter">
 				<div class="photographerInfo"><img class="icon" src="public/images/default_profile_picture.png" alt="Photographer">Camila</div>
-				<div class="purchaseButton"><a href="">Purchase</a></div>
+				<button class="btnPrimary purchaseButton">Purchase</button>
 			</div>
 		</div>
 	</div>
