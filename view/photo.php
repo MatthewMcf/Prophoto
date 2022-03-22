@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php //ob_start(); ?>
 <div class="imageContainer">
     <img src="./public/images/default_profile_picture.png" alt="picture">
 </div>
@@ -28,6 +28,6 @@
 
 </div>
 
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+<?php //$content = ob_get_clean(); ?>
+<?php //require('template.php'); ?>
 
