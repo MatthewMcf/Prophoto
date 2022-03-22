@@ -673,9 +673,9 @@ nav {
     display: flex;
 }
 
-nav > * {
-    padding-left: 5px;
-    padding-right: 5px;
+nav .btnPrimary {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 li {
@@ -692,10 +692,10 @@ li {
     align-items: center;
 }
 
-nav li a {
+/* nav li a {
     text-decoration: none;
     background-color: lightgray;
     color: rgb(82, 82, 82);
     padding: 0.8rem;
     border-radius: 10px;
-}
+} */

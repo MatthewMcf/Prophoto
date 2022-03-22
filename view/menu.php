@@ -9,8 +9,8 @@
     <div id="menuBar" class="loggedIn">
     <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></div>
     <nav>
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">Log Out</a></li>
+        <button class="btnPrimary">My Profile</button>
+        <button class="btnSecondary">Logout</button>
     </nav>
     </div>
 
@@ -23,8 +23,8 @@
     <div id="menuBar">
     <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></div>
     <nav>
-        <li><a href="">Register</a></li>
-        <li><a href="">Log In</a></li>
+        <button class="btnPrimary">Log In</button>
+        <button class="btnSecondary">Register</button>
     </nav>
     </div>
 
