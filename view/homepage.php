@@ -12,13 +12,21 @@
 		
 		<div class="searchBar">
             <div class="searchContainer">
-                <div id="searchOptions">
-                    <a href="#">Options</a>
-                    <ul class=subNav>
-                        <li>Tags</li>
-                        <li>Photographer</li>
-                    </ul>
+                <div class="dropdownContainer">
+                    <div class='dropdown'>
+                        <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
+                        
+                        <div class='menu pointerCursor hide'>
+                            <div class="dropdownResults">
+                                <div class='option' id='option1'>Hot</div>
+                                <div class='option' id='option2'>Tags</div>
+                                <div class='option' id='option3'>Photographer</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
                 <form class="form" id="form">
                     <div class="inputContainer">
                         <input
