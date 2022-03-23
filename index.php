@@ -8,6 +8,9 @@ try{
         case 'homepage':
             homepage();
             break;
+        case 'photo':
+            photo();
+            break;
         default :
             homepage();
             break;

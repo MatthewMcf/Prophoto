@@ -16,7 +16,7 @@
             <div id="profilePicWrapper">
                 <!-- try background picture on container using style in div tag -->
                 <div id="profilePic">
-                    <img src="../public/images/default_profile.png" alt="profilePic">
+                    <img src="../data/default/profilePicture.png" alt="profilePic">
                     <!-- <div>test</div> -->
                 </div>
             </div>

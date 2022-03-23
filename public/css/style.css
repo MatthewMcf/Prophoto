@@ -1,4 +1,3 @@
-/* GENERAL CSS STYLE SHEET */
 /* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
@@ -662,4 +661,43 @@ input {
 }
 
 @media all and (max-width: 576px) {
+}
+
+/* PhotoView Modal CSS*/
+
+#modal {
+	margin: auto;
+}
+
+.imageContainer {
+	background-color: darkgray;
+	text-align: center;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+img {
+	width: 30rem;
+}
+
+.icon {
+	width: 50px;
+}
+
+.imageInfo {
+	display: flex;
+	justify-content: space-around;
+}
+
+.leftContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.leftContainer > * {
+	margin-bottom: 0.5rem;
+}
+
+#descriptorContainer > * {
+	margin-bottom: 0.2rem;
 }
