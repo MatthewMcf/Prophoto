@@ -16,8 +16,8 @@
     --secondary-btn-color: #e0e1e2;
     --secondary-btn-hover-color: #aaaaab;
 
-    --hollow-btn-hover-color: #333;
-    --hollow-btn-font-color: #333;
+    --hollow-btn-hover-color: #2185d0;
+    --hollow-btn-font-color: #fff;
 
     /* Font variables*/
     --main-primary-font-color: #000000;
@@ -65,6 +65,7 @@ h2 {
     font-weight: 700;
     color: var(--main-primary-font-color);
     padding: 0 0 1.5rem 0;
+    line-height: 3rem;
 }
 
 h3 {
@@ -72,7 +73,7 @@ h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--main-primary-font-color);
-    padding: 1rem 0;
+    padding: 0 0 1rem 0;
 }
 
 h4 {
@@ -95,7 +96,12 @@ body {
     color: #000000;
     line-height: 1rem;
     font-size: 1rem;
+}
+
+/* Change so the body isn't the restrictor */
+.mainContainer {
     padding: 0 1rem;
+    width: 80%;
 }
 
 /* BUTTONS */
@@ -103,7 +109,7 @@ body {
     background-color: var(--primary-btn-color);
     border: none;
     color: var(--primary-btn-font-color);
-    height: 2.7rem;
+    height: 2.5rem;
     padding: 0 1.5rem;
     text-align: center;
     text-decoration: none;
@@ -125,7 +131,7 @@ body {
     background-color: var(--secondary-btn-color);
     border: none;
     color: var(--main-secondary-font-color);
-    height: 2.7rem;
+    height: 2.5rem;
     padding: 0 1.5rem;
     text-align: center;
     text-decoration: none;
@@ -144,10 +150,10 @@ body {
 }
 
 .btnHollow {
-    border: 1px solid var(--main-secondary-font-color);
-    color: var(--main-secondary-font-color);
+    border: 1px solid var(--primary-btn-color);
+    color: var(--primary-btn-color);
     background-color: transparent;
-    height: 2.7rem;
+    height: 2.5rem;
     padding: 0 1.5rem;
     text-align: center;
     text-decoration: none;
@@ -167,11 +173,35 @@ body {
         0 4px 10px 0 rgba(160, 160, 160, 0.9);
 }
 
+.btnHollowSecondary {
+    border: 1px solid var(--main-secondary-font-color);
+    color: var(--main-secondary-font-color);
+    background-color: transparent;
+    height: 2.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btnHollowSecondary:hover {
+    background-color: var(--main-secondary-font-color);
+    color: var(--hollow-btn-font-color);
+    border: none;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+        0 4px 10px 0 rgba(160, 160, 160, 0.9);
+}
+
 .btnEdit {
     background-color: var(--secondary-btn-color);
     border: none;
     color: var(--main-secondary-font-color);
-    height: 2.7rem;
+    height: 2.5rem;
     padding: 0 1.5rem;
     text-align: center;
     text-decoration: none;
@@ -360,12 +390,6 @@ textarea {
     background: black;
 }
 
-/* Section */
-
-section {
-    padding: 2rem 0;
-}
-
 /* Card */
 
 /* .tag {
@@ -379,7 +403,8 @@ section {
 } */
 
 .cardContainer {
-    max-width: 300px;
+    width: 300px;
+    margin: 0 1rem;
 }
 
 .cardContent {
@@ -392,7 +417,7 @@ section {
     align-items: flex-end;
     justify-content: space-between;
 
-    background-image: url(./images/86668588-B418-4F63-89BA-9E77E1B24C1C_1_105_c.jpeg);
+    background-image: url(../images/default_profile_picture.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -408,7 +433,7 @@ section {
     align-items: flex-end;
     justify-content: flex-end;
 
-    background-image: url(./images/86668588-B418-4F63-89BA-9E77E1B24C1C_1_105_c.jpeg);
+    background-image: url(../images/default_profile_picture.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -446,7 +471,7 @@ section {
     background-color: #000000;
     margin: 0.5rem 0;
 
-    background-image: url(./images/73050E10-888F-4080-9731-21B922112E27_1_105_c.jpeg);
+    background-image: url(../images/default_profile_picture.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -506,6 +531,18 @@ section {
     justify-content: center;
     align-items: center;
 }
+.likeSelected:hover {
+    width: 2.37rem;
+    height: 2.37rem;
+    border-radius: 5rem;
+    background-color: #cf0202;
+    transition: ease-in-out 0.3s;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 
 .fa-heart {
     color: #ffffff;
@@ -516,19 +553,14 @@ section {
     color: #333333;
     font-size: 2rem;
     margin: 0.7rem;
+    top: 0;
+    right: 0;
+    padding: 0 0.2rem;
 }
 .close:hover {
     color: #000000;
     transition: ease-in-out 0.3s;
 }
-
-/* Search options */
-
-/* Banner search */
-
-/* Banner search dropdown */
-
-/* Small search */
 
 /* Dropdown */
 
@@ -624,9 +656,10 @@ section {
     display: flex;
 }
 
-input {
+.searchContainer > input {
     border: 2px solid #b6b6b6;
-    border-radius: 4px;
+    border-left: none;
+    border-right: none;
     display: block;
     width: 100%;
     padding: 0.7rem;
@@ -649,18 +682,252 @@ input {
     background: #ccc;
 }
 
+.searchContainer .dropdown {
+    border: 2px solid #b6b6b6;
+    border-radius: 4px 0 0 4px;
+    display: block;
+    width: 15%;
+    /* Stops the dropdown going to small */
+    min-width: 5rem;
+    padding: 0.7rem;
+    font-size: 1rem;
+    transition: background 0.2s, border 0.2s;
+}
+
+.searchBtn {
+    background-color: #1c70b0;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 60%;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+    /* position: relative; */
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.closeModal {
+    color: #333333;
+    font-size: 2rem;
+    margin: 0.7rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.2rem;
+}
+.closeModal:hover {
+    color: #000000;
+    transition: ease-in-out 0.3s;
+}
+
 /* Responsive */
 
 @media all and (max-width: 1200px) {
 }
 
 @media all and (max-width: 992px) {
+    .searchContainer .dropdown {
+        width: 25%;
+    }
 }
 
 @media all and (max-width: 768px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .modal {
+        width: 90%;
+    }
 }
 
 @media all and (max-width: 576px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .searchContainer .dropdown {
+        width: 10%;
+    }
+
+    .modal {
+        width: 90%;
+    }
+}
+
+/* Homepage Styling */
+
+.placeholder > a > img {
+    width: 100%;
+}
+
+#popularTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#popularImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#popularImages > .photoCard {
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+#popularTags > .placeholder {
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.barContainer {
+    width: 60%;
+}
+
+.barContainer > input {
+    width: 80%;
+}
+
+.barContainer > button {
+    width: 15%;
+}
+/* PhotoView Modal CSS*/
+
+#modal {
+    margin: auto;
+}
+
+.imageContainer {
+    background-color: darkgray;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 30rem;
+}
+
+.icon {
+    width: 50px;
+    border-radius: 50px;
+}
+
+.photoCardFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photoCard {
+    background-image: url("../images/seoul.jpeg");
+}
+
+/* .purchaseButton {
+    vertical-align: bottom;
+    padding: 10px;
+}
+
+.purchaseButton > a {
+    background: #2185d0 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+
+    text-align: center;
+    font: normal normal bold 14px/17px Lato;
+    letter-spacing: 0px;
+} */
+
+#sectionTwo {
+    display: flex;
+}
+
+#sectionTwo > * {
+    width: 50%;
+}
+
+#topContainer {
+    background: url("../images/corgi-wallpaper-2560x1080.jpg"),
+        rgba(50, 50, 50, 0.5);
+    background-blend-mode: multiply;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 3.5rem;
+}
+
+#topContainer > * {
+    width: 100%;
+    text-align: center;
+}
+
+#callToAction {
+    color: white;
+    font-size: xx-large;
+}
+
+#callToActionSecondary {
+    color: white;
+    font-size: large;
+}
+
+.imageInfo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftContainer > * {
+    margin-bottom: 0.5rem;
+}
+
+#descriptorContainer > * {
+    margin-bottom: 0.2rem;
 }
 
 /* PhotoView Modal CSS*/
