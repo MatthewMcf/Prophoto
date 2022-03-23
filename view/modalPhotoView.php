@@ -13,7 +13,7 @@
                 <a href="#"><?php $getUserFromDB = false;  echo $getUserFromDB ? 'userName' : 'Default' ?></a> 
             </div>
         </div>
-        <div id="desciptorContainer">
+        <div id="descriptorContainer">
             <div id="imageTitle">Title: Profile Picture</div>
             <div id="imageDescription">Description: This is a default profile picture</div>
         </div>
@@ -22,7 +22,7 @@
     <div class="rightContainer">
         <div id="purchaseContainer">
             <div id="imagePrice">$5</div>
-            <button>Purchase</button>
+            <button class="btnPrimary">Purchase</button>
         </div>
     </div>
 
