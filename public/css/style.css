@@ -398,8 +398,9 @@ textarea {
 } */
 
 .cardContainer {
-	width: 300px;
+	min-width: 300px;
 	margin: 0 1rem;
+	display: flex;
 }
 
 .cardContent {
