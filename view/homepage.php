@@ -1,7 +1,6 @@
 <?php ob_start();?>
     <h1>proPhoto</h1>
 
-<<<<<<< HEAD
 
 	<div id="topContainer">
 		<h2 id="callToAction">
@@ -42,7 +41,7 @@
 	<h2>Heading about the basic images</h2>
 	<div id="popularImages">
     <div class="cardContainer">
-        <div class="cardContent photoCard">
+        <div class="cardContent photoCard" path="public/images/seoul.jpeg">
             <button class="price">2 Credits</button>
             <div class="likeContainer">
                 <div class="likeUnselected">
@@ -64,7 +63,7 @@
     </div>
 
     <div class="cardContainer">
-        <div class="cardContent photoCard">
+    <div class="cardContent photoCard" path="public/images/seoul.jpeg">
             <button class="price">2 Credits</button>
             <div class="likeContainer">
                 <div class="likeUnselected">
@@ -86,7 +85,7 @@
     </div>
 
     <div class="cardContainer">
-        <div class="cardContent photoCard">
+    <div class="cardContent photoCard" path="public/images/seoul.jpeg">
             <button class="price">2 Credits</button>
             <div class="likeContainer">
                 <div class="likeUnselected">
@@ -144,8 +143,3 @@
 
 <?php $content = ob_get_clean();?>
 <?php require('template.php');?>
-=======
-<script src="./public/js/Modal.js"></script>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
->>>>>>> origin
