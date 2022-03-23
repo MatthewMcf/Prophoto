@@ -22,7 +22,7 @@
     <div class="rightContainer">
         <div id="purchaseContainer">
             <div id="imagePrice">$5</div>
-            <button class="btnPrimary">Purchase</button>
+            <button class="purchaseButton" class="btnPrimary">Purchase</button>
         </div>
     </div>
 

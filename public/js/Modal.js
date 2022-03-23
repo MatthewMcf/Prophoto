@@ -44,6 +44,11 @@ function setModalContentPhotoView() {
             // if the file is loaded without error
             let content = xhr.responseText;
             let modal = new Modal(content);
+
+            let pb = document.querySelector(".purchaseButton");
+            pb.addEventListener("click", () => {
+                //setModalContentPurchaseView();
+            });
         } else if (
             xhr.readyState === XMLHttpRequest.DONE &&
             xhr.status != 200
