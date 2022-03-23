@@ -69,7 +69,7 @@ function setModalProfileInfo() {
 
 	// Open the connection
 	// Replace with path to your php
-	xhr.open("GET", "./profileEdit.php");
+	xhr.open("GET", "./modalProfileEdit.php");
 
 	xhr.addEventListener("load", () => {
 		// We manage here an asynchronous request
@@ -93,14 +93,14 @@ function setModalProfileInfo() {
 	xhr.send(null);
 }
 
-// Edit Profile Picture
+// Edit Picture Info
 function setModalEditPic() {
 	// Set up the request
 	var xhr = new XMLHttpRequest();
 
 	// Open the connection
 	// Replace with path to your php
-	xhr.open("GET", "./photoEdit.php");
+	xhr.open("GET", "./modalPhotoEdit.php");
 
 	xhr.addEventListener("load", () => {
 		// We manage here an asynchronous request
@@ -123,6 +123,7 @@ function setModalEditPic() {
 	});
 	xhr.send(null);
 }
+
 function setModalContentPhotoView() {
 	// Set up the request
 	var xhr = new XMLHttpRequest();

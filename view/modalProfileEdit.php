@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/profileEdit.css">
+    <link rel="stylesheet" href="../public/css/modalProfileEdit.css">
     <script src="https://kit.fontawesome.com/86dc656e1f.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
     <section>
-        <form action="profileEdit.php" method="post">
+        <form action="modalProfileEdit.php" method="post">
             <fieldset>
                 <legend> Profile Edit </legend>
                 <br>
@@ -39,7 +39,7 @@
             </fieldset>
         </form>
     </section>
-    <script type="text/javascript" src="../public/js/photoEdit.js"></script>
+    <script type="text/javascript" src="../public/js/modalPhotoEdit.js"></script>
 </body>
 
 </html>

@@ -103,11 +103,31 @@ section {
 		0 4px 10px 0 rgba(160, 160, 160, 0.9);
 	transition: 0.1s ease-in-out;
 }
+.btnSecondary {
+	background-color: var(--secondary-btn-color);
+	border: none;
+	color: var(--main-secondary-font-color);
+	height: 2.7rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
+}
 
+.btnSecondary:hover {
+	background-color: var(--secondary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
+}
 .btnHollow {
 	border: 1px solid var(--main-secondary-font-color);
 	color: var(--main-secondary-font-color);
-	background-color: transparent;
+	background-color: rgba(255, 255, 255, 0.8);
 	height: 2.7rem;
 	padding: 0 1.5rem;
 	text-align: center;
@@ -126,60 +146,35 @@ section {
 	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
 		0 4px 10px 0 rgba(160, 160, 160, 0.9);
 }
-.likeContainer {
-	margin: 0.8rem;
-}
-.likeUnselected {
-	width: 2.37rem;
-	height: 2.37rem;
-	border-radius: 5rem;
-	background-color: #000000;
-	opacity: 0.7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.btnEdit {
+	background-color: var(--secondary-btn-color);
+	border: none;
+	color: var(--main-secondary-font-color);
+	height: 2.7rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
-.likeUnselected:hover {
-	width: 2.37rem;
-	height: 2.37rem;
-	border-radius: 5rem;
-	background-color: #000000;
-	transition: ease-in-out 0.3s;
-	opacity: 0.8;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
+.btnEdit:hover {
+	background-color: var(--secondary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
 }
-.likeSelected {
-	width: 2.37rem;
-	height: 2.37rem;
-	border-radius: 5rem;
-	background-color: #ff0000;
-	opacity: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.likeSelected:hover {
-	width: 2.37rem;
-	height: 2.37rem;
-	border-radius: 5rem;
-	background-color: #cf0202;
-	transition: ease-in-out 0.3s;
-	opacity: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-}
+
 .fa-plus {
 	font-size: 1.5rem;
 }
 .fa-heart {
 	color: #ffffff;
 }
+
 .sales {
 	background: rgba(0, 128, 0, 0.6);
 	border: none;
@@ -215,43 +210,150 @@ section {
 .yourPhotos {
 	margin-top: 20px;
 }
-#profileAlbums {
-	border: 1px solid black;
-	height: fit-content;
-	display: flex;
-	/* flex-direction: row; */
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	/* align-items: center; */
-}
 .sectionHeader {
 	border: 1px solid black;
 	padding-left: 15px;
 }
-.pictureWrapper {
+.sectionPhotos {
 	border: 1px solid black;
-	width: 30%;
-	height: 250px;
-	margin: 15px;
+	height: fit-content;
 	display: flex;
-	align-items: flex-end;
-}
-.pictureWrapperShadow {
-	background-image: radial-gradient(white, lightgrey);
-	width: 100%;
-	height: 50px;
-	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: center;
+}
+.editPic {
+	margin: 1rem;
 }
 
-#addAlbum {
-	border: 1px solid black;
-	background-image: radial-gradient(white, lightgrey);
-	width: 30%;
-	height: 250px;
-	margin: 15px;
+#addPicture {
+	background-image: radial-gradient(white, grey);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* FROM GLOBAL */
+
+.cardContainer {
+	max-width: 350px;
+	width: 30%;
+	margin: 15px 0;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.cardContent {
+	background-color: #72b0df;
+	width: 100%;
+	border-radius: 10px;
+	height: 300px;
+	object-fit: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+
+	background-image: url(./images/86668588-B418-4F63-89BA-9E77E1B24C1C_1_105_c.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/* .cardContentEdit {
+	background-color: #72b0df;
+	width: 100%;
+	border-radius: 10px;
+	height: 300px;
+	object-fit: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+
+	background-image: url(./images/86668588-B418-4F63-89BA-9E77E1B24C1C_1_105_c.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+} */
+
+.likeContainer {
+	margin: 0.8rem;
+}
+.likeUnselected {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	opacity: 0.7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.likeUnselected:hover {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	transition: ease-in-out 0.3s;
+	opacity: 0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.likeSelected {
+	width: 2.7rem;
+	height: 2.7rem;
+	border-radius: 5rem;
+	background-color: #ff0000;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.likeSelected:hover {
+	width: 2.7rem;
+	height: 2.7rem;
+	border-radius: 5rem;
+	background-color: #cf0202;
+	transition: ease-in-out 0.3s;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.cardInfo {
+	display: flex;
+	justify-content: space-between;
+}
+.photographerInfo {
+	display: flex;
+	align-items: center;
+}
+.photographerSmallProfilePic {
+	width: 2.7rem;
+	height: 2.7rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	margin: 0.5rem 0;
+	background-image: url(../../data/2/profilePicture.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.price {
+	background: rgba(255, 255, 255, 0.6);
+	border: none;
+	color: var(--main-primary-font-color);
+	height: 2.7rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
+}
+.purchase {
+	display: flex;
+	justify-content: end;
 }

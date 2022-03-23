@@ -26,9 +26,9 @@
                 <p><strong>About Me:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas earum in commodi magni facilis! Soluta, perferendis ipsam possimus maiores fuga similique ducimus obcaecati laboriosam? Veniam consequatur harum repudiandae laboriosam deserunt. Fifteen More!!</p>
                 <div id="socialMedia">
                     <a href="http://mywebsite.com" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    <a href="http://facebook.com/leegihe95" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-                    <a href="http://instagram.com/camilaglee/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="http://linkedin.com/leegihe95" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="http://facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="http://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="http://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
                 <button id="editProfileInfo" class="btnHollow">Edit</button>
             </div>
@@ -38,24 +38,28 @@
                 <div class="sectionHeader">
                     <h3><i class="fa-solid fa-angle-down"></i> Your Photos</h3>
                 </div>
-                <div id="profileAlbums">
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
+                <div class="sectionPhotos">
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
                             <div>
                                 <button class="editPic btnHollow">Edit</button>
                             </div>
                         </div>
                     </div>
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
                             <div>
                                 <button class="editPic btnHollow">Edit</button>
                             </div>
                         </div>
                     </div>
-                    <div id="addAlbum">
-                        <div>
-                            <button class="btnHollow"><i class="fa-solid fa-plus"></i></button>
+                    <div class="cardContainer">
+                        <div class="cardContent" id="addPicture">
+                            <div>
+                                <button class="btnHollow"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,34 +68,67 @@
                 <div class="sectionHeader">
                     <h3><i class="fa-solid fa-angle-down"></i> Your Liked Photos</h3>
                 </div>
-                <div id="profileAlbums">
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                <div class="sectionPhotos">
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
                             <div class="likeContainer">
                                 <div class="likeSelected">
                                     <i class="fa-regular fa-heart"></i>
                                 </div>
                             </div>
                         </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
                             <div class="likeContainer">
                                 <div class="likeSelected">
                                     <i class="fa-regular fa-heart"></i>
                                 </div>
                             </div>
                         </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
                             <div class="likeContainer">
                                 <div class="likeSelected">
                                     <i class="fa-regular fa-heart"></i>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
                             </div>
                         </div>
                     </div>
@@ -101,25 +138,67 @@
                 <div class="sectionHeader">
                     <h3><i class="fa-solid fa-angle-down"></i> Your Purchased Photos</h3>
                 </div>
-                <div id="profileAlbums">
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <div>
-                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
+                <div class="sectionPhotos">
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
                             </div>
                         </div>
                     </div>
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <div>
-                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
                             </div>
                         </div>
                     </div>
-                    <div class="pictureWrapper">
-                        <div class="pictureWrapperShadow">
-                            <div>
-                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cardInfo">
+                            <a href="">
+                                <div class="photographerInfo">
+                                    <div class="photographerSmallProfilePic"></div>
+                                    <h4>Username</h4>
+                                </div>
+                            </a>
+                            <div class="purchase">
+                                <button class="btnPrimary">purchase</button>
                             </div>
                         </div>
                     </div>
