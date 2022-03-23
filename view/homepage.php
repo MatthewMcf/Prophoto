@@ -1,6 +1,7 @@
 <?php ob_start();?>
     <h1>proPhoto</h1>
 
+<<<<<<< HEAD
 
 	<div id="topContainer">
 		<h2 id="callToAction">
@@ -143,3 +144,8 @@
 
 <?php $content = ob_get_clean();?>
 <?php require('template.php');?>
+=======
+<script src="./public/js/Modal.js"></script>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>
+>>>>>>> origin

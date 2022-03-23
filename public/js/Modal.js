@@ -31,33 +31,36 @@ class Modal {
     }
 }
 
-// Example for testing
-// function setModalContent() {
-//     // Set up the request
-//     var xhr = new XMLHttpRequest();
+function setModalContentPhotoView() {
+    // Set up the request
+    var xhr = new XMLHttpRequest();
 
-//     // Open the connection
-//     // Replace with path to your php
-//     xhr.open("GET", "./modalProfilePicture.php");
+    // Open the connection
+    xhr.open("GET", "view/modalPhotoView.php");
 
-//     xhr.addEventListener("load", () => {
-//         // We manage here an asynchronous request
-//         if (xhr.status === 200) {
-//             // if the file is loaded without error
-//             let content = xhr.responseText;
-//             let modal = new Modal(content);
-//         } else if (
-//             xhr.readyState === XMLHttpRequest.DONE &&
-//             xhr.status != 200
-//         ) {
-//             // in case of error
-//             alert(
-//                 "There is an error !\n\nCode :" +
-//                     xhr.status +
-//                     "\nText : " +
-//                     xhr.statusText
-//             );
-//         }
-//     });
-//     xhr.send(null);
-// }
+    xhr.addEventListener("load", () => {
+        // We manage here an asynchronous request
+        if (xhr.status === 200) {
+            // if the file is loaded without error
+            let content = xhr.responseText;
+            let modal = new Modal(content);
+
+            let pb = document.querySelector(".purchaseButton");
+            pb.addEventListener("click", () => {
+                //setModalContentPurchaseView();
+            });
+        } else if (
+            xhr.readyState === XMLHttpRequest.DONE &&
+            xhr.status != 200
+        ) {
+            // in case of error
+            alert(
+                "There is an error !\n\nCode :" +
+                    xhr.status +
+                    "\nText : " +
+                    xhr.statusText
+            );
+        }
+    });
+    xhr.send(null);
+}
