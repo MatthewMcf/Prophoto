@@ -1,39 +1,73 @@
+/* GENERAL */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+body {
+	font-family: "lato", sans-serif;
+}
+:root {
+	/* Button variables */
+	--primary-btn-color: #2185d0;
+	--primary-btn-hover-color: #1c70b0;
+	--primary-btn-font-color: #ffffff;
+
+	--secondary-btn-color: #e0e1e2;
+	--secondary-btn-hover-color: #aaaaab;
+
+	--hollow-btn-hover-color: #333;
+	--hollow-btn-font-color: #333;
+
+	/* Font variables*/
+	--main-primary-font-color: #000000;
+	--main-secondary-font-color: #333333;
+	--main-error-font-color: #c92432;
+
+	/* Form variables */
+	--form-error-border-color: #c92432;
+	--form-error-background-color: #fffafa;
+}
 /* SECTION */
 section {
 	width: 80%;
 	margin: auto;
 }
 
-/* PRIVATE PROFILE HEADER */
+/****** PRIVATE PROFILE HEADER ******/
 #profileHeader {
 	border: 1px solid black;
-	padding: 5px 50px;
-	max-height: 250px;
+	padding: 5px 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-#profilePic {
-	border: 1px solid black;
-	border-radius: 50px;
-	width: 100px;
-	height: 100px;
-	overflow: hidden;
-	position: relative;
+#profilePicWrapper {
+	width: auto;
+	height: auto;
+	margin-right: 15px;
 }
-#profilePic img {
-	width: 100px;
-	height: 100px;
-	position: absolute;
-	z-index: -1;
+#profilePic {
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	border-radius: 50%;
+	overflow: hidden;
+	opacity: 1;
+	margin: auto;
 }
 #profilePic:hover {
 	background-color: rgba(120, 120, 120, 0.2);
 	cursor: pointer;
 }
+#profilePic img {
+	width: 200px;
+	height: 200px;
+	/* margin-bottom: 42px; */
+	z-index: -1;
+}
+/* #profilePic img + div {
+	margin-left: 90px;
+	margin-bottom: 20px;
+} */
 #profileInfo {
-	max-height: 250px;
-	width: 750px;
+	width: 80%;
 }
 #profileInfo p {
 	text-align: justify;
@@ -48,8 +82,136 @@ section {
 .fa-link {
 	font-size: 1.1rem;
 }
+/* BUTTONS */
+.btnPrimary {
+	background-color: var(--primary-btn-color);
+	border: none;
+	color: var(--primary-btn-font-color);
+	height: 2.7rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.btnPrimary:hover {
+	background-color: var(--primary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
+}
 
-/* PRIVATE PROFILE ALBUMS */
+.btnHollow {
+	border: 1px solid var(--main-secondary-font-color);
+	color: var(--main-secondary-font-color);
+	background-color: transparent;
+	height: 2.7rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.btnHollow:hover {
+	background-color: var(--hollow-btn-hover-color);
+	color: var(--primary-btn-font-color);
+	border: none;
+	transition: 0.1s ease-in-out;
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+}
+.likeContainer {
+	margin: 0.8rem;
+}
+.likeUnselected {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	opacity: 0.7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.likeUnselected:hover {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	transition: ease-in-out 0.3s;
+	opacity: 0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.likeSelected {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #ff0000;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.likeSelected:hover {
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #cf0202;
+	transition: ease-in-out 0.3s;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.fa-plus {
+	font-size: 1.5rem;
+}
+.fa-heart {
+	color: #ffffff;
+}
+.sales {
+	background: rgba(0, 128, 0, 0.6);
+	border: none;
+	color: var(--main-primary-font-color);
+	height: 2.37rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
+	color: #ffffff;
+}
+.sales:hover {
+	background: rgba(0, 128, 0, 1);
+	border: none;
+	color: var(--main-primary-font-color);
+	height: 2.37rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	cursor: pointer;
+	color: #ffffff;
+}
+/****** PRIVATE PROFILE ALBUMS ******/
 .yourPhotos {
 	margin-top: 20px;
 }
@@ -59,14 +221,14 @@ section {
 	display: flex;
 	/* flex-direction: row; */
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: flex-end;
 	/* align-items: center; */
 }
 .sectionHeader {
 	border: 1px solid black;
 	padding-left: 15px;
 }
-.album {
+.pictureWrapper {
 	border: 1px solid black;
 	width: 30%;
 	height: 250px;
@@ -74,14 +236,15 @@ section {
 	display: flex;
 	align-items: flex-end;
 }
-.albumShadow {
-	background-image: linear-gradient(grey, darkgrey, lightgrey, white);
+.pictureWrapperShadow {
+	background-image: radial-gradient(white, lightgrey);
 	width: 100%;
 	height: 50px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 }
+
 #addAlbum {
 	border: 1px solid black;
 	background-image: radial-gradient(white, lightgrey);

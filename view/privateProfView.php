@@ -13,8 +13,12 @@
 <body>
     <section>
         <div id="profileHeader">
-            <div id="profilePic">
-                <img src="../public/images/default_profile_picture.png" alt="profilePic">
+            <div id="profilePicWrapper">
+                <!-- try background picture on container using style in div tag -->
+                <div id="profilePic">
+                    <img src="../public/images/default_profile.png" alt="profilePic">
+                    <!-- <div>test</div> -->
+                </div>
             </div>
             <div id="profileInfo">
                 <h4>camila@1234</h4>
@@ -26,8 +30,8 @@
                     <a href="http://instagram.com/camilaglee/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     <a href="http://linkedin.com/leegihe95" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
+                <button id="editProfileInfo" class="btnHollow">Edit</button>
             </div>
-            <button id="editProfileInfo">Edit</button>
         </div>
         <div>
             <div class="yourPhotos">
@@ -35,23 +39,23 @@
                     <h3><i class="fa-solid fa-angle-down"></i> Your Photos</h3>
                 </div>
                 <div id="profileAlbums">
-                    <div class="album">
-                        <div class="albumShadow">
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
                             <div>
-                                <button class="editPic">Edit</button>
+                                <button class="editPic btnHollow">Edit</button>
                             </div>
                         </div>
                     </div>
-                    <div class="album">
-                        <div class="albumShadow">
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
                             <div>
-                                <button class="editPic">Edit</button>
+                                <button class="editPic btnHollow">Edit</button>
                             </div>
                         </div>
                     </div>
                     <div id="addAlbum">
                         <div>
-                            <button>Add More</button>
+                            <button class="btnHollow"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -61,27 +65,33 @@
                     <h3><i class="fa-solid fa-angle-down"></i> Your Liked Photos</h3>
                 </div>
                 <div id="profileAlbums">
-                    <div class="album">
-                        <div class="albumShadow">
-                            <div>
-                                <button>Purchase</button>
-                                <button>Remove</button>
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
+                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="album">
-                        <div class="albumShadow">
-                            <div>
-                                <button>Purchase</button>
-                                <button>Remove</button>
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
+                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="album">
-                        <div class="albumShadow">
-                            <div>
-                                <button>Purchase</button>
-                                <button>Remove</button>
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
+                            <button class="btnPrimary"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="likeContainer">
+                                <div class="likeSelected">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,24 +102,24 @@
                     <h3><i class="fa-solid fa-angle-down"></i> Your Purchased Photos</h3>
                 </div>
                 <div id="profileAlbums">
-                    <div class="album">
-                        <div class="albumShadow">
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
                             <div>
-                                <button>Amount</button>
+                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
                             </div>
                         </div>
                     </div>
-                    <div class="album">
-                        <div class="albumShadow">
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
                             <div>
-                                <button>Amount</button>
+                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
                             </div>
                         </div>
                     </div>
-                    <div class="album">
-                        <div class="albumShadow">
+                    <div class="pictureWrapper">
+                        <div class="pictureWrapperShadow">
                             <div>
-                                <button>Amount</button>
+                                <button class="sales"><i class="fa-solid fa-chart-line"></i></button>
                             </div>
                         </div>
                     </div>
