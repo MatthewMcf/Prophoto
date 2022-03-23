@@ -22,7 +22,7 @@
     <div class="rightContainer">
         <div id="purchaseContainer">
             <div id="imagePrice">$5</div>
-            <a href="#">Purchase</a>
+            <button>Purchase</button>
         </div>
     </div>
 
