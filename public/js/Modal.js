@@ -126,12 +126,15 @@ function setModalEditPic() {
     xhr.send(null);
 }
 
-function setModalContentPhotoView() {
+function setModalContentPhotoView(e) {
     // Set up the request
     var xhr = new XMLHttpRequest();
 
     // Open the connection
-    xhr.open("GET", "view/modalPhotoView.php");
+    xhr.open(
+        "GET",
+        `view/modalPhotoView.php?path=${e.target.getAttribute("path")}`
+    );
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
