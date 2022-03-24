@@ -686,7 +686,7 @@ textarea {
     border: 2px solid #b6b6b6;
     border-radius: 4px 0 0 4px;
     display: block;
-    width: 15%;
+    width: 100%;
     /* Stops the dropdown going to small */
     min-width: 5rem;
     padding: 0.7rem;
