@@ -1,6 +1,6 @@
 <?php
 session_start(); // we start the session before anything else
-//$_SESSION['userID']=2;
+$_SESSION['userID'] = 2;
 
 // folder from where its executed
 //$directory = getcwd();
@@ -8,14 +8,14 @@ session_start(); // we start the session before anything else
 //$directory = dirname(getcwd());
 
 // other solution the parent directory of the file folder
-$directory = dirname(dirname(__FILE__));
-$dataDir = "/data/";
+// $directory = dirname(dirname(__FILE__));
+$dataDir = "../data/";
 $default = "default";
 $fileName = "/profilePicture";
-$result = $directory . $dataDir . $default . $fileName . ".png";
+$result = $dataDir . $default . $fileName . ".png";
 if (!empty($_SESSION["userID"])) {
-    $path = $directory . $dataDir . $_SESSION["userID"] . $fileName;
-    echo $path;
+    $path = $dataDir . $_SESSION["userID"] . $fileName;
+    // echo $path;
     if (is_readable($path . ".png")) {
         $result = $path . ".png";
     } elseif (is_readable($path . ".jpg")) {
@@ -26,5 +26,4 @@ if (!empty($_SESSION["userID"])) {
         $result = $path . ".svg";
     }
 }
-echo $result;
-?>
+return $result;

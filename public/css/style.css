@@ -666,6 +666,15 @@ textarea {
     font-size: 1rem;
     transition: background 0.2s, border 0.2s;
 }
+input {
+    border: 2px solid #b6b6b6;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    transition: background 0.2s, border 0.2s;
+}
 
 .searchContainer button {
     padding: 6px 10px;
