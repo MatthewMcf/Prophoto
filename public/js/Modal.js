@@ -2,12 +2,14 @@ class Modal {
     constructor(content) {
         let modal = document.createElement("dialog");
         modal.id = "modal";
+        modal.classList.add("modal");
 
         let modalInner = document.createElement("div");
         modalInner.id = "modalInner";
         let closeButton = document.createElement("span");
-        closeButton.classList.add("close");
-        closeButton.textContent = "×";
+        closeButton.classList.add("closeModal");
+        // closeButton.textContent = "×";
+        closeButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 
         modalInner.innerHTML = content;
         modalInner.insertBefore(closeButton, modalInner.firstChild);
