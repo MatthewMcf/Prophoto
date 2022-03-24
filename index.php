@@ -8,6 +8,12 @@ try{
         case 'homepage':
             homepage();
             break;
+        case "registration" :
+            registration ();
+            break;
+        case "register" :
+            registerUser($_REQUEST);
+            break;
         default :
             homepage();
             break;
