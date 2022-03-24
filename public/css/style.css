@@ -1104,3 +1104,40 @@ img {
 .homepageDropdown {
     width: 100%;
 }
+
+/* Nav Bar */
+
+header {
+    position: sticky;
+}
+
+nav {
+    display: flex;
+}
+
+nav .btnPrimary {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+li {
+    list-style-type: none;
+}
+
+#siteLogo {
+    width: 200px;
+}
+
+#menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* nav li a {
+    text-decoration: none;
+    background-color: lightgray;
+    color: rgb(82, 82, 82);
+    padding: 0.8rem;
+    border-radius: 10px;
+} */
