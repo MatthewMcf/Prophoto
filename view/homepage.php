@@ -11,32 +11,23 @@
         </h3>
 		
 		<div class="searchBar">
-            <div class="searchContainer">
-                <div class="dropdownContainer">
-                    <div class='dropdown'>
-                        <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
-                        
-                        <div class='menu pointerCursor hide'>
-                            <div class="dropdownResults">
-                                <div class='option' id='option1'>Hot</div>
-                                <div class='option' id='option2'>Tags</div>
-                                <div class='option' id='option3'>Photographer</div>
-                            </div>
-                        </div>
+        <div class="searchContainer">
+            <div class='dropdown'>
+                <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
+                
+                <div class='menu pointerCursor hide'>
+                    <div class="dropdownResults">
+                        <div class='option' id='option1'>Hot</div>
+                        <div class='option' id='option2'>Option 2</div>
+                        <div class='option' id='option3'>Option 3</div>
                     </div>
                 </div>
+            </div>
+        <input type="text" placeholder="Search..">
+        </input>
+        <div type="submit" class="searchBtn"><i class="fa fa-search"></i></div>
 
-
-                <form class="form" id="form">
-                    <div class="inputContainer">
-                        <input
-                            type="text"
-                            class="input"
-                            placeholder="Input example"
-                        />
-                    </div>
-                </form>
-			</div>
+    </div>
 
 
 		</div>

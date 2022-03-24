@@ -1087,3 +1087,11 @@ img {
 #descriptorContainer > * {
     margin-bottom: 0.2rem;
 }
+
+.dropdown > * {
+    color: rgb(246, 244, 244);
+}
+
+.homepageDropdown {
+    width: 100%;
+}
