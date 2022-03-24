@@ -8,11 +8,11 @@ try{
         case 'homepage':
             homepage();
             break;
-        case "registration" :
-            registration ();
+        case "registerView" :
+            registerView();
             break;
-        case "register" :
-            registerUser($_REQUEST);
+        case "registerAction" :
+            registerAction($_REQUEST);
             break;
         default :
             homepage();

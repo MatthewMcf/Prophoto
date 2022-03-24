@@ -9,7 +9,7 @@ class UserManager extends Manager
         parent::__construct();
     } 
 
-    public function registerUser($email, $pwd, $username) {
+    public function registerAction($email, $pwd, $username) {
         $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $username = addslashes(htmlspecialchars(htmlentities(trim($username))));

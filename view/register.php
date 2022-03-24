@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="./public/css/registrationView.css">
+<link rel="stylesheet" href="./public/css/registerView.css">
 
 <?php ob_start(); ?>
 <section>
@@ -12,7 +12,7 @@
         <p>slogan here</p>
     </div>
     <form action="index.php" method="post" id="registrationForm">
-        <input type="hidden" name="action" value="register">
+        <input type="hidden" name="action" value="registerAction">
         <ul>
             <li>
                 <!-- Continue with Google button here -->
@@ -44,12 +44,12 @@
     <div id="switch">
         <p id="agree">By creating an account, you are agreeing to our Terms of Service and Privacy Policy</p>
         <p>Already have an account?</p>
-        <form action="loginAction.php" method="post" id="loginForm">
-            <input type="hidden" name="action" value="login">
+        <form action="index.php" method="post" id="loginForm">
+            <input type="hidden" name="action" value="loginView">
             <input type="submit" value="Log in" name="login" id="login">
         </form>
     </div>
 </section>
-<script type="text/javascript" src="./public/js/registrationView.js"></script>
+<script type="text/javascript" src="./public/js/registerView.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

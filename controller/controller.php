@@ -5,12 +5,12 @@ function homepage (){
     require("./view/homepage.php");
 }
 
-function registration (){
-    require("./view/registration.php");
+function registerView (){
+    require("./view/register.php");
 }
 
-function registerUser ($params){
+function registerAction ($params){
     $userManager = new UserManager();
-    $userManager->registerUser($params["email"], $params["pwd"], $params["username"]);
-    header("Location:index.php?action=login");
+    $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
+    header("Location:index.php?action=loginView");
 }
