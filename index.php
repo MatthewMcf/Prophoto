@@ -1,14 +1,22 @@
 <?php
 require('./controller/controller.php');
 
-try{
+try {
     $action = (isset($_REQUEST['action'])) ? $_REQUEST['action'] : null;
-    
-    switch($action){
+
+    switch ($action) {
         case 'homepage':
             homepage();
             break;
-        default :
+            // if the action is googleUser
+        case 'googleUser':
+            if (!empty($_POST['google_token']) && !empty($_POST['email']) && !empty($_POST['profile_url'])) {
+                insertUser($_POST);
+            } else {
+                throw new ErrorException('Impossible to add a user please try again');
+            }
+            break;
+        default:
             homepage();
             break;
     }
