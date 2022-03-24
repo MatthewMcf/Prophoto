@@ -1,3 +1,7 @@
+<?php //session_start();
+$_SESSION['userID'] = "5";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +18,8 @@
     <section>
         <div id="profileHeader">
             <div id="profilePicWrapper">
-                <!-- try background picture on container using style in div tag -->
                 <div id="profilePic">
-                    <img src="../data/default/profilePicture.png" alt="profilePic">
-                    <!-- <div>test</div> -->
+                    <img src=<?php echo require("../model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">
                 </div>
             </div>
             <div id="profileInfo">
@@ -40,25 +42,25 @@
                 </div>
                 <div class="sectionPhotos">
                     <div class="cardContainer">
-                        <div class="cardContent">
-                            <button class="price">2 Credits</button>
-                            <div>
-                                <button class="editPic btnHollow">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardContainer">
-                        <div class="cardContent">
-                            <button class="price">2 Credits</button>
-                            <div>
-                                <button class="editPic btnHollow">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardContainer">
                         <div class="cardContent" id="addPicture">
                             <div>
                                 <button class="btnHollow"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
+                            <div>
+                                <button class="editPic btnHollow">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardContainer">
+                        <div class="cardContent">
+                            <button class="price">2 Credits</button>
+                            <div>
+                                <button class="editPic btnHollow">Edit</button>
                             </div>
                         </div>
                     </div>

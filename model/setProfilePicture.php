@@ -6,9 +6,9 @@
 //echo exec('whoami');
 //move_uploaded_file($_POST["file"], "./data/test.png");
 
-$currentDir = getcwd();
-$dataDir = "/data/";
-
+//$currentDir = getcwd();
+$dataDir = "../data/";
+//$currentDir = dirname(dirname(__FILE__));
 // Store all errors
 $errors = [];
 
@@ -19,7 +19,7 @@ $fileExtensions = ["jpeg", "jpg", "png", "gif"];
 if (!empty($_SESSION["userID"])) {
     $user = $_SESSION["userID"];
 } else {
-    $user = "default";
+    $user = "2";
 }
 
 if (!empty($_FILES["fileAjax"] ?? null)) {
@@ -28,9 +28,8 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     $fileType = $_FILES["fileAjax"]["type"];
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    $user_id = $_POST["userID"];
-    $uploadPath =
-        $currentDir . $dataDir . $user . "/profilePicture" . $fileExtension;
+    //$user_id = $_POST["userID"];
+    $uploadPath = $dataDir . $user . "\profilePicture." . $fileExtension;
     //$message = "";//$uploadPath;
     if (isset($fileName)) {
         if (!in_array($fileExtension, $fileExtensions)) {
@@ -51,4 +50,3 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     }
 }
 //echo $message . $user_id;
-?>

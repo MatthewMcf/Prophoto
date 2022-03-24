@@ -233,12 +233,10 @@ section {
 }
 
 /* FROM GLOBAL */
-
 .cardContainer {
 	max-width: 350px;
 	width: 30%;
 	margin: 15px 0;
-	border: 1px solid black;
 	border-radius: 10px;
 }
 
