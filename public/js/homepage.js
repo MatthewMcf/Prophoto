@@ -5,7 +5,6 @@ for (let i = 0; i < photoCardsAll.length; i++) {
 }
 
 // DROP DOWN JS
-// DROP DOWN JS
 function toggleClass(elem, className) {
     if (elem.className.indexOf(className) !== -1) {
         elem.className = elem.className.replace(className, "");
