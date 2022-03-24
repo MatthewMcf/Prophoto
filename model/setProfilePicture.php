@@ -29,7 +29,7 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
     //$user_id = $_POST["userID"];
-    $uploadPath = $dataDir . $user . "\profilePicture." . $fileExtension;
+    $uploadPath = $dataDir . $user . "/profilePicture." . $fileExtension;
     //$message = "";//$uploadPath;
     if (isset($fileName)) {
         if (!in_array($fileExtension, $fileExtensions)) {
