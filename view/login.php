@@ -9,12 +9,13 @@
         <h1>PhotoPro</h1>
         <p>slogan here</p>
     </div>
+    <div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
     <form action="index.php" method="post" id="loginForm">
         <input type="hidden" name="action" value="loginAction">
         <ul>
-            <li>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </li>
+            
             <li id="or">
                 <p>or</p>
             </li>
@@ -39,10 +40,10 @@
     </form>
     <div id="switch">
         <p>Don't have an account?</p>
-        <form action="index.php" method="post" id="registrationForm">
+        <!-- <form action="index.php" method="post" id="registrationForm">
             <input type="hidden" name="action" value="registerView">
             <input type="submit" value="Register now" name="register" id="register">
-        </form>
+        </form> -->
     </div>
 </section>
 <?php $content = ob_get_clean(); ?>

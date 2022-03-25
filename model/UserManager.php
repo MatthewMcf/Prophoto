@@ -44,12 +44,17 @@ class UserManager extends Manager
 
         //First check for existing user
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->execute([$email]); 
-        $user = $stmt->fetch();
+        $stmt->bindParam(1, $email, PDO::PARAM_STR);
+        $stmt->execute(); 
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+       
 
         if ($user) {
-            //user with this email already exists in our database
+            // echo 'found user with email: ' . $email; 
+            $_SESSION["email"] = $email;
         } else {
+            // echo 'inserting user with email: ' . $email; 
             $insertion = $this->_connection->prepare('INSERT INTO users (id, google_token, email, username, pwd, display_name, profile_url) VALUES(null,?,?, ?, NULL, NULL, ?)');
             $insertion->bindParam(1, $google_token, PDO::PARAM_STR);
             $insertion->bindParam(2, $email, PDO::PARAM_STR);
@@ -76,9 +81,23 @@ class UserManager extends Manager
         $req->closeCursor();
         if(password_verify($pwd, $data["pwd"])) {
             $_SESSION["email"] = $email;
-            header('Location: index.php?action=homepage');
+            return true;
         } else {
-            header('Location: index.php?action=loginView&login=false');
+            return false;
         }
+    }
+
+    public function getUserInfo($email) {
+        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
+        $stmt->bindParam(1, $email, PDO::PARAM_STR);
+        $stmt->execute(); 
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            return $user;
+        } else {
+            throw new Exception('Invalid user, not in database', 1234);
+        }
+
     }
 }

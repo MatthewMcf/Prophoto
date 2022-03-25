@@ -36,6 +36,7 @@ for (let i = 0; i < inputs.length; i++) {
 
 let registrationForm = document.querySelector("#registrationForm");
 registrationForm.addEventListener("submit", function (e) {
+    console.log("am i here ? O_O");
     e.preventDefault();
     for (let i = 0; i < inputs.length; i++) {
         checkInput(inputs[i]);

@@ -40,7 +40,7 @@ function setModalContent() {
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./modalProfilePicture.php");
+    xhr.open("GET", "./view/modalProfilePicture.php");
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
@@ -71,7 +71,7 @@ function setModalProfileInfo() {
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./modalProfileEdit.php");
+    xhr.open("GET", "./view/modalProfileEdit.php");
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
@@ -102,7 +102,7 @@ function setModalEditPic() {
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./modalPhotoEdit.php");
+    xhr.open("GET", "./view/modalPhotoEdit.php");
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
@@ -190,7 +190,7 @@ var loadFile = function (event) {
         var xhr = new XMLHttpRequest();
 
         // Open the connection
-        xhr.open("POST", "../model/setProfilePicture.php", true);
+        xhr.open("POST", "./model/setProfilePicture.php", true);
         //xhr.setRequestHeader("Content-Type", "multipart/form-data");
         // Set up a handler for when the task for the request is complete
         xhr.onload = function () {

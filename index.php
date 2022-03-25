@@ -18,7 +18,6 @@ try {
             registerAction($_REQUEST);
             break;
         case 'googleUser':
-            print_r ($_POST);
             if (!empty($_POST['google_token']) && !empty($_POST['email']) && !empty($_POST['profile_url'])) {
                 insertUser($_POST);
             } else {
@@ -30,6 +29,12 @@ try {
             break;
         case "loginAction" :
             loginAction($_REQUEST);
+            break;
+        case "privateProfView":
+            privateProfView($_REQUEST);
+            break;
+        case "logoutAction":
+            logoutAction($_REQUEST);
             break;
         default :
             homepage();

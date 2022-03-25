@@ -1,6 +1,6 @@
 <?php
-session_start(); // we start the session before anything else
-$_SESSION['userID'] = 2;
+$_SESSION['userID'] = NULL;
+
 
 // folder from where its executed
 //$directory = getcwd();
@@ -9,7 +9,7 @@ $_SESSION['userID'] = 2;
 
 // other solution the parent directory of the file folder
 // $directory = dirname(dirname(__FILE__));
-$dataDir = "../data/";
+$dataDir = "./data/";
 $default = "default";
 $fileName = "/profilePicture";
 $result = $dataDir . $default . $fileName . ".png";

@@ -24,10 +24,10 @@ function registerAction ($params){
 function insertUser($params) {
     $userManager = new UserManager();
     $userManager->insertUser($params['google_token'], $params['email'], $params['profile_url']);
-
-    require_once("./connection.php");
-
-    header('Location:index.php?action=homepage');
+    
+    // require_once("./connection.php");
+    
+    echo "http://localhost/sites/proPhoto/index.php";
 }
 function loginView (){
     require("./view/login.php");
@@ -36,4 +36,26 @@ function loginView (){
 function loginAction ($params){
     $userManager = new UserManager();
     $loginResult = $userManager->loginAction($params["email"], $params["pwd"]);
+    if ($loginResult) {
+        header('Location:index.php?action=homepage');
+    } else {
+        header('Location:index.php?action=loginView&login=false');
+    }
+}
+
+function logoutAction($params) {
+    session_destroy();
+    header('Location:index.php?action=homepage');
+}
+
+function privateProfView($params) {
+    if (isset($_SESSION["email"])) {
+        $userManager = new UserManager();
+        $user = $userManager->getUserInfo($_SESSION["email"]);
+        require("./view/privateProfView.php");
+
+        
+    } else {
+        require("./view/homepage.php");
+    }
 }

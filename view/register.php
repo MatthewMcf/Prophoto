@@ -9,12 +9,12 @@
             <img src="" alt="">
         </div>
     </div>
+    <div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
     <form action="index.php" method="post" id="registrationForm">
         <input type="hidden" name="action" value="registerAction">
         <ul>
-            <li>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </li>
             <li id="or">
                 <p>or</p>
             </li>

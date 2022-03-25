@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../public/css/modalProfilePicture.css">
+<link rel="stylesheet" href="./public/css/modalProfilePicture.css">
 <form action="#">
   <h2>Update your profile picture</h2>
   <div class="imgPreview">
