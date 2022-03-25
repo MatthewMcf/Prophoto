@@ -1,6 +1,6 @@
 <header>
 
-    <?php $logged_in = TRUE;
+    <?php $logged_in = FALSE;
     
     if ($logged_in) {
     ?>
@@ -24,7 +24,7 @@
         <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></div>
         <nav>
             <button class="btnPrimary">Log In</button>
-            <button class="btnSecondary">Register</button>
+            <a href="index.php?action=registerView"><button class="btnSecondary">Register</button></a>
         </nav>
     </div>
 

@@ -8,8 +8,6 @@
             <!-- logo here -->
             <img src="" alt="">
         </div>
-        <h1>PhotoPro</h1>
-        <p>slogan here</p>
     </div>
     <form action="index.php" method="post" id="registrationForm">
         <input type="hidden" name="action" value="registerAction">
