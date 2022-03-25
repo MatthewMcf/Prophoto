@@ -1,3 +1,8 @@
+<?php
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
+?>
 <?php ob_start();?>
     <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
     <script src="./public/js/googleLogin.js"></script>

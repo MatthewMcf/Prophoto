@@ -25,7 +25,13 @@ try {
                 throw new ErrorException('Impossible to add a user please try again');
             }
             break;
-        default:
+        case "loginView" :
+            loginView();
+            break;
+        case "loginAction" :
+            loginAction($_REQUEST);
+            break;
+        default :
             homepage();
             break;
     }

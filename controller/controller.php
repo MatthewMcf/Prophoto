@@ -14,7 +14,8 @@ function registerView(){
     require("./view/register.php");
 }
 
-function registerAction($params){
+
+function registerAction ($params){
     $userManager = new UserManager();
     $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
     header("Location:index.php?action=loginView");
@@ -27,4 +28,12 @@ function insertUser($params) {
     require_once("./connection.php");
 
     header('Location:index.php?action=homepage');
+}
+function loginView (){
+    require("./view/login.php");
+}
+
+function loginAction ($params){
+    $userManager = new UserManager();
+    $loginResult = $userManager->loginAction($params["email"], $params["pwd"]);
 }

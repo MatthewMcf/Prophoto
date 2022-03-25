@@ -1,8 +1,7 @@
 <header>
 
-    <?php $logged_in = FALSE;
-    
-    if ($logged_in) {
+    <?php
+    if (isset($_SESSION["email"])) {
     ?>
     
     <!-- Logged In -->
@@ -23,7 +22,7 @@
     <div id="menuBar">
         <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></div>
         <nav>
-            <button class="btnPrimary">Log In</button>
+        <a href="index.php?action=loginView"><button class="btnPrimary">Log In</button><a>
             <a href="index.php?action=registerView"><button class="btnSecondary">Register</button></a>
         </nav>
     </div>

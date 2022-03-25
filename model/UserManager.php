@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
 
 require_once('Manager.php');
 class UserManager extends Manager
@@ -33,8 +36,7 @@ class UserManager extends Manager
 
     }
 
-    public function insertUser($google_token, $email, $profile_url)
-    {
+    public function insertUser($google_token, $email, $profile_url) {
         // $google_id = $_POST['google_id'];
         // $email = $_POST['email'];
         $extract = explode("@", $email);
@@ -59,6 +61,24 @@ class UserManager extends Manager
             if (!$status) {
                 throw new Exception('impossible to add account into database', 1234);
             }
+        }
+    }
+
+    public function loginAction($email, $pwd) {
+        $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
+        $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
+
+        $req = $this->_connection->prepare("SELECT email, pwd FROM users WHERE email = :email");
+        $req->execute(array(
+            "email" => $email
+        ));
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        if(password_verify($pwd, $data["pwd"])) {
+            $_SESSION["email"] = $email;
+            header('Location: index.php?action=homepage');
+        } else {
+            header('Location: index.php?action=loginView&login=false');
         }
     }
 }
