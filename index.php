@@ -14,6 +14,12 @@ try{
         case "registerAction" :
             registerAction($_REQUEST);
             break;
+        case "loginView" :
+            loginView();
+            break;
+        case "loginAction" :
+            loginAction($_REQUEST);
+            break;
         default :
             homepage();
             break;
