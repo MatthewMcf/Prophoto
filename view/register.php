@@ -15,7 +15,7 @@
         <input type="hidden" name="action" value="registerAction">
         <ul>
             <li>
-                <!-- Continue with Google button here -->
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
             </li>
             <li id="or">
                 <p>or</p>
