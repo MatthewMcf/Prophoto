@@ -1,0 +1,29 @@
+select {
+	margin-bottom: 1rem;
+}
+
+/* Error message */
+
+#nameError {
+	display: none;
+	font-size: 0.8em;
+}
+
+#nameError.visible {
+	display: block;
+}
+
+.invalid {
+	border-color: var(--form-error-border-color);
+	color: var(--main-error-font-color);
+	background: var(--form-error-background-color);
+}
+
+.invalid-label {
+	color: var(--main-error-font-color);
+}
+
+.invalid-message {
+	color: var(--main-error-font-color);
+	visibility: visible;
+}
