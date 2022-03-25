@@ -1,5 +1,4 @@
 <?php ob_start();?>
-    <h1>proPhoto</h1>
 
 
 	<div id="topContainer">
