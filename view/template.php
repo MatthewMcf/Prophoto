@@ -22,7 +22,7 @@
         <?= $content; ?>
     </main>
     <?php require('footer.php'); ?>
-    <!-- <script src="./public/js/Modal.js" defer></script> -->
+    <script src="./public/js/Modal.js" defer></script>
     <script src="./public/js/homepage.js" defer></script>
     <script src="./public/js/googleLogin.js" defer></script>
     <!-- <script src="./public/js/script.js" defer></script> -->
