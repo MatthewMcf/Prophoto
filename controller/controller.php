@@ -7,7 +7,14 @@ function homepage (){
 
 function photo (){
     require("./view/photo.php");
-
 }
 
+function registerView (){
+    require("./view/register.php");
+}
 
+function registerAction ($params){
+    $userManager = new UserManager();
+    $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
+    header("Location:index.php?action=loginView");
+}

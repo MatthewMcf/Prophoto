@@ -11,6 +11,12 @@ try{
         case 'photo':
             photo();
             break;
+        case "registerView" :
+            registerView();
+            break;
+        case "registerAction" :
+            registerAction($_REQUEST);
+            break;
         default :
             homepage();
             break;
