@@ -5,7 +5,6 @@
   if(!isset($_SESSION)) { 
     session_start(); 
   }
-  echo $_SESSION["id"];
  ?>
   <h2>Update your profile picture</h2>
   <div class="imgPreview">

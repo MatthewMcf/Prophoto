@@ -39,6 +39,9 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
             $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
         }
         if (empty($errors)) {
+            if (!file_exists($dataDir . $user)) {
+                mkdir( $dataDir . $user);
+            }
             $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
             if ($didUpload) {
                 echo "The image " . basename($fileName) . " has been uploaded.";
