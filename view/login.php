@@ -2,10 +2,10 @@
 <?php ob_start(); ?>
 <section>
     <div id="heading">
-        <div id="logoWrapper">
-            <!-- logo here -->
+        <!--<div id="logoWrapper">
+             logo here 
             <img src="" alt="">
-        </div>
+        </div>-->
         <h1>PhotoPro</h1>
         <p>slogan here</p>
     </div>

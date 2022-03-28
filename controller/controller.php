@@ -50,11 +50,14 @@ function logoutAction($params) {
 
 function privateProfView($params) {
     if (isset($_SESSION["email"])) {
+        // set the link variable to get the correct css files for the view private profile
+        $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">
+';
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["email"]);
-        require("./view/privateProfView.php");
-
-        
+        require("./view/privateProfView.php");     
+        echo $_SESSION["email"];
+        echo $_SESSION["id"];   
     } else {
         require("./view/homepage.php");
     }

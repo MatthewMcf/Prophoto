@@ -38,30 +38,55 @@ section {
     justify-content: space-between;
     align-items: center;
 }
-#profilePicWrapper {
-    width: auto;
-    height: auto;
-    margin-right: 15px;
-}
 #profilePic {
-    width: 100%;
-    height: 100%;
+    min-width: 200px;
+    height: 200px;
     border: 1px solid black;
     border-radius: 50%;
     overflow: hidden;
     opacity: 1;
     margin: auto;
+    display: flex;
+    position: relative;
+     margin-right: 15px;
+    /*transition: all 0.3s ease;
+    color: transparent;*/
 }
 #profilePic:hover {
-    background-color: rgba(120, 120, 120, 0.2);
+   /* background-color: rgba(120, 120, 120, 0.2);*/
     cursor: pointer;
 }
 #profilePic img {
+    position: absolute;
+    object-fit: cover;
     width: 200px;
     height: 200px;
     /* margin-bottom: 42px; */
-    z-index: -1;
+    /*z-index: -1;*/
 }
+#profilePic .-label {
+    /*cursor: pointer;*/
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+#profilePic:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 50%;
+    margin-bottom: 0;
+}/*
+#profilePic span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+}*/
 /* #profilePic img + div {
 	margin-left: 90px;
 	margin-bottom: 20px;
@@ -83,6 +108,7 @@ section {
     font-size: 1.1rem;
 }
 /* BUTTONS */
+/*
 .btnPrimary {
     background-color: var(--primary-btn-color);
     border: none;
@@ -205,7 +231,7 @@ section {
         0 4px 10px 0 rgba(160, 160, 160, 0.9);
     cursor: pointer;
     color: #ffffff;
-}
+}*/
 /****** PRIVATE PROFILE ALBUMS ******/
 .yourPhotos {
     margin-top: 20px;

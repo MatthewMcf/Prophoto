@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
 //echo $_FILES['profilePicture']['type']."<br>";
 //echo $_FILES['profilePicture']['name']."<br>";
 //echo $_FILES['profilePicture']['size']."<br>";
@@ -16,10 +19,10 @@ $errors = [];
 $fileExtensions = ["jpeg", "jpg", "png", "gif"];
 
 // get user ID if define, otherwise set to default
-if (!empty($_SESSION["userID"])) {
-    $user = $_SESSION["userID"];
+if (!empty($_SESSION["id"])) {
+    $user = $_SESSION["id"];
 } else {
-    $user = "2";
+    $user = "default";
 }
 
 if (!empty($_FILES["fileAjax"] ?? null)) {
@@ -29,7 +32,7 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
     //$user_id = $_POST["userID"];
-    $uploadPath = $dataDir . $user . "/profilePicture." . $fileExtension;
+    $uploadPath = $dataDir . $user . "/profilePicture.jpg";
     //$message = "";//$uploadPath;
     if (isset($fileName)) {
         if (!in_array($fileExtension, $fileExtensions)) {
@@ -49,4 +52,6 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
         }
     }
 }
+
 //echo $message . $user_id;
+?>

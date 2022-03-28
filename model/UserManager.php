@@ -21,7 +21,7 @@ class UserManager extends Manager
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
         $stmt->execute([$email]); 
         $user = $stmt->fetch();
-
+         
         if ($user) {
             //user with this email already exists in our database
         } else {
@@ -31,6 +31,11 @@ class UserManager extends Manager
                 "pwd" => $pwd,
                 "username" => $username
             ));
+            $userID = $this->_connection->lastInsertId();
+            mkdir("./data/".$userID);
+            mkdir("./data/".$userID."/small");
+            mkdir("./data/".$userID."/medium");
+            mkdir("./data/".$userID."/original");
         }
 
 
@@ -73,7 +78,7 @@ class UserManager extends Manager
         $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
         $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
 
-        $req = $this->_connection->prepare("SELECT email, pwd FROM users WHERE email = :email");
+        $req = $this->_connection->prepare("SELECT id, email, pwd FROM users WHERE email = :email");
         $req->execute(array(
             "email" => $email
         ));
@@ -81,6 +86,7 @@ class UserManager extends Manager
         $req->closeCursor();
         if(password_verify($pwd, $data["pwd"])) {
             $_SESSION["email"] = $email;
+            $_SESSION["id"] = $data["id"];
             return true;
         } else {
             return false;

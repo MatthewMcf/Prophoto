@@ -1,13 +1,17 @@
 <?php //session_start();
 ?>
 <?php ob_start();?>
-<link rel="stylesheet" href="./public/css/privateProfView.css">
+<!--<link rel="stylesheet" href="./public/css/privateProfView.css">-->
 <section>
     <div id="profileHeader">
-        <div id="profilePicWrapper">
-            <div id="profilePic">
-                <img src=<?php echo require("./model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">
-            </div>
+        <div id="profilePic">
+            <label class="-label" for="file">
+                <span>Click here to update</span>
+                <span>your picture</span>
+            </label>
+            <!--<img src=<?php echo require("./model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">-->
+            <?php $src = require("./model/getProfilePicPath.php"); ?>
+            <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
             <h4><?= $user['username'];?> </h4>

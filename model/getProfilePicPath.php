@@ -1,5 +1,8 @@
 <?php
-$_SESSION['userID'] = NULL;
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
+//$_SESSION['id'] = "default";
 
 
 // folder from where its executed
@@ -12,18 +15,16 @@ $_SESSION['userID'] = NULL;
 $dataDir = "./data/";
 $default = "default";
 $fileName = "/profilePicture";
-$result = $dataDir . $default . $fileName . ".png";
-if (!empty($_SESSION["userID"])) {
-    $path = $dataDir . $_SESSION["userID"] . $fileName;
-    // echo $path;
-    if (is_readable($path . ".png")) {
-        $result = $path . ".png";
-    } elseif (is_readable($path . ".jpg")) {
+$result = $dataDir . $default . $fileName . ".jpg";
+if (!empty($_SESSION["id"])) {
+    $path = $dataDir . $_SESSION["id"] . $fileName;
+    //echo $path;
+    if (is_readable($path . ".jpg")) {
+        //echo ".jpg";
+        $result = $path . ".jpg"; 
+    } elseif (is_readable(".".$path . ".jpg")) {
         $result = $path . ".jpg";
-    } elseif (is_readable($path . ".jpeg")) {
-        $result = $path . ".jpeg";
-    } elseif (is_readable($path . ".svg")) {
-        $result = $path . ".svg";
     }
 }
 return $result;
+?>
