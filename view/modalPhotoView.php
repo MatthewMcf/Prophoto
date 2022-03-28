@@ -1,6 +1,7 @@
 <?php //ob_start(); ?>
 <div class="imageContainer">
-    <img src="./public/images/default_profile_picture.png" alt="picture">
+    <?php $path = (isset($_REQUEST['path'])) ? $_REQUEST['path'] : null; ?>
+    <img src="<?php echo $path ?>" alt="picture">
 </div>
 
 <div class="imageInfo">
@@ -22,7 +23,7 @@
     <div class="rightContainer">
         <div id="purchaseContainer">
             <div id="imagePrice">$5</div>
-            <button class="purchaseButton" class="btnPrimary">Purchase</button>
+            <button class="purchaseButton btnPrimary">Purchase</button>
         </div>
     </div>
 

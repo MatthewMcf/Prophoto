@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
 //echo $_FILES['profilePicture']['type']."<br>";
 //echo $_FILES['profilePicture']['name']."<br>";
 //echo $_FILES['profilePicture']['size']."<br>";
@@ -6,9 +9,9 @@
 //echo exec('whoami');
 //move_uploaded_file($_POST["file"], "./data/test.png");
 
-$currentDir = getcwd();
-$dataDir = "/data/";
-
+//$currentDir = getcwd();
+$dataDir = "../data/";
+//$currentDir = dirname(dirname(__FILE__));
 // Store all errors
 $errors = [];
 
@@ -16,8 +19,8 @@ $errors = [];
 $fileExtensions = ["jpeg", "jpg", "png", "gif"];
 
 // get user ID if define, otherwise set to default
-if (!empty($_SESSION["userID"])) {
-    $user = $_SESSION["userID"];
+if (!empty($_SESSION["id"])) {
+    $user = $_SESSION["id"];
 } else {
     $user = "default";
 }
@@ -28,15 +31,17 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     $fileType = $_FILES["fileAjax"]["type"];
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    $user_id = $_POST["userID"];
-    $uploadPath =
-        $currentDir . $dataDir . $user . "/profilePicture" . $fileExtension;
+    //$user_id = $_POST["userID"];
+    $uploadPath = $dataDir . $user . "/profilePicture.jpg";
     //$message = "";//$uploadPath;
     if (isset($fileName)) {
         if (!in_array($fileExtension, $fileExtensions)) {
             $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
         }
         if (empty($errors)) {
+            if (!file_exists($dataDir . $user)) {
+                mkdir( $dataDir . $user);
+            }
             $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
             if ($didUpload) {
                 echo "The image " . basename($fileName) . " has been uploaded.";
@@ -50,5 +55,6 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
         }
     }
 }
+
 //echo $message . $user_id;
 ?>
