@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h1>Purchase credits</h1>
-        <form action="">
+        <form id="form" action="/" method="GET">
 
             <div class="inputContainer">
 
@@ -31,109 +31,136 @@
                     <option value="10">10</option>
                     <option value="15">15</option>
                 </select>
-
+                
                 <h3 id="totalCost"></h3>
             
-                <h4>Name on card</h4>
+                <label for="cardholdersName">Cardholders name</label>
                 <input
                     type="text"
                     class="input"
-                    placeholder="Input example"
+                    name="cardholdersName"
+                    id="cardholdersName"
+                    placeholder="Cardholders name"
                 />
+                <div id="errorCardholdersName"></div>
 
-                <label>Card number</label>
+                <label for="cardNumber">Card number</label>
                 <input
-                    type="text"
+                    type="number"
                     class="input"
+                    name="cardNumber"
                     id="cardNumber"
                     placeholder="Card number"
                     size="16"
                 />
-                <span id="error"></span>
+                <div id="errorCardNumber"></div>
+                <!-- <span id="error"></span> -->
 
                 <button class="btnPrimary" type="submit">Pay now</button>
+
             </div>
-        </form>
-
-        <!--  -->
-
-        <form id="form">
-            <label for="firstname" id="firstname-label"> First Name* </label>
-            <input type="text" name="firstname" id="firstname" />
-            <span role="alert" id="nameError" error-hidden="true">
-            <!-- Please enter First Name -->
-            </span>
-
-            <label for="lastname" id="lastname-label"> First Name* </label>
-            <input type="text" name="lastname" id="lastname" />
-            <span role="alert" id="lastnameError" error-hidden="true">
-            <!-- Please enter First Name -->
-            </span>
-            <button id="submit">Submit</button>
         </form>
     </div>
 
     <script>
 
-        const submit = document.getElementById("submit");
+    const cardholdersName = document.getElementById('cardholdersName');
+    const cardNumber = document.getElementById('cardNumber');
+    const form = document.getElementById('form');
+    const errorCardholdersName = document.getElementById('errorCardholdersName');
+    const errorCardNumber = document.getElementById('errorCardNumber');
 
-        submit.addEventListener("click", validate);
+    form.addEventListener('submit', (e) => {
+        let cardholdersNameMessages = [];
+        let cardNumberMessages = [];
 
-        function validate(e) {
-        e.preventDefault();
-
-        const firstNameField = document.getElementById("firstname");
-        const firstNameLabel = document.getElementById("firstname-label");
-
-        const lastNameField = document.getElementById("lastname");
-        const lastNameLabel = document.getElementById("lastname-label");
-        let valid = true;
-
-        if (!firstNameField.value) {
-            const nameError = document.getElementById("nameError");
-
-            nameError.classList.add("visible");
-            firstNameField.classList.add("invalid");
-            firstNameLabel.classList.add("invalid-label");
-            nameError.classList.add("invalid-label");
-
-            nameError.setAttribute("error-hidden", false);
-            nameError.setAttribute("error-invalid", true);
-
-            nameError.textContent = "Please enter First Name";
-        } else {
-            nameError.classList.remove("visible");
-            firstNameField.classList.remove("invalid");
-            firstNameLabel.classList.remove("invalid-label");
-
-            nameError.setAttribute("error-hidden", true);
-            nameError.setAttribute("error-invalid", false);
-            return valid;
+        // Card holders name
+        if (cardholdersName.value === '' || cardholdersName.value == null) {
+            cardholdersNameMessages.push('You must enter the cardholders name');
         }
 
-        if (!lastNameField.value) {
-            const nameError = document.getElementById("lastnameError");
+        // Card number
+        if (cardNumber.value === '' || cardNumber.value == null) {
+            cardNumberMessages.push('You must enter the card number');
+        } 
 
-            nameError.classList.add("visible");
-            lastNameField.classList.add("invalid");
-            lastNameLabel.classList.add("invalid-label");
-            nameError.classList.add("invalid-label");
-
-            nameError.setAttribute("error-hidden", false);
-            nameError.setAttribute("error-invalid", true);
-
-            nameError.textContent = "Please enter First Name";
-        } else {
-            nameError.classList.remove("visible");
-            lastNameField.classList.remove("invalid");
-            lasttNameLabel.classList.remove("invalid-label");
-
-            nameError.setAttribute("error-hidden", true);
-            nameError.setAttribute("error-invalid", false);
-            return valid;
+        if (cardNumber.value.length < 15) {
+            cardNumberMessages.push('Card number must be at least 15 numbers');
         }
+
+        if (cardNumber.value.length >= 16) {
+            cardNumberMessages.push('Card number must have a maximum of 16 numbers');
+        }
+
+        // Submit payment
+        if (cardNumberMessages.length > 0) {
+            e.preventDefault();
+            errorCardholdersName.innerText = cardholdersNameMessages.join(', ');
+            errorCardNumber.innerText = cardNumberMessages.join(', ');
+        }
+        
+    })
+
+
+    //     const submit = document.getElementById("submit");
+
+    //     submit.addEventListener("click", validate);
+
+    //     function validate(e) {
+    //     e.preventDefault();
+
+    //     const firstNameField = document.getElementById("firstname");
+    //     const firstNameLabel = document.getElementById("firstname-label");
+
+    //     const lastNameField = document.getElementById("lastname");
+    //     const lastNameLabel = document.getElementById("lastname-label");
+    //     let valid = true;
+
+    //     if (!firstNameField.value) {
+    //         const nameError = document.getElementById("nameError");
+
+    //         nameError.classList.add("visible");
+    //         firstNameField.classList.add("invalid");
+    //         firstNameLabel.classList.add("invalid-label");
+    //         nameError.classList.add("invalid-label");
+
+    //         nameError.setAttribute("error-hidden", false);
+    //         nameError.setAttribute("error-invalid", true);
+
+    //         nameError.textContent = "Please enter First Name";
+    //     } else {
+    //         nameError.classList.remove("visible");
+    //         firstNameField.classList.remove("invalid");
+    //         firstNameLabel.classList.remove("invalid-label");
+
+    //         nameError.setAttribute("error-hidden", true);
+    //         nameError.setAttribute("error-invalid", false);
+    //         return valid;
+    //     }
+
+    //     if (!lastNameField.value) {
+    //         const nameError = document.getElementById("lastnameError");
+
+    //         nameError.classList.add("visible");
+    //         lastNameField.classList.add("invalid");
+    //         lastNameLabel.classList.add("invalid-label");
+    //         nameError.classList.add("invalid-label");
+
+    //         nameError.setAttribute("error-hidden", false);
+    //         nameError.setAttribute("error-invalid", true);
+
+    //         nameError.textContent = "Please enter First Name";
+    //     } else {
+    //         nameError.classList.remove("visible");
+    //         lastNameField.classList.remove("invalid");
+    //         lasttNameLabel.classList.remove("invalid-label");
+
+    //         nameError.setAttribute("error-hidden", true);
+    //         nameError.setAttribute("error-invalid", false);
+    //         return valid;
+    //     }
            
-    }
+    // }
 
         // Error messages
 
@@ -161,11 +188,15 @@
                 numbOfCredits = select.value;
                 totalAmount = select.value * creditCost;  
                 totalCost.textContent = `Total cost of ${numbOfCredits} credits : $${totalAmount}`;
+
+                return totalAmount;
             });
         }
     
         selectCreditAmount ();
         
+        // console.log(totalAmount);
+
 	</script>
 
 </body>
