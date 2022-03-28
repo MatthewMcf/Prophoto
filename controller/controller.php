@@ -56,8 +56,6 @@ function privateProfView($params) {
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["email"]);
         require("./view/privateProfView.php");     
-        echo $_SESSION["email"];
-        echo $_SESSION["id"];   
     } else {
         require("./view/homepage.php");
     }
