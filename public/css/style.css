@@ -2,392 +2,385 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
 }
 
 :root {
-    /* Button variables */
-    --primary-btn-color: #2185d0;
-    --primary-btn-hover-color: #1c70b0;
-    --primary-btn-font-color: #ffffff;
+	/* Button variables */
+	--primary-btn-color: #2185d0;
+	--primary-btn-hover-color: #1c70b0;
+	--primary-btn-font-color: #ffffff;
 
-    --secondary-btn-color: #e0e1e2;
-    --secondary-btn-hover-color: #aaaaab;
+	--secondary-btn-color: #e0e1e2;
+	--secondary-btn-hover-color: #aaaaab;
 
-    --hollow-btn-hover-color: #2185d0;
-    --hollow-btn-font-color: #fff;
+	--hollow-btn-hover-color: #2185d0;
+	--hollow-btn-font-color: #fff;
 
-    /* Font variables*/
-    --main-primary-font-color: #000000;
-    --main-secondary-font-color: #333333;
-    --main-error-font-color: #c92432;
+	/* Font variables*/
+	--main-primary-font-color: #000000;
+	--main-secondary-font-color: #333333;
+	--main-error-font-color: #c92432;
 
-    /* Form variables */
-    --form-error-border-color: #c92432;
-    --form-error-background-color: #fffafa;
+	/* Form variables */
+	--form-error-border-color: #c92432;
+	--form-error-background-color: #fffafa;
 }
 
 fieldset {
-    padding: 15px;
-    margin: 15px 0;
+	padding: 15px;
+	margin: 15px 0;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 0 40px;
+	width: 80%;
+	margin: 0 auto;
+	padding: 0 40px;
 }
 
 .flex {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /* HEADINGS */
 
 h1 {
-    font-family: "lato", sans-serif;
-    font-size: 2.87rem;
-    font-weight: 700;
-    color: var(--main-primary-font-color);
-    padding: 0 0 2rem 0;
+	font-family: "lato", sans-serif;
+	font-size: 2.87rem;
+	font-weight: 700;
+	color: var(--main-primary-font-color);
 }
 
 h2 {
-    font-family: "lato", sans-serif;
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--main-primary-font-color);
-    padding: 0 0 1.5rem 0;
-    line-height: 3rem;
+	font-family: "lato", sans-serif;
+	font-size: 2.25rem;
+	font-weight: 700;
+	color: var(--main-primary-font-color);
 }
 
 h3 {
-    font-family: "lato", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--main-primary-font-color);
-    padding: 0 0 1rem 0;
+	font-family: "lato", sans-serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--main-primary-font-color);
 }
 
 h4 {
-    font-family: "lato", sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--main-primary-font-color);
-    padding: 0 0 0.8rem 0;
+	font-family: "lato", sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--main-primary-font-color);
 }
 
 /* TEXT */
 p {
-    font-family: "lato", sans-serif;
-    color: #000000;
-    line-height: 1rem;
+	font-family: "lato", sans-serif;
+	color: #000000;
+	line-height: 1rem;
 }
 
 body {
-    font-family: "lato", sans-serif;
-    color: #000000;
-    line-height: 1rem;
-    font-size: 1rem;
+	font-family: "lato", sans-serif;
+	color: #000000;
+	line-height: 1rem;
+	font-size: 1rem;
 }
 
 /* Change so the body isn't the restrictor */
 .mainContainer {
-    padding: 0 1rem;
-    width: 80%;
+	padding: 0 1rem;
+	width: 80%;
 }
 
 /* BUTTONS */
 .btnPrimary {
-    background-color: var(--primary-btn-color);
-    border: none;
-    color: var(--primary-btn-font-color);
-    height: 2.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    cursor: pointer;
-    border-radius: 5px;
+	background-color: var(--primary-btn-color);
+	border: none;
+	color: var(--primary-btn-font-color);
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .btnPrimary:hover {
-    background-color: var(--primary-btn-hover-color);
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
-        0 4px 10px 0 rgba(160, 160, 160, 0.9);
-    transition: 0.1s ease-in-out;
+	background-color: var(--primary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
 }
 
 .btnSecondary {
-    background-color: var(--secondary-btn-color);
-    border: none;
-    color: var(--main-secondary-font-color);
-    height: 2.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    cursor: pointer;
-    border-radius: 5px;
+	background-color: var(--secondary-btn-color);
+	border: none;
+	color: var(--main-secondary-font-color);
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .btnSecondary:hover {
-    background-color: var(--secondary-btn-hover-color);
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
-        0 4px 10px 0 rgba(160, 160, 160, 0.9);
-    transition: 0.1s ease-in-out;
+	background-color: var(--secondary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
 }
 
 .btnHollow {
-    border: 1px solid var(--primary-btn-color);
-    color: var(--primary-btn-color);
-    background-color: transparent;
-    height: 2.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    cursor: pointer;
-    border-radius: 5px;
+	border: 1px solid var(--primary-btn-color);
+	color: var(--primary-btn-color);
+	background-color: transparent;
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .btnHollow:hover {
-    background-color: var(--hollow-btn-hover-color);
-    color: var(--primary-btn-font-color);
-    border: none;
-    transition: 0.1s ease-in-out;
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
-        0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	background-color: var(--hollow-btn-hover-color);
+	color: var(--primary-btn-font-color);
+	border: none;
+	transition: 0.1s ease-in-out;
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
 }
 
 .btnHollowSecondary {
-    border: 1px solid var(--main-secondary-font-color);
-    color: var(--main-secondary-font-color);
-    background-color: transparent;
-    height: 2.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    cursor: pointer;
-    border-radius: 5px;
+	border: 1px solid var(--main-secondary-font-color);
+	color: var(--main-secondary-font-color);
+	background: rgba(255, 255, 255, 0.6);
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .btnHollowSecondary:hover {
-    background-color: var(--main-secondary-font-color);
-    color: var(--hollow-btn-font-color);
-    border: none;
-    transition: 0.1s ease-in-out;
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
-        0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	background-color: var(--main-secondary-font-color);
+	color: var(--hollow-btn-font-color);
+	border: none;
+	transition: 0.1s ease-in-out;
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
 }
 
 .btnEdit {
-    background-color: var(--secondary-btn-color);
-    border: none;
-    color: var(--main-secondary-font-color);
-    height: 2.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    border-radius: 5px;
+	background-color: var(--secondary-btn-color);
+	border: none;
+	color: var(--main-secondary-font-color);
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .btnEdit:hover {
-    background-color: var(--secondary-btn-hover-color);
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
-        0 4px 10px 0 rgba(160, 160, 160, 0.9);
-    transition: 0.1s ease-in-out;
+	background-color: var(--secondary-btn-hover-color);
+	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+		0 4px 10px 0 rgba(160, 160, 160, 0.9);
+	transition: 0.1s ease-in-out;
 }
 
 /* Form */
 
 .inputContainer {
-    margin-bottom: 1rem;
-    max-width: 22rem;
+	margin-bottom: 1rem;
+	max-width: 22rem;
 }
 
 .inputContainer[data-error] .input {
-    border-color: var(--form-error-border-color);
-    color: var(--main-error-font-color);
-    background: var(--form-error-background-color);
+	border-color: var(--form-error-border-color);
+	color: var(--main-error-font-color);
+	background: var(--form-error-background-color);
 }
 
 .inputContainer[data-error]::after {
-    content: attr(data-error);
-    color: var(--main-error-font-color);
-    display: block;
-    margin: 0.7rem 0;
+	content: attr(data-error);
+	color: var(--main-error-font-color);
+	display: block;
+	margin: 0.7rem 0;
 }
 
 form input {
-    border: 2px solid #b6b6b6;
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
 }
 
 textarea {
-    height: 150px;
-    resize: none;
-    border: 2px solid #b6b6b6;
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
-    font-family: "lato", sans-serif;
+	height: 150px;
+	resize: none;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
+	font-family: "lato", sans-serif;
 }
 
 /* Checkbox */
 .checkboxContainer {
-    display: block;
-    position: relative;
-    padding: 7px 0 0 35px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	display: block;
+	position: relative;
+	padding: 7px 0 0 35px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .checkboxContainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #fff;
-    border: 2px solid #b6b6b6;
-    border-radius: 4px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	background-color: #fff;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px;
 }
 
 .checkboxContainer:hover input ~ .checkmark {
-    background-color: rgb(235, 235, 235);
+	background-color: rgb(235, 235, 235);
 }
 
 .checkboxContainer input:checked ~ .checkmark {
-    background-color: #b6b6b6;
+	background-color: #b6b6b6;
 }
 
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 .checkboxContainer input:checked ~ .checkmark:after {
-    display: block;
+	display: block;
 }
 
 .checkboxContainer .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 /* Radio button */
 
 .radioContainer {
-    display: block;
-    position: relative;
-    padding: 7px 0 0 35px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	display: block;
+	position: relative;
+	padding: 7px 0 0 35px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 /* Hide the browser's default radio button */
 .radioContainer input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
 }
 
 /* Create a custom radio button */
 .radioCheckmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #fff;
-    border: 2px solid #b6b6b6;
-    background-color: #fff;
-    border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	background-color: #fff;
+	border: 2px solid #b6b6b6;
+	background-color: #fff;
+	border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
 .radioContainer:hover input ~ .radioCheckmark {
-    background-color: #ccc;
+	background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
 .radioContainer input:checked ~ .radioCheckmark {
-    background-color: #b6b6b6;
+	background-color: #b6b6b6;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .radioCheckmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
 .radioContainer input:checked ~ .radioCheckmark:after {
-    display: block;
+	display: block;
 }
 
 /* Style the indicator (dot/circle) */
 .radioContainer .radioCheckmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: black;
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: black;
 }
 
 /* Card */
@@ -403,345 +396,347 @@ textarea {
 } */
 
 .cardContainer {
-    width: 300px;
-    margin: 0 1rem;
+	width: 30%;
+	min-width: 300px;
+	max-width: 350px;
+	margin: 1rem 1rem;
 }
 
 .cardContent {
-    background-color: #72b0df;
-    width: 100%;
-    border-radius: 10px;
-    height: 300px;
-    object-fit: cover;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+	background-color: #72b0df;
+	width: 100%;
+	border-radius: 10px;
+	height: 300px;
+	object-fit: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
 
-    background-image: url(../images/default_profile_picture.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-image: url(../images/default_profile_picture.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .cardContentEdit {
-    background-color: #72b0df;
-    width: 100%;
-    border-radius: 10px;
-    height: 300px;
-    object-fit: cover;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+	background-color: #72b0df;
+	width: 100%;
+	border-radius: 10px;
+	height: 300px;
+	object-fit: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
 
-    background-image: url(../images/default_profile_picture.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-image: url(../images/default_profile_picture.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .photographerInfo {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .editOnly {
-    display: flex;
-    justify-content: end;
+	display: flex;
+	justify-content: end;
 }
 
 .purchase {
-    display: flex;
-    justify-content: end;
+	display: flex;
+	justify-content: end;
 }
 
 .photographerInfo h4 {
-    margin: 0.5rem;
-    padding: 0;
+	margin: 0.5rem;
+	padding: 0;
 }
 
 .cardInfo {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .photographerSmallProfilePic {
-    width: 2.7rem;
-    height: 2.7rem;
-    border-radius: 5rem;
-    background-color: #000000;
-    margin: 0.5rem 0;
+	width: 2.7rem;
+	height: 2.7rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	margin: 0.5rem 0;
 
-    background-image: url(../images/default_profile_picture.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-image: url(../images/default_profile_picture.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .price {
-    background: rgba(255, 255, 255, 0.6);
-    border: none;
-    color: var(--main-primary-font-color);
-    height: 2.37rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 1rem;
-    border-radius: 5px;
+	background: rgba(255, 255, 255, 0.6);
+	border: none;
+	color: var(--main-primary-font-color);
+	height: 2.37rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
 }
 
 /* LIKE BUTTON */
 
 .likeContainer {
-    margin: 0.8rem;
+	margin: 0.8rem;
 }
 
 .likeUnselected {
-    width: 2.37rem;
-    height: 2.37rem;
-    border-radius: 5rem;
-    background-color: #000000;
-    opacity: 0.7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	opacity: 0.7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .likeUnselected:hover {
-    width: 2.37rem;
-    height: 2.37rem;
-    border-radius: 5rem;
-    background-color: #000000;
-    transition: ease-in-out 0.3s;
-    opacity: 0.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #000000;
+	transition: ease-in-out 0.3s;
+	opacity: 0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .likeSelected {
-    width: 2.37rem;
-    height: 2.37rem;
-    border-radius: 5rem;
-    background-color: #ff0000;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #ff0000;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .likeSelected:hover {
-    width: 2.37rem;
-    height: 2.37rem;
-    border-radius: 5rem;
-    background-color: #cf0202;
-    transition: ease-in-out 0.3s;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+	width: 2.37rem;
+	height: 2.37rem;
+	border-radius: 5rem;
+	background-color: #cf0202;
+	transition: ease-in-out 0.3s;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .fa-heart {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 /* Close icon */
 .close {
-    color: #333333;
-    font-size: 2rem;
-    margin: 0.7rem;
-    top: 0;
-    right: 0;
-    padding: 0 0.2rem;
+	color: #333333;
+	font-size: 2rem;
+	margin: 0.7rem;
+	top: 0;
+	right: 0;
+	padding: 0 0.2rem;
 }
 .close:hover {
-    color: #000000;
-    transition: ease-in-out 0.3s;
+	color: #000000;
+	transition: ease-in-out 0.3s;
 }
 
 /* Dropdown */
 
 .dropdownContainer {
-    margin-bottom: 1rem;
-    max-width: 15rem;
+	margin-bottom: 1rem;
+	max-width: 15rem;
 }
 
 .hide {
-    max-height: 0 !important;
+	max-height: 0 !important;
 }
 
 .dropdown {
-    border: 2px solid #b6b6b6;
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
 }
 
 .dropdown .title {
-    margin: 0.3em 0.3em 0.3em 0.3em;
-    width: 100%;
+	margin: 0.3em 0.3em 0.3em 0.3em;
+	width: 100%;
 }
 
 .dropdown .title .fa-caret-down {
-    float: right;
-    margin-right: 0.7em;
-    transition: transform 0.3s;
+	float: right;
+	margin-right: 0.7em;
+	transition: transform 0.3s;
 }
 
 .dropdown .menu {
-    transition: max-height 0.5s ease-out;
-    max-height: 20em;
-    overflow: hidden;
+	transition: max-height 0.5s ease-out;
+	max-height: 20em;
+	overflow: hidden;
 }
 
 .dropdown .menu .option {
-    padding: 1rem 0.9rem;
-    border-radius: 2px;
-    /* margin-top: 0.3em; */
+	padding: 1rem 0.9rem;
+	border-radius: 2px;
+	/* margin-top: 0.3em; */
 }
 
 .dropdown .menu .option:hover {
-    background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.2);
 }
 
 .pointerCursor:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .rotate-180 {
-    transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .dorpdownLogo {
-    margin-right: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 .dropdownResults {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 /* Pagination */
 .pagination {
-    display: inline-block;
-    margin: 0.7rem;
+	display: inline-block;
+	margin: 0.7rem;
 }
 
 .pagination a {
-    color: var(--main-secondary-font-color);
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
+	color: var(--main-secondary-font-color);
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
 }
 
 .pagination a.active {
-    color: var(--main-primary-font-color);
-    font-weight: 600;
+	color: var(--main-primary-font-color);
+	font-weight: 600;
 }
 
 .pagination a:hover:not(.active) {
-    color: var(--main-primary-font-color);
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
+	color: var(--main-primary-font-color);
+	font-weight: 600;
+	transition: 0.3s ease-in-out;
 }
 
 /* SEARCH BAR */
 
 .searchContainer {
-    display: flex;
+	display: flex;
 }
 
 .searchContainer > input {
-    border: 2px solid #b6b6b6;
-    border-left: none;
-    border-right: none;
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+	border: 2px solid #b6b6b6;
+	border-left: none;
+	border-right: none;
+	display: block;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
 }
 input {
-    border: 2px solid #b6b6b6;
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
 }
 
 .searchContainer button {
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-    height: 100%;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+	height: 100%;
 }
 
 .searchContainer button:hover {
-    background: #ccc;
+	background: #ccc;
 }
 
 .searchContainer .dropdown {
-    border: 2px solid #b6b6b6;
-    border-radius: 4px 0 0 4px;
-    display: block;
-    width: 100%;
-    /* Stops the dropdown going to small */
-    min-width: 5rem;
-    padding: 0.7rem;
-    font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+	border: 2px solid #b6b6b6;
+	border-radius: 4px 0 0 4px;
+	display: block;
+	width: 100%;
+	/* Stops the dropdown going to small */
+	min-width: 5rem;
+	padding: 0.7rem;
+	font-size: 1rem;
+	transition: background 0.2s, border 0.2s;
 }
 
 .searchBtn {
-    background-color: #1c70b0;
-    width: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    border-radius: 0 4px 4px 0;
+	background-color: #1c70b0;
+	width: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	border-radius: 0 4px 4px 0;
 }
 
 /* Modal */
 .modal {
-    position: fixed;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffffff;
-    width: 60%;
-    padding: 3rem 2rem;
-    margin: 0 auto;
-    margin-top: 3rem;
-    /* position: relative; */
+	position: fixed;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 60%;
+	padding: 3rem 2rem;
+	margin: 0 auto;
+	margin-top: 3rem;
+	/* position: relative; */
 }
 
 .modal::backdrop {
-    background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.4);
 }
 
 .closeModal {
-    color: #333333;
-    font-size: 2rem;
-    margin: 0.7rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 0.2rem;
+	color: #333333;
+	font-size: 2rem;
+	margin: 0.7rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 0.2rem;
 }
 .closeModal:hover {
-    color: #000000;
-    transition: ease-in-out 0.3s;
+	color: #000000;
+	transition: ease-in-out 0.3s;
 }
 
 /* Responsive */
@@ -750,119 +745,119 @@ input {
 }
 
 @media all and (max-width: 992px) {
-    .searchContainer .dropdown {
-        width: 25%;
-    }
+	.searchContainer .dropdown {
+		width: 25%;
+	}
 }
 
 @media all and (max-width: 768px) {
-    .container {
-        width: 100%;
-        margin: 0 auto;
-    }
+	.container {
+		width: 100%;
+		margin: 0 auto;
+	}
 
-    .modal {
-        width: 90%;
-    }
+	.modal {
+		width: 90%;
+	}
 }
 
 @media all and (max-width: 576px) {
-    .container {
-        width: 100%;
-        margin: 0 auto;
-    }
+	.container {
+		width: 100%;
+		margin: 0 auto;
+	}
 
-    .searchContainer .dropdown {
-        width: 10%;
-    }
+	.searchContainer .dropdown {
+		width: 10%;
+	}
 
-    .modal {
-        width: 90%;
-    }
+	.modal {
+		width: 90%;
+	}
 }
 
 /* Homepage Styling */
 
 .placeholder > a > img {
-    width: 100%;
+	width: 100%;
 }
 
 #popularTags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 #popularImages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 #popularImages > .photoCard {
-    width: 30%;
-    margin-bottom: 5px;
+	width: 30%;
+	margin-bottom: 5px;
 }
 
 #popularTags > .placeholder {
-    width: 30%;
-    margin-bottom: 5px;
+	width: 30%;
+	margin-bottom: 5px;
 }
 
 .searchBar {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 ul {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .barContainer {
-    width: 60%;
+	width: 60%;
 }
 
 .barContainer > input {
-    width: 80%;
+	width: 80%;
 }
 
 .barContainer > button {
-    width: 15%;
+	width: 15%;
 }
 /* PhotoView Modal CSS*/
 
 #modal {
-    margin: auto;
+	margin: auto;
 }
 
 .imageContainer {
-    background-color: darkgray;
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 1rem;
+	background-color: darkgray;
+	text-align: center;
+	padding: 1rem;
+	margin-bottom: 1rem;
 }
 
 img {
-    width: 30rem;
+	width: 30rem;
 }
 
 .icon {
-    width: 50px;
-    border-radius: 50px;
+	width: 50px;
+	border-radius: 50px;
 }
 
 .photoCardFooter {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .photoCard {
-    background-image: url("../images/seoul.jpeg");
+	background-image: url("../images/seoul.jpeg");
 }
 
 /* .purchaseButton {
@@ -884,143 +879,143 @@ img {
 } */
 
 #sectionTwo {
-    display: flex;
+	display: flex;
 }
 
 #sectionTwo > * {
-    width: 50%;
+	width: 50%;
 }
 
 #topContainer {
-    background: url("../images/corgi-wallpaper-2560x1080.jpg"),
-        rgba(50, 50, 50, 0.5);
-    background-blend-mode: multiply;
-    height: 80vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-bottom: 3.5rem;
+	background: url("../images/corgi-wallpaper-2560x1080.jpg"),
+		rgba(50, 50, 50, 0.5);
+	background-blend-mode: multiply;
+	height: 80vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.5rem;
+	margin-bottom: 3.5rem;
 }
 
 #topContainer > * {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 #callToAction {
-    color: white;
-    font-size: xx-large;
+	color: white;
+	font-size: xx-large;
 }
 
 #callToActionSecondary {
-    color: white;
-    font-size: large;
+	color: white;
+	font-size: large;
 }
 
 .imageInfo {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .leftContainer {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .leftContainer > * {
-    margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 #descriptorContainer > * {
-    margin-bottom: 0.2rem;
+	margin-bottom: 0.2rem;
 }
 
 /* Homepage Styling */
 
 .placeholder > a > img {
-    width: 100%;
+	width: 100%;
 }
 
 #popularTags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 #popularImages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 #popularImages > .photoCard {
-    width: 30%;
-    margin-bottom: 5px;
+	width: 30%;
+	margin-bottom: 5px;
 }
 
 #popularTags > .placeholder {
-    width: 30%;
-    margin-bottom: 5px;
+	width: 30%;
+	margin-bottom: 5px;
 }
 
 .searchBar {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 ul {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .barContainer {
-    width: 60%;
+	width: 60%;
 }
 
 .barContainer > input {
-    width: 80%;
+	width: 80%;
 }
 
 .barContainer > button {
-    width: 15%;
+	width: 15%;
 }
 /* PhotoView Modal CSS*/
 
 #modal {
-    margin: auto;
+	margin: auto;
 }
 
 .imageContainer {
-    background-color: darkgray;
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 1rem;
+	background-color: darkgray;
+	text-align: center;
+	padding: 1rem;
+	margin-bottom: 1rem;
 }
 
 img {
-    width: 30rem;
+	width: 30rem;
 }
 
 .icon {
-    width: 50px;
-    border-radius: 50px;
+	width: 50px;
+	border-radius: 50px;
 }
 
 .photoCardFooter {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .photoCard {
-    background-image: url("../images/seoul.jpeg");
+	background-image: url("../images/seoul.jpeg");
 }
 
 /* .purchaseButton {
@@ -1042,96 +1037,96 @@ img {
 } */
 
 #sectionTwo {
-    display: flex;
+	display: flex;
 }
 
 #sectionTwo > * {
-    width: 50%;
+	width: 50%;
 }
 
 #topContainer {
-    background: url("../images/corgi-wallpaper-2560x1080.jpg"),
-        rgba(50, 50, 50, 0.5);
-    background-blend-mode: multiply;
-    height: 80vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-bottom: 3.5rem;
+	background: url("../images/corgi-wallpaper-2560x1080.jpg"),
+		rgba(50, 50, 50, 0.5);
+	background-blend-mode: multiply;
+	height: 80vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.5rem;
+	margin-bottom: 3.5rem;
 }
 
 #topContainer > * {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 #callToAction {
-    color: white;
-    font-size: xx-large;
+	color: white;
+	font-size: xx-large;
 }
 
 #callToActionSecondary {
-    color: white;
-    font-size: large;
+	color: white;
+	font-size: large;
 }
 
 .imageInfo {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .leftContainer {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .leftContainer > * {
-    margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 #descriptorContainer > * {
-    margin-bottom: 0.2rem;
+	margin-bottom: 0.2rem;
 }
 
 .dropdown > * {
-    color: rgb(246, 244, 244);
+	color: rgb(246, 244, 244);
 }
 
 .homepageDropdown {
-    width: 100%;
+	width: 100%;
 }
 
 /* Nav Bar */
 
 header {
-    position: sticky;
+	position: sticky;
 }
 
 nav {
-    display: flex;
+	display: flex;
 }
 
 nav .btnPrimary {
-    margin-left: 5px;
-    margin-right: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 #siteLogo {
-    width: 200px;
+	width: 200px;
 }
 
 #menuBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 /* nav li a {
