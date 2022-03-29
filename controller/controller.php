@@ -3,6 +3,11 @@ require_once("./model/UserManager.php");
 
 function homepage()
 {
+    if (isset($_SESSION["email"])) {
+        $userManager = new UserManager();
+        $user = $userManager->getUserInfo($_SESSION["email"]);
+        $profileURL = $userManager->getProfilePicPath($_SESSION["email"]);
+    } 
     require("./view/homepage.php");
 }
 
