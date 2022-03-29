@@ -2,17 +2,8 @@
 if(!isset($_SESSION)) { 
     session_start(); 
 }
-//echo $_FILES['profilePicture']['type']."<br>";
-//echo $_FILES['profilePicture']['name']."<br>";
-//echo $_FILES['profilePicture']['size']."<br>";
-//echo $_FILES['profilePicture']['tmp_name']."<br>";
-//echo exec('whoami');
-//move_uploaded_file($_POST["file"], "./data/test.png");
-
-//$currentDir = getcwd();
+require_once('ImageCreation.php');
 $dataDir = "../data/";
-//$currentDir = dirname(dirname(__FILE__));
-// Store all errors
 $errors = [];
 
 // Available file extensions
@@ -32,8 +23,12 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
     //$user_id = $_POST["userID"];
-    $uploadPath = $dataDir . $user . "/profilePicture.jpg";
+    $profilePath = $dataDir . $user . "/profilePicture.jpg";
+    $tempPath =  $dataDir . $user . "/tempPicture." . $fileExtension;
+    $tempJpgPath =  $dataDir . $user . "/tempJpgPicture.jpg";
+    $thumbnailPath = $dataDir . $user . "/thumbnail.jpg"; 
     //$message = "";//$uploadPath;
+    echo $tempPath;
     if (isset($fileName)) {
         if (!in_array($fileExtension, $fileExtensions)) {
             $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
@@ -42,12 +37,19 @@ if (!empty($_FILES["fileAjax"] ?? null)) {
             if (!file_exists($dataDir . $user)) {
                 mkdir( $dataDir . $user);
             }
-            $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-            if ($didUpload) {
-                echo "The image " . basename($fileName) . " has been uploaded.";
-            } else {
-                echo "An error occurred while uploading. Try again.";
-            }
+            move_uploaded_file($fileTmpName, $tempPath);
+            $objImage = new ImageCreation($tempPath);
+            $objImage->createSquare($tempJpgPath);
+            $objImage = new ImageCreation($tempJpgPath);
+            $objImage->createImage($profilePath, 200);
+            $objImage->createImage($thumbnailPath, 80);
+
+            //$didUpload = move_uploaded_file($fileTmpName, $uploadPath);
+            //if ($didUpload) {
+            //    echo "The image " . basename($fileName) . " has been uploaded.";
+            //} else {
+            //    echo "An error occurred while uploading. Try again.";
+            //}
         } else {
             foreach ($errors as $error) {
                 echo $error . "The following error occured: " . "\n";

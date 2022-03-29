@@ -1,0 +1,80 @@
+[33m35ad126[m[33m ([m[1;36mHEAD -> [m[1;32msprinttwo[m[33m)[m adding class PictureManager.php
+[33m30742bb[m[33m ([m[1;31morigin/sprinttwo[m[33m)[m Remove user info echo
+[33mab382a9[m[33m ([m[1;32mweekendtwocharles[m[33m)[m fix data folder permssions
+[33m2b80ea7[m fix user profile pic upload for users without a data folder
+[33md83b576[m[33m ([m[1;31morigin/weekendtwocharles[m[33m)[m fixes for various related to the profile image
+[33mf857344[m[33m ([m[1;31morigin/sprintone[m[33m, [m[1;32msprintone[m[33m)[m uncomment Modal.js
+[33mbfe5533[m linked login to private profile view
+[33mf37022b[m fix merge conflicts
+[33m4542ee1[m Merge branch 'login' of github.com:leegihe95/proPhoto into login
+[33mea4ea69[m add checks for existing users to registration
+[33m03abdf2[m Merge branch 'googleAuthentication' into sprintone
+[33m8fa21c2[m Added a loginView and loginAction using session variable that stores user's email
+[33m96acc7f[m fix field names and merge branch 'registration' with sprintone
+[33mf7f37ce[m remove h1 proPhoto title
+[33m93a6e9b[m merge with navMenu branch
+[33m78bf812[m Merge branch 'mainFeed' into sprintone
+[33m0eb858c[m fix dropdown width
+[33mc632bfa[m fixed problem with read/write access on data folder
+[33m6aa7236[m Merge branch 'viewProfile' into sprintone
+[33m0499806[m reverted to old style for dropdown
+[33m8f21492[m Creation of path to update Profile Picture
+[33mf02457f[m fixing dropdown bar
+[33m1ad9de8[m updated file/function names to be more clear, for example: registerView vs registerAction
+[33m51f1623[m Jacob's first commit of googleLogIN and session start
+[33m09d6cc6[m created the registration view where user can input their data that gets then stored inside db
+[33m070491e[m fixing modal and search bar
+[33mefac0c1[m Merge remote-tracking branch 'origin' into mainFeed
+[33mb5fe339[m Applied global css to cards in privateProfView
+[33mc96b856[m merge with globalcss, added modal css
+[33mdc27400[m fix typo in photoCard css
+[33mdd21d66[m added css styling for modals
+[33m8b0ab72[m add dropdown css and js to search bar options
+[33m606dabd[m Changes to the modal design
+[33m49ad839[m Committing revisions from main
+[33m3c3397d[m Added global CSS to privateProfView
+[33m2a10429[m add modal popup on clicked photo cards
+[33m4cc06e6[m fix style.css merge conflicts
+[33m2bee844[m small spacing change on homepage
+[33m45acd0a[m add empty event listener to purchase button
+[33m3c74b36[m Merge remote-tracking branch 'origin' into photoView
+[33m6f00162[m changed purchase button and spacing within modal
+[33m9ad6d46[m merge with main to add css and getProfilePicPath
+[33mac934b4[m[33m ([m[1;31morigin/setPicPicture[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msetPicPicture[m[33m, [m[1;32mmain[m[33m)[m add a php file to save the profile picture
+[33m4db1993[m Merge branch 'getPicPicturePath' of github.com:leegihe95/proPhoto into getPicPicturePath
+[33m2d190df[m[33m ([m[1;32mgetPicPicturePath[m[33m)[m add a php file to get the path of the profile picture the userID from the session
+[33m8fb4c27[m change photos to card style
+[33mfa5e437[m Merge branch 'main' into viewProfile
+[33mc292ac4[m Edited Profile Header
+[33ma42076b[m change search bar and purchase buttons to match global css
+[33m8af13c5[m fixed merge problems with style.css
+[33maebdfa3[m[33m ([m[1;31morigin/globalcss[m[33m)[m html for global css ref
+[33m7703591[m Merge branch 'main' into globalcss
+[33m67abad2[m Unfinished global css
+[33m24899ae[m remove tester code from homepage
+[33m26f787d[m remove tester code from homepage
+[33m42782e6[m Added functions to Modal to edit ProfileInfo and EditPic
+[33mf4dc211[m change photoView to pop up in modal
+[33m6852f28[m Merge branch 'main' of github.com:leegihe95/proPhoto into photoView
+[33m458eeca[m Merge branch 'main' into viewProfile
+[33ma14c942[m cleaning tree
+[33mb531222[m add modalProfilePicture view
+[33mc64dc0d[m Merge branch 'main' into viewProfile
+[33m7a9bd3f[m created Modal class with constructor
+[33m8fa189b[m Added profileEdit.php and profileEdit.css
+[33mbd4c866[m add background image to search bar section
+[33mac80fc8[m add link to photographer page
+[33m47f1fae[m add basic photo view with gray background
+[33m619ca6b[m Added photoEdit.php, and its css+js
+[33m1b195b8[m photoEditView.php added
+[33m25d4242[m[33m ([m[1;31morigin/mainFeed[m[33m)[m changed style.css
+[33m8d1bef8[m private Profile View creation
+[33m192e8e5[m add about us section
+[33mb4b34ef[m refactor classes and IDs to camelCase, add simple styling to purchase button
+[33mb876f4b[m add photographer information and purchase link to photo cards
+[33mc8cc482[m add placeholder content to popular tags and popular images
+[33m6994bdf[m fix type with head leftover
+[33m6065e5c[m fix merge with main commits
+[33me54258e[m Revised function name  in UserManager
+[33m6f80049[m add divs for call-to-action, search bar, popular tags, and profile information
+[33m3ce4e7b[m Creation of MVC structure

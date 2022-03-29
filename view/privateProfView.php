@@ -1,4 +1,5 @@
 <?php //session_start();
+require("./model/PictureManager.php");
 ?>
 <?php ob_start();?>
 <!--<link rel="stylesheet" href="./public/css/privateProfView.css">-->
@@ -10,7 +11,10 @@
                 <span>your picture</span>
             </label>
             <!--<img src=<?php echo require("./model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">-->
-            <?php $src = require("./model/getProfilePicPath.php"); ?>
+            <?php 
+                $profile = new PictureManager();
+                $src = $profile->getProfilePicturePath();
+            ?>
             <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
