@@ -8,42 +8,55 @@ if(!isset($_SESSION)) {
 
 
 	<div id="topContainer">
-		<h2 id="callToAction">
-			Placeholder Call-To-Action.
-        </h2>
-		<h3 id="callToActionSecondary">
-			Secondary Call-To-Action text.
-        </h3>
+        <div id="menuBar">
+            <div class="wrapper">
+                <div class="typing-demo"><a href="index.php?action=homepage">ProPhoto</a></div>
+            </div>
+            <!-- <div><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></a></div> -->
+            <nav>
+                <a href="index.php?action=loginView"><button class="btnPrimary">Log In</button></a>
+                <a href="index.php?action=registerView"><button class="btnSecondary">Register</button></a>
+            </nav>
+        </div>
+        <div>
+            <h2 id="callToAction">
+                Placeholder Call-To-Action.
+            </h2>
+            <h3 id="callToActionSecondary">
+                Secondary Call-To-Action text.
+            </h3>
+        
 		
-		<div class="searchBar">
-            <div class="searchContainer">
-                <div class="dropdownContainer">
-                    <div class='dropdown'>
-                        <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
-                        
-                        <div class='menu pointerCursor hide'>
-                            <div class="dropdownResults">
-                                <div class='option' id='option1'>Hot</div>
-                                <div class='option' id='option2'>Tags</div>
-                                <div class='option' id='option3'>Photographer</div>
+		
+            <div class="searchBar">
+                <div class="searchContainer">
+                    <div class="dropdownContainer">
+                        <div class='dropdown'>
+                            <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
+                            
+                            <div class='menu pointerCursor hide'>
+                                <div class="dropdownResults">
+                                    <div class='option' id='option1'>Hot</div>
+                                    <div class='option' id='option2'>Tags</div>
+                                    <div class='option' id='option3'>Photographer</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
+                    <form class="form" id="form">
+                        <div class="inputContainer">
+                            <input
+                                type="text"
+                                class="input"
+                                placeholder="Input example"
+                            />
+                        </div>
+                    </form>
                 </div>
-
-
-                <form class="form" id="form">
-                    <div class="inputContainer">
-                        <input
-                            type="text"
-                            class="input"
-                            placeholder="Input example"
-                        />
-                    </div>
-                </form>
-			</div>
+            </div>
         </div>
-
     </div>
 
 
