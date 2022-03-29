@@ -6,6 +6,9 @@ function onSignIn(googleUser) {
     // console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
 
+    //Prevent automatic sign in
+    googleUser.disconnect();
+
     // console.log(id_token);
     var formData = new FormData();
 
@@ -44,7 +47,7 @@ let logoutBtn = document.querySelector("#logout");
 if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
         if (gapi.auth2.isSignedIn.get()) {
-            signOut();
+            gapi.auth2.getAuthInstance().signOut();
         }
     });
 }
