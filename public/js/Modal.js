@@ -48,6 +48,14 @@ function setModalContent() {
             // if the file is loaded without error
             let content = xhr.responseText;
             let modal = new Modal(content);
+            document
+                .getElementById("modalProfilePic")
+                .setAttribute(
+                    "src",
+                    document
+                        .getElementById("currProfilePic")
+                        .getAttribute("src")
+                );
         } else if (
             xhr.readyState === XMLHttpRequest.DONE &&
             xhr.status != 200
@@ -165,7 +173,7 @@ function setModalContentPhotoView(e) {
 
 // Uploading Profile Picture function
 var loadFile = function (event) {
-    var image = document.getElementById("output");
+    var image = document.getElementById("modalProfilePic");
     var uploadedImage = event.target.files[0];
     let updateButton = document.querySelector(".updateButton");
     image.src = URL.createObjectURL(uploadedImage);
@@ -190,7 +198,9 @@ var loadFile = function (event) {
         var xhr = new XMLHttpRequest();
 
         // Open the connection
-        xhr.open("POST", "./model/setProfilePicture.php", true);
+        // xhr.open("POST", "./model/setProfilePicture.php", true);
+        xhr.open("POST", "./index.php?action=setProfilePicture", true);
+
         //xhr.setRequestHeader("Content-Type", "multipart/form-data");
         // Set up a handler for when the task for the request is complete
         xhr.onload = function () {

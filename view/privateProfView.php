@@ -9,8 +9,7 @@
                 <span>Click here to update</span>
                 <span>your picture</span>
             </label>
-            <!--<img src=<?php echo require("./model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">-->
-            <?php $src = require("./model/getProfilePicPath.php"); ?>
+            <?php $src = $profileURL?>
             <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
