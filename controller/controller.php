@@ -27,7 +27,7 @@ function insertUser($params) {
     
     // require_once("./connection.php");
     
-    echo "http://localhost/sites/proPhoto/index.php";
+    echo "index.php";
 }
 function loginView (){
     require("./view/login.php");
