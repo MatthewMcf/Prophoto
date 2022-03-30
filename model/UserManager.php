@@ -19,18 +19,19 @@ class UserManager extends Manager
 
         //First check for existing user
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->execute([$email]); 
-        $user = $stmt->fetch();
+        $stmt->bindParam(1, $email, PDO::PARAM_STR);
+        $stmt->execute(); 
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
          
         if ($user) {
             //user with this email already exists in our database
         } else {
-            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(:email, :pwd, :username)");
-            $req->execute(array(
-                "email" => $email,
-                "pwd" => $pwd,
-                "username" => $username
-            ));
+            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(?, ?, ?)");
+            $req->bindParam(1, $email, PDO::PARAM_STR);
+            $req->bindParam(2, $pwd, PDO::PARAM_STR);
+            $req->bindParam(3, $username, PDO::PARAM_STR);
+            $req->execute();
+
             $userID = $this->_connection->lastInsertId();
             mkdir("./data/".$userID);
             mkdir("./data/".$userID."/small");
@@ -79,10 +80,9 @@ class UserManager extends Manager
         $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
         $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
 
-        $req = $this->_connection->prepare("SELECT id, email, pwd FROM users WHERE email = :email");
-        $req->execute(array(
-            "email" => $email
-        ));
+        $req = $this->_connection->prepare("SELECT id, email, pwd FROM users WHERE email = ?");
+        $req->bindParam(1, $email);
+        $req->execute();
         $data = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
         if(password_verify($pwd, $data["pwd"])) {
