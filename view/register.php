@@ -3,21 +3,10 @@
 <link rel='stylesheet' href='./public/css/registerView.css'>
 <section>
     <div id="heading">
-<<<<<<< HEAD
         <!-- <div id="logoWrapper">
             
             <img src="" alt="">
         </div> -->
-=======
-        <div id="logoWrapper">
-            <!--<div id="logoWrapper">
-                logo here 
-                <img src="" alt="">
-            </div>-->
-            <h1>PhotoPro</h1>
-            <p>slogan here</p>
-        </div>
->>>>>>> 13c62f6a3a4d3bfc00d1e048f63cdee63b065bbf
     </div>
     <div id="googleWrapperRegister">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>

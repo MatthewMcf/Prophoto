@@ -6,16 +6,11 @@ function onSignIn(googleUser) {
 	// console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
 	var id_token = googleUser.getAuthResponse().id_token;
 
-<<<<<<< HEAD
-    //Prevent automatic sign in
-    googleUser.disconnect();
+	//Prevent automatic sign in
+	googleUser.disconnect();
 
-    // console.log(id_token);
-    var formData = new FormData();
-=======
 	// console.log(id_token);
 	var formData = new FormData();
->>>>>>> 13c62f6a3a4d3bfc00d1e048f63cdee63b065bbf
 
 	formData.append("google_token", id_token);
 	formData.append("email", profile.getEmail());
@@ -62,18 +57,10 @@ function signOut() {
 
 let logoutBtn = document.querySelector("#logout");
 if (logoutBtn) {
-<<<<<<< HEAD
-    logoutBtn.addEventListener("click", () => {
-        if (gapi.auth2.isSignedIn.get()) {
-            gapi.auth2.getAuthInstance().signOut();
-        }
-    });
-=======
 	logoutBtn.addEventListener("click", () => {
 		if (gapi.auth2.isSignedIn.get()) {
-			signOut();
+			gapi.auth2.getAuthInstance().signOut();
 		}
 	});
->>>>>>> 13c62f6a3a4d3bfc00d1e048f63cdee63b065bbf
 }
 // renderButton();

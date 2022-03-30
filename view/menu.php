@@ -24,7 +24,6 @@
             <button class="btnSecondary" id="register">Register</button>
         </nav>
     </div>
-    <script src="./public/js/script.js" defer></script>
     <?php if(isset($_REQUEST["register"]) AND $_REQUEST["register"] === "true"): ?>
         <script>
             let registerTrue = document.createElement("span");
