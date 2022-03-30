@@ -8,8 +8,7 @@
  ?>
   <h2>Update your profile picture</h2>
   <div class="imgPreview">
-    <?php $src = $profileURL; ?>
-    <img src=<?php echo ($src  . '?=' . rand()) ?> id="output" width="200" />
+    <img id="modalProfilePic" src="" width="200" />
   </div>
   <div>
     <!--<input type="range" min="0" max="9" step="1" value="0" id="zoom">

@@ -33,6 +33,9 @@ try {
         case "privateProfView":
             privateProfView($_REQUEST);
             break;
+        case "setProfilePicture":
+            setProfilePicture($_REQUEST);
+            break;
         case "logoutAction":
             logoutAction($_REQUEST);
             break;

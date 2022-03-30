@@ -4,10 +4,10 @@
 <?php ob_start(); ?>
 <section>
     <div id="heading">
-        <div id="logoWrapper">
-            <!-- logo here -->
+        <!-- <div id="logoWrapper">
+            
             <img src="" alt="">
-        </div>
+        </div> -->
     </div>
     <div>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
