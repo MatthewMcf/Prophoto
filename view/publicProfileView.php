@@ -1,25 +1,26 @@
 <?php //session_start();
 // $_SESSION['userID'] = "5";
 ?>
-<link rel="stylesheet" href="../public/css/style.css">
-<link rel="stylesheet" href="../public/css/privateProfView.css">
+<?php ob_start(); ?>
+<link rel="stylesheet" href="./public/css/style.css">
+<link rel="stylesheet" href="./public/css/privateProfView.css">
 <script src="https://kit.fontawesome.com/86dc656e1f.js" crossorigin="anonymous"></script>
 
 <section>
     <div id="profileHeader">
         <div>
             <div id="profilePic">
-                <img src="../data/default/profilePicture.jpg" alt="profilePic" id="currProfilePic">
+                <img src="<?=$requestedUserProfileURL?>" alt="profilePic" id="currProfilePic">
             </div>
         </div>
         <div id="profileInfo">
             <div>
                 <p class="labelWidth"><strong>Name: </strong></p>
-                <p class="inputWidth">Camila </p>
+                <p class="inputWidth"><?=$requestedUser['display_name']?></p>
             </div>
             <div>
                 <p class="labelWidth"><strong>Username: </strong></p>
-                <p class="inputWidth">camila@1234</p>
+                <p class="inputWidth"><?=$requestedUser['username']?></p>
             </div>
             <div>
                 <p class="labelWidth"><strong>About Me: </strong></p>
@@ -27,7 +28,7 @@
             </div>
             <div>
                 <p class="labelWidth"><strong>Contact: </strong></p>
-                <p class="inputWidth">camila@wcoding.com</p>
+                <p class="inputWidth"><?=$requestedUser['email']?></p>
             </div>
             <div id="socialMedia">
                 <p class="labelWidth"><strong>Socials: </strong></p>
@@ -175,5 +176,7 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="../public/js/script.js"></script>
-<script type="text/javascript" src="../public/js/Modal.js"></script>
+<script type="text/javascript" src="./public/js/script.js" defer></script>
+<script type="text/javascript" src="./public/js/Modal.js" defer></script>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

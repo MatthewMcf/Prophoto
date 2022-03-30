@@ -50,7 +50,10 @@ function logoutAction() {
 }
 
 function publicProfView($params) {
-    $params['requested_id'];
+    $userManager = new UserManager();
+    $requestedUser = $userManager->getUserInfo($params['requested_id']);
+    $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
+    require("./view/publicProfileView.php");     
 }
 
 function privateProfView($params) {
