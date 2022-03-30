@@ -12,7 +12,7 @@ class PictureManager extends Manager
         parent::__construct();
     } 
 
-    private function getProfilePathAndName($userId) {
+    public function getProfilePathAndName($userId) {
         $req = $this->_connection->prepare("SELECT id, username, profile_url FROM users WHERE id = :id");
         $req->execute(array(
             "id" => $userId
@@ -269,17 +269,16 @@ class PictureManager extends Manager
         } else {
             $user = "default";
         }
-        echo "something1"; 
         if (!empty($file ?? null)) {
             $fileName = $file["name"];
             $fileTmpName = $file["tmp_name"];
             $fileType = $file["type"];
             $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-            $stmt = $this->_connection->prepare("INSERT users SET profile_url = 'profilePicture.jpg' WHERE id=?");
-            $stmt->bindParam(1, $user, PDO::PARAM_STR);
-            $stmt->execute(); 
-                echo "something2 ".$fileExtension." "; 
+            // $stmt = $this->_connection->prepare("INSERT users SET profile_url = 'profilePicture.jpg' WHERE id=?");
+            // $stmt->bindParam(1, $user, PDO::PARAM_STR);
+            // $stmt->execute(); 
+            //     echo "something2 ".$fileExtension." "; 
             $req = $this->_connection->prepare("INSERT INTO pictures (user_id) VALUES( :user_id)");
             $req->execute(array(
                 "user_id" => $user
@@ -297,8 +296,10 @@ class PictureManager extends Manager
                     $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
                 }
                 if (empty($errors)) {
-                    if (!file_exists($dataDir . $user)) {
-                        mkdir($dataDir . $user);
+                    if (!file_exists($dataDir . $user ."/original/")) {
+                        mkdir($dataDir . $user ."/original/");
+                        mkdir($dataDir . $user ."/medium/");
+                        mkdir($dataDir . $user ."/small/");
                     }
                     $didUpload = move_uploaded_file($fileTmpName, $originalPath);
                     //move_uploaded_file($fileTmpName, $mediumPath);
@@ -306,6 +307,8 @@ class PictureManager extends Manager
                     if ($didUpload) {
                         copy($originalPath,$mediumPath);
                         copy($originalPath,$smallPath);
+
+                        //TODO: Resize images in medium and small folders
                         echo "The image " . basename($fileName) . " has been uploaded.";
 
                         //update profile pic path in database 
@@ -323,7 +326,6 @@ class PictureManager extends Manager
                 }
             }
         }
-    echo "something3"; 
 
     }
 
@@ -334,5 +336,11 @@ class PictureManager extends Manager
     public function deleteImage($imageId) {
 
     }
+
+    // public function prepareDirectories($user_id) {
+    //     if (!file_exists($dataDir . $user_id))) {
+    //         mkdir($dataDir . $user_id);
+    //     }
+    // }
 
 }

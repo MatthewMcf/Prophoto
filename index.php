@@ -36,6 +36,9 @@ try {
         case "setProfilePicture":
             setProfilePicture($_REQUEST);
             break;
+        case "uploadImage":
+            uploadImage($_REQUEST);
+            break;
         case "logoutAction":
             logoutAction($_REQUEST);
             break;

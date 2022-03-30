@@ -219,3 +219,82 @@ var loadFile = function (event) {
         xhr.send(formData);
     });
 };
+
+function setModalUploadPic() {
+    // Set up the request
+    var xhr = new XMLHttpRequest();
+
+    // Open the connection
+    // Replace with path to your php
+    xhr.open("GET", "./view/modalPictureUpload.php");
+
+    xhr.addEventListener("load", () => {
+        // We manage here an asynchronous request
+        if (xhr.status === 200) {
+            // if the file is loaded without error
+            let content = xhr.responseText;
+            let modal = new Modal(content);
+        } else if (
+            xhr.readyState === XMLHttpRequest.DONE &&
+            xhr.status != 200
+        ) {
+            // in case of error
+            alert(
+                "There is an error !\n\nCode :" +
+                    xhr.status +
+                    "\nText : " +
+                    xhr.statusText
+            );
+        }
+    });
+    xhr.send(null);
+}
+
+// Uploading an image
+var loadUploadedImage = function (event) {
+    var image = document.getElementById("modalUploadedImage");
+    var uploadedImage = event.target.files[0];
+    let updateButton = document.querySelector(".updateButton");
+    image.src = URL.createObjectURL(uploadedImage);
+    updateButton.addEventListener("click", function (evt1) {
+        evt1.preventDefault();
+        let message = document.getElementById("message");
+        message.innerHTML = "Uploading...";
+
+        var file = event.target.files[0]; //document.getElementById("output").src;
+        var formData = new FormData();
+
+        // Check the file type
+        //if (!file.type.match('image.png')) {
+        //    message.innerHTML = 'The file selected is not an image.';
+        //    return;
+        //}
+
+        // Add the file to the AJAX request
+        formData.append("fileAjax", file, file.name);
+
+        // Set up the request
+        var xhr = new XMLHttpRequest();
+
+        // Open the connection
+        // xhr.open("POST", "./model/setProfilePicture.php", true);
+        xhr.open("POST", "./index.php?action=uploadImage", true);
+
+        //xhr.setRequestHeader("Content-Type", "multipart/form-data");
+        // Set up a handler for when the task for the request is complete
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                // let image = document.getElementById("currProfilePic");
+                // image.src = URL.createObjectURL(file);
+                message.innerHTML = xhr.responseText;
+            } else {
+                message.innerHTML = "Upload error. Try again.";
+            }
+            //var message_req = xhr.responseText;
+            //alert(message_req);
+        };
+
+        // Send the data.
+        xhr.send(formData);
+    });
+};

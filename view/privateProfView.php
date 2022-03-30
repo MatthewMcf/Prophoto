@@ -1,6 +1,4 @@
-<?php //session_start();
-require("./model/PictureManager.php");
-?>
+<!--  -->
 <?php ob_start();?>
 <!--<link rel="stylesheet" href="./public/css/privateProfView.css">-->
 <section>

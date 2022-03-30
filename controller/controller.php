@@ -1,5 +1,7 @@
 <?php
 require_once("./model/UserManager.php");
+require_once("./model/PictureManager.php");
+
 
 function homepage()
 {
@@ -68,3 +70,7 @@ function setProfilePicture($params) {
     $userManager->setProfilePicture($_FILES["fileAjax"]);
 }
 
+function uploadImage($params) {
+    $pictureManager = new PictureManager();
+    $pictureManager->setImage($_FILES["fileAjax"]);
+}
