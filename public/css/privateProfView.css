@@ -96,7 +96,7 @@ section {
 	transition: max-height 0.4s ease-out;
 }
 /* Specifically for publicProfView */
-.sectionPhotosPublic {
+#sectionPhotosPublic {
 	height: fit-content;
 	display: flex;
 	flex-wrap: wrap;

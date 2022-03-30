@@ -44,7 +44,7 @@
             <div class="sectionHeader">
                 <h2>Photos</h2>
             </div>
-            <div class="sectionPhotosPublic">
+            <div id="sectionPhotosPublic">
                 <div class="cardContainer">
                     <div class="cardContent">
                         <button class="price">2 Credits</button>
