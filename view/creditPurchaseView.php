@@ -13,7 +13,7 @@
 		></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="createYearOptions()">
     <div class="container">
         <h1>Purchase credits</h1>
 
@@ -50,6 +50,7 @@
             <h4>Expiration date</h4>
             <h4>Month</h4>
             <select name="month" id="month">
+                <option value="0">Select a month</option>
                 <option value="1">01 January</option>
                 <option value="2">02 February</option>
                 <option value="3">03 March</option>
@@ -66,8 +67,9 @@
 
             <h4>Year</h4>
             <select name="year" id="year">
-                <option id="year1" value="1"></option>
-                <option id="year2" value="2"></option>
+                
+                <!-- <option id="year1" value="1"></option>
+                <option id="year2" value="2"></option> -->
             </select>           
 
             <div class="inputContainer">
@@ -77,6 +79,8 @@
             </div>
 
             <button>Submit</button>
+
+    
         </form>
 
     </div>
@@ -174,18 +178,36 @@
         small.innerText = message;
     }
 
+function createYearOptions() {
+    var newDate = new Date();
+    var currentYear = newDate.getFullYear();
+    var yearOptions = "<option value='0'>Select</option>";
 
-// Testing stuff with dates
+    for (var i = currentYear; i < currentYear + 10; i++) {
+        yearOptions += "<option value='"+i+"'>"+i+"</option>"
+    }
 
-const year1 = document.querySelector("#year1");
-const year2 = document.querySelector("#year2");
+    document.querySelector("#year").innerHTML = yearOptions;
+}
 
-const d = new Date();
-let year = d.getFullYear();
 
-year2 = year;
+// var sel = document.getElementById("year");
 
-console.log(year2);
+// var year1 = document.createElement("option");
+// var year2 = document.createElement("option");
+
+// const d = new Date();
+// let year = d.getFullYear();
+// // document.getElementById("demo").innerHTML = year;
+
+// year1.value = "1";
+// year1.text = year;
+
+// year2.value = "2";
+// year2.text = year + 1;
+
+// sel.add(year1, null);
+// sel.add(year2, null);
 
 
 
