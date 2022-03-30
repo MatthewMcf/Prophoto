@@ -25,7 +25,7 @@ try {
             }
             break;
         case "loginView" :
-            loginView();
+            loginView($_REQUEST);
             break;
         case "loginAction" :
             loginAction($_REQUEST);

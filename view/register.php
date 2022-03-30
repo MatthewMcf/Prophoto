@@ -1,21 +1,31 @@
+<?php //ob_start(); ?>
 
-<link rel="stylesheet" href="./public/css/registerView.css">
-
-<?php ob_start(); ?>
+<link rel='stylesheet' href='./public/css/registerView.css'>
 <section>
     <div id="heading">
+<<<<<<< HEAD
         <!-- <div id="logoWrapper">
             
             <img src="" alt="">
         </div> -->
+=======
+        <div id="logoWrapper">
+            <!--<div id="logoWrapper">
+                logo here 
+                <img src="" alt="">
+            </div>-->
+            <h1>PhotoPro</h1>
+            <p>slogan here</p>
+        </div>
+>>>>>>> 13c62f6a3a4d3bfc00d1e048f63cdee63b065bbf
     </div>
-    <div>
+    <div id="googleWrapperRegister">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
-    <form action="index.php" method="post" id="registrationForm">
+    <form action="index.php" method="post" class="registrationForm">
         <input type="hidden" name="action" value="registerAction">
         <ul>
-            <li id="or">
+            <li class="or">
                 <p>or</p>
             </li>
             <li>
@@ -42,12 +52,11 @@
     <div id="switch">
         <p id="agree">By creating an account, you are agreeing to our Terms of Service and Privacy Policy</p>
         <p>Already have an account?</p>
-        <form action="index.php" method="post" id="loginForm">
-            <input type="hidden" name="action" value="loginView">
-            <input type="submit" value="Log in" name="login" id="login">
+        <form action="index.php" method="post" class="loginForm">
+            <input type="hidden" name="action" value="homepage">
+            <input type="submit" value="Log in" name="login" id="loginRegister">
         </form>
     </div>
 </section>
-<script type="text/javascript" src="./public/js/registerView.js"></script>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+<?php //$content = ob_get_clean(); ?>
+<?php //require('template.php'); ?>
