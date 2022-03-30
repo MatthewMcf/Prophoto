@@ -8,8 +8,7 @@
  ?>
   <h2>Update your profile picture</h2>
   <div class="imgPreview">
-    <!--<img src=<?php echo require("../model/getProfilePicPath.php"); ?> alt="profilePic" id="output" width"200">-->
-    <?php $src = require("../model/getProfilePicPath.php"); ?>
+    <?php $src = $profileURL; ?>
     <img src=<?php echo ($src  . '?=' . rand()) ?> id="output" width="200" />
   </div>
   <div>
