@@ -107,50 +107,6 @@ class UserManager extends Manager
         }
     }
 
-    public function getProfilePicPath($email) {
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->bindParam(1, $email, PDO::PARAM_STR);
-        $stmt->execute(); 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        //$_SESSION['id'] = "default";
-        
-        
-        // folder from where its executed
-        //$directory = getcwd();
-        // or the parent folder from where its executed
-        //$directory = dirname(getcwd());
-        
-        // other solution the parent directory of the file folder
-        // $directory = dirname(dirname(__FILE__));
-
-        $dataDir = "./data/";
-        $default = "default";
-        $fileName = "/profilePicture";
-        $result = $dataDir . $default . $fileName . ".jpg";
-
-
-
-        if ($user['google_token'] != null) {
-            $url = $user['profile_url'];
-            if (filter_var($url, FILTER_VALIDATE_URL)) {
-                $result = $url;
-                return $result;
-            }
-        }
-        if (!empty($_SESSION["id"])) {
-            $path = $dataDir . $_SESSION["id"] . $fileName;
-            //echo $path;
-            if (is_readable($path . ".jpg")) {
-                //echo ".jpg";
-                $result = $path . ".jpg"; 
-            } elseif (is_readable(".".$path . ".jpg")) {
-                $result = $path . ".jpg";
-            }
-        }
-        return $result;
-    }
-
     public function getProfilePicturePath($userId = null) {
         if ($userId == null) {
             $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
