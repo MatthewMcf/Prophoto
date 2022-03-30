@@ -296,6 +296,9 @@ class PictureManager extends Manager
                     $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
                 }
                 if (empty($errors)) {
+                    if (!file_exists($dataDir . $user)) {
+                        mkdir($dataDir . $user);
+                    }
                     if (!file_exists($dataDir . $user ."/original/")) {
                         mkdir($dataDir . $user ."/original/");
                         mkdir($dataDir . $user ."/medium/");

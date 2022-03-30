@@ -176,8 +176,9 @@ var loadFile = function (event) {
     var image = document.getElementById("modalProfilePic");
     var uploadedImage = event.target.files[0];
     let updateButton = document.querySelector(".updateButton");
+    let newUpdateButton = updateButton.cloneNode(true);
     image.src = URL.createObjectURL(uploadedImage);
-    updateButton.addEventListener("click", function (evt1) {
+    newUpdateButton.addEventListener("click", function (evt1) {
         evt1.preventDefault();
         let message = document.getElementById("message");
         message.innerHTML = "Uploading...";
@@ -218,6 +219,8 @@ var loadFile = function (event) {
         // Send the data.
         xhr.send(formData);
     });
+    updateButton.parentNode.insertBefore(newUpdateButton, updateButton);
+    updateButton.parentNode.removeChild(updateButton);
 };
 
 function setModalUploadPic() {
@@ -255,8 +258,9 @@ var loadUploadedImage = function (event) {
     var image = document.getElementById("modalUploadedImage");
     var uploadedImage = event.target.files[0];
     let updateButton = document.querySelector(".updateButton");
+    let newUpdateButton = updateButton.cloneNode(true);
     image.src = URL.createObjectURL(uploadedImage);
-    updateButton.addEventListener("click", function (evt1) {
+    newUpdateButton.addEventListener("click", function (evt1) {
         evt1.preventDefault();
         let message = document.getElementById("message");
         message.innerHTML = "Uploading...";
@@ -293,8 +297,10 @@ var loadUploadedImage = function (event) {
             //var message_req = xhr.responseText;
             //alert(message_req);
         };
-
         // Send the data.
         xhr.send(formData);
     });
+
+    updateButton.parentNode.insertBefore(newUpdateButton, updateButton);
+    updateButton.parentNode.removeChild(updateButton);
 };
