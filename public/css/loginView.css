@@ -28,7 +28,7 @@ li {
 #loginForm p {
 	margin-bottom: 0.5rem;
 }
-#loginFalse {
+.loginFalse {
 	color: red;
 	font-size: 0.8rem;
 }

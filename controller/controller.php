@@ -14,11 +14,10 @@ function registerView(){
     require("./view/register.php");
 }
 
-
 function registerAction ($params){
     $userManager = new UserManager();
     $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
-    header("Location:index.php?action=loginView");
+    header("Location:index.php?action=homepage&register=true");
 }
 
 function insertUser($params) {
@@ -35,15 +34,15 @@ function loginView (){
 
 function loginAction ($params){
     $userManager = new UserManager();
-    $loginResult = $userManager->loginAction($params["email"], $params["pwd"]);
+    $loginResult = $userManager->loginAction($params["emailLogin"], $params["pwdLogin"]);
     if ($loginResult) {
         header('Location:index.php?action=homepage');
     } else {
-        header('Location:index.php?action=loginView&login=false');
+        header('Location:index.php?action=homepage&login=false');
     }
 }
 
-function logoutAction($params) {
+function logoutAction() {
     session_destroy();
     header('Location:index.php?action=homepage');
 }
