@@ -99,7 +99,7 @@ class PictureManager extends Manager
         if (!empty($data["user_id"])) {
             return (array(
                 "id" => $imageId,
-                "path" => "./data/" . $data["usser_id"] . "/small/" . $imageId . "jpg",
+                "path" => "./data/" . $data["user_id"] . "/small/" . $imageId . "jpg",
                 "title" => $data["title"],
                 "price" => $data["price"],
                 "bookmark" => $data["bookmark"],
@@ -123,7 +123,7 @@ class PictureManager extends Manager
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-        return $data.length;
+        return count($data);
     }
     
     public function getNumberImagesFromId($userId) {
@@ -133,19 +133,20 @@ class PictureManager extends Manager
         ));
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-        return $data.length;
+        return count($data);
     }
 
-    public function getRandomImages($imageslist=[]) {
+    public function getRandomImages($imagesList=[]) {
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-        if (imagesList.length<data.length){
+        if (count($imagesList)<count($data)){
             shuffle($data);
             foreach ($data as $dat) {
-                if (!in_array($dat,$imagesList)) {
-                    array_push($imagesList,$dat);
-                    $val = getSmallImage($dat);
+                $id = $dat["id"];
+                if (!in_array($id,$imagesList)) {
+                    array_push($imagesList,$id);
+                    $val = $this->getSmallImage($id);
                     return (array($imagesList,$val));
                 }
             }
@@ -161,12 +162,13 @@ class PictureManager extends Manager
         ));
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-        if (imagesList.length<data.length){
+        if (count($imagesList)<count($data)){
             shuffle($data);
             foreach ($data as $dat) {
-                if (!in_array($dat,$imagesList)) {
-                    array_push($imagesList,$dat);
-                    $val = getSmallImage($dat);
+                $id = $dat["id"];
+                if (!in_array($id,$imagesList)) {
+                    array_push($imagesList,$id);
+                    $val = getSmallImage($id);
                     return (array($imagesList,$val));
                 }
             }
@@ -203,10 +205,10 @@ class PictureManager extends Manager
             $user = "default";
         }
 
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
-        $stmt->bindParam(1, $user, PDO::PARAM_STR);
-        $stmt->execute(); 
-        $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
+        //$stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
+        //$stmt->bindParam(1, $user, PDO::PARAM_STR);
+        //$stmt->execute(); 
+        //$user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($file ?? null)) {
             $fileName = $file["name"];
@@ -248,8 +250,81 @@ class PictureManager extends Manager
 
     }
 
-    public function setImage() {
-    
+    public function setImage($file) {
+         if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        //$currentDir = getcwd();
+        $dataDir = "./data/";
+        //$currentDir = dirname(dirname(__FILE__));
+        // Store all errors
+        $errors = [];
+        
+        // Available file extensions
+        $fileExtensions = ["jpeg", "jpg", "png", "gif"];
+        
+        // get user ID if define, otherwise set to default
+        if (!empty($_SESSION["id"])) {
+            $user = $_SESSION["id"];
+        } else {
+            $user = "default";
+        }
+        echo "something1"; 
+        if (!empty($file ?? null)) {
+            $fileName = $file["name"];
+            $fileTmpName = $file["tmp_name"];
+            $fileType = $file["type"];
+            $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+            $stmt = $this->_connection->prepare("INSERT users SET profile_url = 'profilePicture.jpg' WHERE id=?");
+            $stmt->bindParam(1, $user, PDO::PARAM_STR);
+            $stmt->execute(); 
+                echo "something2 ".$fileExtension." "; 
+            $req = $this->_connection->prepare("INSERT INTO pictures (user_id) VALUES( :user_id)");
+            $req->execute(array(
+                "user_id" => $user
+            ));
+            $pictureId = $this->_connection->lastInsertId();
+
+            //$user_id = $_POST["userID"];
+            $originalPath = $dataDir . $user . "/original/". $pictureId . ".jpg";
+            $mediumPath = $dataDir. $user . "/medium/" . $pictureId . ".jpg";
+            $smallPath = $dataDir. $user . "/small/" . $pictureId . ".jpg";
+
+            //$message = "";//$uploadPath;
+            if (isset($fileName)) {
+                if (!in_array($fileExtension, $fileExtensions)) {
+                    $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
+                }
+                if (empty($errors)) {
+                    if (!file_exists($dataDir . $user)) {
+                        mkdir($dataDir . $user);
+                    }
+                    $didUpload = move_uploaded_file($fileTmpName, $originalPath);
+                    //move_uploaded_file($fileTmpName, $mediumPath);
+                    //$didUpload = move_uploaded_file($fileTmpName, $smallPath);
+                    if ($didUpload) {
+                        copy($originalPath,$mediumPath);
+                        copy($originalPath,$smallPath);
+                        echo "The image " . basename($fileName) . " has been uploaded.";
+
+                        //update profile pic path in database 
+                        //$stmt = $this->_connection->prepare("UPDATE users SET profile_url = 'profilePicture.jpg' WHERE id=?");
+                        //$stmt->bindParam(1, $user, PDO::PARAM_STR);
+                        //$stmt->execute();                 
+                    
+                    } else {
+                        echo "An error occurred while uploading. Try again.";
+                    }
+                } else {
+                    foreach ($errors as $error) {
+                        echo "The following error occured: " . $error . "\n";
+                    }
+                }
+            }
+        }
+    echo "something3"; 
+
     }
 
     public function setImageInfo($params) {
