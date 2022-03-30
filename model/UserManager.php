@@ -151,16 +151,27 @@ class UserManager extends Manager
         return $result;
     }
 
+    public function getProfilePicturePath($userId = null) {
+        if ($userId == null) {
+            $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
+        }
+        $req = $this->_connection->prepare("SELECT id, profile_url FROM users WHERE id = :id");
+        $req->execute(array(
+            "id" => $userId
+        ));
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        if (!empty($data["profile_url"])) {
+            return $data["profile_url"];
+        } else {
+            return "./data/default/profilePicture.jpg";
+        }
+    }
+    
     public function setProfilePicture($file) {
         if(!isset($_SESSION)) { 
             session_start(); 
         }
-        //echo $_FILES['profilePicture']['type']."<br>";
-        //echo $_FILES['profilePicture']['name']."<br>";
-        //echo $_FILES['profilePicture']['size']."<br>";
-        //echo $_FILES['profilePicture']['tmp_name']."<br>";
-        //echo exec('whoami');
-        //move_uploaded_file($_POST["file"], "./data/test.png");
         
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -177,11 +188,6 @@ class UserManager extends Manager
         } else {
             $user = "default";
         }
-
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
-        $stmt->bindParam(1, $user, PDO::PARAM_STR);
-        $stmt->execute(); 
-        $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($file ?? null)) {
             $fileName = $file["name"];
@@ -205,8 +211,9 @@ class UserManager extends Manager
                         echo "The image " . basename($fileName) . " has been uploaded.";
 
                         //update profile pic path in database 
-                        $stmt = $this->_connection->prepare("UPDATE users SET profile_url = 'profilePicture.jpg' WHERE id=?");
-                        $stmt->bindParam(1, $user, PDO::PARAM_STR);
+                        $stmt = $this->_connection->prepare("UPDATE users SET profile_url = ? WHERE id=?");
+                        $stmt->bindParam(1, $uploadPath, PDO::PARAM_STR);
+                        $stmt->bindParam(2, $user, PDO::PARAM_STR);
                         $stmt->execute();                 
                     
                     } else {

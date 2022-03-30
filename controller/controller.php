@@ -56,7 +56,7 @@ function privateProfView($params) {
 ';
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["email"]);
-        $profileURL = $userManager->getProfilePicPath($_SESSION["email"]);
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
         require("./view/privateProfView.php");     
     } else {
         require("./view/homepage.php");
