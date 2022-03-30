@@ -191,6 +191,6 @@
     </div>
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
-<script type="text/javascript" src="./public/js/Modal.js"></script>
+<!-- <script type="text/javascript" src="./public/js/Modal.js"></script> -->
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>
