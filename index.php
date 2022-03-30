@@ -25,10 +25,13 @@ try {
             }
             break;
         case "loginView" :
-            loginView($_REQUEST);
+            loginView();
             break;
         case "loginAction" :
             loginAction($_REQUEST);
+            break;
+        case "publicProfView":
+            publicProfView($_REQUEST);
             break;
         case "privateProfView":
             privateProfView($_REQUEST);

@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-<!--  -->
-<?php ob_start();?>
-<!--<link rel="stylesheet" href="./public/css/privateProfView.css">-->
-=======
 <?php //session_start();
 ?>
 <?php ob_start(); ?>
 <link rel="stylesheet" href="./public/css/privateProfView.css">
->>>>>>> fb74c7c34a15664fb03cf3d641a635ec0413047c
 <section>
     <div id="profileHeader">
         <div id="profilePic">
@@ -15,14 +9,8 @@
                 <span>Click here to update</span>
                 <span>your picture</span>
             </label>
-<<<<<<< HEAD
             <?php $src = $profileURL?>
             <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
-=======
-            <!--<img src=<?php echo require("./model/getProfilePicPath.php") ?> alt="profilePic" id="currProfilePic">-->
-            <?php $src = require("./model/getProfilePicPath.php"); ?>
-            <img src=<?php echo ($src  . '?=' . rand()) ?> alt="profilePic" id="currProfilePic" />
->>>>>>> fb74c7c34a15664fb03cf3d641a635ec0413047c
         </div>
         <div id="profileInfo">
             <div>

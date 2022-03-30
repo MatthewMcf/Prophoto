@@ -94,9 +94,9 @@ class UserManager extends Manager
         }
     }
 
-    public function getUserInfo($email) {
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->bindParam(1, $email, PDO::PARAM_STR);
+    public function getUserInfo($id) {
+        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute(); 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
