@@ -44,12 +44,13 @@
         </div>
     </div>
     <div>
-        <div class="yourPhotos">
+    <a href="index.php?action=getImagesForCurrentUser">Test</a>
+        <div class="yourPhotos uploaded">
             <div class="sectionHeader">
                 <h2>Your Uploaded Images</h2>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div class="sectionPhotos">
+            <div class="sectionPhotos" id="yourPhotosSection">
                 <div class="cardContainer">
                     <div id="addPicture">
                         <div>
@@ -58,22 +59,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="cardContainer">
+                <?php foreach($currUserCardInfos as $card){
+                    require('cardView.php');
+                }
+                ?>
+                <!-- <div class="cardContainer">
                     <div class="cardContent">
                         <button class="price">2 Credits</button>
                         <div>
                             <button class="editPic btnHollowSecondary">Edit</button>
                         </div>
                     </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div>
-                            <button class="editPic btnHollowSecondary">Edit</button>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
+                <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos liked">
@@ -191,6 +189,8 @@
     </div>
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
+<script type="text/javascript" src="./public/js/card.js"></script>
+
 <!-- <script type="text/javascript" src="./public/js/Modal.js"></script> -->
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

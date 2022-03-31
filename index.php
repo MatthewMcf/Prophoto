@@ -9,7 +9,7 @@ try {
             homepage();
             break;
         case 'photo':
-            photo();
+            photo($_REQUEST);
             break;
         case "registerView" :
             registerView();
@@ -44,6 +44,9 @@ try {
             break;
         case "logoutAction":
             logoutAction($_REQUEST);
+            break;
+        case "getImagesForCurrentUser":
+            getImagesForCurrentUser($_REQUEST);
             break;
         default :
             homepage();

@@ -1,28 +1,27 @@
 <?php //ob_start(); ?>
 <div class="imageContainer">
-    <?php $path = (isset($_REQUEST['path'])) ? $_REQUEST['path'] : null; ?>
-    <img src="<?php echo $path ?>" alt="picture">
+    <img src="<?= $photo["path"] ?>" alt="picture">
 </div>
 
 <div class="imageInfo">
     <div class="leftContainer">
         <div class="photographerInfo">
             <div id="profilePicure">
-                <img class="icon" src="./public/images/default_profile_picture.png" alt="profile picture">
+            <a href="index.php?action=publicProfView&requested_id=<?=$photo["userID"]?>"><img class="icon" src="<?= $photo["profilePicture"] ?>" alt="profile picture"></a>
             </div>
             <div id="photographerName">
-                <a href="#"><?php $getUserFromDB = false;  echo $getUserFromDB ? 'userName' : 'Default' ?></a> 
+                <a href="index.php?action=publicProfView&requested_id=<?=$photo["userID"]?>"><?=$photo["username"]?></a> 
             </div>
         </div>
         <div id="descriptorContainer">
-            <div id="imageTitle">Title: Profile Picture</div>
-            <div id="imageDescription">Description: This is a default profile picture</div>
+            <div id="imageTitle">Title: <?= $photo["title"] ?></div>
+            <div id="imageDescription">Description:<?php $photo["description"] ?></div>
         </div>
     </div>
 
     <div class="rightContainer">
         <div id="purchaseContainer">
-            <div id="imagePrice">$5</div>
+            <div id="imagePrice"><?= $photo["price"] ?> Credits</div>
             <button class="purchaseButton btnPrimary">Purchase</button>
         </div>
     </div>

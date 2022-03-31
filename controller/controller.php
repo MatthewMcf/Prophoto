@@ -8,8 +8,11 @@ function homepage()
     require("./view/homepage.php");
 }
 
-function photo(){
-    require("./view/photo.php");
+function photo($params){
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->getImage($params["photo-id"]);
+    
+    require("./view/ModalPhotoView.php");
 }
 
 function registerView(){
@@ -64,6 +67,25 @@ function privateProfView($params) {
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+
+        //Get images for current user
+        $pictureManager = new PictureManager();
+        
+        // echo $params['currUserLimit'];
+
+        //Array of picture IDs for current user
+
+        if (isset($params['currUserLimit'])) {
+            $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"], $params['currUserLimit']);
+        } else {
+            $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"]);
+        }
+
+        $currUserCardInfos = [];
+        foreach($currUserImages as $image) {
+            array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
+        }
+
         require("./view/privateProfView.php");     
     } else {
         require("./view/homepage.php");
@@ -79,3 +101,9 @@ function uploadImage($params) {
     $pictureManager = new PictureManager();
     $pictureManager->setImage($_FILES["fileAjax"]);
 }
+
+// function getImagesForCurrentUser($params) {
+//     $pictureManager = new PictureManager();
+//     $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"]);
+//     print_r ($currUserImages);
+// }
