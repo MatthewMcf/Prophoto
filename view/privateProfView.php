@@ -1,7 +1,6 @@
 <?php //session_start();
 ?>
 <?php ob_start(); ?>
-<link rel="stylesheet" href="./public/css/privateProfView.css">
 <section>
     <div id="profileHeader">
         <div id="profilePic">
