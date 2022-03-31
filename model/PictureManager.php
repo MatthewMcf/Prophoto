@@ -348,6 +348,25 @@ class PictureManager extends Manager
             unlink($filepath);
         } else {
         }
+
+        $sql = $this->_connection->"DELETE FROM MyGuests WHERE id=3";
+
+        // use exec() because no results are returned
+        $conn->exec($sql);
+    }
+
+    public function getImageTags()
+    {
+        $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
+        $req->execute(array(
+            "user_id" => $userId,
+            "image_id" => $image_id
+        ));
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        $str_arr = explode(",", $data);
+        print_r($str_arr);
     }
 
     // public function prepareDirectories($user_id) {
