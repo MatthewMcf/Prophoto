@@ -47,136 +47,19 @@
             </div>
             <div id="sectionPhotosPublic">
                 <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent">
-                        <button class="price">2 Credits</button>
-                        <div class="likeContainer">
-                            <div class="likeSelected">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                        <div class="purchase">
-                            <button class="btnPrimary">purchase</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php foreach($currUserCardInfos as $card){
+                    require('cardViewPublic.php');
+                }
+                ?>
+                <a href="index.php?action=publicProfView&requested_id=<?=$requestedUser["id"]?>&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+
+          </div>
         </div>
     </div>
 </section>
 <script type="text/javascript" src="./public/js/script.js" defer></script>
 <script type="text/javascript" src="./public/js/Modal.js" defer></script>
+<script type="text/javascript" src="./public/js/card.js" defer></script>
+
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

@@ -56,6 +56,19 @@ function publicProfView($params) {
     $userManager = new UserManager();
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
+
+    //Get images for this user
+    $pictureManager = new PictureManager();
+    if (isset($params['currUserLimit'])) {
+        $currUserImages = $pictureManager->getImagesFromId($params["requested_id"], $params['currUserLimit']);
+    } else {
+        $currUserImages = $pictureManager->getImagesFromId($params["requested_id"]);
+    }
+    $currUserCardInfos = [];
+    foreach($currUserImages as $image) {
+        array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
+    }
+
     require("./view/publicProfileView.php");     
 }
 

@@ -43,11 +43,11 @@ addPicture.addEventListener("click", function () {
 });
 
 // Show more cards of user's images
-let showMoreCurrent = document.querySelector("#showMoreCurrent");
-showMoreCurrent.addEventListener("click", () => {
-    let yourPhotos = document.querySelector("#yourPhotosSection");
-    for (let i = 0; i < 3; i++) {
-        let currCard = createCard();
-        showMoreCurrent.parentNode.insertBefore(currCard, showMoreCurrent);
-    }
-});
+// let showMoreCurrent = document.querySelector("#showMoreCurrent");
+// showMoreCurrent.addEventListener("click", () => {
+//     let yourPhotos = document.querySelector("#yourPhotosSection");
+//     for (let i = 0; i < 3; i++) {
+//         let currCard = createCard();
+//         showMoreCurrent.parentNode.insertBefore(currCard, showMoreCurrent);
+//     }
+// });
