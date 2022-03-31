@@ -8,13 +8,11 @@ class ImageCreation
     {
         $this->source = $sourceImagePath;
     }
-    
+    // take the path source image and return an Gdimage object
     private function fromPngAndJpeg() 
     {
         $sourcePath = $this->source;
-        //$fileExtension = substr(strrchr($sourceImg, '.'), 1); //end(explode('.', $tempName)); 
         $fileExtension = strtolower(pathinfo($this->source,PATHINFO_EXTENSION));
-        echo "file extension = " . $fileExtension;
         if ($fileExtension === "jpeg") {
             $result = imagecreatefromjpeg($sourcePath);
         } else if ($fileExtension === "jpg") {
@@ -27,9 +25,12 @@ class ImageCreation
         return $result;
     }
 
+    // resize the source image (png or jpg)to a new size (the width size with newWidth in pixel) 
+    // and save it into the destinationPath in jpg format
+    // the ratio remain the same
     public function createImage($destImagePath, $newWidth=100)
     {
-        $sourceImage = $this->fromPngAndJpeg(); //imagecreatefromjpeg($this->source);
+        $sourceImage = $this->fromPngAndJpeg();
         $originWidth = imagesx($sourceImage);
         $originHeight = imagesy($sourceImage);
         $newHeight = floor($originHeight * ($newWidth / $originWidth));
@@ -40,9 +41,11 @@ class ImageCreation
         imagedestroy($destImage);
     }
 
+    // Transform the source image into a square by cuting the extra part (width or height) and save it into destImagePath
+    // the source image can be a png, jpg or jpeg file and the result (destination) file will be a always a jpg file
     public function createSquare($destImagePath)
     {
-        $sourceImage = $this->fromPngAndJpeg(); //imagecreatefromjpeg($this->source);
+        $sourceImage = $this->fromPngAndJpeg();
         $originWidth = imagesx($sourceImage);
         $originHeight = imagesy($sourceImage);
         $destSize = ($originWidth>$originHeight)? $originHeight: $originWidth;

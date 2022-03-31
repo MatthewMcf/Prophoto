@@ -1,5 +1,6 @@
 <?php
 require_once("./model/UserManager.php");
+require_once("./model/PictureManager.php");
 
 function homepage()
 {
