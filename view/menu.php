@@ -13,8 +13,6 @@
         </nav>
     </div>
 
-
-
     <?php } else {        
     ?>
 
@@ -22,13 +20,24 @@
     <div id="menuBar">
         <div><a href="index.php?action=homepage"><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
         <nav>
-        <a href="index.php?action=loginView"><button class="btnPrimary">Log In</button><a>
-            <a href="index.php?action=registerView"><button class="btnSecondary">Register</button></a>
+            <button class="btnPrimary" id="login">Log In</button>
+            <button class="btnSecondary" id="register">Register</button>
         </nav>
     </div>
-
-
-
+    <?php if(isset($_REQUEST["register"]) AND $_REQUEST["register"] === "true"): ?>
+        <script>
+            let registerTrue = document.createElement("span");
+            registerTrue.id = "registerTrue";
+            document.querySelector("#menuBar nav").appendChild(registerTrue);
+        </script>
+    <?php endif; ?>
+    <?php if(isset($_REQUEST["login"]) AND $_REQUEST["login"] === "false"): ?>
+        <script>
+            let loginFalse = document.createElement("span"); 
+            loginFalse.id = "loginFalse";
+            document.querySelector("#menuBar nav").appendChild(loginFalse);
+        </script>
+    <?php endif; ?>
     <?php } ?>
 </header>
 

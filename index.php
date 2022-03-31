@@ -25,7 +25,7 @@ try {
             }
             break;
         case "loginView" :
-            loginView();
+            loginView($_REQUEST);
             break;
         case "loginAction" :
             loginAction($_REQUEST);
@@ -35,6 +35,9 @@ try {
             break;
         case "setProfilePicture":
             setProfilePicture($_REQUEST);
+            break;
+        case "uploadImage":
+            uploadImage($_REQUEST);
             break;
         case "logoutAction":
             logoutAction($_REQUEST);

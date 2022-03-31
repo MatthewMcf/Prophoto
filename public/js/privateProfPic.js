@@ -19,3 +19,9 @@ for (let i = 0; i < editPic.length; i++) {
         setModalEditPic();
     });
 }
+
+// Trigger Modal to upload a photo
+let addPicture = document.querySelector("#addPicture");
+addPicture.addEventListener("click", function () {
+    setModalUploadPic();
+});
