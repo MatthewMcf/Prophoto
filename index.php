@@ -39,6 +39,12 @@ try {
         case "setProfilePicture":
             setProfilePicture($_REQUEST);
             break;
+        case "photoEdit":
+            photoEdit($_REQUEST);
+            break;
+        case "submitPhotoEdit":
+            submitPhotoEdit($_REQUEST);
+            break;
         case "uploadImage":
             uploadImage($_REQUEST);
             break;

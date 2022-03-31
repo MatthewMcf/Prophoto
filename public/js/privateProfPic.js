@@ -16,7 +16,7 @@ let editPic = document.querySelectorAll(".editPic");
 for (let i = 0; i < editPic.length; i++) {
     editPic[i].addEventListener("click", function (e) {
         e.stopPropagation();
-        setModalEditPic();
+        setModalEditPic(e);
     });
 }
 

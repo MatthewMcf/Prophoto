@@ -102,8 +102,16 @@ function uploadImage($params) {
     $pictureManager->setImage($_FILES["fileAjax"]);
 }
 
-// function getImagesForCurrentUser($params) {
-//     $pictureManager = new PictureManager();
-//     $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"]);
-//     print_r ($currUserImages);
-// }
+function photoEdit($params) {
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->getImage($params["photo-id"]);
+
+    require("./view/ModalPhotoEdit.php");
+}
+
+function submitPhotoEdit($params){
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->setImageInfo($params);
+
+    privateProfView($params);
+}

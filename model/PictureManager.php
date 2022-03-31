@@ -349,7 +349,14 @@ class PictureManager extends Manager
     }
 
     public function setImageInfo($params) {
+        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=? WHERE id=?");
+        $stmt->bindParam(1, $params["title"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $params["description"], PDO::PARAM_STR);
+        $stmt->bindParam(3, $params["price"], PDO::PARAM_STR);
+        $stmt->bindParam(4, $params["photo-id"], PDO::PARAM_INT);
 
+        $stmt->execute(); 
+        $stmt->closeCursor();
     }
 
     public function deleteImage($imageId) {

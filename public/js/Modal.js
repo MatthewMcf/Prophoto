@@ -108,13 +108,18 @@ function setModalProfileInfo() {
 }
 
 // Edit Picture Info
-function setModalEditPic() {
+function setModalEditPic(e) {
     // Set up the request
     var xhr = new XMLHttpRequest();
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./view/modalPhotoEdit.php");
+    xhr.open(
+        "GET",
+        `index.php?action=photoEdit&photo-id=${e.target.getAttribute(
+            "image-id"
+        )}`
+    );
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
