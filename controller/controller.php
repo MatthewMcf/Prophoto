@@ -5,6 +5,20 @@ require_once("./model/PictureManager.php");
 
 function homepage()
 {
+    $pictureObj = new PictureManager();
+    $nbToDisplay = $pictureObj->getNumberImages();
+    if ($nbToDisplay>0) {
+        $isThereImage = true;
+        $nbToDisplay = (6<$nbToDisplay)? 6: $nbToDisplay;
+        $oneCardInfo = $pictureObj->getRandomImages();
+        $homePageCardInfos = array($oneCardInfo["imageInfo"]);
+        for ($i=1; $i<$nbToDisplay; $i++) {
+            $oneCardInfo = $pictureObj->getRandomImages($oneCardInfo["imageList"]);
+            array_push($homePageCardInfos, $oneCardInfo["imageInfo"]);
+        }
+    } else {
+        $isThereImage = false;
+    }
     require("./view/homepage.php");
 }
 

@@ -53,7 +53,7 @@ if(!isset($_SESSION)) {
 
 
 	<h2>Heading about the basic images</h2>
-	<div id="popularImages">
+	<!--<div id="popularImages">
     <div class="cardContainer">
         <div class="cardContent photoCard" path="public/images/seoul.jpeg">
             <button class="price">2 Credits</button>
@@ -118,8 +118,13 @@ if(!isset($_SESSION)) {
                 <button class="btnPrimary">purchase</button> 
             </div>
         </div>
+    </div>-->
+    <div id="popularImages">
+        <?php foreach($homePageCardInfos as $card){
+            require('homePageCardView.php');
+        }
+        ?>
     </div>
-
 	<div id="sectionTwo">
 		<div id="aboutUs">
 			<h2>About proPhoto</h2>

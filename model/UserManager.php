@@ -128,16 +128,13 @@ class UserManager extends Manager
         if(!isset($_SESSION)) { 
             session_start(); 
         }
-        
         //$currentDir = getcwd();
         $dataDir = "./data/";
         //$currentDir = dirname(dirname(__FILE__));
         // Store all errors
         $errors = [];
-        
         // Available file extensions
-        $fileExtensions = ["jpeg", "jpg", "png", "gif"];
-        
+        $fileExtensions = ["jpeg", "jpg", "png"];
         // get user ID if define, otherwise set to default
         if (!empty($_SESSION["id"])) {
             $user = $_SESSION["id"];
@@ -148,33 +145,38 @@ class UserManager extends Manager
         if (!empty($file ?? null)) {
             $fileName = $file["name"];
             $fileTmpName = $file["tmp_name"];
-            $fileType = $file["type"];
+            //$fileType = $file["type"];
             $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-        
-            //$user_id = $_POST["userID"];
+            // create file-path to manipulate the image
+            $defaultOnePath = $dataDir . "default/tempOne." . $fileExtension;
+            $defaultTwoPath = $dataDir . "default/tempTwo.jpg";
             $uploadPath = $dataDir . $user . "/profilePicture.jpg";
-            //$message = "";//$uploadPath;
+            
             if (isset($fileName)) {
                 if (!in_array($fileExtension, $fileExtensions)) {
-                    $errors[] = "JPEG, JPG, PNG and GIF images are only supported";
+                    $errors[] = "JPEG, JPG and PNG images are only supported (maybe GIF in a future update ..)";
                 }
                 if (empty($errors)) {
                     if (!file_exists($dataDir . $user)) {
                         mkdir($dataDir . $user);
                     }
-                    $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-                    if ($didUpload) {
-                        echo "The image " . basename($fileName) . " has been uploaded.";
-
-                        //update profile pic path in database 
-                        $stmt = $this->_connection->prepare("UPDATE users SET profile_url = ? WHERE id=?");
-                        $stmt->bindParam(1, $uploadPath, PDO::PARAM_STR);
-                        $stmt->bindParam(2, $user, PDO::PARAM_STR);
-                        $stmt->execute();                 
+                    $didUpload = move_uploaded_file($fileTmpName, $defaultOnePath);
+                    // create a square image
+                    $objThumbImage = new ImageCreation($defaultOnePath);
+                    $objThumbImage->createSquare($defaultTwoPath);
+                    // downsize the image
+                    $objThumbImage = new ImageCreation($defaultTwoPath);
+                    $objThumbImage->createImage($uploadPath, 200);
+                    // delete the unused temporary files
+                    unlink($defaultTwoPath);
+                    unlink($defaultOnePath);       
+                    echo "The image " . basename($fileName) . " has been uploaded.";
+                    //update profile pic path in database 
+                    $stmt = $this->_connection->prepare("UPDATE users SET profile_url = ? WHERE id=?");
+                    $stmt->bindParam(1, $uploadPath, PDO::PARAM_STR);
+                    $stmt->bindParam(2, $user, PDO::PARAM_STR);
+                    $stmt->execute();                 
                     
-                    } else {
-                        echo "An error occurred while uploading. Try again.";
-                    }
                 } else {
                     foreach ($errors as $error) {
                         echo "The following error occured: " . $error . "\n";
