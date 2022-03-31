@@ -9,8 +9,8 @@
                 <span>Click here to update</span>
                 <span>your picture</span>
             </label>
-            <?php $src = $profileURL?>
-            <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
+            <?php $src = $profileURL ?>
+            <img src=<?php echo ($src  . '?=' . rand()) ?> alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
             <div>
@@ -191,6 +191,6 @@
     </div>
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
-<!-- <script type="text/javascript" src="./public/js/Modal.js"></script> -->
+<script type="text/javascript" src="./public/js/Modal.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>
