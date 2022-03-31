@@ -94,9 +94,9 @@ class UserManager extends Manager
         }
     }
 
-    public function getUserInfo($email) {
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->bindParam(1, $email, PDO::PARAM_STR);
+    public function getUserInfo($id) {
+        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute(); 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -107,60 +107,27 @@ class UserManager extends Manager
         }
     }
 
-    public function getProfilePicPath($email) {
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
-        $stmt->bindParam(1, $email, PDO::PARAM_STR);
-        $stmt->execute(); 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        //$_SESSION['id'] = "default";
-        
-        
-        // folder from where its executed
-        //$directory = getcwd();
-        // or the parent folder from where its executed
-        //$directory = dirname(getcwd());
-        
-        // other solution the parent directory of the file folder
-        // $directory = dirname(dirname(__FILE__));
-
-        $dataDir = "./data/";
-        $default = "default";
-        $fileName = "/profilePicture";
-        $result = $dataDir . $default . $fileName . ".jpg";
-
-
-
-        if ($user['google_token'] != null) {
-            $url = $user['profile_url'];
-            if (filter_var($url, FILTER_VALIDATE_URL)) {
-                $result = $url;
-                return $result;
-            }
+    public function getProfilePicturePath($userId = null) {
+        if ($userId == null) {
+            $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
         }
-        if (!empty($_SESSION["id"])) {
-            $path = $dataDir . $_SESSION["id"] . $fileName;
-            //echo $path;
-            if (is_readable($path . ".jpg")) {
-                //echo ".jpg";
-                $result = $path . ".jpg"; 
-            } elseif (is_readable(".".$path . ".jpg")) {
-                $result = $path . ".jpg";
-            }
+        $req = $this->_connection->prepare("SELECT id, profile_url FROM users WHERE id = :id");
+        $req->execute(array(
+            "id" => $userId
+        ));
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        if (!empty($data["profile_url"])) {
+            return $data["profile_url"];
+        } else {
+            return "./data/default/profilePicture.jpg";
         }
-        return $result;
     }
-
+    
     public function setProfilePicture($file) {
         if(!isset($_SESSION)) { 
             session_start(); 
         }
-        //echo $_FILES['profilePicture']['type']."<br>";
-        //echo $_FILES['profilePicture']['name']."<br>";
-        //echo $_FILES['profilePicture']['size']."<br>";
-        //echo $_FILES['profilePicture']['tmp_name']."<br>";
-        //echo exec('whoami');
-        //move_uploaded_file($_POST["file"], "./data/test.png");
         
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -177,11 +144,6 @@ class UserManager extends Manager
         } else {
             $user = "default";
         }
-
-        $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
-        $stmt->bindParam(1, $user, PDO::PARAM_STR);
-        $stmt->execute(); 
-        $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($file ?? null)) {
             $fileName = $file["name"];
@@ -205,8 +167,9 @@ class UserManager extends Manager
                         echo "The image " . basename($fileName) . " has been uploaded.";
 
                         //update profile pic path in database 
-                        $stmt = $this->_connection->prepare("UPDATE users SET profile_url = 'profilePicture.jpg' WHERE id=?");
-                        $stmt->bindParam(1, $user, PDO::PARAM_STR);
+                        $stmt = $this->_connection->prepare("UPDATE users SET profile_url = ? WHERE id=?");
+                        $stmt->bindParam(1, $uploadPath, PDO::PARAM_STR);
+                        $stmt->bindParam(2, $user, PDO::PARAM_STR);
                         $stmt->execute();                 
                     
                     } else {

@@ -9,7 +9,7 @@ try {
             homepage();
             break;
         case 'photo':
-            photo();
+            photo($_REQUEST);
             break;
         case "registerView":
             registerView();
@@ -25,16 +25,25 @@ try {
             }
             break;
         case "loginView":
-            loginView($_REQUEST);
+            loginView();
             break;
         case "loginAction":
             loginAction($_REQUEST);
+            break;
+        case "publicProfView":
+            publicProfView($_REQUEST);
             break;
         case "privateProfView":
             privateProfView($_REQUEST);
             break;
         case "setProfilePicture":
             setProfilePicture($_REQUEST);
+            break;
+        case "photoEdit":
+            photoEdit($_REQUEST);
+            break;
+        case "submitPhotoEdit":
+            submitPhotoEdit($_REQUEST);
             break;
         case "uploadImage":
             uploadImage($_REQUEST);
@@ -45,6 +54,9 @@ try {
         case "removeImage":
             removeImage($_POST);
             break;
+            // case "getImagesForCurrentUser":
+            //     getImagesForCurrentUser($_REQUEST);
+            //     break;
         default:
             homepage();
             break;

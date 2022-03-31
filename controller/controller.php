@@ -8,9 +8,12 @@ function homepage()
     require("./view/homepage.php");
 }
 
-function photo()
+function photo($params)
 {
-    require("./view/photo.php");
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->getImage($params["photo-id"]);
+
+    require("./view/ModalPhotoView.php");
 }
 
 function registerView()
@@ -56,15 +59,42 @@ function logoutAction()
     header('Location:index.php?action=homepage');
 }
 
+function publicProfView($params)
+{
+    $userManager = new UserManager();
+    $requestedUser = $userManager->getUserInfo($params['requested_id']);
+    $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
+    require("./view/publicProfileView.php");
+}
+
 function privateProfView($params)
 {
-    if (isset($_SESSION["email"])) {
+    if (isset($_SESSION["id"])) {
+        // echo($_SESSION["id"]);
         // set the link variable to get the correct css files for the view private profile
-        $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">
-';
+        $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">';
         $userManager = new UserManager();
-        $user = $userManager->getUserInfo($_SESSION["email"]);
-        $profileURL = $userManager->getProfilePicPath($_SESSION["email"]);
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+
+        //Get images for current user
+        $pictureManager = new PictureManager();
+
+        // echo $params['currUserLimit'];
+
+        //Array of picture IDs for current user
+
+        if (isset($params['currUserLimit'])) {
+            $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"], $params['currUserLimit']);
+        } else {
+            $currUserImages = $pictureManager->getImagesFromId($_SESSION["id"]);
+        }
+
+        $currUserCardInfos = [];
+        foreach ($currUserImages as $image) {
+            array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
+        }
+
         require("./view/privateProfView.php");
     } else {
         require("./view/homepage.php");
@@ -87,4 +117,19 @@ function removeImage($params)
 {
     $pictureManager = new PictureManager();
     $pictureManager->deleteImage($params["fileAjax"]);
+}
+function photoEdit($params)
+{
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->getImage($params["photo-id"]);
+
+    require("./view/ModalPhotoEdit.php");
+}
+
+function submitPhotoEdit($params)
+{
+    $pictureManager = new PictureManager();
+    $photo = $pictureManager->setImageInfo($params);
+
+    privateProfView($params);
 }

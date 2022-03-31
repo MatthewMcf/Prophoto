@@ -64,14 +64,15 @@ class PictureManager extends Manager
         if (!empty($data["user_id"])) {
             return (array(
                 "id" => $imageId,
-                "path" => "./data/" . $data["usser_id"] . "/medium/" . $imageId . "jpg",
+                "path" => "./data/" . $data["user_id"] . "/medium/" . $imageId . ".jpg",
                 "title" => $data["title"],
                 "description" => $data["description"],
                 "tags" => $data["tags"],
                 "price" => $data["price"],
                 "bookmark" => $data["bookmark"],
                 "username" => $userData["username"],
-                "profilePicture" => $userData["profilePath"]
+                "profilePicture" => $userData["profilePath"],
+                "userID" => $data["user_id"]
             ));
         } else {
             return (array(
@@ -88,7 +89,7 @@ class PictureManager extends Manager
         }
     }
 
-    private function getSmallImage($imageId)
+    public function getSmallImage($imageId)
     {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
@@ -103,7 +104,7 @@ class PictureManager extends Manager
         if (!empty($data["user_id"])) {
             return (array(
                 "id" => $imageId,
-                "path" => "./data/" . $data["user_id"] . "/small/" . $imageId . "jpg",
+                "path" => "./data/" . $data["user_id"] . "/small/" . $imageId . ".jpg",
                 "title" => $data["title"],
                 "price" => $data["price"],
                 "bookmark" => $data["bookmark"],
@@ -183,6 +184,22 @@ class PictureManager extends Manager
         } else {
             return "default";
         }
+    }
+
+    public function getImagesFromId($userId, $limit = null)
+    {
+
+        $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT 5");
+        if ($limit) {
+            $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT ?");
+            $stmt->bindParam(2, $limit, PDO::PARAM_INT);
+        }
+
+        $stmt->bindParam(1, $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $data;
     }
 
     public function getLikedImages($imagesList = [])
@@ -340,6 +357,14 @@ class PictureManager extends Manager
 
     public function setImageInfo($params)
     {
+        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=? WHERE id=?");
+        $stmt->bindParam(1, $params["title"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $params["description"], PDO::PARAM_STR);
+        $stmt->bindParam(3, $params["price"], PDO::PARAM_STR);
+        $stmt->bindParam(4, $params["photo-id"], PDO::PARAM_INT);
+
+        $stmt->execute();
+        $stmt->closeCursor();
     }
 
     public function deleteImage($filepath)
@@ -349,19 +374,16 @@ class PictureManager extends Manager
         } else {
         }
 
-        $sql = $this->_connection->"DELETE FROM MyGuests WHERE id=3";
-
-        // use exec() because no results are returned
-        $conn->exec($sql);
+        $sql = $this->_connection->exec("DELETE FROM MyGuests WHERE id=3");
     }
 
     public function getImageTags()
     {
         $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
-        $req->execute(array(
-            "user_id" => $userId,
-            "image_id" => $image_id
-        ));
+        // $req->execute(array(
+        //     "user_id" => $userId,
+        //     "image_id" => $image_id
+        // ));
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
 
