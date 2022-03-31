@@ -105,7 +105,8 @@ class PictureManager extends Manager
                 "price" => $data["price"],
                 "bookmark" => $data["bookmark"],
                 "username" => $userData["username"],
-                "profilePicture" => $userData["profilePath"]
+                "profilePicture" => $userData["profilePath"],
+                "userID" => $data["user_id"]
             ));
         } else {
             return (array(

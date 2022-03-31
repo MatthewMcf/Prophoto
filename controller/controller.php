@@ -68,7 +68,7 @@ function publicProfView($params) {
     foreach($currUserImages as $image) {
         array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
     }
-
+    
     require("./view/publicProfileView.php");     
 }
 

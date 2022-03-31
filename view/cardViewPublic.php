@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="cardInfo">
-        <a href="">
+        <a href="?action=publicProfView&requested_id=<?=$card["userID"]?>">
             <div class="photographerInfo">
                 <div class="photographerSmallProfilePic"></div>
                 <h4><?=$card["username"]?></h4>
