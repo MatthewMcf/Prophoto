@@ -44,7 +44,6 @@
         </div>
     </div>
     <div>
-    <a href="index.php?action=getImagesForCurrentUser">Test</a>
         <div class="yourPhotos uploaded">
             <div class="sectionHeader">
                 <h2>Your Uploaded Images</h2>
