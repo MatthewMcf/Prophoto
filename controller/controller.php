@@ -69,7 +69,7 @@ function privateProfView($params)
     if (isset($_SESSION["id"])) {
         // echo($_SESSION["id"]);
         // set the link variable to get the correct css files for the view private profile
-        $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">';
+        $link = '<link rel="stylesheet" href="./public/css/privateProfView.css">';
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
