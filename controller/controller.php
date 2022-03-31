@@ -8,33 +8,39 @@ function homepage()
     require("./view/homepage.php");
 }
 
-function photo(){
+function photo()
+{
     require("./view/photo.php");
 }
 
-function registerView(){
+function registerView()
+{
     require("./view/register.php");
 }
 
-function registerAction ($params){
+function registerAction($params)
+{
     $userManager = new UserManager();
     $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
     header("Location:index.php?action=homepage&register=true");
 }
 
-function insertUser($params) {
+function insertUser($params)
+{
     $userManager = new UserManager();
     $userManager->insertUser($params['google_token'], $params['email'], $params['profile_url']);
-    
+
     // require_once("./connection.php");
-    
+
     echo "index.php";
 }
-function loginView (){
+function loginView()
+{
     require("./view/login.php");
 }
 
-function loginAction ($params){
+function loginAction($params)
+{
     $userManager = new UserManager();
     $loginResult = $userManager->loginAction($params["emailLogin"], $params["pwdLogin"]);
     if ($loginResult) {
@@ -44,12 +50,14 @@ function loginAction ($params){
     }
 }
 
-function logoutAction() {
+function logoutAction()
+{
     session_destroy();
     header('Location:index.php?action=homepage');
 }
 
-function privateProfView($params) {
+function privateProfView($params)
+{
     if (isset($_SESSION["email"])) {
         // set the link variable to get the correct css files for the view private profile
         $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">
@@ -57,19 +65,26 @@ function privateProfView($params) {
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["email"]);
         $profileURL = $userManager->getProfilePicPath($_SESSION["email"]);
-        require("./view/privateProfView.php");     
+        require("./view/privateProfView.php");
     } else {
         require("./view/homepage.php");
     }
-
 }
 
-function setProfilePicture($params) {
+function setProfilePicture($params)
+{
     $userManager = new UserManager();
     $userManager->setProfilePicture($_FILES["fileAjax"]);
 }
 
-function uploadImage($params) {
+function uploadImage($params)
+{
     $pictureManager = new PictureManager();
     $pictureManager->setImage($_FILES["fileAjax"]);
+}
+
+function removeImage($params)
+{
+    $pictureManager = new PictureManager();
+    $pictureManager->deleteImage($params["fileAjax"]);
 }

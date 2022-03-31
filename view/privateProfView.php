@@ -1,5 +1,5 @@
 <!--  -->
-<?php ob_start();?>
+<?php ob_start(); ?>
 <!--<link rel="stylesheet" href="./public/css/privateProfView.css">-->
 <section>
     <div id="profileHeader">
@@ -8,12 +8,12 @@
                 <span>Click here to update</span>
                 <span>your picture</span>
             </label>
-            <?php $src = $profileURL?>
-            <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
+            <?php $src = $profileURL ?>
+            <img src=<?php echo ($src  . '?=' . rand()) ?> alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
-            <h4><?= $user['username'];?> </h4>
-            <h2><?= $user['display_name'];?></h2>
+            <h4><?= $user['username']; ?> </h4>
+            <h2><?= $user['display_name']; ?></h2>
             <p><strong>About Me:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas earum in commodi magni facilis! Soluta, perferendis ipsam possimus maiores fuga similique ducimus obcaecati laboriosam? Veniam consequatur harum repudiandae laboriosam deserunt. Fifteen More!!</p>
             <div id="socialMedia">
                 <a href="http://mywebsite.com" target="_blank"><i class="fa-solid fa-link"></i></a>
@@ -199,6 +199,6 @@
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
 <script type="text/javascript" src="./public/js/Modal.js"></script>
-<?php $content = ob_get_clean();?>
-<?php require('template.php');?>
-
+<script type="text/javascript" src="./public/js/modalPhotoEdit.js"></script>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

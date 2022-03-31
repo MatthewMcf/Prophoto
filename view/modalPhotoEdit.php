@@ -1,4 +1,4 @@
-<form action="modalPhotoEdit.php" method="post">
+<form action="index.php?action=privateProfView" method="post">
     <h2> Photo Edit </h2>
     <p id="asterisk">All fields marked with * are required</p>
     <label for="title">*Title: </label><br>
@@ -23,4 +23,6 @@
     <!-- submit button will save and return to privateProfView.php -->
     <button type="submit" class="btnPrimary">Save</button>
 </form>
+<input type="button" id="delete" class="btnSecondary deleteButton" onclick="deleteExistingImage()" value="Delete">
+
 <script type="text/javascript" src="../public/js/modalPhotoEdit.js"></script>

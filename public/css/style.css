@@ -219,6 +219,10 @@ body {
 	transition: 0.1s ease-in-out;
 }
 
+.deleteButton {
+	background-color: #cf0202;
+}
+
 /* Form */
 
 .inputContainer {
