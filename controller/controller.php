@@ -64,7 +64,6 @@ function publicProfView($params)
     $userManager = new UserManager();
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
-<<<<<<< HEAD
 
     //Get images for this user
     $pictureManager = new PictureManager();
@@ -79,9 +78,6 @@ function publicProfView($params)
     }
     
     require("./view/publicProfileView.php");     
-=======
-    require("./view/publicProfileView.php");
->>>>>>> e69e68ffe4e28b51000142be66006a8cc1c090ff
 }
 
 function privateProfView($params)
