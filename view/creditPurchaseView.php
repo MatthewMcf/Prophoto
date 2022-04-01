@@ -5,7 +5,7 @@
 <!-- Can't have this in body -->
 <!-- <body onload="createYearOptions()"> -->
 <link rel="stylesheet" href="../public/css/style.css">
-<link rel="stylesheet" href="../public/css/creditPurchase.css">
+<link rel="stylesheet" href="../public/css/creditPurch.css">
 <section>
     <h1>Purchase credits</h1>
 
