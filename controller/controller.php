@@ -5,15 +5,13 @@ require_once("./model/PictureManager.php");
 
 function homepage()
 {
-<<<<<<< HEAD
-    if (isset($_SESSION["email"])) {
-        $userManager = new UserManager();
-        $user = $userManager->getUserInfo($_SESSION["email"]);
-        $profileURL = $userManager->getProfilePicPath($_SESSION["email"]);
-    } 
-=======
     $pictureObj = new PictureManager();
+    $userManager = new UserManager();
     $nbToDisplay = $pictureObj->getNumberImages();
+    if (isset($_SESSION["id"])) {
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+    }
     if ($nbToDisplay>0) {
         $isThereImage = true;
         $nbToDisplay = (6<$nbToDisplay)? 6: $nbToDisplay;
@@ -26,7 +24,6 @@ function homepage()
     } else {
         $isThereImage = false;
     }
->>>>>>> ebf1c938496712ca97572b751f9f281b1672fd0e
     require("./view/homepage.php");
 }
 
