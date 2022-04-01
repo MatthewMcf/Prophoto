@@ -14,7 +14,7 @@ class ImageCreation
         $sourcePath = $this->source;
         //$fileExtension = substr(strrchr($sourceImg, '.'), 1); //end(explode('.', $tempName)); 
         $fileExtension = strtolower(pathinfo($this->source,PATHINFO_EXTENSION));
-        echo "file extension = " . $fileExtension;
+        //echo "file extension = " . $fileExtension;
         if ($fileExtension === "jpeg") {
             $result = imagecreatefromjpeg($sourcePath);
         } else if ($fileExtension === "jpg") {
