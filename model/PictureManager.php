@@ -367,14 +367,27 @@ class PictureManager extends Manager
         $stmt->closeCursor();
     }
 
-    public function deleteImage($filepath)
+    public function deleteImage($filepath1, $filepath2, $filepath3, $user_id, $photo_id)
     {
-        if (file_exists($filepath)) {
-            unlink($filepath);
+        if (file_exists($filepath1)) {
+            unlink($filepath1);
+        } else {
+        }
+        if (file_exists($filepath2)) {
+            unlink($filepath2);
+        } else {
+        }
+        if (file_exists($filepath3)) {
+            unlink($filepath3);
         } else {
         }
 
-        $sql = $this->_connection->exec("DELETE FROM MyGuests WHERE id=3");
+
+        $sql = $this->_connection->prepare("DELETE FROM pictures WHERE user_id = :user_id AND id = :photo_id");
+        $sql->execute(array(
+            'user_id' => $user_id,
+            'photo_id' => $photo_id
+        ));
     }
 
     public function getImageTags()

@@ -23,6 +23,6 @@
     <!-- submit button will save and return to privateProfView.php -->
     <button type="submit" class="btnPrimary">Save</button>
 </form>
-<input type="button" id="delete" class="btnSecondary deleteButton" onclick="deleteExistingImage()" value="Delete">
+<input type="button" id="delete" class="btnSecondary deleteButton" onclick="deleteExistingImage(<?= $photo['id'] ?>, <?= $photo['userID'] ?> )" value="Delete">
 
 <script type="text/javascript" src="../public/js/modalPhotoEdit.js"></script>

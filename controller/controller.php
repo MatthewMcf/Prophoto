@@ -116,7 +116,7 @@ function uploadImage($params)
 function removeImage($params)
 {
     $pictureManager = new PictureManager();
-    $pictureManager->deleteImage($params["fileAjax"]);
+    $pictureManager->deleteImage($params["fileAjax1"], $params["fileAjax2"], $params["fileAjax3"], $params["user_id"], $params["photo_id"]);
 }
 function photoEdit($params)
 {
