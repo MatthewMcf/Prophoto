@@ -43,8 +43,12 @@ function registerView()
 function registerAction($params)
 {
     $userManager = new UserManager();
-    $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
-    header("Location:index.php?action=homepage&register=true");
+    $resigerResult = $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
+    if($resigerResult){
+        header("Location:index.php?action=homepage&register=true");
+    } else {
+        header("Location:index.php?action=homepage&register=false");
+    }
 }
 
 function insertUser($params)
@@ -64,7 +68,7 @@ function loginView()
 function loginAction($params)
 {
     $userManager = new UserManager();
-    $loginResult = $userManager->loginAction($params["emailLogin"], $params["pwdLogin"]);
+    $loginResult = $userManager->loginAction($params["emailLogin"], $params["pwdLogin"], $params["autoconnection"]);
     if ($loginResult) {
         header('Location:index.php?action=homepage');
     } else {
