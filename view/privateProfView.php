@@ -52,7 +52,7 @@
                 <div class="cardContainer">
                     <div id="addPicture">
                         <div>
-                            <a href=""><i class="fa-solid fa-plus"></i></a>
+                            <i class="fa-solid fa-plus"></i>
                             <p>Upload a Photo</p>
                         </div>
                     </div>
