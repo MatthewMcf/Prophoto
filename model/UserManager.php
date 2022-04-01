@@ -25,6 +25,7 @@ class UserManager extends Manager
          
         if ($user) {
             //user with this email already exists in our database
+            return false;
         } else {
             $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(?, ?, ?)");
             $req->bindParam(1, $email, PDO::PARAM_STR);
@@ -37,6 +38,7 @@ class UserManager extends Manager
             mkdir("./data/".$userID."/small");
             mkdir("./data/".$userID."/medium");
             mkdir("./data/".$userID."/original");
+            return true;
         }
 
 
@@ -76,21 +78,41 @@ class UserManager extends Manager
         }
     }
 
-    public function loginAction($email, $pwd) {
-        $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
-        $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
+    public function loginAction($email, $pwd, $autoconnection) {
+        if(isset($_COOKIE["email"])){
+            $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
 
-        $req = $this->_connection->prepare("SELECT id, email, pwd FROM users WHERE email = ?");
-        $req->bindParam(1, $email);
-        $req->execute();
-        $data = $req->fetch(PDO::FETCH_ASSOC);
-        $req->closeCursor();
-        if(password_verify($pwd, $data["pwd"])) {
+            $req = $this->_connection->prepare("SELECT id, email FROM users WHERE email = :email");
+            $req->execute(array(
+                "email" => $email
+            ));
+            $data = $req->fetch(PDO::FETCH_ASSOC);
+            $req->closeCursor();
+
             $_SESSION["email"] = $email;
             $_SESSION["id"] = $data["id"];
+            
             return true;
-        } else {
-            return false;
+        } else{
+            $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
+            $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
+
+            $req = $this->_connection->prepare("SELECT id, email, pwd FROM users WHERE email = :email");
+            $req->execute(array(
+                "email" => $email
+            ));
+            $data = $req->fetch(PDO::FETCH_ASSOC);
+            $req->closeCursor();
+            if(password_verify($pwd, $data["pwd"])) {
+                $_SESSION["email"] = $email;
+                $_SESSION["id"] = $data["id"];
+                if(isset($_REQUEST["autoconnection"])){
+                    setcookie('email', $email, time() + 30*24*3600, false, false, false, true);
+                }
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

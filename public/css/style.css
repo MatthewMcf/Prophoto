@@ -207,13 +207,13 @@ body {
 
 .btnEdit:hover {
     background-color: var(--secondary-btn-hover-color);
-    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
+    box-shadow: 0 3px 4px 0 rgba(182, 163, 163, 0.14),
         0 4px 10px 0 rgba(160, 160, 160, 0.9);
     transition: 0.1s ease-in-out;
 }
 
 .deleteButton {
-	background-color: #cf0202;
+    background-color: #cf0202;
 }
 
 /* Form */
