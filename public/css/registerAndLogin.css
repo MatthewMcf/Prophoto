@@ -1,0 +1,119 @@
+.modal[data-type="access"] {
+	padding: 0;
+}
+.modal[data-type="access"] .sectionWrapper {
+	display: flex;
+}
+.modal[data-type="access"] section {
+	width: 50%;
+}
+.modal[data-type="access"] #registerSectionLeft {
+	background: url("../images/tree-g3545204dd_1280.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.modal[data-type="access"] #loginSectionLeft {
+	background: url("../images/gwanghwamun-gc5bf22fbb_1920.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.modal[data-type="access"] .sectionRight {
+	padding: 3rem 2rem;
+}
+.modal[data-type="access"] .registrationForm ul,
+.modal[data-type="access"] .loginForm ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.modal[data-type="access"] .registrationForm li,
+.modal[data-type="access"] .loginForm li {
+	margin-bottom: 1rem;
+}
+.modal[data-type="access"] .registrationForm label,
+.modal[data-type="access"] .loginForm label {
+	font-weight: bold;
+}
+.modal[data-type="access"] .registrationForm input,
+.modal[data-type="access"] .loginForm input {
+	margin-top: 0.4rem;
+	padding: 0.5rem;
+}
+.modal[data-type="access"] .registerFalse p,
+.modal[data-type="access"] .loginFalse p {
+	color: var(--main-error-font-color);
+	display: block;
+	margin: 0.7rem 0;
+}
+.modal[data-type="access"] .loginForm #autoconnection {
+	width: 1rem;
+	display: inline-block;
+	margin-right: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.modal[data-type="access"] .line {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1.5rem auto;
+}
+.modal[data-type="access"] .longline {
+	width: 44%;
+}
+.modal[data-type="access"] #googleWrapperRegister,
+.modal[data-type="access"] #googleWrapperLogin {
+	width: 50%;
+	margin: 1rem auto;
+}
+.modal[data-type="access"] p.agree {
+	font-size: 0.9rem;
+	margin-bottom: 1rem;
+}
+.modal[data-type="access"] .switch {
+	display: flex;
+	margin-top: 2rem;
+}
+.modal[data-type="access"] .switch * {
+	margin-right: 0.5rem;
+}
+.modal[data-type="access"] .required,
+.modal[data-type="access"] .invalid {
+	border-color: var(--form-error-border-color);
+	color: var(--main-error-font-color);
+	background: var(--form-error-background-color);
+}
+
+.modal[data-type="access"] .required + span::after,
+.modal[data-type="access"] .invalid + span::after {
+	color: var(--main-error-font-color);
+	display: block;
+	margin: 0.7rem 0;
+	margin-top: 0.25rem;
+}
+.modal[data-type="access"] #email.required + span::after {
+	content: "Email address is a required field";
+}
+.modal[data-type="access"] #pwd.required + span::after {
+	content: "Password is a required field";
+}
+.modal[data-type="access"] #pwdRe.required + span::after {
+	content: "Confirm password is a required field";
+}
+.modal[data-type="access"] #username.required + span::after {
+	content: "Username is a required field";
+}
+.modal[data-type="access"] #email.invalid + span::after {
+	content: "Email address appears to be invalid";
+}
+.modal[data-type="access"] #pwd.invalid + span::after {
+	content: "Select a password that exceeds 8 characters";
+}
+.modal[data-type="access"] #pwdRe.invalid + span::after {
+	content: "Confirm password does not match your password";
+}
+.modal[data-type="access"] #username.invalid + span::after {
+	content: "Select a username that exceeds 2 characters";
+}

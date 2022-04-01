@@ -20,7 +20,9 @@
     <div id="menuBar">
         <div><a href="index.php?action=homepage"><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
         <nav>
-            <button class="btnPrimary" id="login">Log In</button>
+            <button class="btnPrimary" id="login" <?php if(isset($_COOKIE["email"])){
+                echo "name='autoconnect' value={$_COOKIE['email']}";
+                } ?>>Log In</button>
             <button class="btnSecondary" id="register">Register</button>
         </nav>
     </div>
@@ -32,11 +34,25 @@
             document.querySelector("#menuBar nav").appendChild(registerTrue);
         </script>
     <?php endif; ?>
+    <?php if(isset($_REQUEST["register"]) AND $_REQUEST["register"] === "false"): ?>
+        <script>
+            let registerFalse = document.createElement("span"); 
+            registerFalse.id = "registerFalse";
+            document.querySelector("#menuBar nav").appendChild(registerFalse);
+        </script>
+    <?php endif; ?>
     <?php if(isset($_REQUEST["login"]) AND $_REQUEST["login"] === "false"): ?>
         <script>
             let loginFalse = document.createElement("span"); 
             loginFalse.id = "loginFalse";
             document.querySelector("#menuBar nav").appendChild(loginFalse);
+        </script>
+    <?php endif; ?>
+    <?php if(isset($_COOKIE["email"])): ?>
+        <script>
+            let autoconnectionTrue = document.createElement("span"); 
+            autoconnectionTrue.id = "autoconnectionTrue";
+            document.querySelector("#menuBar nav").appendChild(autoconnectionTrue);
         </script>
     <?php endif; ?>
     <?php } ?>

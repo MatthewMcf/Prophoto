@@ -33,6 +33,10 @@ function registerView() {
 	inputs[0].blur();
 	for (let i = 0; i < inputs.length; i++) {
 		inputs[i].addEventListener("blur", function (e) {
+			// When the user clicks Log in inside register modal, the blur event is nullified, otherwise it prevents the click event on the log in button.
+			if (e.relatedTarget == "http://localhost/proPhoto/#") {
+				return;
+			}
 			checkInput(e.target);
 		});
 	}
@@ -52,12 +56,6 @@ function registerView() {
 	// We click the login button inside register modal and get directed to login modal
 	let loginButtonInsideRegisterModal =
 		document.querySelector("#loginRegister");
-	loginButtonInsideRegisterModal.parentNode.addEventListener(
-		"submit",
-		function (e) {
-			e.preventDefault();
-		}
-	);
 	loginButtonInsideRegisterModal.addEventListener("click", function () {
 		let registerModal = document.querySelector(
 			"#modal[data-state='register']"
@@ -102,14 +100,22 @@ function displayGoogleButton() {
 if (document.querySelector("#register")) {
 	let eltModal;
 	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "index.php?action=registerView");
+	let url = document.querySelector("#registerFalse")
+		? "index.php?action=registerView&register=false"
+		: "index.php?action=registerView";
+
+	xhr.open("GET", url);
 
 	xhr.addEventListener("load", function () {
 		if (xhr.status == 200) {
 			let modal = new Modal(xhr.responseText, true);
 			eltModal = document.querySelector("#modal:not([data-state])");
 			eltModal.setAttribute("data-state", "register");
+			eltModal.setAttribute("data-type", "access");
 			eltModal.close();
+			if (document.querySelector("#registerFalse")) {
+				eltModal.showModal();
+			}
 			registerView();
 			document
 				.querySelector("#register")
@@ -136,6 +142,7 @@ if (document.querySelector("#login")) {
 			let modal = new Modal(xhr.responseText, true, true);
 			eltModal = document.querySelector("#modal:not([data-state])");
 			eltModal.setAttribute("data-state", "login");
+			eltModal.setAttribute("data-type", "access");
 			eltModal.close();
 			if (
 				document.querySelector("#registerTrue") ||
@@ -147,6 +154,14 @@ if (document.querySelector("#login")) {
 			document
 				.querySelector("#login")
 				.addEventListener("click", function (e) {
+					if (e.target.name === "autoconnect") {
+						let email = e.target.value;
+						location.href =
+							"index.php?emailLogin=" +
+							email +
+							"&pwdLogin=null&autoconnection=null&action=loginAction";
+						return;
+					}
 					e.preventDefault();
 					eltModal.showModal();
 				});
