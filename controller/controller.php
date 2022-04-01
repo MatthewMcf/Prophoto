@@ -85,6 +85,10 @@ function logoutAction()
 function publicProfView($params)
 {
     $userManager = new UserManager();
+    if (isset($_SESSION["id"])) {
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);    
+    }
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
 
