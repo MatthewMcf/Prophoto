@@ -54,9 +54,6 @@ try {
         case "removeImage":
             removeImage($_POST);
             break;
-            // case "getImagesForCurrentUser":
-            //     getImagesForCurrentUser($_REQUEST);
-            //     break;
         default:
             homepage();
             break;
