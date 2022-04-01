@@ -32,8 +32,9 @@
                 <label for="bankNumber" class="label">Account Number </label><br>
                 <input type="text" name="bankNumber" id="bankNumber" maxlength="255" placeholder="Ex: 12345678">
                 <br>
-                <label for="bankCode" class="label">Sort Code </label><br>
-                <input type="text" name="bankCode" id="bankCode" maxlength="255" placeholder="12-34-56">
+                <label for="bankCode" class="label">Routing Number </label><br>
+                <input type="text" name="bankCode" id="bankCode" maxlength="9" placeholder="Ex: 123456789">
+                <p>*proPhoto has a 30% commission rate upon each sale</p>
             </section>
         </div>
         <br><br>
