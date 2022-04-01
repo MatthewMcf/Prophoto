@@ -15,7 +15,8 @@ class PictureManager extends Manager
     // return the username and the profile picture path of a user
     // function is was desgned to be used internally to build array to display the card image
     // but you can use it whever you need
-    public function getProfilePathAndName($userId) {
+    public function getProfilePathAndName($userId)
+    {
         $req = $this->_connection->prepare("SELECT id, username, profile_url FROM users WHERE id = :id");
         $req->execute(array(
             "id" => $userId
@@ -36,8 +37,9 @@ class PictureManager extends Manager
     }
 
     // -> see UserManager class to use it in a more appropriate way ;)
-    public function getProfilePicturePath() {
-        $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
+    public function getProfilePicturePath()
+    {
+        $userId = (!empty($_SESSION['id'])) ? $_SESSION["id"] : -1;
         $req = $this->_connection->prepare("SELECT id, profile_url FROM users WHERE id = :id");
         $req->execute(array(
             "id" => $userId
@@ -55,7 +57,8 @@ class PictureManager extends Manager
     // to display an image in a modal after clicking on it. 
     // it will be the highest resolution displayed.
     // return default image path and default info if it doesn´t match
-    public function getImage($imageId) {
+    public function getImage($imageId)
+    {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
         $req->execute(array(
@@ -99,7 +102,8 @@ class PictureManager extends Manager
     // to display a card image in the home page or a profile user page
     // it will be the smallest resolution displayed.
     // return default image path and default info if it doesn´t match
-    public function getSmallImage($imageId) {
+    public function getSmallImage($imageId)
+    {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
         $req->execute(array(
@@ -137,7 +141,8 @@ class PictureManager extends Manager
     }
 
     // return the number of image saved into the pictures table
-    public function getNumberImages() {
+    public function getNumberImages()
+    {
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
@@ -145,7 +150,8 @@ class PictureManager extends Manager
     }
 
     // return the number of image of one user (userId) saved into the pictures table
-    public function getNumberImagesFromId($userId) {
+    public function getNumberImagesFromId($userId)
+    {
         $req = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = :user_id");
         $req->execute(array(
             "user_id" => $userId
@@ -161,7 +167,8 @@ class PictureManager extends Manager
     // to prevent repetition and get a new random image, you can give an array of image ID already displayed
     // [imageList] -> this array will be return with the id of the new image 
     // return default if there is no more image to display
-    public function getRandomImages($imagesList=[]) {
+    public function getRandomImages($imagesList = [])
+    {
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
@@ -185,7 +192,8 @@ class PictureManager extends Manager
 
     // same as the function above but only from one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getRandomImagesFromId($userId, $imagesList=[]) {
+    public function getRandomImagesFromId($userId, $imagesList = [])
+    {
         $req = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = :user_id");
         $req->execute(array(
             "user_id" => $userId
@@ -207,7 +215,8 @@ class PictureManager extends Manager
         }
     }
 
-    public function getImagesFromId($userId, $limit=null) {
+    public function getImagesFromId($userId, $limit = null)
+    {
         $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT 5");
         if ($limit) {
             $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT ?");
@@ -223,20 +232,21 @@ class PictureManager extends Manager
 
     // same as the functions above but only liked by one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getLikedImages($imagesList=[]) {
-
+    public function getLikedImages($imagesList = [])
+    {
     }
 
     // same as the functions above but only bought by one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getPurchasedImages($imagesList=[]) {
-
+    public function getPurchasedImages($imagesList = [])
+    {
     }
 
     // -> see UserManager class to use it in a more appropriate way ;)
-    public function setProfilePicture($file) {
-        if(!isset($_SESSION)) { 
-            session_start(); 
+    public function setProfilePicture($file)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
         }
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -300,9 +310,10 @@ class PictureManager extends Manager
     // original size -> original folder with the original format
     // medium size -> medium folder in jpg
     // and last -> small folder in jpg
-    public function setImage($file) {
-         if(!isset($_SESSION)) { 
-            session_start(); 
+    public function setImage($file)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
         }
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -329,9 +340,9 @@ class PictureManager extends Manager
             // get the id of the image just inserted
             $pictureId = $this->_connection->lastInsertId();
             // create the paths for save the image
-            $originalPath = $dataDir . $user . "/original/". $pictureId . "." . $fileExtension;
-            $mediumPath = $dataDir. $user . "/medium/" . $pictureId . ".jpg";
-            $smallPath = $dataDir. $user . "/small/" . $pictureId . ".jpg";
+            $originalPath = $dataDir . $user . "/original/" . $pictureId . "." . $fileExtension;
+            $mediumPath = $dataDir . $user . "/medium/" . $pictureId . ".jpg";
+            $smallPath = $dataDir . $user . "/small/" . $pictureId . ".jpg";
 
             //$message = "";//$uploadPath;
             if (isset($fileName)) {
@@ -343,10 +354,10 @@ class PictureManager extends Manager
                         mkdir($dataDir . $user . "/original");
                     }
                     // save the image in the original folder
-                    if (!file_exists($dataDir . $user ."/original/")) {
-                        mkdir($dataDir . $user ."/original/");
-                        mkdir($dataDir . $user ."/medium/");
-                        mkdir($dataDir . $user ."/small/");
+                    if (!file_exists($dataDir . $user . "/original/")) {
+                        mkdir($dataDir . $user . "/original/");
+                        mkdir($dataDir . $user . "/medium/");
+                        mkdir($dataDir . $user . "/small/");
                     }
                     $didUpload = move_uploaded_file($fileTmpName, $originalPath);
                     //move_uploaded_file($fileTmpName, $mediumPath);
@@ -354,8 +365,8 @@ class PictureManager extends Manager
                     if ($didUpload) {
                         // resize the image and save it in the appropriate folder
                         $imageObj = new ImageCreation($originalPath);
-                        $imageObj->createImage($mediumPath,600); 
-                        $imageObj->createImage($smallPath,300);
+                        $imageObj->createImage($mediumPath, 600);
+                        $imageObj->createImage($smallPath, 300);
                         echo "The image " . basename($fileName) . " has been uploaded.";
 
                         //update profile pic path in database 
