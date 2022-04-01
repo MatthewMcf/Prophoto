@@ -87,7 +87,6 @@ p {
 body {
     font-family: "lato", sans-serif;
     color: #000000;
-    line-height: 1rem;
     font-size: 1rem;
 }
 
@@ -207,7 +206,7 @@ body {
 
 .btnEdit:hover {
     background-color: var(--secondary-btn-hover-color);
-    box-shadow: 0 3px 4px 0 rgba(182, 163, 163, 0.14),
+    box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
         0 4px 10px 0 rgba(160, 160, 160, 0.9);
     transition: 0.1s ease-in-out;
 }
@@ -219,7 +218,7 @@ body {
 /* Form */
 
 .inputContainer {
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
     max-width: 22rem;
 }
 
@@ -243,7 +242,7 @@ form input {
     width: 100%;
     padding: 0.7rem;
     font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
+    margin: 0.8rem 0 0.5rem 0;
 }
 
 textarea {
@@ -255,8 +254,16 @@ textarea {
     width: 100%;
     padding: 0.7rem;
     font-size: 1rem;
-    transition: background 0.2s, border 0.2s;
     font-family: "lato", sans-serif;
+}
+
+label {
+    font-family: "lato", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--main-primary-font-color);
+    padding: 0 0 0.8rem 0;
+    margin-top: 1rem;
 }
 
 /* Checkbox */
@@ -580,6 +587,7 @@ textarea {
     padding: 0.7rem;
     font-size: 1rem;
     transition: background 0.2s, border 0.2s;
+    margin-bottom: 1.5rem;
 }
 
 .dropdown .title {
@@ -1046,26 +1054,6 @@ img {
 
 #sectionTwo > * {
     width: 50%;
-}
-
-#topContainer {
-    background: url("../images/corgi-wallpaper-2560x1080.jpg"),
-        rgba(50, 50, 50, 0.5);
-    background-blend-mode: multiply;
-    height: 80vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-bottom: 3.5rem;
-}
-
-#topContainer > * {
-    width: 100%;
-    text-align: center;
 }
 
 #callToAction {

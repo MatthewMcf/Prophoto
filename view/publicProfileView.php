@@ -46,7 +46,6 @@
                 <h2>Photos</h2>
             </div>
             <div id="sectionPhotosPublic">
-                <div class="cardContainer">
                 <?php foreach($currUserCardInfos as $card){
                     require('cardViewPublic.php');
                 }
