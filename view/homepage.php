@@ -5,6 +5,8 @@ if(!isset($_SESSION)) {
 ?>
 <?php ob_start();?>
     <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
+    <script src="public/js/Modal.js" defer></script>
+    <script src="public/js/homepage.js" defer></script>
 
 
 	<div id="topContainer">
@@ -51,7 +53,7 @@ if(!isset($_SESSION)) {
 
 
 	<h2>Heading about the basic images</h2>
-	<div id="popularImages">
+	<!--<div id="popularImages">
     <div class="cardContainer">
         <div class="cardContent photoCard" path="public/images/seoul.jpeg">
             <button class="price">2 Credits</button>
@@ -116,8 +118,13 @@ if(!isset($_SESSION)) {
                 <button class="btnPrimary">purchase</button> 
             </div>
         </div>
+    </div>-->
+    <div id="popularImages">
+        <?php foreach($homePageCardInfos as $card){
+            require('homePageCardView.php');
+        }
+        ?>
     </div>
-
 	<div id="sectionTwo">
 		<div id="aboutUs">
 			<h2>About proPhoto</h2>
