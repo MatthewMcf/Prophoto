@@ -15,29 +15,34 @@ function photo($params){
     require("./view/ModalPhotoView.php");
 }
 
-function registerView(){
+function registerView()
+{
     require("./view/register.php");
 }
 
-function registerAction ($params){
+function registerAction($params)
+{
     $userManager = new UserManager();
     $userManager->registerAction($params["email"], $params["pwd"], $params["username"]);
     header("Location:index.php?action=homepage&register=true");
 }
 
-function insertUser($params) {
+function insertUser($params)
+{
     $userManager = new UserManager();
     $userManager->insertUser($params['google_token'], $params['email'], $params['profile_url']);
-    
+
     // require_once("./connection.php");
-    
+
     echo "index.php";
 }
-function loginView (){
+function loginView()
+{
     require("./view/login.php");
 }
 
-function loginAction ($params){
+function loginAction($params)
+{
     $userManager = new UserManager();
     $loginResult = $userManager->loginAction($params["emailLogin"], $params["pwdLogin"]);
     if ($loginResult) {
@@ -47,12 +52,14 @@ function loginAction ($params){
     }
 }
 
-function logoutAction() {
+function logoutAction()
+{
     session_destroy();
     header('Location:index.php?action=homepage');
 }
 
-function publicProfView($params) {
+function publicProfView($params)
+{
     $userManager = new UserManager();
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
@@ -72,11 +79,12 @@ function publicProfView($params) {
     require("./view/publicProfileView.php");     
 }
 
-function privateProfView($params) {
+function privateProfView($params)
+{
     if (isset($_SESSION["id"])) {
         // echo($_SESSION["id"]);
         // set the link variable to get the correct css files for the view private profile
-        $link = '<link rel="stylesheet" href="./public/css/modalProfilePicture.css"><link rel="stylesheet" href="./public/css/privateProfView.css">';
+        $link = '<link rel="stylesheet" href="./public/css/privateProfView.css">';
         $userManager = new UserManager();
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
@@ -105,12 +113,14 @@ function privateProfView($params) {
     }
 }
 
-function setProfilePicture($params) {
+function setProfilePicture($params)
+{
     $userManager = new UserManager();
     $userManager->setProfilePicture($_FILES["fileAjax"]);
 }
 
-function uploadImage($params) {
+function uploadImage($params)
+{
     $pictureManager = new PictureManager();
     $pictureManager->setImage($_FILES["fileAjax"]);
 }

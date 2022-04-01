@@ -1,7 +1,6 @@
 <?php //session_start();
 ?>
 <?php ob_start(); ?>
-<link rel="stylesheet" href="./public/css/privateProfView.css">
 <section>
     <div id="profileHeader">
         <div id="profilePic">
@@ -9,8 +8,8 @@
                 <span>Click here to update</span>
                 <span>your picture</span>
             </label>
-            <?php $src = $profileURL?>
-            <img src=<?php echo ($src  . '?=' . rand()) ?>  alt="profilePic" id="currProfilePic" />
+            <?php $src = $profileURL ?>
+            <img src=<?php echo ($src  . '?=' . rand()) ?> alt="profilePic" id="currProfilePic" />
         </div>
         <div id="profileInfo">
             <div>
