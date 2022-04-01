@@ -8,10 +8,11 @@ function homepage()
     require("./view/homepage.php");
 }
 
-function photo($params){
+function photo($params)
+{
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
-    
+
     require("./view/ModalPhotoView.php");
 }
 
@@ -63,6 +64,7 @@ function publicProfView($params)
     $userManager = new UserManager();
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
+<<<<<<< HEAD
 
     //Get images for this user
     $pictureManager = new PictureManager();
@@ -77,6 +79,9 @@ function publicProfView($params)
     }
     
     require("./view/publicProfileView.php");     
+=======
+    require("./view/publicProfileView.php");
+>>>>>>> e69e68ffe4e28b51000142be66006a8cc1c090ff
 }
 
 function privateProfView($params)
@@ -91,7 +96,7 @@ function privateProfView($params)
 
         //Get images for current user
         $pictureManager = new PictureManager();
-        
+
         // echo $params['currUserLimit'];
 
         //Array of picture IDs for current user
@@ -103,11 +108,11 @@ function privateProfView($params)
         }
 
         $currUserCardInfos = [];
-        foreach($currUserImages as $image) {
+        foreach ($currUserImages as $image) {
             array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
         }
 
-        require("./view/privateProfView.php");     
+        require("./view/privateProfView.php");
     } else {
         require("./view/homepage.php");
     }
@@ -125,14 +130,21 @@ function uploadImage($params)
     $pictureManager->setImage($_FILES["fileAjax"]);
 }
 
-function photoEdit($params) {
+function removeImage($params)
+{
+    $pictureManager = new PictureManager();
+    $pictureManager->deleteImage($params["fileAjax1"], $params["fileAjax2"], $params["fileAjax3"], $params["user_id"], $params["photo_id"]);
+}
+function photoEdit($params)
+{
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
 
     require("./view/ModalPhotoEdit.php");
 }
 
-function submitPhotoEdit($params){
+function submitPhotoEdit($params)
+{
     $pictureManager = new PictureManager();
     $photo = $pictureManager->setImageInfo($params);
 

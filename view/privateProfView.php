@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <?php foreach($currUserCardInfos as $card){
+                <?php foreach ($currUserCardInfos as $card) {
                     require('cardView.php');
                 }
                 ?>
@@ -187,6 +187,8 @@
     </div>
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
+<script type="text/javascript" src="./public/js/Modal.js"></script>
+<script type="text/javascript" src="./public/js/modalPhotoEdit.js"></script>
 <script type="text/javascript" src="./public/js/card.js"></script>
 
 <!-- <script type="text/javascript" src="./public/js/Modal.js"></script> -->

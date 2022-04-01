@@ -11,10 +11,10 @@ try {
         case 'photo':
             photo($_REQUEST);
             break;
-        case "registerView" :
+        case "registerView":
             registerView();
             break;
-        case "registerAction" :
+        case "registerAction":
             registerAction($_REQUEST);
             break;
         case 'googleUser':
@@ -24,10 +24,10 @@ try {
                 throw new ErrorException('Impossible to add a user please try again');
             }
             break;
-        case "loginView" :
+        case "loginView":
             loginView();
             break;
-        case "loginAction" :
+        case "loginAction":
             loginAction($_REQUEST);
             break;
         case "publicProfView":
@@ -51,10 +51,13 @@ try {
         case "logoutAction":
             logoutAction($_REQUEST);
             break;
-        case "getImagesForCurrentUser":
-            getImagesForCurrentUser($_REQUEST);
+        case "removeImage":
+            removeImage($_POST);
             break;
-        default :
+            // case "getImagesForCurrentUser":
+            //     getImagesForCurrentUser($_REQUEST);
+            //     break;
+        default:
             homepage();
             break;
     }
