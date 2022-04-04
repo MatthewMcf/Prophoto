@@ -1,55 +1,48 @@
 <?php
-if(!isset($_SESSION)) { 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
 ?>
-<?php ob_start();?>
-    <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
-    <script src="public/js/Modal.js" defer></script>
-    <script src="public/js/homepage.js" defer></script>
+<?php ob_start(); ?>
+<!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
+<script src="public/js/Modal.js" defer></script>
+<script src="public/js/homepage.js" defer></script>
 
 
-	<div id="topContainer">
-		<h2 id="callToAction">
-			Placeholder Call-To-Action.
-        </h2>
-		<h3 id="callToActionSecondary">
-			Secondary Call-To-Action text.
-        </h3>
-		
-		<div class="searchBar">
-            <div class="searchContainer">
-                <div class="dropdownContainer">
-                    <div class='dropdown'>
-                        <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
-                        
-                        <div class='menu pointerCursor hide'>
-                            <div class="dropdownResults">
-                                <div class='option' id='option1'>Hot</div>
-                                <div class='option' id='option2'>Tags</div>
-                                <div class='option' id='option3'>Photographer</div>
-                            </div>
+<div id="topContainer">
+    <h2 id="callToAction">
+        Placeholder Call-To-Action.
+    </h2>
+    <h3 id="callToActionSecondary">
+        Secondary Call-To-Action text.
+    </h3>
+
+    <div class="searchBar">
+        <div class="searchContainer">
+            <div class="dropdownContainer">
+                <div class='dropdown'>
+                    <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
+
+                    <div class='menu pointerCursor hide'>
+                        <div class="dropdownResults">
+                            <div class='option' id='option1'>Hot</div>
+                            <div class='option' id='option2'>Tags</div>
+                            <div class='option' id='option3'>Photographer</div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <form class="form" id="form">
-                    <div class="inputContainer">
-                        <input
-                            type="text"
-                            class="input"
-                            placeholder="Input example"
-                        />
-                    </div>
-                </form>
-			</div>
+            <form class="form" id="form">
+                <div class="inputContainer">
+                    <input type="text" class="input" placeholder="Input example" />
+                </div>
+            </form>
         </div>
-
     </div>
 
-
-	<br>
+</div>
 
 
 	<h2>Heading about the basic images</h2>
@@ -82,18 +75,9 @@ if(!isset($_SESSION)) {
 
 
 	</div>
-
-
-
-
-
     <!-- Logged In -->
 
-    <div id="profileInformation">
+    <div id="profileInformation"></div>
 
-    </div>
-
-
-
-<?php $content = ob_get_clean();?>
-<?php require('template.php');?>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>
