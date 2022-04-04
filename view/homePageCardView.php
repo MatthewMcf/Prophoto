@@ -14,9 +14,17 @@
                 <h4><?=$card["username"]?></h4>
             </div>
         </a>
-        <div class="purchase">
-            <button class="btnPrimary">purchase</button> 
-        </div>
+        <?php if (empty($_SESSION["id"])) { ?>
+            <div class="purchase">
+            <button class="btnPrimary loginButton" image-id=<?=$card["id"]?>>purchase</button> 
+            </div>
+        <?php } else if ($card["userID"] == $_SESSION["id"]) {
+        } else { ?>
+            <div class="purchase">
+            <button class="btnPrimary purchaseButton" image-id=<?=$card["id"]?>>purchase</button> 
+            </div>
+        <?php } ?>
+        
     </div>
 
 </div>

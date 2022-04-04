@@ -73,3 +73,19 @@ dropdownOptions.forEach((option) =>
 document
     .querySelector(".dropdown .title")
     .addEventListener("change", handleTitleChange);
+
+let pbs = document.querySelectorAll(".purchaseButton");
+
+for (let i = 0; i < pbs.length; i++) {
+    pbs[i].addEventListener("click", (e) => {
+        setModalContentPurchaseView(e);
+    });
+}
+
+let lgs = document.querySelectorAll(".loginButton");
+for (let i = 0; i < lgs.length; i++) {
+    lgs[i].addEventListener("click", (e) => {
+        console.log("here");
+        document.querySelector("#login").click();
+    });
+}

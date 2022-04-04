@@ -137,7 +137,7 @@ function privateProfView($params)
 
         require("./view/privateProfView.php");
     } else {
-        require("./view/homepage.php");
+        homepage();
     }
 }
 
@@ -172,4 +172,29 @@ function submitPhotoEdit($params)
     $photo = $pictureManager->setImageInfo($params);
 
     privateProfView($params);
+}
+
+function purchase($params) {
+    $userManager = new UserManager();
+    $pictureManager = new PictureManager();
+
+    if (!isset($_SESSION["id"])) {
+        
+    } else {
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $photo = $pictureManager->getImage($params["photo-id"]); 
+        $userCredits = $user['balance'];
+        $photoCredits = $photo['price'];
+    
+        if ($userCredits > $photoCredits) {
+            //direct to photo purchase page
+        }
+        else {
+            require("./view/creditPurchaseView.php");
+        }   
+    }
+}
+
+function purchaseCredits() {
+    require("./view/creditPurchaseView.php");
 }

@@ -1,7 +1,5 @@
 <!-- <div class="modalSection"> -->
-<?php //session_start();
-?>
-<?php ob_start(); ?>
+
 <!-- Can't have this in body -->
 <!-- <body onload="createYearOptions()"> -->
 <link rel="stylesheet" href="../public/css/style.css">
@@ -72,6 +70,4 @@
     </form>	
 </section>
 <script type="text/javascript" src="../public/js/creditPurchase.js"></script>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
 
