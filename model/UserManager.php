@@ -27,7 +27,7 @@ class UserManager extends Manager
             //user with this email already exists in our database
             return false;
         } else {
-            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(?, ?, ?)");
+            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username, profile_url) VALUES(?, ?, ?, './data/default/profilePicture.jpg')");
             $req->bindParam(1, $email, PDO::PARAM_STR);
             $req->bindParam(2, $pwd, PDO::PARAM_STR);
             $req->bindParam(3, $username, PDO::PARAM_STR);
