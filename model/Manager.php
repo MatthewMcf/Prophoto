@@ -6,7 +6,7 @@ class Manager {
     const DBNAME = "proPhoto";
     const HOST = "localhost";
     const LOGIN = "root";
-    const PWD = "wcoding2022";
+    const PWD = "";
 
     
     protected function __construct() // when we construct, we don't expect a 'return', because we're just instantiating a class
