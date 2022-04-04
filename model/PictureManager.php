@@ -428,10 +428,8 @@ class PictureManager extends Manager
         }
         $table->closeCursor();
 
-        $tags = $this->_connection->prepare("SELECT name FROM tags WHERE id>:num");
-        $tags->execute(array(
-            "num" => 0
-        ));
+        $tags = $this->_connection->prepare("SELECT name FROM tags");
+        $tags->execute();
         $tagData = $tags->fetchAll(PDO::FETCH_ASSOC);
 
         file_put_contents("tags.json", "");
