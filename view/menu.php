@@ -12,7 +12,7 @@
                 <a href="index.php?action=privateProfView&currUserLimit=5"><img src="<?= $profileURL ?>" alt="profile picture" class="profilePicIcon">
                 <a href="index.php?action=privateProfView&currUserLimit=5"><?= $user['username'] ?></a>
             </div>
-            <a href="#"> Credits</a>
+            <a href="#" class="creditPurchase"><?= $user['balance'] ?> Credits</a>
             <a href="index.php?action=logoutAction"><button class="btnSecondary" id="logout">Logout</button></a>
         </nav>
     </div>

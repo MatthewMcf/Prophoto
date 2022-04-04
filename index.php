@@ -54,6 +54,21 @@ try {
         case "removeImage":
             removeImage($_POST);
             break;
+        case "purchase":
+            purchase($_REQUEST);
+            break;
+        case "purchaseCredits":
+            purchaseCredits();
+            break;
+        case "submitPurchaseCredits":
+            submitPurchaseCredits($_REQUEST);
+            break;
+        case "purchasePhoto":
+            purchasePhoto($_REQUEST);
+            break;
+        case "purchasePhotoSubmit":
+            purchasePhotoSubmit($_REQUEST);
+            break;
         default:
             homepage();
             break;
