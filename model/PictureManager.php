@@ -106,6 +106,17 @@ class PictureManager extends Manager
             "id" => $imageId
         ));
         $data = $req->fetch(PDO::FETCH_ASSOC);
+        $isItBookmarked = false;
+        if (!empty($_SESSION['id'])) {
+            $req = $this->_connection->prepare("SELECT id FROM bookmarks WHERE user_id = :user_id AND  picture_id = :picture_id");
+            $req->execute(array(
+                "user_id" => $_SESSION['id'],
+                "picture_id" => $imageId
+            ));
+            $res = $req->fetch(PDO::FETCH_ASSOC);
+            $isItBookmarked = (!empty($res))? true: false;
+        }
+
         $req->closeCursor();
 
         $userData = $this->getProfilePathAndName($data["user_id"]);
@@ -120,7 +131,8 @@ class PictureManager extends Manager
                 "userID" => $data["user_id"],
                 "username" => $userData["username"],
                 "profilePicture" => $userData["profilePath"],
-                "userID" => $data["user_id"]
+                "userID" => $data["user_id"],
+                "bookmarkByCurr" => $isItBookmarked
             ));
         } else {
             return (array(
@@ -131,7 +143,8 @@ class PictureManager extends Manager
                 "bookmark" => "bookmark",
                 "userID" => "user",
                 "username" => "username",
-                "profilePicture" => "profilePath"
+                "profilePicture" => "profilePath",
+                "bookmarkByCurr" => false 
             ));
         }
     }
@@ -221,6 +234,7 @@ class PictureManager extends Manager
         return $data;
     }
 
+    // see BookMarkManager class, this function have been removed from PictureManager class
     // same as the functions above but only liked by one specific user (userId param)
     // if any other question, please read the doc first ;)
     public function getLikedImages($imagesList=[]) {
