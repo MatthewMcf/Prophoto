@@ -1,0 +1,47 @@
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.modalSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.imgPreview {
+	border: 1px solid black;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+.imgPreview img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+/*
+#zoom {
+	display: block;
+}*/
+.imgPreview + div {
+	text-align: center;
+}
+input[type="file"] {
+	display: none;
+	/*position: absolute;
+    z-index: -1;
+    top: 15px;
+    left: 20px;
+    font-size: 17px;
+    color: #b8b8b8;*/
+}
+.inputWrap {
+	position: relative;
+}
+#upload {
+	padding: 0.7rem 1.5rem;
+}
