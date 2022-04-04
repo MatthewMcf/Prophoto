@@ -7,6 +7,8 @@ if(!isset($_SESSION)) {
     <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
     <script src="public/js/Modal.js" defer></script>
     <script src="public/js/homepage.js" defer></script>
+    <script src="public/js/dropdown.js" defer></script>
+    <link rel="stylesheet" href="public/css/searchBar.css">
 
 
 	<div id="topContainer">
@@ -17,9 +19,9 @@ if(!isset($_SESSION)) {
 			Secondary Call-To-Action text.
         </h3>
 		
-		<div class="searchBar">
-            <div class="searchContainer">
-                <div class="dropdownContainer">
+		<!-- <div class="searchBar">
+            <div class="searchContainer"> -->
+                <!-- <div class="dropdownContainer">
                     <div class='dropdown'>
                         <div class='title pointerCursor'></i>Hot<i class="fa-solid fa-caret-down"></i></div>
                         
@@ -32,8 +34,6 @@ if(!isset($_SESSION)) {
                         </div>
                     </div>
                 </div>
-
-
                 <form class="form" id="form">
                     <div class="inputContainer">
                         <input
@@ -42,9 +42,33 @@ if(!isset($_SESSION)) {
                             placeholder="Input example"
                         />
                     </div>
-                </form>
+                </form> 
 			</div>
-        </div>
+        </div>-->
+
+        <div class="search-container-search">
+			<div class="custom-select-search">
+				<select>
+					<option value="0">Photo</option>
+					<option value="1">Photo</option>
+					<option value="2">Photographer</option>
+				</select>
+			</div>
+			<div class="searchBar">
+				<form class="searchBar" id="searchForm">
+					<div class="inputContainerSearch">
+						<input
+							type="text"
+							class="inputSearch"
+							placeholder="Search photos..."
+						/>
+					</div>
+				</form>
+			</div>
+			<button class="searchBtn">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</button>
+		</div>
 
     </div>
 
@@ -151,15 +175,11 @@ if(!isset($_SESSION)) {
 
 
 
-
-
     <!-- Logged In -->
 
     <div id="profileInformation">
 
     </div>
-
-
 
 <?php $content = ob_get_clean();?>
 <?php require('template.php');?>

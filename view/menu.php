@@ -6,7 +6,7 @@
     
     <!-- Logged In -->
     <div id="menuBar" class="loggedIn">
-        <div><a href="index.php?action=homepage"><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
+        <div><a href="index.php?action=homepage"><img src="./public/images/ProPhotoLogo.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
         <nav>
             <div id=navUserInfo>
                 <a href="index.php?action=privateProfView&currUserLimit=5"><img src="<?= $profileURL ?>" alt="profile picture" class="profilePicIcon">
