@@ -198,3 +198,10 @@ function purchase($params) {
 function purchaseCredits() {
     require("./view/creditPurchaseView.php");
 }
+
+function submitPurchaseCredits($params) {
+    $userManager = new UserManager();
+    $userManager->setCredits($_SESSION["id"], $_POST["credits"]);
+
+    homepage();
+}

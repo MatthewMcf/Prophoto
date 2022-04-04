@@ -60,6 +60,9 @@ try {
         case "purchaseCredits":
             purchaseCredits();
             break;
+        case "submitPurchaseCredits":
+            submitPurchaseCredits($_REQUEST);
+            break;
         default:
             homepage();
             break;

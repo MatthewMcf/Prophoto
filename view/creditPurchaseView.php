@@ -7,7 +7,7 @@
 <section>
     <h1>Purchase credits</h1>
 
-    <form action="connection.php" method="post" id="form" class="form">
+    <form action="index.php?action=submitPurchaseCredits" method="post" id="form" class="form">
         <div class="inputContainer">
             <label for="credits">Amount of credits</label>
             <p>1 credit costs $5</p>

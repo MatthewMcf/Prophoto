@@ -207,4 +207,11 @@ class UserManager extends Manager
             }
         }
     }
+
+    public function setCredits($id, $num) {
+        $stmt = $this->_connection->prepare("UPDATE users SET balance=balance + ? WHERE id=?");
+        $stmt->bindParam(1, $num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $id, PDO::PARAM_INT);
+        $stmt->execute(); 
+    }
 }
