@@ -1,0 +1,20 @@
+#title,
+#price,
+#description {
+	width: 350px;
+}
+
+#tagNature,
+#tagCity,
+#tagLandscape,
+#tagPortrait {
+	display: inline;
+	width: auto;
+}
+.fa-trash-can {
+	padding: 0.7rem 0;
+	color: white;
+}
+.tagsSpacing {
+	margin-right: 20px;
+}
