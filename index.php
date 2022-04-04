@@ -63,6 +63,12 @@ try {
         case "submitPurchaseCredits":
             submitPurchaseCredits($_REQUEST);
             break;
+        case "purchasePhoto":
+            purchasePhoto($_REQUEST);
+            break;
+        case "purchasePhotoSubmit":
+            purchasePhotoSubmit($_REQUEST);
+            break;
         default:
             homepage();
             break;

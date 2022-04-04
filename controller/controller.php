@@ -186,8 +186,9 @@ function purchase($params) {
         $userCredits = $user['balance'];
         $photoCredits = $photo['price'];
     
-        if ($userCredits > $photoCredits) {
+        if ($userCredits >= $photoCredits) {
             //direct to photo purchase page
+            purchasePhoto($params);
         }
         else {
             require("./view/creditPurchaseView.php");
@@ -204,4 +205,28 @@ function submitPurchaseCredits($params) {
     $userManager->setCredits($_SESSION["id"], $_POST["credits"]);
 
     homepage();
+}
+
+function purchasePhoto($params) {
+    $pictureManager = new PictureManager();
+
+    $photo = $pictureManager->getImage($params["photo-id"]); 
+
+    require("./view/modalPurchasePhotoView.php");
+    // $userManager->setCredits($_SESSION["id"], $photoCredits * -1);
+}
+
+function purchasePhotoSubmit($params) {
+    $userManager = new UserManager();
+    $pictureManager = new PictureManager();
+
+    $user = $userManager->getUserInfo($_SESSION["id"]);
+    $photo = $pictureManager->getImage($params["photo-id"]); 
+    $userCredits = $user['balance'];
+    $photoCredits = $photo['price'];
+
+    $userManager->setCredits($_SESSION["id"], $photoCredits * -1);
+    $userManager->setCredits($photo["userID"], $photoCredits);
+
+    privateProfView($params);
 }
