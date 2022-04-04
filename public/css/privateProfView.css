@@ -17,30 +17,26 @@ section {
 	border: 1px solid black;
 	border-radius: 50%;
 	overflow: hidden;
-	opacity: 1;
 	display: flex;
 	position: relative;
 	margin-right: 15px;
 }
-#profilePic:hover {
-	cursor: pointer;
-}
 #profilePic img {
+	width: 200px;
+	height: 200px;
 	position: absolute;
 	object-fit: cover;
-	width: 200px;
-	height: 200px;
 }
 #profilePic .-label {
-	height: 200px;
 	width: 200px;
+	height: 200px;
 	display: flex;
 	flex-direction: column;
-}
-#profilePic:hover .-label {
-	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 0;
+}
+#profilePic:hover .-label {
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1;
 	color: #fafafa;
