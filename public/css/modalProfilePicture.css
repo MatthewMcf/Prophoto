@@ -23,6 +23,18 @@ form {
 	height: 200px;
 	object-fit: cover;
 }
+/* Picture upload div */
+.imgPreviewUpload {
+	border: 1px solid black;
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+}
+.imgPreviewUpload img {
+	width: 500px;
+	height: 500px;
+	object-fit: cover;
+}
 /*
 #zoom {
 	display: block;
