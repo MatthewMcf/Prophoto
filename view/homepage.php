@@ -53,73 +53,7 @@ if(!isset($_SESSION)) {
 
 
 	<h2>Heading about the basic images</h2>
-	<!--<div id="popularImages">
-    <div class="cardContainer">
-        <div class="cardContent photoCard" path="public/images/seoul.jpeg">
-            <button class="price">2 Credits</button>
-            <div class="likeContainer">
-                <div class="likeUnselected">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
-        </div>
-        <div class="cardInfo">
-            <a href="">
-            <div class="photographerInfo">
-                <div class="photographerSmallProfilePic"></div>
-                <h4>Username</h4>
-            </div>
-            </a>
-            <div class="purchase">
-                <button class="btnPrimary">purchase</button> 
-            </div>
-        </div>
-    </div>
-
-    <div class="cardContainer">
-    <div class="cardContent photoCard" path="public/images/seoul.jpeg">
-            <button class="price">2 Credits</button>
-            <div class="likeContainer">
-                <div class="likeUnselected">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
-        </div>
-        <div class="cardInfo">
-            <a href="">
-            <div class="photographerInfo">
-                <div class="photographerSmallProfilePic"></div>
-                <h4>Username</h4>
-            </div>
-            </a>
-            <div class="purchase">
-                <button class="btnPrimary">purchase</button> 
-            </div>
-        </div>
-    </div>
-
-    <div class="cardContainer">
-    <div class="cardContent photoCard" path="public/images/seoul.jpeg">
-            <button class="price">2 Credits</button>
-            <div class="likeContainer">
-                <div class="likeUnselected">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
-        </div>
-        <div class="cardInfo">
-            <a href="">
-            <div class="photographerInfo">
-                <div class="photographerSmallProfilePic"></div>
-                <h4>Username</h4>
-            </div>
-            </a>
-            <div class="purchase">
-                <button class="btnPrimary">purchase</button> 
-            </div>
-        </div>
-    </div>-->
-    <div id="popularImages">
+	    <div id="popularImages">
         <?php foreach($homePageCardInfos as $card){
             require('homePageCardView.php');
         }
