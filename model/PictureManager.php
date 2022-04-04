@@ -388,14 +388,44 @@ class PictureManager extends Manager
 
     public function setImageInfo($params)
     {
-        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=? WHERE id=?");
+        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=?,`tags`=? WHERE id=?");
         $stmt->bindParam(1, $params["title"], PDO::PARAM_STR);
         $stmt->bindParam(2, $params["description"], PDO::PARAM_STR);
         $stmt->bindParam(3, $params["price"], PDO::PARAM_STR);
-        $stmt->bindParam(4, $params["photo-id"], PDO::PARAM_INT);
+        $stmt->bindParam(4, $params["tags"], PDO::PARAM_STR);
+        $stmt->bindParam(5, $params["photo-id"], PDO::PARAM_INT);
 
         $stmt->execute();
         $stmt->closeCursor();
+
+        $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE id = :photo_id");
+        $req->execute(array(
+            "photo_id" => $params["photo-id"]
+        ));
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        $str_arr = explode(",", $data[0]['tags']);
+        foreach ($str_arr as $value) {
+            $table = $this->_connection->prepare("INSERT IGNORE INTO tags(name) VALUES(?)");
+            $tag = trim($value);
+            $table->bindParam(1, $tag, PDO::PARAM_STR);
+            $table->execute();
+        }
+        $table->closeCursor();
+
+        $tags = $this->_connection->prepare("SELECT name FROM tags WHERE id>:num");
+        $tags->execute(array(
+            "num" => 0
+        ));
+        $tagData = $tags->fetchAll(PDO::FETCH_ASSOC);
+
+        file_put_contents("tags.json", "");
+        $myfile = fopen("tags.json", "w") or die("Unable to open file!");
+        $tag = json_encode($tagData);
+        fwrite($myfile, $tag);
+        fclose($myfile);
+        $tags->closeCursor();
     }
 
     public function deleteImage($filepath1, $filepath2, $filepath3, $user_id, $photo_id)
@@ -421,24 +451,38 @@ class PictureManager extends Manager
         ));
     }
 
-    public function getImageTags()
-    {
-        $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
-        // $req->execute(array(
-        //     "user_id" => $userId,
-        //     "image_id" => $image_id
-        // ));
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
-        $req->closeCursor();
+    //     public function getImageTags()
+    //     {
+    //     //     $req = $this->_connection->query("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
+    //     //     // $req->execute(array(
+    //     //     //     "user_id" => $userId,
+    //     //     //     "image_id" => $image_id
+    //     //     // ));
 
-        $str_arr = explode(",", $data);
-        print_r($str_arr);
-    }
+    //     //     $data = $req->fetchAll(PDO::FETCH_ASSOC);
+    //     //     $req->closeCursor();
 
-    // public function prepareDirectories($user_id) {
-    //     if (!file_exists($dataDir . $user_id))) {
-    //         mkdir($dataDir . $user_id);
-    //     }
+
+    //     //     $response = $db->query('SELECT tags FROM pictures WHERE user_id = 2 AND id = 31');
+
+    //     //     echo 'picture #31';
+    //     //     echo '</br>';
+    //     //     while ($data = $response->fetch(PDO::FETCH_ASSOC)) {
+    //     //         $str_arr = explode(",", $data['tags']);
+    //     //         // echo '<p>' . $data['tags'] . '</p>';
+    //     //         // print_r($str_arr);
+    //     //         foreach ($str_arr as $value) {
+    //     //             echo $value;
+    //     //             echo '</br>';
+    //     //         }
+    //     //     }
+    //     // }
+
+    //     // public function prepareDirectories($user_id) {
+    //     //     if (!file_exists($dataDir . $user_id))) {
+    //     //         mkdir($dataDir . $user_id);
+    //     //     }
+    //     // }
+
     // }
-
 }
