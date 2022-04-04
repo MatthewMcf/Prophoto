@@ -2,15 +2,20 @@
 require_once("./model/UserManager.php");
 require_once("./model/PictureManager.php");
 require_once("./model/BookmarkManager.php");
+require_once("./model/SalesManager.php");
+
 
 function homepage()
 {
     $pictureObj = new PictureManager();
     $userManager = new UserManager();
+    
     $nbToDisplay = $pictureObj->getNumberImages();
     if (isset($_SESSION["id"])) {
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+        $salesManager = new SalesManager();
+        $purchasedImages = $salesManager->getPurchasedImages(2147483647);
     }
     if ($nbToDisplay>0) {
         $isThereImage = true;
@@ -87,7 +92,11 @@ function publicProfView($params)
     $userManager = new UserManager();
     if (isset($_SESSION["id"])) {
         $user = $userManager->getUserInfo($_SESSION["id"]);
-        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);    
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+        $salesManager = new SalesManager();
+        $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+
+  
     }
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
@@ -147,6 +156,20 @@ function privateProfView($params)
         foreach($bookmarkImages as $image) {
             array_push($bookmarkCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
+
+        $salesManager = new SalesManager();
+        if (isset($params['currPurchasedLimit'])) {
+            $purchasedImages = $salesManager->getPurchasedImages($params['currPurchasedLimit']);
+        } else {
+            $purchasedImages = $salesManager->getPurchasedImages();
+        }
+
+        $purchasedCardInfos = [];
+        foreach($purchasedImages as $image) {
+            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["id_picture"]));
+        }
+
+
 
         require("./view/privateProfView.php");
     } else {
@@ -232,6 +255,7 @@ function purchasePhoto($params) {
 function purchasePhotoSubmit($params) {
     $userManager = new UserManager();
     $pictureManager = new PictureManager();
+    $salesManager = new SalesManager();
 
     $user = $userManager->getUserInfo($_SESSION["id"]);
     $photo = $pictureManager->getImage($params["photo-id"]); 
@@ -240,6 +264,8 @@ function purchasePhotoSubmit($params) {
 
     $userManager->setCredits($_SESSION["id"], $photoCredits * -1);
     $userManager->setCredits($photo["userID"], $photoCredits);
+
+    $salesManager->insertSale($user["id"], $photo["userID"], $photo);
 
     privateProfView($params);
 }
