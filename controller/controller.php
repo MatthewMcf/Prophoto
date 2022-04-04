@@ -1,7 +1,7 @@
 <?php
 require_once("./model/UserManager.php");
 require_once("./model/PictureManager.php");
-
+require_once("./model/BookmarkManager.php");
 
 function homepage()
 {
@@ -133,6 +133,19 @@ function privateProfView($params)
         $currUserCardInfos = [];
         foreach ($currUserImages as $image) {
             array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
+        }
+        
+        $bookmarkManager = new BookmarkManager(); 
+        // Array of picture IDs bookmarked by current user
+        if (isset($params['currBookmarkLimit'])) {
+            $bookmarkImages = $bookmarkManager->getBookmarkImages($params['currBookmarkLimit']);
+        } else {
+            $bookmarkImages = $bookmarkManager->getBookmarkImages();
+        }
+
+        $bookmarkCardInfos = [];
+        foreach($bookmarkImages as $image) {
+            array_push($bookmarkCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
 
         require("./view/privateProfView.php");
