@@ -955,54 +955,6 @@ ul {
 .barContainer > button {
 	width: 15%;
 }
-/* PhotoView Modal CSS*/
-
-#modal {
-	margin: auto;
-}
-
-.imageContainer {
-	background-color: darkgray;
-	text-align: center;
-	padding: 1rem;
-	margin-bottom: 1rem;
-}
-
-img {
-	width: 30rem;
-}
-
-.icon {
-	width: 50px;
-	border-radius: 50px;
-}
-
-.photoCardFooter {
-	display: flex;
-	justify-content: space-between;
-}
-
-.photoCard {
-	background-image: url("../images/seoul.jpeg");
-}
-
-/* .purchaseButton {
-    vertical-align: bottom;
-    padding: 10px;
-}
-
-.purchaseButton > a {
-    background: #2185d0 0% 0% no-repeat padding-box;
-    border-radius: 4px;
-    opacity: 1;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-
-    text-align: center;
-    font: normal normal bold 14px/17px Lato;
-    letter-spacing: 0px;
-} */
 
 /* #sectionTwo {
 	display: flex;
@@ -1021,24 +973,6 @@ img {
 	color: white;
 	font-size: large;
 } */
-
-.imageInfo {
-	display: flex;
-	justify-content: space-around;
-}
-
-.leftContainer {
-	display: flex;
-	flex-direction: column;
-}
-
-.leftContainer > * {
-	margin-bottom: 0.5rem;
-}
-
-#descriptorContainer > * {
-	margin-bottom: 0.2rem;
-}
 
 /* .dropdown > * {
 	color: rgb(246, 244, 244);

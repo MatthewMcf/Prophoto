@@ -1,15 +1,8 @@
 #title,
+#description,
 #price,
-#description {
+#tagsList {
 	width: 350px;
-}
-
-#tagNature,
-#tagCity,
-#tagLandscape,
-#tagPortrait {
-	display: inline;
-	width: auto;
 }
 .fa-trash-can {
 	padding: 0.7rem 0;

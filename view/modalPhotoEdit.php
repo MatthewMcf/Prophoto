@@ -13,14 +13,6 @@
     <br><br>
     <label for="tags">Photo tags (separated by commas): </label><br>
     <input type="text" name="tags" id="tagsList" value="<?= $photo["tags"] ?>">
-    <!-- <input type="checkbox" name="nature" id="tagNature">
-    <label for="tagNature">Nature</label>
-    <input type="checkbox" name="city" id="tagCity">
-    <label for="tagCity" class="tagsSpacing">City</label>
-    <input type="checkbox" name="landscape" id="tagLandscape">
-    <label for="tagLandscape" class="tagsSpacing">Landscape</label>
-    <input type="checkbox" name="portrait" id="tagPortrait">
-    <label for="tagPortrait">Portrait</label> -->
     <br><br>
     <!-- submit button will save and return to privateProfView.php -->
     <button type="submit" class="btnPrimary">Save</button>
