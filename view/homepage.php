@@ -114,10 +114,5 @@ if (!isset($_SESSION)) {
 	</div>
 </div>
 
-
-    <!-- Logged In -->
-
-    <div id="profileInformation"></div>
-
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>
