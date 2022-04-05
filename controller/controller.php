@@ -14,7 +14,7 @@ function homepage()
     }
     if ($nbToDisplay>0) {
         $isThereImage = true;
-        $nbToDisplay = (6<$nbToDisplay)? 6: $nbToDisplay;
+        $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
         $oneCardInfo = $pictureObj->getRandomImages();
         $homePageCardInfos = array($oneCardInfo["imageInfo"]);
         for ($i=1; $i<$nbToDisplay; $i++) {

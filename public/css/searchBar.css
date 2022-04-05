@@ -43,7 +43,7 @@
 .select-items-search div,
 .select-selected-search {
 	color: #000;
-	padding: 12px 0 16px 15px;
+	padding: 12px 0 16.5px 15px;
 	/* border: 1px solid transparent; */
 	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
 	cursor: pointer;

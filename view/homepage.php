@@ -76,10 +76,10 @@ if(!isset($_SESSION)) {
     </div>
 
 
-<div class="greyBackground">
-<div class="container popularImages">
+    <div class="greyBackground">
+        <div class="container popularImages">
 
-	<h2>Heading about the basic images</h2>
+	        <h2>Heading about the basic images</h2>
 	<!--<div id="popularImages">
     <div class="cardContainer">
         <div class="cardContent photoCard" path="public/images/seoul.jpeg">
@@ -146,14 +146,17 @@ if(!isset($_SESSION)) {
             </div>
         </div>
     </div>-->
-    <div id="popularImages">
-        <?php foreach($homePageCardInfos as $card){
-            require('homePageCardView.php');
-        }
-        ?>
+            <div id="popularImages">
+                <?php foreach($homePageCardInfos as $card){
+                    require('homePageCardView.php');
+                }
+                ?>
+            </div>
+            <div class="showMore">
+                <button class="btnHollow">Show more photos</button>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 
 
 <div class="container">

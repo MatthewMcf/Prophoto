@@ -68,3 +68,7 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+
+.showMore {
+	margin: 0 auto;
+}
