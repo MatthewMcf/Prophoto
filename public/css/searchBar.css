@@ -1,0 +1,115 @@
+/* SEARCH CONTAINER */
+.search-container-search {
+	display: flex;
+	justify-content: center;
+}
+
+.custom-select-search {
+	position: relative;
+	font-family: "lato", sans-serif;
+	color: #000000;
+	font-size: 1rem;
+	border-radius: 4px 0 0 4px;
+	width: 150px;
+}
+
+.custom-select-search select {
+	display: none; /*hide original SELECT element:*/
+}
+
+.select-selected-search {
+	background-color: #fff;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected-search:after {
+	position: absolute;
+	content: "";
+	top: 19px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #b6b6b6 transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected-search.select-arrow-active-search:after {
+	border-color: transparent transparent #b6b6b6 transparent;
+	top: 11px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items-search div,
+.select-selected-search {
+	color: #000;
+	padding: 12px 0 16.5px 15px;
+	/* border: 1px solid transparent; */
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+	text-align: start;
+	border-radius: 4px 0 0 4px;
+}
+
+/*style items (options):*/
+.select-items-search {
+	position: absolute;
+	/* background-color: DodgerBlue; */
+	background-color: #fff;
+	top: 100%;
+	left: 0;
+	right: 0;
+	padding: 0 2px;
+	z-index: 99;
+
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	width: 146px;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide-search {
+	display: none;
+}
+
+.select-items-search div:hover,
+.same-as-selected-search {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* SEARCH FORM INPUT */
+
+form.photoSearch input {
+	display: block;
+	width: 500px;
+	padding: 0.8rem 10rem 0.8rem 0.8rem;
+	font-size: 1rem;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	border-color: #fff;
+	/* margin: 0.8rem 0 0.5rem 0; */
+}
+
+.inputContainerSearch {
+	/* margin: 1.5rem 0; */
+	width: 100%;
+}
+
+/* SEARCH BUTTON */
+
+.searchBtn {
+	width: 50px;
+	background-color: #2185d0;
+	border: none;
+	color: #fff;
+	border-radius: 0 4px 4px 0;
+	border-left: none;
+	cursor: pointer;
+}
+
+.photoSearch {
+	display: flex;
+	justify-content: center;
+}
