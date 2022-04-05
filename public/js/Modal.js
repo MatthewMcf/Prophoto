@@ -83,7 +83,7 @@ function setModalProfileInfo() {
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./view/modalProfileEdit.php");
+    xhr.open("GET", `index.php?action=profileEdit`);
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
@@ -160,10 +160,23 @@ function setModalContentPhotoView(e) {
             let content = xhr.responseText;
             let modal = new Modal(content);
 
-            let pb = document.querySelector(".purchaseButton");
-            pb.addEventListener("click", () => {
-                //setModalContentPurchaseView();
-            });
+            let pb = document.querySelector(".purchaseButtonModal");
+
+            if (pb) {
+                pb.setAttribute("image-id", e.target.getAttribute("image-id"));
+                pb.addEventListener("click", (e) => {
+                    //needs to direct to index to check if user has enough credits
+                    setModalContentPurchaseView(e);
+                });
+            }
+
+            let lg = document.querySelector(".loginButtonModal");
+            if (lg) {
+                lg.addEventListener("click", (e) => {
+                    //needs to direct to index to check if user has enough credits
+                    document.querySelector("#login").click();
+                });
+            }
         } else if (
             xhr.readyState === XMLHttpRequest.DONE &&
             xhr.status != 200
@@ -313,3 +326,68 @@ var loadUploadedImage = function (event) {
     updateButton.parentNode.insertBefore(newUpdateButton, updateButton);
     updateButton.parentNode.removeChild(updateButton);
 };
+
+function setModalContentPurchaseView(e) {
+    // Set up the request
+    var xhr = new XMLHttpRequest();
+
+    // Open the connection
+    // Replace with path to your php
+    xhr.open(
+        "GET",
+        `index.php?action=purchase&photo-id=${e.target.getAttribute(
+            "image-id"
+        )}`
+    );
+
+    xhr.addEventListener("load", () => {
+        // We manage here an asynchronous request
+        if (xhr.status === 200) {
+            // if the file is loaded without error
+            let content = xhr.responseText;
+            let modal = new Modal(content);
+        } else if (
+            xhr.readyState === XMLHttpRequest.DONE &&
+            xhr.status != 200
+        ) {
+            // in case of error
+            alert(
+                "There is an error !\n\nCode :" +
+                    xhr.status +
+                    "\nText : " +
+                    xhr.statusText
+            );
+        }
+    });
+    xhr.send(null);
+}
+
+function setModalContentPurchaseCreditsView(e) {
+    // Set up the request
+    var xhr = new XMLHttpRequest();
+
+    // Open the connection
+    // Replace with path to your php
+    xhr.open("GET", `index.php?action=purchaseCredits`);
+
+    xhr.addEventListener("load", () => {
+        // We manage here an asynchronous request
+        if (xhr.status === 200) {
+            // if the file is loaded without error
+            let content = xhr.responseText;
+            let modal = new Modal(content);
+        } else if (
+            xhr.readyState === XMLHttpRequest.DONE &&
+            xhr.status != 200
+        ) {
+            // in case of error
+            alert(
+                "There is an error !\n\nCode :" +
+                    xhr.status +
+                    "\nText : " +
+                    xhr.statusText
+            );
+        }
+    });
+    xhr.send(null);
+}

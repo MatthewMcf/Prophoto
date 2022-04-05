@@ -60,6 +60,27 @@ try {
         case "deleteBookmark":
             deleteBookmark($_REQUEST);
             break;
+        case "purchase":
+            purchase($_REQUEST);
+            break;
+        case "purchaseCredits":
+            purchaseCredits();
+            break;
+        case "submitPurchaseCredits":
+            submitPurchaseCredits($_REQUEST);
+            break;
+        case "purchasePhoto":
+            purchasePhoto($_REQUEST);
+            break;
+        case "purchasePhotoSubmit":
+            purchasePhotoSubmit($_REQUEST);
+            break;
+        case "profileEdit":
+            profileEdit($_REQUEST);
+            break;
+        case "profileEditSubmit":
+            profileEditSubmit($_REQUEST);
+            break;
         default:
             homepage();
             break;

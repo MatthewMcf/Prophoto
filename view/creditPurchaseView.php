@@ -1,7 +1,5 @@
 <!-- <div class="modalSection"> -->
-<?php //session_start();
-?>
-<?php ob_start(); ?>
+
 <!-- Can't have this in body -->
 <!-- <body onload="createYearOptions()"> -->
 <link rel="stylesheet" href="../public/css/style.css">
@@ -9,7 +7,7 @@
 <section>
     <h1>Purchase credits</h1>
 
-    <form action="connection.php" method="post" id="form" class="form">
+    <form action="index.php?action=submitPurchaseCredits" method="post" id="form" class="form">
         <div class="inputContainer">
             <label for="credits">Amount of credits</label>
             <p>1 credit costs $5</p>
@@ -72,6 +70,4 @@
     </form>	
 </section>
 <script type="text/javascript" src="../public/js/creditPurchase.js"></script>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
 

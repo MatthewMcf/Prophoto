@@ -15,7 +15,8 @@ class PictureManager extends Manager
     // return the username and the profile picture path of a user
     // function is was desgned to be used internally to build array to display the card image
     // but you can use it whever you need
-    public function getProfilePathAndName($userId) {
+    public function getProfilePathAndName($userId)
+    {
         $req = $this->_connection->prepare("SELECT id, username, profile_url FROM users WHERE id = :id");
         $req->execute(array(
             "id" => $userId
@@ -36,8 +37,9 @@ class PictureManager extends Manager
     }
 
     // -> see UserManager class to use it in a more appropriate way ;)
-    public function getProfilePicturePath() {
-        $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
+    public function getProfilePicturePath()
+    {
+        $userId = (!empty($_SESSION['id'])) ? $_SESSION["id"] : -1;
         $req = $this->_connection->prepare("SELECT id, profile_url FROM users WHERE id = :id");
         $req->execute(array(
             "id" => $userId
@@ -55,7 +57,8 @@ class PictureManager extends Manager
     // to display an image in a modal after clicking on it. 
     // it will be the highest resolution displayed.
     // return default image path and default info if it doesn´t match
-    public function getImage($imageId) {
+    public function getImage($imageId)
+    {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
         $req->execute(array(
@@ -99,7 +102,8 @@ class PictureManager extends Manager
     // to display a card image in the home page or a profile user page
     // it will be the smallest resolution displayed.
     // return default image path and default info if it doesn´t match
-    public function getSmallImage($imageId) {
+    public function getSmallImage($imageId)
+    {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
         $req->execute(array(
@@ -114,7 +118,7 @@ class PictureManager extends Manager
                 "picture_id" => $imageId
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
-            $isItBookmarked = (!empty($res))? true: false;
+            $isItBookmarked = (!empty($res)) ? true : false;
         }
 
         $req->closeCursor();
@@ -144,13 +148,14 @@ class PictureManager extends Manager
                 "userID" => "user",
                 "username" => "username",
                 "profilePicture" => "profilePath",
-                "bookmarkByCurr" => false 
+                "bookmarkByCurr" => false
             ));
         }
     }
 
     // return the number of image saved into the pictures table
-    public function getNumberImages() {
+    public function getNumberImages()
+    {
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
@@ -158,7 +163,8 @@ class PictureManager extends Manager
     }
 
     // return the number of image of one user (userId) saved into the pictures table
-    public function getNumberImagesFromId($userId) {
+    public function getNumberImagesFromId($userId)
+    {
         $req = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = :user_id");
         $req->execute(array(
             "user_id" => $userId
@@ -174,7 +180,8 @@ class PictureManager extends Manager
     // to prevent repetition and get a new random image, you can give an array of image ID already displayed
     // [imageList] -> this array will be return with the id of the new image 
     // return default if there is no more image to display
-    public function getRandomImages($imagesList=[]) {
+    public function getRandomImages($imagesList = [])
+    {
         $req = $this->_connection->query("SELECT id FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
@@ -198,7 +205,8 @@ class PictureManager extends Manager
 
     // same as the function above but only from one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getRandomImagesFromId($userId, $imagesList=[]) {
+    public function getRandomImagesFromId($userId, $imagesList = [])
+    {
         $req = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = :user_id");
         $req->execute(array(
             "user_id" => $userId
@@ -220,7 +228,8 @@ class PictureManager extends Manager
         }
     }
 
-    public function getImagesFromId($userId, $limit=null) {
+    public function getImagesFromId($userId, $limit = null)
+    {
         $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT 5");
         if ($limit) {
             $stmt = $this->_connection->prepare("SELECT id FROM pictures WHERE user_id = ? LIMIT ?");
@@ -237,20 +246,21 @@ class PictureManager extends Manager
     // see BookMarkManager class, this function have been removed from PictureManager class
     // same as the functions above but only liked by one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getLikedImages($imagesList=[]) {
-
+    public function getLikedImages($imagesList = [])
+    {
     }
 
     // same as the functions above but only bought by one specific user (userId param)
     // if any other question, please read the doc first ;)
-    public function getPurchasedImages($imagesList=[]) {
-
+    public function getPurchasedImages($imagesList = [])
+    {
     }
 
     // -> see UserManager class to use it in a more appropriate way ;)
-    public function setProfilePicture($file) {
-        if(!isset($_SESSION)) { 
-            session_start(); 
+    public function setProfilePicture($file)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
         }
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -314,9 +324,10 @@ class PictureManager extends Manager
     // original size -> original folder with the original format
     // medium size -> medium folder in jpg
     // and last -> small folder in jpg
-    public function setImage($file) {
-         if(!isset($_SESSION)) { 
-            session_start(); 
+    public function setImage($file)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
         }
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -343,9 +354,9 @@ class PictureManager extends Manager
             // get the id of the image just inserted
             $pictureId = $this->_connection->lastInsertId();
             // create the paths for save the image
-            $originalPath = $dataDir . $user . "/original/". $pictureId . "." . $fileExtension;
-            $mediumPath = $dataDir. $user . "/medium/" . $pictureId . ".jpg";
-            $smallPath = $dataDir. $user . "/small/" . $pictureId . ".jpg";
+            $originalPath = $dataDir . $user . "/original/" . $pictureId . "." . $fileExtension;
+            $mediumPath = $dataDir . $user . "/medium/" . $pictureId . ".jpg";
+            $smallPath = $dataDir . $user . "/small/" . $pictureId . ".jpg";
 
             //$message = "";//$uploadPath;
             if (isset($fileName)) {
@@ -357,10 +368,10 @@ class PictureManager extends Manager
                         mkdir($dataDir . $user . "/original");
                     }
                     // save the image in the original folder
-                    if (!file_exists($dataDir . $user ."/original/")) {
-                        mkdir($dataDir . $user ."/original/");
-                        mkdir($dataDir . $user ."/medium/");
-                        mkdir($dataDir . $user ."/small/");
+                    if (!file_exists($dataDir . $user . "/original/")) {
+                        mkdir($dataDir . $user . "/original/");
+                        mkdir($dataDir . $user . "/medium/");
+                        mkdir($dataDir . $user . "/small/");
                     }
                     $didUpload = move_uploaded_file($fileTmpName, $originalPath);
                     //move_uploaded_file($fileTmpName, $mediumPath);
@@ -368,8 +379,8 @@ class PictureManager extends Manager
                     if ($didUpload) {
                         // resize the image and save it in the appropriate folder
                         $imageObj = new ImageCreation($originalPath);
-                        $imageObj->createImage($mediumPath,600); 
-                        $imageObj->createImage($smallPath,300);
+                        $imageObj->createImage($mediumPath, 600);
+                        $imageObj->createImage($smallPath, 300);
                         echo "The image " . basename($fileName) . " has been uploaded.";
 
                         //update profile pic path in database 
@@ -391,14 +402,49 @@ class PictureManager extends Manager
 
     public function setImageInfo($params)
     {
-        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=? WHERE id=?");
+        $stmt = $this->_connection->prepare("UPDATE `pictures` SET `title`=?,`description`=?,`price`=?,`tags`=? WHERE id=?");
         $stmt->bindParam(1, $params["title"], PDO::PARAM_STR);
         $stmt->bindParam(2, $params["description"], PDO::PARAM_STR);
         $stmt->bindParam(3, $params["price"], PDO::PARAM_STR);
-        $stmt->bindParam(4, $params["photo-id"], PDO::PARAM_INT);
+        $stmt->bindParam(4, $params["tags"], PDO::PARAM_STR);
+        $stmt->bindParam(5, $params["photo-id"], PDO::PARAM_INT);
 
         $stmt->execute();
         $stmt->closeCursor();
+
+        $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE id = :photo_id");
+        $req->execute(array(
+            "photo_id" => $params["photo-id"]
+        ));
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        $str_arr = explode(",", $data[0]['tags']);
+        foreach ($str_arr as $value) {
+            $table = $this->_connection->prepare("INSERT IGNORE INTO tags(name) VALUES(?)");
+            $tag = trim($value);
+            $table->bindParam(1, $tag, PDO::PARAM_STR);
+            $table->execute();
+        }
+        $table->closeCursor();
+
+        $tags = $this->_connection->prepare("SELECT name FROM tags");
+        $tags->execute();
+        $tagData = $tags->fetchAll(PDO::FETCH_ASSOC);
+
+        $list = array();
+        foreach ($tagData as $row => $innerArray) {
+            foreach ($innerArray as $innerRow => $value) {
+                array_push($list, $value);
+            }
+        }
+
+        file_put_contents("tags.json", "");
+        $myfile = fopen("tags.json", "w") or die("Unable to open file!");
+        $tag = json_encode($list);
+        fwrite($myfile, $tag);
+        fclose($myfile);
+        $tags->closeCursor();
     }
 
     public function deleteImage($filepath1, $filepath2, $filepath3, $user_id, $photo_id)
@@ -424,24 +470,12 @@ class PictureManager extends Manager
         ));
     }
 
-    public function getImageTags()
-    {
-        $req = $this->_connection->prepare("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
-        // $req->execute(array(
-        //     "user_id" => $userId,
-        //     "image_id" => $image_id
-        // ));
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
-        $req->closeCursor();
 
-        $str_arr = explode(",", $data);
-        print_r($str_arr);
-    }
+    //     // public function prepareDirectories($user_id) {
+    //     //     if (!file_exists($dataDir . $user_id))) {
+    //     //         mkdir($dataDir . $user_id);
+    //     //     }
+    //     // }
 
-    // public function prepareDirectories($user_id) {
-    //     if (!file_exists($dataDir . $user_id))) {
-    //         mkdir($dataDir . $user_id);
-    //     }
     // }
-
 }

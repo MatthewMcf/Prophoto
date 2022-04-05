@@ -24,7 +24,7 @@
 
             <div>
                 <p class="labelWidth"><strong>About Me: </strong></p>
-                <p class="inputWidth">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas earum in commodi magni facilis! Soluta, perferendis ipsam possimus maiores fuga similique ducimus obcaecati laboriosam? Veniam consequatur harum repudiandae laboriosam deserunt. Fifteen More!!</p>
+                <p class="inputWidth"><?=$user["about_me"]?></p>
             </div>
 
             <div>
@@ -33,10 +33,10 @@
             </div>
             <div id="socialMedia">
                 <p class="labelWidth"><strong>Socials: </strong></p>
-                <p class="inputWidth"><a href="http://mywebsite.com" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    <a href="http://facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-                    <a href="http://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="http://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <p class="inputWidth"><a href="<?php echo isset($user["website"]) ? "https://www." . $user["website"] : "https://www.website.com";?>"target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="<?php echo isset($user["facebook"]) ? "https://www." . $user["facebook"] : "https://www.facebook.com";?>" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="<?php echo isset($user["instagram"]) ? "https://www." . $user["instagram"] : "https://www.instagram.com";?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="<?php echo isset($user["linkedin"]) ? "https://www." . $user["linkedin"] : "https://www.linkedin.com";?>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 </p>
             </div>
             <button id="editProfileInfo" class="btnHollowSecondary">Edit your details</button>
@@ -52,7 +52,7 @@
                 <div class="cardContainer">
                     <div id="addPicture">
                         <div>
-                            <a href=""><i class="fa-solid fa-plus"></i></a>
+                            <i class="fa-solid fa-plus"></i>
                             <p>Upload a Photo</p>
                         </div>
                     </div>
@@ -91,39 +91,12 @@
                 <i class="fa-solid fa-angle-down"></i>
             </div>
             <div class="sectionPhotos">
-                <div class="cardContainer">
-                    <div class="cardContent"></div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent"></div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="cardContainer">
-                    <div class="cardContent"></div>
-                    <div class="cardInfo">
-                        <a href="">
-                            <div class="photographerInfo">
-                                <div class="photographerSmallProfilePic"></div>
-                                <h4>Username</h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <?php foreach ($purchasedCardInfos as $card) {
+                require('homePageCardView.php');
+            }
+            ?>
+            <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+
             </div>
         </div>
     </div>

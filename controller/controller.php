@@ -2,19 +2,24 @@
 require_once("./model/UserManager.php");
 require_once("./model/PictureManager.php");
 require_once("./model/BookmarkManager.php");
+require_once("./model/SalesManager.php");
+
 
 function homepage()
 {
     $pictureObj = new PictureManager();
     $userManager = new UserManager();
+    
     $nbToDisplay = $pictureObj->getNumberImages();
     if (isset($_SESSION["id"])) {
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+        $salesManager = new SalesManager();
+        $purchasedImages = $salesManager->getPurchasedImages(2147483647);
     }
     if ($nbToDisplay>0) {
         $isThereImage = true;
-        $nbToDisplay = (6<$nbToDisplay)? 6: $nbToDisplay;
+        $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
         $oneCardInfo = $pictureObj->getRandomImages();
         $homePageCardInfos = array($oneCardInfo["imageInfo"]);
         for ($i=1; $i<$nbToDisplay; $i++) {
@@ -31,6 +36,9 @@ function photo($params)
 {
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
+    $salesManager = new SalesManager();
+    $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+
 
     require("./view/modalPhotoView.php");
 }
@@ -87,7 +95,11 @@ function publicProfView($params)
     $userManager = new UserManager();
     if (isset($_SESSION["id"])) {
         $user = $userManager->getUserInfo($_SESSION["id"]);
-        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);    
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+        $salesManager = new SalesManager();
+        $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+
+  
     }
     $requestedUser = $userManager->getUserInfo($params['requested_id']);
     $requestedUserProfileURL = $userManager->getProfilePicturePath($params['requested_id']);
@@ -146,9 +158,23 @@ function privateProfView($params)
             array_push($bookmarkCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
 
+        $salesManager = new SalesManager();
+        if (isset($params['currPurchasedLimit'])) {
+            $purchasedImages = $salesManager->getPurchasedImages($params['currPurchasedLimit']);
+        } else {
+            $purchasedImages = $salesManager->getPurchasedImages();
+        }
+
+        $purchasedCardInfos = [];
+        foreach($purchasedImages as $image) {
+            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["id_picture"]));
+        }
+
+
+
         require("./view/privateProfView.php");
     } else {
-        require("./view/homepage.php");
+        homepage();
     }
 }
 
@@ -193,4 +219,76 @@ function addBookmark($params){
 function deleteBookmark($params){
     $bookmarkMng = new BookmarkManager();
     $bookmarkMng->deleteBookmarkImage($params["picture_id"]);
+}
+function purchase($params) {
+    $userManager = new UserManager();
+    $pictureManager = new PictureManager();
+
+    if (!isset($_SESSION["id"])) {
+        
+    } else {
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $photo = $pictureManager->getImage($params["photo-id"]); 
+        $userCredits = $user['balance'];
+        $photoCredits = $photo['price'];
+    
+        if ($userCredits >= $photoCredits) {
+            //direct to photo purchase page
+            purchasePhoto($params);
+        }
+        else {
+            require("./view/creditPurchaseView.php");
+        }   
+    }
+}
+
+function purchaseCredits() {
+    require("./view/creditPurchaseView.php");
+}
+
+function submitPurchaseCredits($params) {
+    $userManager = new UserManager();
+    $userManager->setCredits($_SESSION["id"], $_POST["credits"]);
+
+    homepage();
+}
+
+function purchasePhoto($params) {
+    $pictureManager = new PictureManager();
+
+    $photo = $pictureManager->getImage($params["photo-id"]); 
+
+    require("./view/modalPurchasePhotoView.php");
+    // $userManager->setCredits($_SESSION["id"], $photoCredits * -1);
+}
+
+function purchasePhotoSubmit($params) {
+    $userManager = new UserManager();
+    $pictureManager = new PictureManager();
+    $salesManager = new SalesManager();
+
+    $user = $userManager->getUserInfo($_SESSION["id"]);
+    $photo = $pictureManager->getImage($params["photo-id"]); 
+    $userCredits = $user['balance'];
+    $photoCredits = $photo['price'];
+
+    $userManager->setCredits($_SESSION["id"], $photoCredits * -1);
+    $userManager->setCredits($photo["userID"], $photoCredits);
+
+    $salesManager->insertSale($user["id"], $photo["userID"], $photo);
+
+    privateProfView($params);
+}
+
+function profileEdit($params) {
+    $userManager = new UserManager();
+    $user = $userManager->getUserInfo($_SESSION["id"]);
+
+    require("./view/modalProfileEdit.php");
+}
+
+function profileEditSubmit($params) {
+    $userManager = new UserManager();
+    $userManager->setUserInfo($params);
+    privateProfView($params);
 }

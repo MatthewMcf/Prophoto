@@ -27,7 +27,7 @@ class UserManager extends Manager
             //user with this email already exists in our database
             return false;
         } else {
-            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(?, ?, ?)");
+            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username, profile_url) VALUES(?, ?, ?, './data/default/profilePicture.jpg')");
             $req->bindParam(1, $email, PDO::PARAM_STR);
             $req->bindParam(2, $pwd, PDO::PARAM_STR);
             $req->bindParam(3, $username, PDO::PARAM_STR);
@@ -206,5 +206,24 @@ class UserManager extends Manager
                 }
             }
         }
+    }
+
+    public function setCredits($id, $num) {
+        $stmt = $this->_connection->prepare("UPDATE users SET balance=balance + ? WHERE id=?");
+        $stmt->bindParam(1, $num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $id, PDO::PARAM_INT);
+        $stmt->execute(); 
+    }
+
+    public function setUserInfo($params) {
+        $stmt = $this->_connection->prepare("UPDATE `users` SET `display_name`=?,`about_me`=?,`website`=?,`facebook`=?,`instagram`=?,`linkedin`=? WHERE id = ?");
+        $stmt->bindParam(1, $params["name"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $params["aboutMe"], PDO::PARAM_STR);
+        $stmt->bindParam(3, $params["website"], PDO::PARAM_STR);
+        $stmt->bindParam(4, $params["facebook"], PDO::PARAM_STR);
+        $stmt->bindParam(5, $params["instagram"], PDO::PARAM_STR);
+        $stmt->bindParam(6, $params["linkedin"], PDO::PARAM_STR);
+        $stmt->bindParam(7, $_SESSION["id"], PDO::PARAM_INT);
+        $stmt->execute(); 
     }
 }
