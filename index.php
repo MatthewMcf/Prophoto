@@ -69,6 +69,12 @@ try {
         case "purchasePhotoSubmit":
             purchasePhotoSubmit($_REQUEST);
             break;
+        case "profileEdit":
+            profileEdit($_REQUEST);
+            break;
+        case "profileEditSubmit":
+            profileEditSubmit($_REQUEST);
+            break;
         default:
             homepage();
             break;

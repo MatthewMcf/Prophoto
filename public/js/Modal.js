@@ -83,7 +83,7 @@ function setModalProfileInfo() {
 
     // Open the connection
     // Replace with path to your php
-    xhr.open("GET", "./view/modalProfileEdit.php");
+    xhr.open("GET", `index.php?action=profileEdit`);
 
     xhr.addEventListener("load", () => {
         // We manage here an asynchronous request
