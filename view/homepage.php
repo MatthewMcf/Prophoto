@@ -8,6 +8,7 @@ if (!isset($_SESSION)) {
     <script src="public/js/Modal.js" defer></script>
     <script src="public/js/homepage.js" defer></script>
     <script src="public/js/dropdown.js" defer></script>
+
     <link rel="stylesheet" href="public/css/searchBar.css">
     <link rel="stylesheet" href="public/css/homePage.css">
 

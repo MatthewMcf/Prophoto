@@ -36,6 +36,9 @@ function photo($params)
 {
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
+    $salesManager = new SalesManager();
+    $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+
 
     require("./view/ModalPhotoView.php");
 }

@@ -4,6 +4,14 @@ for (let i = 0; i < photoCardsAll.length; i++) {
     photoCardsAll[i].addEventListener("click", setModalContentPhotoView);
 }
 
+let prices = document.querySelectorAll(".price");
+for (let i = 0; i < prices.length; i++) {
+    prices[i].addEventListener("click", (e) => {
+        e.stopImmediatePropagation();
+        e.currentTarget.parentElement.click();
+    });
+}
+
 // DROP DOWN JS
 function toggleClass(elem, className) {
     if (elem.className.indexOf(className) !== -1) {
@@ -73,19 +81,3 @@ dropdownOptions.forEach((option) =>
 document
     .querySelector(".dropdown .title")
     .addEventListener("change", handleTitleChange);
-
-let pbs = document.querySelectorAll(".purchaseButton");
-
-for (let i = 0; i < pbs.length; i++) {
-    pbs[i].addEventListener("click", (e) => {
-        setModalContentPurchaseView(e);
-    });
-}
-
-let lgs = document.querySelectorAll(".loginButton");
-for (let i = 0; i < lgs.length; i++) {
-    lgs[i].addEventListener("click", (e) => {
-        console.log("here");
-        document.querySelector("#login").click();
-    });
-}

@@ -26,7 +26,7 @@
                 <div class="purchase">
                 <button class="btnPrimary loginButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
                 </div>
-            <?php } else if ($photo["userID"] == $_SESSION["id"]) {
+            <?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'id_picture')) !== FALSE) {
             } else { ?>
                 <div class="purchase">
                 <button class="btnPrimary purchaseButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
