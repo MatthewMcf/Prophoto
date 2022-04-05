@@ -9,14 +9,15 @@ if (!isset($_SESSION)) {
     <script src="public/js/homepage.js" defer></script>
     <script src="public/js/dropdown.js" defer></script>
     <link rel="stylesheet" href="public/css/searchBar.css">
+    <link rel="stylesheet" href="public/css/homePage.css">
 
 
 	<div id="topContainer">
-		<h2 id="callToAction">
-			Placeholder Call-To-Action.
-        </h2>
-		<h3 id="callToActionSecondary">
-			Secondary Call-To-Action text.
+		<h1>
+        One library, millions of ways to tell your story.
+        </h1>
+		<h3>
+        Purchase from a selection of over 4000 high quality photos
         </h3>
 		
 		<!-- <div class="searchBar">
@@ -47,42 +48,51 @@ if (!isset($_SESSION)) {
         </div>-->
 
         <div class="search-container-search">
-			<div class="custom-select-search">
-				<select>
-					<option value="0">Photo</option>
-					<option value="1">Photo</option>
-					<option value="2">Photographer</option>
-				</select>
-			</div>
-			<div class="searchBar">
-				<form class="searchBar" id="searchForm">
-					<div class="inputContainerSearch">
-						<input
-							type="text"
-							class="inputSearch"
-							placeholder="Search photos..."
-						/>
-					</div>
-				</form>
-			</div>
-			<button class="searchBtn">
-				<i class="fa-solid fa-magnifying-glass"></i>
-			</button>
+            <form class="photoSearch" action="">
+                <div class="custom-select-search">
+                    <select>
+                        <option value="0">Photo</option>
+                        <option value="1">Photo</option>
+                        <option value="2">Photographer</option>
+                    </select>
+                </div>
+                <div class="searchBar">
+                    <div class="searchBar" id="searchForm">
+                        <div class="inputContainerSearch">
+                            <input
+                                type="text"
+                                class="inputSearch"
+                                placeholder="Search photos..."
+                            />
+                        </div>
+                    </div>
+                </div>
+                <button class="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
 		</div>
-
     </div>
 
-</div>
-
-
-	<h2>Heading about the basic images</h2>
-    <div id="popularImages">
-        <?php foreach($homePageCardInfos as $card){
-            require('homePageCardView.php');
-        }
-        ?>
+    <div class="greyBackground">
+        <div class="container popularImages">
+	        <h2>Heading about the basic images</h2>
+            <div id="popularImages">
+                <?php foreach($homePageCardInfos as $card){
+                    require('homePageCardView.php');
+                }
+                ?>
+            </div>
+            <div class="showMore">
+                <button class="btnHollow">Show more photos</button>
+            </div>
+        </div>
     </div>
-	<div id="sectionTwo">
+
+
+<div class="container">
+    
+	<div id="aboutProPhoto">
 		<div id="aboutUs">
 			<h2>About proPhoto</h2>
 			<p>
@@ -91,20 +101,24 @@ if (!isset($_SESSION)) {
 
 		</div>
 
-		<div class="outerContainer">
+		<div id="mostPopular">
 			<h2>Most Popular Tags</h2>
 			<div id="popularTags">
 				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Street</a></div>
 				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Landscape</a></div>
 				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Portrait</a></div>
 				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Wildlife</a></div>
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Photojournalism</a></div>
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Sport</a></div>
 			</div>
 		</div>
 
 
 	</div>
+<<<<<<< HEAD
+=======
+    </div>
+
+
+>>>>>>> 12e84ee0a2555a3fb5ee96c0cca2a495afb33b89
     <!-- Logged In -->
 
     <div id="profileInformation"></div>

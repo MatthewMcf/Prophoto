@@ -3,7 +3,6 @@
 
 * {
 	box-sizing: border-box;
-	margin: 0;
 }
 
 :root {
@@ -89,6 +88,7 @@ body {
 	font-family: "lato", sans-serif;
 	color: #000000;
 	font-size: 1rem;
+	margin: 0;
 }
 
 /* Change so the body isn't the restrictor */
@@ -726,7 +726,36 @@ label {
 	transition: 0.3s ease-in-out;
 }
 
-/* SEARCH BAR */
+/* Modal */
+.modal {
+	position: fixed;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffffff;
+	width: 60%;
+	padding: 3rem 2rem;
+	margin: 0 auto;
+	margin-top: 3rem;
+	/* position: relative; */
+}
+
+.modal::backdrop {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.closeModal {
+	color: #333333;
+	font-size: 2rem;
+	margin: 0.7rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 0.2rem;
+}
+.closeModal:hover {
+	color: #000000;
+	transition: ease-in-out 0.3s;
+}
 
 /* Responsive */
 
@@ -771,12 +800,6 @@ label {
 	width: 100%;
 }
 
-#popularTags {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
 #popularImages {
 	display: flex;
 	flex-wrap: wrap;
@@ -791,11 +814,6 @@ label {
 #popularTags > .placeholder {
 	width: 30%;
 	margin-bottom: 5px;
-}
-
-.searchBar {
-	display: flex;
-	justify-content: center;
 }
 
 li {
@@ -866,44 +884,6 @@ img {
     font: normal normal bold 14px/17px Lato;
     letter-spacing: 0px;
 } */
-
-#sectionTwo {
-	display: flex;
-}
-
-#sectionTwo > * {
-	width: 50%;
-}
-
-#topContainer {
-	background: url("../images/corgi-wallpaper-2560x1080.jpg"),
-		rgba(50, 50, 50, 0.5);
-	background-blend-mode: multiply;
-	height: 80vh;
-	background-position: center;
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin-top: 0.5rem;
-	margin-bottom: 3.5rem;
-}
-
-#topContainer > * {
-	width: 100%;
-	text-align: center;
-}
-
-#callToAction {
-	color: white;
-	font-size: xx-large;
-}
-
-#callToActionSecondary {
-	color: white;
-	font-size: large;
-}
 
 .imageInfo {
 	display: flex;
@@ -935,6 +915,10 @@ img {
 	justify-content: space-around;
 }
 
+.popularImages h2 {
+	margin-bottom: 1.5rem;
+}
+
 #popularImages {
 	display: flex;
 	flex-wrap: wrap;
@@ -949,11 +933,6 @@ img {
 #popularTags > .placeholder {
 	width: 30%;
 	margin-bottom: 5px;
-}
-
-.searchBar {
-	display: flex;
-	justify-content: center;
 }
 
 li {
@@ -1025,15 +1004,15 @@ img {
     letter-spacing: 0px;
 } */
 
-#sectionTwo {
+/* #sectionTwo {
 	display: flex;
 }
 
 #sectionTwo > * {
 	width: 50%;
-}
+} */
 
-#callToAction {
+/* #callToAction {
 	color: white;
 	font-size: xx-large;
 }
@@ -1041,7 +1020,7 @@ img {
 #callToActionSecondary {
 	color: white;
 	font-size: large;
-}
+} */
 
 .imageInfo {
 	display: flex;
@@ -1061,13 +1040,13 @@ img {
 	margin-bottom: 0.2rem;
 }
 
-.dropdown > * {
+/* .dropdown > * {
 	color: rgb(246, 244, 244);
 }
 
 .homepageDropdown {
 	width: 100%;
-}
+} */
 
 /* Nav Bar */
 
@@ -1078,6 +1057,7 @@ header {
 nav {
 	display: flex;
 	align-items: center;
+	padding: 0 30px;
 }
 
 nav .btnPrimary {
@@ -1093,7 +1073,7 @@ li {
 }
 
 #siteLogo {
-	width: 150px;
+	width: 270px;
 }
 
 #menuBar {
@@ -1123,4 +1103,5 @@ li {
 
 #navUserInfo > * {
 	margin-right: 0.5rem;
+	color: #000;
 }
