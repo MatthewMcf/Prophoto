@@ -214,4 +214,16 @@ class UserManager extends Manager
         $stmt->bindParam(2, $id, PDO::PARAM_INT);
         $stmt->execute(); 
     }
+
+    public function setUserInfo($params) {
+        $stmt = $this->_connection->prepare("UPDATE `users` SET `display_name`=?,`about_me`=?,`website`=?,`facebook`=?,`instagram`=?,`linkedin`=? WHERE id = ?");
+        $stmt->bindParam(1, $params["name"], PDO::PARAM_STR);
+        $stmt->bindParam(2, $params["aboutme"], PDO::PARAM_STR);
+        $stmt->bindParam(3, $params["website"], PDO::PARAM_STR);
+        $stmt->bindParam(4, $params["facebook"], PDO::PARAM_STR);
+        $stmt->bindParam(5, $params["instagram"], PDO::PARAM_STR);
+        $stmt->bindParam(6, $params["linkedin"], PDO::PARAM_STR);
+        $stmt->bindParam(7, $_SESSION["id"], PDO::PARAM_INT);
+        $stmt->execute(); 
+    }
 }

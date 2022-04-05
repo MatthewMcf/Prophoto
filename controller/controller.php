@@ -269,3 +269,16 @@ function purchasePhotoSubmit($params) {
 
     privateProfView($params);
 }
+
+function profileEdit($params) {
+    $userManager = new UserManager();
+    $user = $userManager->getUserInfo($_SESSION["id"]);
+
+    require("./view/modalProfileEdit.php");
+}
+
+function profileEditSubmit($params) {
+    $userManager = new UserManager();
+    $userManager->setUserInfo($params);
+    privateProfView($params);
+}
