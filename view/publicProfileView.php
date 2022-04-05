@@ -24,7 +24,7 @@
             </div>
             <div>
                 <p class="labelWidth"><strong>About Me: </strong></p>
-                <p class="inputWidth">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas earum in commodi magni facilis! Soluta, perferendis ipsam possimus maiores fuga similique ducimus obcaecati laboriosam? Veniam consequatur harum repudiandae laboriosam deserunt. Fifteen More!!</p>
+                <p class="inputWidth"><?=$requestedUser['about_me']?></p>
             </div>
             <div>
                 <p class="labelWidth"><strong>Contact: </strong></p>
@@ -32,10 +32,10 @@
             </div>
             <div id="socialMedia">
                 <p class="labelWidth"><strong>Socials: </strong></p>
-                <p class="inputWidth"><a href="http://mywebsite.com" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    <a href="http://facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-                    <a href="http://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="http://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <p class="inputWidth"><a href="https://www.<?php echo isset($requestedUser["website"]) ? $requestedUser["website"] : "website.com";?>" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://www.<?php echo isset($requestedUser["facebook"]) ? $requestedUser["facebook"] : "facebook.com";?>" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="https://www.<?php echo isset($requestedUser["instagram"]) ? $requestedUser["instagram"] : "instagram.com";?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.<?php echo isset($requestedUser["linkedin"]) ? $requestedUser["linkedin"] : "linkedin.com";?>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 </p>
             </div>
         </div>

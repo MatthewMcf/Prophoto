@@ -12,7 +12,7 @@
                 <textarea name="aboutMe" id="aboutMe" cols="30" rows="10" placeholder="<?php echo isset($user["about_me"]) ? $user["about_me"] : "Max 255 Characters";  ?>"></textarea>
                 <br>
                 <label for="website" class="label">Website </label><i class="fa-solid fa-link"></i><br>
-                <input type="text" name="website" id="website" maxlength="255" placeholder="<?php echo isset($user["website"]) ? $user["website"] : "www.website.com";  ?>">
+                <input type="text" name="website" id="website" maxlength="255" placeholder="<?php echo isset($user["website"]) ? $user["website"] : "website.com";  ?>">
                 <br>
                 <label for="findMe" class="label">Facebook </label><i class="fa-brands fa-facebook-square"></i><br>
                 <input type="text" name="facebook" id="findMe" maxlength="255" placeholder="<?php echo isset($user["facebook"]) ? $user["facebook"] : "facebook.com/";  ?>">
