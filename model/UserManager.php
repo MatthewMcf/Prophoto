@@ -27,7 +27,7 @@ class UserManager extends Manager
             //user with this email already exists in our database
             return false;
         } else {
-            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username) VALUES(?, ?, ?)");
+            $req = $this->_connection->prepare("INSERT INTO users(email, pwd, username, profile_url) VALUES(?, ?, ?, './data/default/profilePicture.jpg')");
             $req->bindParam(1, $email, PDO::PARAM_STR);
             $req->bindParam(2, $pwd, PDO::PARAM_STR);
             $req->bindParam(3, $username, PDO::PARAM_STR);
@@ -206,5 +206,12 @@ class UserManager extends Manager
                 }
             }
         }
+    }
+
+    public function setCredits($id, $num) {
+        $stmt = $this->_connection->prepare("UPDATE users SET balance=balance + ? WHERE id=?");
+        $stmt->bindParam(1, $num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $id, PDO::PARAM_INT);
+        $stmt->execute(); 
     }
 }
