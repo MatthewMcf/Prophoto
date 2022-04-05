@@ -22,7 +22,9 @@
         <?= $content; ?>
     </main>
     <?php require('footer.php'); ?>
+    <?php if(!isset($modalScript)): ?>
     <script src="./public/js/Modal.js" defer></script>
+    <?php endif; ?>
     <script src="./public/js/script.js" defer></script>
 
     <!-- <script src="./public/js/homepage.js" defer></script> -->

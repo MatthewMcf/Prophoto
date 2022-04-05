@@ -56,8 +56,11 @@
         </div>
     </div>
 </section>
+<?php
+$modalScript = "<script src='public/js/Modal.js' defer></script>";
+echo $modalScript;
+?>
 <script type="text/javascript" src="./public/js/script.js" defer></script>
-<script type="text/javascript" src="./public/js/Modal.js" defer></script>
 <script type="text/javascript" src="./public/js/card.js" defer></script>
 
 <?php $content = ob_get_clean(); ?>

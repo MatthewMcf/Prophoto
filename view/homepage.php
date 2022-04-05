@@ -5,7 +5,10 @@ if (!isset($_SESSION)) {
 ?>
 <?php ob_start(); ?>
 <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
-<script src="public/js/Modal.js" defer></script>
+<?php
+$modalScript = "<script src='public/js/Modal.js' defer></script>";
+echo $modalScript;
+?>
 <script src="public/js/homepage.js" defer></script>
 
 
