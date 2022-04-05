@@ -104,10 +104,9 @@ if (!isset($_SESSION)) {
 		<div id="mostPopular">
 			<h2>Most Popular Tags</h2>
 			<div id="popularTags">
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Street</a></div>
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Landscape</a></div>
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Portrait</a></div>
-				<div class="placeholder"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Wildlife</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Seoul</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/cat.jpg" alt="seoul"></a> <a href="#">Cats</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/tree-g3545204dd_1280.jpg" alt="seoul"></a> <a href="#">Trees</a></div>
 			</div>
 		</div>
 

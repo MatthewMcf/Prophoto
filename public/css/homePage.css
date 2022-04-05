@@ -38,6 +38,12 @@
 	margin: 1rem 2rem 3rem 2rem;
 }
 
+/* Show more images */
+.showMore {
+	display: flex;
+	justify-content: center;
+}
+
 /* ABOUT PROPHOTO */
 
 #aboutProPhoto {
@@ -51,24 +57,70 @@
 }
 
 #aboutUs h2 {
-	margin-bottom: 2.5rem;
+	margin-bottom: 2rem;
 }
 
+/* Most popular */
 #mostPopular {
 	width: 50%;
 	padding: 1rem;
 }
 
 #mostPopular h2 {
-	margin-bottom: 2.5rem;
+	margin-bottom: 2rem;
 }
 
 #popularTags {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.mostPopularImage {
+	width: 150px;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mostPopularImage img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 500px;
+	margin-bottom: 5px;
+}
+
+.mostPopularImage a {
+	color: #000;
+}
+/* .placeholder {
+	display: flex;
+	flex-direction: column;
+}
+
+.placeholder > a > img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.placeholder > a {
+	text-align: center;
+}
+
+#popularImages {
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
-.showMore {
-	margin: 0 auto;
+#popularImages > .photoCard {
+	width: 30%;
+	margin-bottom: 5px;
 }
+
+#popularTags > .placeholder {
+	width: 30%;
+	margin-bottom: 5px;
+} */

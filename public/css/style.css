@@ -81,7 +81,8 @@ h4 {
 p {
 	font-family: "lato", sans-serif;
 	color: #000000;
-	line-height: 1rem;
+	/* line-height: 1rem; */
+	font-size: 1rem;
 }
 
 body {
@@ -795,7 +796,7 @@ label {
 }
 
 /* Homepage Styling */
-
+/* 
 .placeholder > a > img {
 	width: 100%;
 }
@@ -814,7 +815,7 @@ label {
 #popularTags > .placeholder {
 	width: 30%;
 	margin-bottom: 5px;
-}
+} */
 
 li {
 	list-style-type: none;
