@@ -166,7 +166,7 @@ function privateProfView($params)
 
         $purchasedCardInfos = [];
         foreach($purchasedImages as $image) {
-            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["id_picture"]));
+            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
 
 
