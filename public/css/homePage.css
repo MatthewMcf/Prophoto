@@ -1,0 +1,70 @@
+.greyBackground {
+	background-color: #f8f8f8;
+	width: 100%;
+	padding: 3.5rem 0;
+	/* height: 200px; */
+}
+
+#topContainer {
+	background: url("../images/hyangwonjeong-pavilion-g9494cc36a_1920.jpg"),
+		rgba(50, 50, 50, 0.5);
+	background-blend-mode: multiply;
+	height: 80vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.5rem;
+	/* margin-bottom: 3.5rem; */
+}
+
+#topContainer {
+	width: 100%;
+	height: 92vh;
+	text-align: center;
+}
+
+#topContainer h1 {
+	color: white;
+	font-size: 2.875rem;
+	margin: 1rem 2rem 0 2rem;
+}
+
+#topContainer h3 {
+	color: white;
+	font-size: 1.5rem;
+	margin: 1rem 2rem 3rem 2rem;
+}
+
+/* ABOUT PROPHOTO */
+
+#aboutProPhoto {
+	display: flex;
+	padding: 3.5rem 0;
+}
+
+#aboutUs {
+	width: 50%;
+	padding: 1rem;
+}
+
+#aboutUs h2 {
+	margin-bottom: 2.5rem;
+}
+
+#mostPopular {
+	width: 50%;
+	padding: 1rem;
+}
+
+#mostPopular h2 {
+	margin-bottom: 2.5rem;
+}
+
+#popularTags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}

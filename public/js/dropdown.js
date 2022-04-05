@@ -45,6 +45,7 @@ for (i = 0; i < customSelectSearchLength; i++) {
 		});
 		b.appendChild(c);
 	}
+
 	customSelectSearch[i].appendChild(b);
 	a.addEventListener("click", function (e) {
 		/*when the select box is clicked, close any other select boxes,
