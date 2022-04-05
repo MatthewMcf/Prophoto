@@ -7,10 +7,10 @@
     <div class="leftContainer">
         <div class="photographerInfo">
             <div id="profilePicure">
-            <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$card["userID"]?>"><img class="icon" src="<?= $photo["profilePicture"] ?>" alt="profile picture"></a>
+            <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$photo["userID"]?>"><img class="icon" src="<?= $photo["profilePicture"] ?>" alt="profile picture"></a>
             </div>
             <div id="photographerName">
-                <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$card["userID"]?>"><?=$photo["username"]?></a> 
+                <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$photo["userID"]?>"><?=$photo["username"]?></a> 
             </div>
         </div>
         <div id="descriptorContainer">
