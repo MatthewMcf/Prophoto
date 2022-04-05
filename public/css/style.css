@@ -184,7 +184,7 @@ body {
 .btnHollowSecondary:hover {
 	background-color: var(--main-secondary-font-color);
 	color: var(--hollow-btn-font-color);
-	border: none;
+	border: 1px solid transparent;
 	transition: 0.1s ease-in-out;
 	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
 		0 4px 10px 0 rgba(160, 160, 160, 0.9);
@@ -210,10 +210,6 @@ body {
 	box-shadow: 0 3px 4px 0 rgba(160, 160, 160, 0.14),
 		0 4px 10px 0 rgba(160, 160, 160, 0.9);
 	transition: 0.1s ease-in-out;
-}
-
-.deleteButton {
-	background-color: #cf0202;
 }
 
 /* Form */
@@ -445,7 +441,11 @@ label {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
+#cardButtons {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
 .photographerInfo {
 	display: flex;
 	align-items: center;
@@ -554,7 +554,6 @@ label {
 .fa-heart {
 	color: #ffffff;
 }
-
 /* Close icon */
 .close {
 	color: #333333;
