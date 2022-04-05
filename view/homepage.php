@@ -34,6 +34,8 @@ if (!isset($_SESSION)) {
                             </div>
                         </div>
                     </div>
+                    <div id="results"></div>
+
                 </div>
                 <form class="form" id="form">
                     <div class="inputContainer">
@@ -48,7 +50,7 @@ if (!isset($_SESSION)) {
         </div>-->
 
         <div class="search-container-search">
-            <form class="photoSearch" action="">
+            <form onsubmit="return false;" id="autoComplete" class="photoSearch" action="homepage.php" method="GET">
                 <div class="custom-select-search">
                     <select>
                         <option value="0">Photo</option>
@@ -61,10 +63,11 @@ if (!isset($_SESSION)) {
                         <div class="inputContainerSearch">
                             <input
                                 type="text"
-                                class="inputSearch"
+                                id="inputSearch"
                                 placeholder="Search photos..."
                             />
                         </div>
+                        <div id="results"></div>
                     </div>
                 </div>
                 <button class="searchBtn">
@@ -115,5 +118,6 @@ if (!isset($_SESSION)) {
 	</div>
 </div>
 
+<script type="text/javascript" src="public/js/searchTags.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>
