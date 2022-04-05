@@ -19,4 +19,4 @@
 </form>
 <!-- <button" id="delete" class="btnSecondary deleteButton" onclick="deleteExistingImage(<?//= $photo['id'] ?>, <?//= $photo['userID'] ?> )"><i class="fa-solid fa-trash-can"></i></button> -->
 
-<script type="text/javascript" src="../public/js/modalPhotoEdit.js"></script>
+<script type="text/javascript" src="./public/js/modalPhotoEdit.js"></script>

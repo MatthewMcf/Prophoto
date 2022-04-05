@@ -13,13 +13,13 @@ form {
 
 .imgPreviewUpload {
 	border: 1px solid black;
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 400px;
 	overflow: hidden;
 }
 .imgPreviewUpload img {
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 400px;
 	object-fit: cover;
 }
 /*
