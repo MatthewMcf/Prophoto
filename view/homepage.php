@@ -113,12 +113,9 @@ if (!isset($_SESSION)) {
 
 
 	</div>
-<<<<<<< HEAD
-=======
-    </div>
+</div>
 
 
->>>>>>> 12e84ee0a2555a3fb5ee96c0cca2a495afb33b89
     <!-- Logged In -->
 
     <div id="profileInformation"></div>
