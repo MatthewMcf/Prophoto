@@ -82,7 +82,7 @@
                 require('homePageCardView.php');
             }
             ?>
-            <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+            <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 12) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos purchased">
