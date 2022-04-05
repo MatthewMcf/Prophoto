@@ -118,7 +118,7 @@ class PictureManager extends Manager
                 "picture_id" => $imageId
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
-            $isItBookmarked = (!empty($res))? true: false;
+            $isItBookmarked = (!empty($res)) ? true : false;
         }
 
         $req->closeCursor();
@@ -148,7 +148,7 @@ class PictureManager extends Manager
                 "userID" => "user",
                 "username" => "username",
                 "profilePicture" => "profilePath",
-                "bookmarkByCurr" => false 
+                "bookmarkByCurr" => false
             ));
         }
     }
@@ -432,9 +432,16 @@ class PictureManager extends Manager
         $tags->execute();
         $tagData = $tags->fetchAll(PDO::FETCH_ASSOC);
 
+        $list = array();
+        foreach ($tagData as $row => $innerArray) {
+            foreach ($innerArray as $innerRow => $value) {
+                array_push($list, $value);
+            }
+        }
+
         file_put_contents("tags.json", "");
         $myfile = fopen("tags.json", "w") or die("Unable to open file!");
-        $tag = json_encode($tagData);
+        $tag = json_encode($list);
         fwrite($myfile, $tag);
         fclose($myfile);
         $tags->closeCursor();
@@ -463,32 +470,6 @@ class PictureManager extends Manager
         ));
     }
 
-    //     public function getImageTags()
-    //     {
-    //     //     $req = $this->_connection->query("SELECT tags FROM pictures WHERE user_id = :user_id AND id = :image_id");
-    //     //     // $req->execute(array(
-    //     //     //     "user_id" => $userId,
-    //     //     //     "image_id" => $image_id
-    //     //     // ));
-
-    //     //     $data = $req->fetchAll(PDO::FETCH_ASSOC);
-    //     //     $req->closeCursor();
-
-
-    //     //     $response = $db->query('SELECT tags FROM pictures WHERE user_id = 2 AND id = 31');
-
-    //     //     echo 'picture #31';
-    //     //     echo '</br>';
-    //     //     while ($data = $response->fetch(PDO::FETCH_ASSOC)) {
-    //     //         $str_arr = explode(",", $data['tags']);
-    //     //         // echo '<p>' . $data['tags'] . '</p>';
-    //     //         // print_r($str_arr);
-    //     //         foreach ($str_arr as $value) {
-    //     //             echo $value;
-    //     //             echo '</br>';
-    //     //         }
-    //     //     }
-    //     // }
 
     //     // public function prepareDirectories($user_id) {
     //     //     if (!file_exists($dataDir . $user_id))) {
