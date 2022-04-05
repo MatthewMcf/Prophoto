@@ -19,7 +19,7 @@ function homepage()
     }
     if ($nbToDisplay>0) {
         $isThereImage = true;
-        $nbToDisplay = (6<$nbToDisplay)? 6: $nbToDisplay;
+        $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
         $oneCardInfo = $pictureObj->getRandomImages();
         $homePageCardInfos = array($oneCardInfo["imageInfo"]);
         for ($i=1; $i<$nbToDisplay; $i++) {
@@ -267,5 +267,18 @@ function purchasePhotoSubmit($params) {
 
     $salesManager->insertSale($user["id"], $photo["userID"], $photo);
 
+    privateProfView($params);
+}
+
+function profileEdit($params) {
+    $userManager = new UserManager();
+    $user = $userManager->getUserInfo($_SESSION["id"]);
+
+    require("./view/modalProfileEdit.php");
+}
+
+function profileEditSubmit($params) {
+    $userManager = new UserManager();
+    $userManager->setUserInfo($params);
     privateProfView($params);
 }
