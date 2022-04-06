@@ -21,18 +21,14 @@ for (let i = 0; i < editPic.length; i++) {
 }
 
 // Trigger accordion effect on Photos
-let arrowDowns = document.querySelectorAll(".sectionHeader");
-console.log(arrowDowns);
-for (let i = 0; i < arrowDowns.length; i++) {
-	arrowDowns[i].addEventListener("click", function () {
-		this.lastElementChild.classList.toggle("rotate");
-
-		let sectionPhotos = this.nextElementSibling.firstElementChild;
-		if (sectionPhotos.style.maxHeight) {
-			sectionPhotos.style.maxHeight = null;
-		} else {
-			sectionPhotos.style.maxHeight = sectionPhotos.scrollHeight + "px";
-		}
+let sectionHeader = document.querySelectorAll(".sectionHeader");
+let openArrow = false;
+for (let i = 0; i < sectionHeader.length; i++) {
+	sectionHeader[i].addEventListener("click", function () {
+		let sectionPhotos = this.nextElementSibling;
+		sectionPhotos.classList.toggle("close");
+		this.lastElementChild.classList.toggle("open");
+		openArrow = !openArrow;
 	});
 }
 

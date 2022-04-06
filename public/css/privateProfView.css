@@ -72,7 +72,6 @@ section {
 	margin-top: 20px;
 }
 .sectionHeader {
-	/* border: 1px solid black; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -81,29 +80,24 @@ section {
 .sectionHeader:hover {
 	cursor: pointer;
 }
-.sectionPhotosWrapper {
-	padding: 0 50px;
-}
 .sectionPhotos {
-	height: fit-content;
+	/* height: fit-content; */
+	padding: 0 50px;
 	display: flex;
 	flex-wrap: wrap;
-	/* justify-content: space-between; */
-	max-height: 0;
+	max-height: fit-content;
 	overflow: hidden;
 	transition: max-height 0.4s ease-out;
 }
-/* Specifically for publicProfView */
-#sectionPhotosPublic {
-	height: fit-content;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+.close {
+	max-height: 0;
 }
 .fa-angle-down {
 	font-size: 2rem;
+	transform: rotate(0deg);
+	transition: 0.5s;
 }
-.rotate {
+.open {
 	transform: rotate(180deg);
 	transition: 0.5s;
 }
@@ -146,4 +140,11 @@ section {
 #addPicture:hover .fa-plus,
 #addPicture:hover p {
 	color: white;
+}
+/* Specifically for publicProfView */
+#sectionPhotosPublic {
+	height: fit-content;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 50px;
 }

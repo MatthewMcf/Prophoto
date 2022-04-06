@@ -48,30 +48,28 @@
                 <h2>Your Uploaded Images</h2>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div class="sectionPhotosWrapper">
-                <div class="sectionPhotos" id="yourPhotosSection">
-                    <div class="cardContainer">
-                        <div id="addPicture">
-                            <div>
-                                <i class="fa-solid fa-plus"></i>
-                                <p>Upload a Photo</p>
-                            </div>
+            <div class="sectionPhotos" id="yourPhotosSection">
+                <div class="cardContainer">
+                    <div id="addPicture">
+                        <div>
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Upload a Photo</p>
                         </div>
                     </div>
-                    <?php foreach ($currUserCardInfos as $card) {
-                        require('cardView.php');
-                    }
-                    ?>
-                    <!-- <div class="cardContainer">
-                        <div class="cardContent">
-                            <button class="price">2 Credits</button>
-                            <div>
-                                <button class="editPic btnHollowSecondary">Edit</button>
-                            </div>
-                        </div>
-                    </div> -->
-                    <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
                 </div>
+                <?php foreach ($currUserCardInfos as $card) {
+                    require('cardView.php');
+                }
+                ?>
+                <!-- <div class="cardContainer">
+                    <div class="cardContent">
+                        <button class="price">2 Credits</button>
+                        <div>
+                            <button class="editPic btnHollowSecondary">Edit</button>
+                        </div>
+                    </div>
+                </div> -->
+                <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos liked">
@@ -79,14 +77,12 @@
                 <h2>Your Saved Images</h2>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div class="sectionPhotosWrapper">
-                <div class="sectionPhotos">
-                    <?php foreach ($bookmarkCardInfos as $card) {
-                        require('homePageCardView.php');
-                    }
-                    ?>
-                    <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
-                </div>
+            <div class="sectionPhotos">
+                <?php foreach ($bookmarkCardInfos as $card) {
+                    require('homePageCardView.php');
+                }
+                ?>
+                <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos purchased">
@@ -94,14 +90,12 @@
                 <h2>Your Purchased Images</h2>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div class="sectionPhotosWrapper">
-                <div class="sectionPhotos">
-                    <?php foreach ($purchasedCardInfos as $card) {
-                        require('homePageCardView.php');
-                    }
-                    ?>
-                    <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
-                </div>
+            <div class="sectionPhotos">
+                <?php foreach ($purchasedCardInfos as $card) {
+                    require('homePageCardView.php');
+                }
+                ?>
+                <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
     </div>
