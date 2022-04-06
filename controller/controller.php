@@ -5,7 +5,7 @@ require_once("./model/BookmarkManager.php");
 require_once("./model/SalesManager.php");
 
 
-function homepage()
+function homepage($params=[])
 {
     $pictureObj = new PictureManager();
     $userManager = new UserManager();
@@ -19,7 +19,11 @@ function homepage()
     }
     if ($nbToDisplay>0) {
         $isThereImage = true;
-        $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
+        if (!empty($params['cardLimit'])) {
+            $nbToDisplay = ($params['cardLimit']<$nbToDisplay)? $params['cardLimit']: $nbToDisplay;
+        } else {
+            $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
+        }
         $oneCardInfo = $pictureObj->getRandomImages();
         $homePageCardInfos = array($oneCardInfo["imageInfo"]);
         for ($i=1; $i<$nbToDisplay; $i++) {

@@ -6,7 +6,7 @@ try {
 
     switch ($action) {
         case 'homepage':
-            homepage();
+            homepage($_REQUEST);
             break;
         case 'photo':
             photo($_REQUEST);
