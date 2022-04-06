@@ -2,7 +2,7 @@
 require_once('ImageCreation.php');
 require_once('Manager.php');
 
-$tagsList = file_get_contents('/Applications/XAMPP/xamppfiles/htdocs/proPhoto/tags.json', true);
+$tagsList = file_get_contents('C:\xampp\htdocs\proPhoto\tags.json', true);
 $decoded = json_decode($tagsList);
 
 $typed = (!empty($_GET['search'])) ? $_GET['search'] : null;

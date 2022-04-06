@@ -203,6 +203,61 @@ class PictureManager extends Manager
         }
     }
 
+    public function getSearchedID($searched)
+    {
+        $typed = $searched;
+        $req = $this->_connection->query("SELECT id, tags FROM pictures");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        for ($i = 0; $i < count($data); $i++) {
+            $value = $data[$i]['tags'];
+            if (!empty($value)) {
+                $str_arr = explode(",", $value);
+                $list = array();
+                foreach ($str_arr as $value) {
+                    $tag = trim(strtolower($value));
+                    array_push($list, $tag);
+                }
+                $ids = array();
+                foreach ($list as $val) {
+                    if ($val == trim(strtolower($typed))) {
+                        $image_id = $data[$i]['id'];
+                        array_push($ids, $image_id);
+                    }
+                }
+                if (!empty($ids)) {
+                    return $ids;
+                }
+            }
+        }
+
+        $req->closeCursor();
+    }
+
+    public function getSearchedImages($imagesList = [])
+    {
+        $req = $this->_connection->query("SELECT id FROM pictures");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        if (count($imagesList) < count($data)) {
+            shuffle($data);
+            foreach ($data as $dat) {
+                $id = $dat["id"];
+                if (!in_array($id, $imagesList)) {
+                    array_push($imagesList, $id);
+                    $val = $this->getSmallImage($id);
+                    return (array(
+                        "imageInfo" => $val,
+                        "imageList" => $imagesList
+                    ));
+                }
+            }
+        } else {
+            return "default";
+        }
+    }
+
     // same as the function above but only from one specific user (userId param)
     // if any other question, please read the doc first ;)
     public function getRandomImagesFromId($userId, $imagesList = [])
@@ -422,7 +477,7 @@ class PictureManager extends Manager
         $str_arr = explode(",", $data[0]['tags']);
         foreach ($str_arr as $value) {
             $table = $this->_connection->prepare("INSERT IGNORE INTO tags(name) VALUES(?)");
-            $tag = trim($value);
+            $tag = trim(strtolower($value));
             $table->bindParam(1, $tag, PDO::PARAM_STR);
             $table->execute();
         }

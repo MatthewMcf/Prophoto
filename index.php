@@ -6,7 +6,7 @@ try {
 
     switch ($action) {
         case 'homepage':
-            homepage();
+            homepage($_REQUEST);
             break;
         case 'photo':
             photo($_REQUEST);
@@ -54,6 +54,12 @@ try {
         case "removeImage":
             removeImage($_POST);
             break;
+        case "addBookmark":
+            addBookmark($_REQUEST);
+            break;
+        case "deleteBookmark":
+            deleteBookmark($_REQUEST);
+            break;
         case "purchase":
             purchase($_REQUEST);
             break;
@@ -75,6 +81,10 @@ try {
         case "profileEditSubmit":
             profileEditSubmit($_REQUEST);
             break;
+        case 'searchpage':
+            searchpage($_REQUEST);
+            break;
+
         default:
             homepage();
             break;

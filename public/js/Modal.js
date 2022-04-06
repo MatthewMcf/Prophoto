@@ -277,11 +277,17 @@ function setModalUploadPic() {
 
 // Uploading an image
 var loadUploadedImage = function (event) {
-	var image = document.getElementById("modalUploadedImage");
+	// var image = document.getElementById("modalUploadedImage");
+	var image = document.createElement("img");
+	image.id = "modalUploadedImage";
+	image.alt = "Upload Picture";
 	var uploadedImage = event.target.files[0];
 	let updateButton = document.querySelector(".updateButton");
 	let newUpdateButton = updateButton.cloneNode(true);
 	image.src = URL.createObjectURL(uploadedImage);
+
+	let imageContainer = document.querySelector("h2 + div.imgPreviewUpload");
+	imageContainer.appendChild(image);
 	newUpdateButton.addEventListener("click", function (evt1) {
 		evt1.preventDefault();
 		let message = document.getElementById("message");
@@ -362,7 +368,7 @@ function setModalContentPurchaseView(e) {
 	xhr.send(null);
 }
 
-function setModalContentPurchaseCreditsView() {
+function setModalContentPurchaseCreditsView(e) {
 	// Set up the request
 	var xhr = new XMLHttpRequest();
 

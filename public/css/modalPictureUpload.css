@@ -11,35 +11,22 @@ form {
 	align-items: center;
 }
 
-.imgPreview {
-	border: 1px solid black;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-	overflow: hidden;
-}
-.imgPreview img {
-	width: 200px;
-	height: 200px;
-	object-fit: cover;
-}
-/* Picture upload div */
 .imgPreviewUpload {
 	border: 1px solid black;
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 400px;
 	overflow: hidden;
 }
 .imgPreviewUpload img {
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 400px;
 	object-fit: cover;
 }
 /*
 #zoom {
 	display: block;
 }*/
-.imgPreview + div {
+#uploadBtnSection {
 	text-align: center;
 }
 input[type="file"] {

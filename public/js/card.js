@@ -1,5 +1,4 @@
 let cards = document.querySelectorAll(".cardContent");
-console.log(cards);
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", (e) => {
@@ -18,7 +17,14 @@ for (let i = 0; i < pbs.length; i++) {
 let lgs = document.querySelectorAll(".loginButton");
 for (let i = 0; i < lgs.length; i++) {
     lgs[i].addEventListener("click", (e) => {
-        console.log("here");
         document.querySelector("#login").click();
+    });
+}
+
+let prices = document.querySelectorAll(".price");
+for (let i = 0; i < prices.length; i++) {
+    prices[i].addEventListener("click", (e) => {
+        e.stopImmediatePropagation();
+        e.currentTarget.parentElement.click();
     });
 }
