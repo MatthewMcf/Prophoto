@@ -43,14 +43,15 @@ function searchpage($params)
     $searched = $params['search'];
     $image_ids = $pictureObj->getSearchedID($searched);
 
+    if (isset($_SESSION["id"])) {
+        $user = $userManager->getUserInfo($_SESSION["id"]);
+        $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
+        $salesManager = new SalesManager();
+        $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+    }
+
     if ($image_ids) {
         $nbToDisplay = $pictureObj->getNumberImages();
-        if (isset($_SESSION["id"])) {
-            $user = $userManager->getUserInfo($_SESSION["id"]);
-            $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
-            $salesManager = new SalesManager();
-            $purchasedImages = $salesManager->getPurchasedImages(2147483647);
-        }
         if ($nbToDisplay > 0) {
             $isThereImage = true;
             $nbToDisplay = (9 < $nbToDisplay) ? 9 : $nbToDisplay;
@@ -169,6 +170,13 @@ function privateProfView($params)
         //Get images for current user
         $pictureManager = new PictureManager();
 
+        $salesManager = new SalesManager();
+        if (isset($params['currPurchasedLimit'])) {
+            $purchasedImages = $salesManager->getPurchasedImages($params['currPurchasedLimit']);
+        } else {
+            $purchasedImages = $salesManager->getPurchasedImages(2147483647);
+        }
+
         // echo $params['currUserLimit'];
 
         //Array of picture IDs for current user
@@ -195,16 +203,11 @@ function privateProfView($params)
             array_push($bookmarkCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
 
-        $salesManager = new SalesManager();
-        if (isset($params['currPurchasedLimit'])) {
-            $purchasedImages = $salesManager->getPurchasedImages($params['currPurchasedLimit']);
-        } else {
-            $purchasedImages = $salesManager->getPurchasedImages();
-        }
+
 
         $purchasedCardInfos = [];
         foreach ($purchasedImages as $image) {
-            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["id_picture"]));
+            array_push($purchasedCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
         }
 
 

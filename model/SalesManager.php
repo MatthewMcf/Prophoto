@@ -14,9 +14,9 @@ class SalesManager extends Manager
     // return an array of picture IDs that was purchased by the current user
     public function getPurchasedImages($limit=null) {
         $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
-        $stmt = $this->_connection->prepare("SELECT id_picture FROM sales WHERE id_buyer = ? LIMIT 5");
+        $stmt = $this->_connection->prepare("SELECT picture_id FROM sales WHERE buyer_id = ? LIMIT 5");
         if($limit){
-            $stmt = $this->_connection->prepare("SELECT id_picture FROM sales WHERE id_buyer = ? LIMIT ?");
+            $stmt = $this->_connection->prepare("SELECT picture_id FROM sales WHERE buyer_id = ? LIMIT ?");
             $stmt->bindParam(2, $limit, PDO::PARAM_INT);
         }
 
@@ -29,9 +29,9 @@ class SalesManager extends Manager
 
     public function insertSale($buyer, $seller, $picture) {
         $stmt = $this->_connection->prepare("INSERT INTO `sales`(
-            `id_buyer`,
-            `id_seller`,
-            `id_picture`,
+            `buyer_id`,
+            `seller_id`,
+            `picture_id`,
             `price`,
             `date`
         )
@@ -51,7 +51,7 @@ class SalesManager extends Manager
     }
 
     public function checkIfPurchased($buyer, $picture) {
-        $stmt = $this->_connection->prepare("SELECT id_picture FROM sales WHERE id_buyer = ? AND id_picture = ?");
+        $stmt = $this->_connection->prepare("SELECT picture_id FROM sales WHERE buyer_id = ? AND picture_id = ?");
         $stmt->bindParam(1, $buyer, PDO::PARAM_INT);
         $stmt->bindParam(2, $picture["id"], PDO::PARAM_INT);
         $stmt->execute(); 
