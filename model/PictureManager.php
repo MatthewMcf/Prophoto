@@ -18,9 +18,9 @@ class PictureManager extends Manager
     public function getProfilePathAndName($userId)
     {
         $req = $this->_connection->prepare("SELECT id, username, profile_url FROM users WHERE id = :id");
-        $req->execute(array(
-            "id" => $userId
-        ));
+        $req->bindValue(":id", $userId, PDO::PARAM_INT);
+
+        $req->execute();
         $data = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
         if (!empty($data["profile_url"]) && !empty($data["username"])) {
@@ -106,24 +106,26 @@ class PictureManager extends Manager
     {
         $req = $this->_connection->prepare("SELECT user_id, title, description, tags,
            price, bookmark FROM pictures WHERE id = :id");
-        $req->execute(array(
-            "id" => $imageId
-        ));
+        $req->bindParam(":id", $imageId, PDO::PARAM_INT);
+
+        $req->execute();
         $data = $req->fetch(PDO::FETCH_ASSOC);
-        $isItBookmarked = false;
-        if (!empty($_SESSION['id'])) {
-            $req = $this->_connection->prepare("SELECT id FROM bookmarks WHERE user_id = :user_id AND  picture_id = :picture_id");
-            $req->execute(array(
-                "user_id" => $_SESSION['id'],
-                "picture_id" => $imageId
-            ));
-            $res = $req->fetch(PDO::FETCH_ASSOC);
-            $isItBookmarked = (!empty($res)) ? true : false;
+        $req->closeCursor();
+        if ($data) {
+            $userData = $this->getProfilePathAndName(intval($data["user_id"]));
         }
 
-        $req->closeCursor();
-
-        $userData = $this->getProfilePathAndName($data["user_id"]);
+        $isItBookmarked = false;
+        // if (!empty($_SESSION['id'])) {
+        //     $req = $this->_connection->prepare("SELECT id FROM bookmarks WHERE user_id = :user_id AND  picture_id = :picture_id");
+        //     $req->execute(array(
+        //         "user_id" => $_SESSION['id'],
+        //         "picture_id" => $imageId
+        //     ));
+        //     $res = $req->fetch(PDO::FETCH_ASSOC);
+        //     $isItBookmarked = (!empty($res)) ? true : false;
+        // }
+        // $req->closeCursor();
 
         if (!empty($data["user_id"])) {
             return (array(
@@ -474,14 +476,19 @@ class PictureManager extends Manager
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
 
-        $str_arr = explode(",", $data[0]['tags']);
-        foreach ($str_arr as $value) {
-            $table = $this->_connection->prepare("INSERT IGNORE INTO tags(name) VALUES(?)");
-            $tag = trim(strtolower($value));
-            $table->bindParam(1, $tag, PDO::PARAM_STR);
-            $table->execute();
+        if ($data) {
+            $str_arr = explode(",", $data[0]['tags']);
+
+            foreach ($str_arr as $value) {
+                $table = $this->_connection->prepare("INSERT IGNORE INTO tags(name) VALUES(?)");
+                $tag = trim(strtolower($value));
+                $table->bindParam(1, $tag, PDO::PARAM_STR);
+                $table->execute();
+            }
+            $table->closeCursor();
         }
-        $table->closeCursor();
+        
+        
 
         $tags = $this->_connection->prepare("SELECT name FROM tags");
         $tags->execute();
