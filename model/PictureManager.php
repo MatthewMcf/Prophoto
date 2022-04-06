@@ -116,16 +116,16 @@ class PictureManager extends Manager
         }
 
         $isItBookmarked = false;
-        // if (!empty($_SESSION['id'])) {
-        //     $req = $this->_connection->prepare("SELECT id FROM bookmarks WHERE user_id = :user_id AND  picture_id = :picture_id");
-        //     $req->execute(array(
-        //         "user_id" => $_SESSION['id'],
-        //         "picture_id" => $imageId
-        //     ));
-        //     $res = $req->fetch(PDO::FETCH_ASSOC);
-        //     $isItBookmarked = (!empty($res)) ? true : false;
-        // }
-        // $req->closeCursor();
+        if (!empty($_SESSION['id'])) {
+            $req = $this->_connection->prepare("SELECT id FROM bookmarks WHERE user_id = :user_id AND  picture_id = :picture_id");
+            $req->execute(array(
+                "user_id" => $_SESSION['id'],
+                "picture_id" => $imageId
+            ));
+            $res = $req->fetch(PDO::FETCH_ASSOC);
+            $isItBookmarked = (!empty($res)) ? true : false;
+        }
+        $req->closeCursor();
 
         if (!empty($data["user_id"])) {
             return (array(
