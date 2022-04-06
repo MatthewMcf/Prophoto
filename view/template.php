@@ -27,7 +27,7 @@
 
     <!-- <script src="./public/js/homepage.js" defer></script> -->
     <script src="./public/js/googleLogin.js" defer></script>
-
+    <script type="text/javascript" src="./public/js/creditPurchase.js"></script>
 </body>
 
 </html>

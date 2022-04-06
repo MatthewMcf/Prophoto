@@ -4,6 +4,8 @@
 	justify-content: center;
 }
 
+/* Select search */
+
 .custom-select-search {
 	position: relative;
 	font-family: "lato", sans-serif;
@@ -112,4 +114,29 @@ form.photoSearch input {
 .photoSearch {
 	display: flex;
 	justify-content: center;
+}
+
+.searchBar {
+	position: relative;
+}
+
+#results {
+	position: absolute;
+	z-index: 100;
+	background-color: #fff;
+	width: 100%;
+	line-height: 30px;
+	text-align: left;
+	/* padding: 2rem; */
+	border-radius: 4px;
+	padding: 0 1rem;
+}
+
+#results > div {
+	padding: 0 2rem;
+}
+
+#results > div:hover {
+	background-color: #f0f0f0;
+	border-radius: 4px;
 }

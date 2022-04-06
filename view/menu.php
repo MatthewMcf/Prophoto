@@ -22,7 +22,7 @@
 
     <!-- Logged Out -->
     <div id="menuBar">
-        <div><a href="index.php?action=homepage"><img src="./public/images/ProPhoto.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
+        <div><a href="index.php?action=homepage"><img src="./public/images/ProPhotoCameraLogo.png" alt="Pro Photo Logo" id="siteLogo"></a></div>
         <nav>
             <button class="btnPrimary" id="login" <?php if(isset($_COOKIE["email"])){
                 echo "name='autoconnect' value={$_COOKIE['email']}";

@@ -79,7 +79,7 @@ if (!isset($_SESSION)) {
 
     <div class="greyBackground">
         <div class="container popularImages">
-	        <h2>Heading about the basic images</h2>
+	        <h2>Find your new favourite photo today</h2>
             <div id="popularImages">
                 <?php foreach($homePageCardInfos as $card){
                     require('homePageCardView.php');
@@ -94,29 +94,56 @@ if (!isset($_SESSION)) {
 
 
 <div class="container">
-    
-	<div id="aboutProPhoto">
-		<div id="aboutUs">
-			<h2>About proPhoto</h2>
-			<p>
-				Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, 
-			</p>
-
-		</div>
-
-		<div id="mostPopular">
+<div id="mostPopular">
 			<h2>Most Popular Tags</h2>
 			<div id="popularTags">
                 <div class="mostPopularImage"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Seoul</a></div>
-                <div class="mostPopularImage"><a href="#"><img src="public/images/cat.jpg" alt="seoul"></a> <a href="#">Cats</a></div>
-                <div class="mostPopularImage"><a href="#"><img src="public/images/tree-g3545204dd_1280.jpg" alt="seoul"></a> <a href="#">Trees</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/cat.jpg" alt="cats"></a> <a href="#">Cats</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/tree-g3545204dd_1280.jpg" alt="trees"></a> <a href="#">Trees</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/monkey.jpg" alt="monkey"></a> <a href="#">Monkeys</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/sunset.jpg" alt="sunset"></a> <a href="#">Sunsets</a></div>
+                <div class="mostPopularImage"><a href="#"><img src="public/images/baby.jpg" alt="baby"></a> <a href="#">Baby</a></div>
 			</div>
 		</div>
+</div>
+    
+    <div class="blueBackground">
+        <div class="container">
+        <div id="aboutProPhoto">
+            <div id="aboutUs">
+                <h2>About proPhoto</h2>
+                <p>
+                ProPhoto is a photograph purchasing and selling site. 
+</p>
+<p>
+By purchasing photos you are supporting photographers around the world and allow them to produce amazing photographs. When purchasing a photograph, you gain full rights to use it however you see fit.
+</p>
+<p>
+Selling your photos through ProPhoto allows to reach a large audience and sell your photographs around the world. It’s a great way to receive an income from something that you love to do.
+                </p>
+
+            </div>
+            <div class="aboutUsImage"></div>
+</div>
+            <!-- <div id="mostPopular">
+                <h2>Most Popular Tags</h2>
+                <div id="popularTags">
+                    <div class="mostPopularImage"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Seoul</a></div>
+                    <div class="mostPopularImage"><a href="#"><img src="public/images/cat.jpg" alt="seoul"></a> <a href="#">Cats</a></div>
+                    <div class="mostPopularImage"><a href="#"><img src="public/images/tree-g3545204dd_1280.jpg" alt="seoul"></a> <a href="#">Trees</a></div>
+                </div>
+            </div> -->
 
 
-	</div>
+        </div>
+        </div>
+    </div>
 </div>
 
+
+
 <script type="text/javascript" src="public/js/searchTags.js"></script>
+
+
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

@@ -1,16 +1,15 @@
-<!-- <div class="modalSection"> -->
+<link rel="stylesheet" href="./public/css/style.css">
+<link rel="stylesheet" href="./public/css/creditPurchase.css">
 
-<!-- Can't have this in body -->
-<!-- <body onload="createYearOptions()"> -->
-<link rel="stylesheet" href="../public/css/style.css">
-<link rel="stylesheet" href="../public/css/creditPurch.css">
+
 <section>
-    <h1>Purchase credits</h1>
+    <h2>Purchase credits</h2>
 
-    <form action="index.php?action=submitPurchaseCredits" method="post" id="form" class="form">
+    <form action="index.php?action=submitPurchaseCredits" method="post" id="creditPurchaseForm" class="form" name="creditPurchaseForm" >
         <div class="inputContainer">
             <label for="credits">Amount of credits</label>
             <p>1 credit costs $5</p>
+            <!-- <div class="custom-select-search"> -->
             <select name="credits" id="credits">
                 <option value="0" selected="true" disabled="disabled">Choose an amount</option>
                 <option value="1">1</option>
@@ -21,6 +20,7 @@
                 <option value="10">10</option>
                 <option value="15">15</option>
             </select>
+            <!-- </div> -->
             <small>Error message</small>
             <h3 id="totalCost"></h3>
         </div>
@@ -69,5 +69,5 @@
         <button class="btnPrimary">Buy now</button>
     </form>	
 </section>
-<script type="text/javascript" src="../public/js/creditPurchase.js"></script>
+
 

@@ -1,21 +1,12 @@
-<footer class="footer bg-dark py-5">
-    <div class="container grid grid-3">
-        <div>
-            <h1>ProPhoto</h1>
-            <p>Copyright &copy; 2022</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Option1</a></li>
-                <li><a href="#">Option2</a></li>
-            </ul>
-        </nav>
-        <div class="social">
-            <a href="#"><i class="fab fa-github fa-2x"></i></a>
-            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-        </div>
-    </div>
-</footer>
+<link rel="stylesheet" href="public/css/footer.css">
+
+<footer>
+        <ul>
+            <li><a href="#">Privacy & Legal</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Engage</a></li>
+            <li><a href="#">Location</a></li>
+        </ul>
+    </footer>

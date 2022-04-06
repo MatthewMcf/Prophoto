@@ -1,0 +1,19 @@
+footer {
+	background-color: rgb(16, 16, 16);
+	padding: 2rem 0;
+}
+
+footer > ul {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+	padding: 0 2rem;
+}
+
+footer li a {
+	color: rgb(255, 255, 255);
+	font-size: em;
+	/* padding-bottom: 3px; */
+	padding: 0 2rem;
+	text-decoration: none;
+}
