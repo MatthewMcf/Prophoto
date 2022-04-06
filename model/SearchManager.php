@@ -8,11 +8,15 @@ $decoded = json_decode($tagsList);
 $typed = (!empty($_GET['search'])) ? $_GET['search'] : null;
 
 $searchedArray = array();
-for ($i = 0; $i < count($decoded); $i++) {
-    if (stripos($decoded[$i], $typed) === 0) {
-        array_push($searchedArray, $decoded[$i]);
+if ($decoded) {
+    for ($i = 0; $i < count($decoded); $i++) {
+        if (stripos($decoded[$i], $typed) === 0) {
+            array_push($searchedArray, $decoded[$i]);
+        }
     }
-}
-$arrayString = implode("|", $searchedArray);
+    $arrayString = implode("|", $searchedArray);
 
-echo $arrayString;
+    echo $arrayString;
+} else {
+    echo "No tags exist";
+}
