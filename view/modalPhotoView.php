@@ -7,10 +7,10 @@
     <div class="leftContainer">
         <div class="photographerInfo">
             <div id="profilePicure">
-            <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$card["userID"]?>"><img class="icon" src="<?= $photo["profilePicture"] ?>" alt="profile picture"></a>
+            <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$photo["userID"]?>"><img class="icon" src="<?= $photo["profilePicture"] ?>" alt="profile picture"></a>
             </div>
             <div id="photographerName">
-                <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$card["userID"]?>"><?=$photo["username"]?></a> 
+                <a href="<?=(!empty($_SESSION["id"]) && $_SESSION["id"]==$photo["userID"])? "index.php?action=privateProfView": "index.php?action=publicProfView&requested_id=".$photo["userID"]?>"><?=$photo["username"]?></a> 
             </div>
         </div>
         <div id="descriptorContainer">
@@ -26,7 +26,7 @@
                 <div class="purchase">
                 <button class="btnPrimary loginButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
                 </div>
-            <?php } else if ($photo["userID"] == $_SESSION["id"]) {
+            <?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'id_picture')) !== FALSE) {
             } else { ?>
                 <div class="purchase">
                 <button class="btnPrimary purchaseButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 

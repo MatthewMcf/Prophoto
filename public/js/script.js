@@ -178,3 +178,49 @@ if (creditP) {
         setModalContentPurchaseCreditsView();
     });
 }
+
+
+function changeValueBookmark(id_name, class_name) {
+   		var xhr = new XMLHttpRequest();
+    	// Open the connection
+    	if (class_name == "likeUnselected") {
+						xhr.open(
+        				"GET",
+        				`index.php?action=addBookmark&picture_id=${id_name}`
+    				);
+			} else {
+						xhr.open(
+        				"GET",
+        				`index.php?action=deleteBookmark&picture_id=${id_name}`
+    				);
+
+			}
+    	xhr.addEventListener("load", () => {
+        		// We manage here an asynchronous request
+        		if (xhr.status === 200) {
+            		// if the file is loaded without error
+            		let content = xhr.responseText;
+								let likeDiv = document.getElementById(id_name);
+								if (class_name == "likeSelected") {
+										likeDiv.className = "likeUnselected";
+								} else {
+										likeDiv.className = "likeSelected";
+								}
+        		} else if (
+            				xhr.readyState === XMLHttpRequest.DONE &&
+            				xhr.status != 200
+        		) {
+            				// in case of error
+            				alert(
+                				"There is an error !\n\nCode :" +
+                    		xhr.status +
+                    		"\nText : " +
+                    		xhr.statusText
+            				);
+        		}
+    	});
+    	xhr.send(null);
+}
+
+
+

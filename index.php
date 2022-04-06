@@ -54,6 +54,12 @@ try {
         case "removeImage":
             removeImage($_POST);
             break;
+        case "addBookmark":
+            addBookmark($_REQUEST);
+            break;
+        case "deleteBookmark":
+            deleteBookmark($_REQUEST);
+            break;
         case "purchase":
             purchase($_REQUEST);
             break;

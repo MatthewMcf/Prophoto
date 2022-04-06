@@ -2,7 +2,7 @@
     <div class="cardContent photoCard" style="background-image: url(<?=$card["path"]?>)" image-id=<?=$card["id"]?>>
         <button class="price"><?=$card["price"] ? $card["price"] : "2"?> Credits</button>
         <div class="likeContainer">
-        <div class=<?= ($card["bookmarkByCurr"])? "likeSelected": "likeUnselected"?> >
+        <div onclick="changeValueBookmark(this.id,this.className);event.stopPropagation();" class=<?= ($card["bookmarkByCurr"])? "likeSelected": "likeUnselected"?> id=<?= $card["id"]?> >
                 <i class="fa-regular fa-heart"></i>
             </div>
         </div>

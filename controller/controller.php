@@ -36,8 +36,11 @@ function photo($params)
 {
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
+    $salesManager = new SalesManager();
+    $purchasedImages = $salesManager->getPurchasedImages(2147483647);
 
-    require("./view/ModalPhotoView.php");
+
+    require("./view/modalPhotoView.php");
 }
 
 function registerView()
@@ -143,7 +146,6 @@ function privateProfView($params)
         foreach ($currUserImages as $image) {
             array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
         }
-        
         $bookmarkManager = new BookmarkManager(); 
         // Array of picture IDs bookmarked by current user
         if (isset($params['currBookmarkLimit'])) {
@@ -151,7 +153,6 @@ function privateProfView($params)
         } else {
             $bookmarkImages = $bookmarkManager->getBookmarkImages();
         }
-
         $bookmarkCardInfos = [];
         foreach($bookmarkImages as $image) {
             array_push($bookmarkCardInfos, $pictureManager->getSmallImage($image["picture_id"]));
@@ -199,7 +200,7 @@ function photoEdit($params)
     $pictureManager = new PictureManager();
     $photo = $pictureManager->getImage($params["photo-id"]);
 
-    require("./view/ModalPhotoEdit.php");
+    require("./view/modalPhotoEdit.php");
 }
 
 function submitPhotoEdit($params)
@@ -210,6 +211,15 @@ function submitPhotoEdit($params)
     privateProfView($params);
 }
 
+function addBookmark($params){
+    $bookmarkMng = new BookmarkManager();
+    $bookmarkMng->setBookmarkImage($params["picture_id"]);
+}
+
+function deleteBookmark($params){
+    $bookmarkMng = new BookmarkManager();
+    $bookmarkMng->deleteBookmarkImage($params["picture_id"]);
+}
 function purchase($params) {
     $userManager = new UserManager();
     $pictureManager = new PictureManager();
