@@ -81,6 +81,9 @@ section {
 .sectionHeader:hover {
 	cursor: pointer;
 }
+.sectionPhotosWrapper {
+	padding: 0 50px;
+}
 .sectionPhotos {
 	height: fit-content;
 	display: flex;
