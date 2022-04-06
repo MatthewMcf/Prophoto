@@ -75,6 +75,10 @@ try {
         case "profileEditSubmit":
             profileEditSubmit($_REQUEST);
             break;
+        case 'searchpage':
+            searchpage($_REQUEST);
+            break;
+
         default:
             homepage();
             break;
