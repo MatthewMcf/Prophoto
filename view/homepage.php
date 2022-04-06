@@ -88,7 +88,7 @@ if (!isset($_SESSION)) {
                 ?>
             </div>
             <div class="showMore">
-                <button class="btnHollow">Show more photos</button>
+                <a href="index.php?action=homepage&cardLimit=<?php echo (isset($_REQUEST["cardLimit"]) ? intval($_REQUEST["cardLimit"]) + 9 : 18) ?>" ><button class="btnHollow">Show more photos</button></a>
             </div>
         </div>
     </div>

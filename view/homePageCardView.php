@@ -2,9 +2,17 @@
     <div class="cardContent photoCard" style="background-image: url(<?=$card["path"]?>)" image-id=<?=$card["id"]?>>
         <button class="price"><?=$card["price"] ? $card["price"] : "2"?> Credits</button>
         <div class="likeContainer">
-        <div onclick="changeValueBookmark(this.id,this.className);event.stopPropagation();" class=<?= ($card["bookmarkByCurr"])? "likeSelected": "likeUnselected"?> id=<?= $card["id"]?> >
+        <?php if (!empty($_SESSION["id"]) && $_SESSION["id"] != $card["userID"]): ?>
+            <div onclick="changeValueBookmark(this.id,this.className);event.stopPropagation();" class=<?= ($card["bookmarkByCurr"])? "likeSelected": "likeUnselected"?> id=<?= $card["id"]?> >
                 <i class="fa-regular fa-heart"></i>
             </div>
+        <?php elseif (empty($_SESSION["id"])):?>
+            <div onclick="event.stopPropagation();" class="likeUnselected loginButton" id=<?= $card["id"]?> >
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        <?php endif;?>
+                <!--<i class="fa-regular fa-heart"></i>
+            </div>-->
         </div>
     </div>
     <div class="cardInfo">

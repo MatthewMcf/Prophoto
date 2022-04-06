@@ -46,6 +46,7 @@ section {
 	color: #fafafa;
 	transition: background-color 0.2s ease-in-out;
 	border-radius: 50%;
+	margin-top: 0;
 	margin-bottom: 0;
 	cursor: pointer;
 }

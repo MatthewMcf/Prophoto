@@ -20,6 +20,13 @@ for (let i = 0; i < pbs.length; i++) {
 	});
 }
 
+let lgs = document.querySelectorAll(".loginButton");
+for (let i = 0; i < lgs.length; i++) {
+    lgs[i].addEventListener("click", (e) => {
+        document.querySelector("#login").click();
+    });
+}
+
 // DROP DOWN JS
 function toggleClass(elem, className) {
 	if (elem.className.indexOf(className) !== -1) {
