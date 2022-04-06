@@ -522,7 +522,7 @@ label {
 	border-radius: 5rem;
 	background-color: #000000;
 	transition: ease-in-out 0.3s;
-	opacity: 0.8;
+	opacity: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
