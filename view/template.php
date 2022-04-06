@@ -9,6 +9,7 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://kit.fontawesome.com/86dc656e1f.js" crossorigin="anonymous"></script>
     <title>ProPhoto</title>
+    <link rel="icon" type="image/jpg" href="proPhotoFavicon.png">
     <link rel="stylesheet" href="./public/css/style.css">
     <?php if (!isset($link)) {
         $link = '';
