@@ -66,7 +66,7 @@
             <small>Error message</small>
         </div>
 
-        <button class="btnPrimary">Buy now</button>
+        <button type="submit" class="btnPrimary">Buy now</button>
     </form>	
 </section>
 

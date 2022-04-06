@@ -52,6 +52,7 @@ function checkInputs() {
 			credits,
 			"Please select how many credits you would like to purchase"
 		);
+		return false;
 	} else {
 		setSuccessFor(credits);
 	}
@@ -59,6 +60,7 @@ function checkInputs() {
 	// Cardholder's name error condition
 	if (cardHoldersNameValue === "") {
 		setErrorFor(cardHoldersName, "Card holders name cannot be blank");
+		return false;
 	} else {
 		setSuccessFor(cardHoldersName);
 	}
@@ -66,19 +68,24 @@ function checkInputs() {
 	// Card number error condition
 	if (cardNumberValue === "") {
 		setErrorFor(cardNumber, "Card holders name cannot be blank");
+		return false;
 	} else if (cardNumber.value.length < 15) {
 		setErrorFor(cardNumber, "Card number can not be less than 15 numbers");
+		return false;
 	} else if (cardNumber.value.length > 16) {
 		setErrorFor(cardNumber, "Card number can not be more than 16 numbers");
+		return false;
 	} else {
 		setSuccessFor(cardNumber);
 	}
 
 	// Expire error condition
 	if (expiryMonthValue == 0 || expiryYearValue == 0) {
-		setErrorFor(expiryYear, "Please enter a valid expiery date");
+		setErrorFor(expiryYear, "Please enter a valid expiry date");
+		return false;
 	} else if (expiryDate < new Date()) {
-		setErrorFor(expiryYear, "Expiery date can not be in the past");
+		setErrorFor(expiryYear, "Expiry date can not be in the past");
+		return false;
 	} else {
 		setSuccessFor(expiryYear);
 	}
@@ -86,19 +93,23 @@ function checkInputs() {
 	// Security code error condition
 	if (securityCodeValue === "") {
 		setErrorFor(securityCode, "Security code cannot be blank");
+		return false;
 	} else if (securityCode.value.length < 3) {
 		setErrorFor(
 			securityCode,
 			"Security code can not be less than 3 numbers"
 		);
+		return false;
 	} else if (securityCode.value.length > 3) {
 		setErrorFor(
 			securityCode,
 			"Security code can not be more than 3 numbers"
 		);
+		return false;
 	} else {
 		setSuccessFor(securityCode);
 	}
+	return true;
 }
 
 function setErrorFor(input, message) {
