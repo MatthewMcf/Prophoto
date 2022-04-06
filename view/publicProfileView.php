@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="./public/css/privateProfView.css">
 <script src="https://kit.fontawesome.com/86dc656e1f.js" crossorigin="anonymous"></script>
 
-<section>
+<section class="profileSection">
     <div id="profileHeader">
         <div>
             <div id="profilePic">
@@ -40,6 +40,8 @@
             </div>
         </div>
     </div>
+</section>
+<section class="photoSection">
     <div>
         <div class="yourPhotos">
             <div class="sectionHeader">

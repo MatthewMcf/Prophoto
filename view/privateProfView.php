@@ -1,7 +1,7 @@
 <?php //session_start();
 ?>
 <?php ob_start(); ?>
-<section>
+<section class="profileSection">
     <div id="profileHeader">
         <div id="profilePic">
             <label class="-label" for="file">
@@ -42,6 +42,8 @@
             <button id="editProfileInfo" class="btnHollowSecondary">Edit your details</button>
         </div>
     </div>
+</section>
+<section class="photoSection">
     <div>
         <div class="yourPhotos uploaded">
             <div class="sectionHeader">
@@ -82,7 +84,7 @@
                     require('homePageCardView.php');
                 }
                 ?>
-                <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos purchased">
@@ -95,10 +97,11 @@
                     require('homePageCardView.php');
                 }
                 ?>
-                <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
     </div>
+</section>
 </section>
 <script type="text/javascript" src="./public/js/privateProfPic.js"></script>
 <script type="text/javascript" src="./public/js/Modal.js"></script>
