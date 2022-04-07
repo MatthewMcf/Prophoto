@@ -26,8 +26,12 @@
                 <div class="purchase">
                 <button class="btnPrimary loginButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
                 </div>
-            <?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'picture_id')) !== FALSE) {
-            } else { ?>
+<?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'picture_id')) !== FALSE) {
+                $originalPath = str_replace("medium","original",$photo["path"]);?>
+                <div class="purchase">
+                <a href=<?=$originalPath?> download><button class="btnPrimary" id="startDownload">Download</button></a>
+                </div>
+                <?php } else { ?>
                 <div class="purchase">
                 <button class="btnPrimary purchaseButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
                 </div>
