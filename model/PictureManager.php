@@ -213,6 +213,7 @@ class PictureManager extends Manager
         $req = $this->_connection->query("SELECT id, tags FROM pictures");
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
+        $ids = array();
         for ($i = 0; $i < count($data); $i++) {
             $value = $data[$i]['tags'];
             if (!empty($value)) {
@@ -222,18 +223,15 @@ class PictureManager extends Manager
                     $tag = trim(strtolower($value));
                     array_push($list, $tag);
                 }
-                $ids = array();
                 foreach ($list as $val) {
                     if ($val == trim(strtolower($typed))) {
                         $image_id = $data[$i]['id'];
                         array_push($ids, $image_id);
                     }
                 }
-                if (!empty($ids)) {
-                    return $ids;
-                }
             }
         }
+        return $ids;
 
         $req->closeCursor();
     }

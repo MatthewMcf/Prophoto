@@ -5,7 +5,7 @@ require_once("./model/BookmarkManager.php");
 require_once("./model/SalesManager.php");
 
 
-function homepage($params=[])
+function homepage($params = [])
 {
     $pictureObj = new PictureManager();
     $userManager = new UserManager();
@@ -20,9 +20,9 @@ function homepage($params=[])
     if ($nbToDisplay > 0) {
         $isThereImage = true;
         if (!empty($params['cardLimit'])) {
-            $nbToDisplay = ($params['cardLimit']<$nbToDisplay)? $params['cardLimit']: $nbToDisplay;
+            $nbToDisplay = ($params['cardLimit'] < $nbToDisplay) ? $params['cardLimit'] : $nbToDisplay;
         } else {
-            $nbToDisplay = (9<$nbToDisplay)? 9: $nbToDisplay;
+            $nbToDisplay = (9 < $nbToDisplay) ? 9 : $nbToDisplay;
         }
         $oneCardInfo = $pictureObj->getRandomImages();
         $homePageCardInfos = array($oneCardInfo["imageInfo"]);
@@ -42,7 +42,6 @@ function searchpage($params)
     $userManager = new UserManager();
     $searched = $params['search'];
     $image_ids = $pictureObj->getSearchedID($searched);
-
     if (isset($_SESSION["id"])) {
         $user = $userManager->getUserInfo($_SESSION["id"]);
         $profileURL = $userManager->getProfilePicturePath($_SESSION["id"]);
@@ -191,7 +190,7 @@ function privateProfView($params)
         foreach ($currUserImages as $image) {
             array_push($currUserCardInfos, $pictureManager->getSmallImage($image["id"]));
         }
-        $bookmarkManager = new BookmarkManager(); 
+        $bookmarkManager = new BookmarkManager();
         // Array of picture IDs bookmarked by current user
         if (isset($params['currBookmarkLimit'])) {
             $bookmarkImages = $bookmarkManager->getBookmarkImages($params['currBookmarkLimit']);
@@ -251,16 +250,19 @@ function submitPhotoEdit($params)
     privateProfView($params);
 }
 
-function addBookmark($params){
+function addBookmark($params)
+{
     $bookmarkMng = new BookmarkManager();
     $bookmarkMng->setBookmarkImage($params["picture_id"]);
 }
 
-function deleteBookmark($params){
+function deleteBookmark($params)
+{
     $bookmarkMng = new BookmarkManager();
     $bookmarkMng->deleteBookmarkImage($params["picture_id"]);
 }
-function purchase($params) {
+function purchase($params)
+{
     $userManager = new UserManager();
     $pictureManager = new PictureManager();
 
