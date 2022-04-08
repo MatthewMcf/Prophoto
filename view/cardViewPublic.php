@@ -1,6 +1,6 @@
 <div class="cardContainer">
     <div class="cardContent" style="background-image: url(<?=$card["path"]?>)" image-id=<?=$card["id"]?>>
-        <button class="price"><?=$card["price"] ? $card["price"] : "2"?> Credits</button>
+        <button class="price"><?=$card["price"] ? $card["price"] : "5"?> Credits</button>
         <div class="likeContainer">
             <div class="likeSelected">
                 <i class="fa-regular fa-heart"></i>
