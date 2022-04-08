@@ -67,7 +67,9 @@ class PictureManager extends Manager
         $data = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
 
-        $userData = $this->getProfilePathAndName($data["user_id"]);
+        if ($data) {
+            $userData = $this->getProfilePathAndName($data["user_id"]);
+        }
 
         if (!empty($data["user_id"])) {
             return (array(
@@ -487,8 +489,8 @@ class PictureManager extends Manager
             }
             $table->closeCursor();
         }
-        
-        
+
+
 
         $tags = $this->_connection->prepare("SELECT name FROM tags");
         $tags->execute();
