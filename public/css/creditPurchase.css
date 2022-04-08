@@ -14,13 +14,10 @@ input[type="number"] {
 	-moz-appearance: textfield;
 }
 
-/* .form {
-	padding: 30px 40px;
-} */
 
 .inputContainer {
 	margin-bottom: 10px;
-	padding-bottom: 20px;
+	/* padding-bottom: 20px; */
 	position: relative;
 	margin: 0;
 }
@@ -56,6 +53,8 @@ input[type="number"] {
 	bottom: 0;
 	left: 0;
 	top: 10px;
+	width: 100%;
+	margin-bottom: 1rem;
 	/* visibility: hidden; */
 	display: none;
 }
@@ -139,4 +138,26 @@ input[type="number"] {
 .select-items-search div:hover,
 .same-as-selected-search {
 	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.inputContainer select {
+	padding: 0;
+}
+
+#totalCost {
+	font-size: 1.5rem;
+	padding: 0;
+	margin: 0;
+}
+
+.btnPrimary {
+	margin: 2rem 0;
+}
+
+select .expiryMonth {
+	margin-bottom: 0;
+}
+
+select .expiryYear {
+	margin-bottom: 0;
 }
