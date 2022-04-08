@@ -22,9 +22,9 @@ for (let i = 0; i < pbs.length; i++) {
 
 let lgs = document.querySelectorAll(".loginButton");
 for (let i = 0; i < lgs.length; i++) {
-    lgs[i].addEventListener("click", (e) => {
-        document.querySelector("#login").click();
-    });
+	lgs[i].addEventListener("click", (e) => {
+		document.querySelector("#login").click();
+	});
 }
 
 // DROP DOWN JS
@@ -55,6 +55,14 @@ function toggleMenuDisplay(e) {
 
 	toggleClass(menu, "hide");
 	toggleClass(icon, "rotate-180");
+}
+
+function ridDiv() {
+	let results = document.querySelector("#results");
+
+	while (results.firstChild) {
+		results.removeChild(results.firstChild);
+	}
 }
 
 function handleOptionSelected(e) {

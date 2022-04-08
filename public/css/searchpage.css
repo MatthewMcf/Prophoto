@@ -1,0 +1,207 @@
+.greyBackground {
+	background-color: #f8f8f8;
+	width: 100%;
+	padding: 1.5rem 0 3.5rem 0;
+	/* height: 200px; */
+}
+.blueBackground {
+	background-color: #1b327e;
+	width: 100%;
+	padding: 1.5rem 0;
+	/* height: 200px; */
+}
+
+.btnHollowWhite {
+	border: 1px solid white;
+	color: white;
+	background: transparent;
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.btnHollowWhite:hover {
+	background-color: white;
+	color: #1b327e;
+	border: none;
+	transition: 0.1s ease-in-out;
+}
+
+#topContainer {
+	background: url("../images/hyangwonjeong-pavilion-g9494cc36a_1920.jpg"),
+		rgba(50, 50, 50, 0.5);
+	background-blend-mode: multiply;
+	height: 40vh;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.5rem;
+	/* margin-bottom: 3.5rem; */
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+#topContainer {
+	width: 100%;
+	height: 32vh;
+	text-align: center;
+}
+
+#topContainer h1 {
+	color: white;
+	font-size: 2.875rem;
+	margin: 1rem 2rem 0 2rem;
+}
+
+#topContainer h3 {
+	color: white;
+	font-size: 1.5rem;
+	margin: 1rem 2rem 3rem 2rem;
+}
+
+/* Show more images */
+.showMore {
+	display: flex;
+	justify-content: center;
+}
+
+/* ABOUT PROPHOTO */
+
+#aboutProPhoto {
+	display: flex;
+	padding: 1rem 0;
+}
+
+#aboutUs {
+	width: 50%;
+	padding: 1rem;
+}
+
+#aboutUs h2 {
+	margin: 0;
+	color: #fff;
+}
+
+#aboutUs p {
+	color: #fff;
+	line-height: 22px;
+}
+
+.aboutUsImage {
+	width: 50%;
+	padding: 1rem;
+	background-image: url(../images/baby-gc36584090_1920.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Most popular */
+#mostPopular {
+	width: 100%;
+	padding: 1rem;
+}
+
+#mostPopular h2 {
+	margin-bottom: 2rem;
+}
+
+#popularTags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 2rem 0;
+}
+
+.mostPopularImage {
+	width: 150px;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5rem 0;
+	background-color: #f2f2f2;
+	border-radius: 8px;
+}
+
+.mostPopularImage:hover {
+	-webkit-transform: scale(1.02);
+	transform: scale(1.02);
+	transition: 0.1s ease-in-out;
+}
+
+.mostPopularImage img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 500px;
+	margin-bottom: 5px;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+
+.mostPopularImage:hover img {
+	opacity: 1;
+	-webkit-animation: flash 0.5s;
+	animation: flash 0.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.mostPopularImage a {
+	color: #000;
+}
+/* .placeholder {
+	display: flex;
+	flex-direction: column;
+}
+
+.placeholder > a > img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.placeholder > a {
+	text-align: center;
+}
+
+#popularImages {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#popularImages > .photoCard {
+	width: 30%;
+	margin-bottom: 5px;
+}
+
+#popularTags > .placeholder {
+	width: 30%;
+	margin-bottom: 5px;
+} */

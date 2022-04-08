@@ -2,6 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+
 ?>
 <?php ob_start(); ?>
 <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
@@ -9,7 +10,7 @@ if (!isset($_SESSION)) {
 <script src="public/js/homepage.js" defer></script>
 <script src="public/js/dropdown.js" defer></script>
 <link rel="stylesheet" href="public/css/searchBar.css">
-<link rel="stylesheet" href="public/css/homePage.css">
+<link rel="stylesheet" href="public/css/searchpage.css">
 
 
 <div id="topContainer">
@@ -40,7 +41,7 @@ if (!isset($_SESSION)) {
 
 <div class="greyBackground">
     <div class="container popularImages">
-        <h2>Search results for :</h2>
+        <h2>Search results : </h2>
         <div id="popularImages">
             <?php
             if ($homePageCardInfos) {
