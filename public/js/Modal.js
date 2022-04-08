@@ -37,6 +37,32 @@ class Modal {
 	}
 }
 
+function confirmPurchase(){
+		var purchaseSubmit = document.querySelector("#purchaseConfirmation");
+  	purchaseSubmit.addEventListener("submit", function(e) {
+    		e.preventDefault();
+    		let purchaseForm = document.querySelector("#purchaseConfirmation form");
+				let purchaseImage = document.querySelector("#purchaseConfirmation img");
+				let pathImage = purchaseImage.src;
+				pathImage = pathImage.replace("medium","original");
+				//let nextElem = purchaseImage.nextSibling;
+				//purchaseImage.parentElement.removeChild(purchaseImage);
+		 		let downloadDiv = document.createElement("div");
+				let innerHTMLval = '<p>To complete the purchase and start the download, click on the download button</p><a href="';
+				innerHTMLval += pathImage;
+				innerHTMLval +='" download><button class="btnPrimary" id="startDownload">Start download</button></a>';
+				downloadDiv.innerHTML = innerHTMLval;
+				e.target.parentElement.insertBefore(downloadDiv, e.target);
+				e.target.style.display = 'none';
+				//parentElement.removeChild(e.target);
+				let downloadBtn = document.querySelector("#startDownload");
+				downloadBtn.addEventListener("click", function(){
+						e.target.submit();	
+				});
+				//e.target.submit();
+  	});
+}
+
 // Example for testing
 function setModalContent() {
 	// Set up the request
@@ -352,6 +378,7 @@ function setModalContentPurchaseView(e) {
 			// if the file is loaded without error
 			let content = xhr.responseText;
 			let modal = new Modal(content);
+			confirmPurchase();
 		} else if (
 			xhr.readyState === XMLHttpRequest.DONE &&
 			xhr.status != 200
