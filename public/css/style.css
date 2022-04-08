@@ -435,8 +435,11 @@ label {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	transition: transform 0.2s;
 }
-
+.cardContent:hover {
+	transform: scale(1.03);
+}
 /* .photoCard:hover img {
 	-webkit-transform: scale(1.2);
 	transform: scale(1.2);
