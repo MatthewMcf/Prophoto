@@ -26,7 +26,7 @@ if (!isset($_SESSION)) {
             <div class="searchBar">
                 <div class="searchBar" id="searchForm">
                     <div class="inputContainerSearch">
-                        <input type="text" name="search" autocomplete="off" id="inputSearch" placeholder="Search photos..." />
+                        <input type="text" name="search" autocomplete="off" id="inputSearch" value="<?=$searched?>" />
                     </div>
                     <div id="results"></div>
                 </div>
@@ -40,7 +40,7 @@ if (!isset($_SESSION)) {
 
 <div class="greyBackground">
     <div class="container popularImages">
-        <h2>Search results for :</h2>
+        <h2>Search results for : <?=$searched?></h2>
         <div id="popularImages">
             <?php
             if ($homePageCardInfos) {
@@ -52,9 +52,12 @@ if (!isset($_SESSION)) {
             }
             ?>
         </div>
-        <div class="showMore">
-            <button class="btnHollow">Show more photos</button>
-        </div>
+        <?php if ($homePageCardInfos) { ?>
+            <div class="showMore">
+                <button class="btnHollow">Show more photos</button>
+            </div>
+        <?php } ?>
+
     </div>
 </div>
 
