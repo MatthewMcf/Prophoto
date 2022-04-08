@@ -3,14 +3,15 @@ if (!isset($_SESSION)) {
     session_start();
 }
 ?>
-<?php ob_start();?>
-    <!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
-    <script src="public/js/Modal.js" defer></script>
-    <script src="public/js/homepage.js" defer></script>
-    <script src="public/js/dropdown.js" defer></script>
 
-    <link rel="stylesheet" href="public/css/searchBar.css">
-    <link rel="stylesheet" href="public/css/homePage.css">
+<?php ob_start(); ?>
+<!-- <img src="https://lh3.googleusercontent.com/a-/AOh14GjbJt2y7iNsyG6OK-MbnB3p3zrsZ-V3dD6aGXNor1k=s96-c" alt=""> -->
+<script src="public/js/Modal.js" defer></script>
+<script src="public/js/homepage.js" defer></script>
+<script src="public/js/dropdown.js" defer></script>
+
+<link rel="stylesheet" href="public/css/searchBar.css">
+<link rel="stylesheet" href="public/css/homePage.css">
 
 
 <div id="topContainer">
@@ -62,7 +63,7 @@ if (!isset($_SESSION)) {
             <div class="searchBar">
                 <div class="searchBar" id="searchForm">
                     <div class="inputContainerSearch">
-                        <input type="text" name="search" autocomplete="off" id="inputSearch" placeholder="Search photos..." />
+                        <input type="text" name="search" onblur="ridDiv()" autocomplete="off" id="inputSearch" placeholder="Search photos..." />
                     </div>
                     <div id="results"></div>
                 </div>
@@ -74,20 +75,20 @@ if (!isset($_SESSION)) {
     </div>
 </div>
 
-    <div class="greyBackground">
-        <div class="container popularImages">
-	        <h2>Find your new favourite photo today</h2>
-            <div id="popularImages">
-                <?php foreach($homePageCardInfos as $card){
-                    require('homePageCardView.php');
-                }
-                ?>
-            </div>
-            <div class="showMore">
-                <a href="index.php?action=homepage&cardLimit=<?php echo (isset($_REQUEST["cardLimit"]) ? intval($_REQUEST["cardLimit"]) + 9 : 18) ?>" ><button class="btnHollow">Show more photos</button></a>
-            </div>
+<div class="greyBackground">
+    <div class="container popularImages">
+        <h2>Find your new favourite photo today</h2>
+        <div id="popularImages">
+            <?php foreach ($homePageCardInfos as $card) {
+                require('homePageCardView.php');
+            }
+            ?>
+        </div>
+        <div class="showMore">
+            <a href="index.php?action=homepage&cardLimit=<?php echo (isset($_REQUEST["cardLimit"]) ? intval($_REQUEST["cardLimit"]) + 9 : 18) ?>"><button class="btnHollow">Show more photos</button></a>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -95,12 +96,12 @@ if (!isset($_SESSION)) {
     <div id="mostPopular">
         <h2>Most Popular Tags</h2>
         <div id="popularTags">
-            <div class="mostPopularImage"><a href="#"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Seoul</a></div>
-            <div class="mostPopularImage"><a href="#"><img src="public/images/cat.jpg" alt="cats"></a> <a href="#">Cats</a></div>
-            <div class="mostPopularImage"><a href="#"><img src="public/images/tree-g3545204dd_1280.jpg" alt="trees"></a> <a href="#">Trees</a></div>
-            <div class="mostPopularImage"><a href="#"><img src="public/images/monkey.jpg" alt="monkey"></a> <a href="#">Monkeys</a></div>
-            <div class="mostPopularImage"><a href="#"><img src="public/images/sunset.jpg" alt="sunset"></a> <a href="#">Sunsets</a></div>
-            <div class="mostPopularImage"><a href="#"><img src="public/images/baby.jpg" alt="baby"></a> <a href="#">Baby</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=seoul"><img src="public/images/seoul.jpeg" alt="seoul"></a> <a href="#">Seoul</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=cats"><img src="public/images/cat.jpg" alt="cats"></a> <a href="#">Cats</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=trees"><img src="public/images/tree-g3545204dd_1280.jpg" alt="trees"></a> <a href="#">Trees</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=monkeys"><img src="public/images/monkey.jpg" alt="monkey"></a> <a href="#">Monkeys</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=sunsets"><img src="public/images/sunset.jpg" alt="sunset"></a> <a href="#">Sunsets</a></div>
+            <div class="mostPopularImage"><a href="index.php?action=searchpage&search=baby"><img src="public/images/baby.jpg" alt="baby"></a> <a href="#">Baby</a></div>
         </div>
     </div>
 </div>
@@ -108,7 +109,7 @@ if (!isset($_SESSION)) {
     <div class="container">
         <div id="aboutProPhoto">
             <div id="aboutUs">
-                <h2>About proPhoto</h2>
+                <h2>About ProPhoto</h2>
                 <p>ProPhoto is a photograph purchasing and selling site.</p>
                 <p>By purchasing photos you are supporting photographers around the world and allow them to produce amazing photographs. When purchasing a photograph, you gain full rights to use it however you see fit.</p>
                 <p>Selling your photos through ProPhoto allows to reach a large audience and sell your photographs around the world. It’s a great way to receive an income from something that you love to do.</p>
@@ -118,9 +119,9 @@ if (!isset($_SESSION)) {
     </div>
 </div>
 
-
-
 <script type="text/javascript" src="public/js/searchTags.js"></script>
+
+
 
 
 <?php $content = ob_get_clean(); ?>

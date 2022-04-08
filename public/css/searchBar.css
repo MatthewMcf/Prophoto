@@ -64,7 +64,6 @@
 	right: 0;
 	padding: 0 2px;
 	z-index: 99;
-
 	border-top: none;
 	border-radius: 0 0 4px 4px;
 	width: 146px;
@@ -139,4 +138,6 @@ form.photoSearch input {
 #results > div:hover {
 	background-color: #f0f0f0;
 	border-radius: 4px;
+	cursor: pointer;
+
 }

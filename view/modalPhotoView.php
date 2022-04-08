@@ -15,7 +15,7 @@
         </div>
         <div id="descriptorContainer">
             <div id="imageTitle">Title: <?= $photo["title"] ?></div>
-            <div id="imageDescription">Description:<?= $photo["description"] ?></div>
+            <div id="imageDescription">Description: <?= $photo["description"] ?></div>
         </div>
     </div>
 
