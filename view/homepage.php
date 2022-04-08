@@ -63,7 +63,7 @@ if (!isset($_SESSION)) {
             <div class="searchBar">
                 <div class="searchBar" id="searchForm">
                     <div class="inputContainerSearch">
-                        <input type="text" name="search" onblur="ridDiv()" autocomplete="off" id="inputSearch" placeholder="Search photos..." />
+                        <input type="text" name="search" autocomplete="off" id="inputSearch" placeholder="Search photos..." />
                     </div>
                     <div id="results"></div>
                 </div>
