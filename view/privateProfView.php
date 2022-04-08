@@ -73,7 +73,7 @@
                 </div> -->
             </div>
             <div class="showMoreDiv">
-                <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 8 : 8) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos liked">
@@ -88,7 +88,7 @@
                 ?>
             </div>
             <div class="showMoreDiv">
-                <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 9 : 9) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
         <div class="yourPhotos purchased">
@@ -103,7 +103,7 @@
                 ?>
             </div>
             <div class="showMoreDiv">
-                <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 9 : 9) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
     </div>
