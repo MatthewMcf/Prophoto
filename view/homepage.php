@@ -114,6 +114,12 @@ if (!isset($_SESSION)) {
                 <p>Selling your photos through ProPhoto allows to reach a large audience and sell your photographs around the world. It’s a great way to receive an income from something that you love to do.</p>
             </div>
             <div class="aboutUsImage"></div>
+<<<<<<< Updated upstream
+=======
+</div>
+
+        </div>
+>>>>>>> Stashed changes
         </div>
     </div>
 </div>

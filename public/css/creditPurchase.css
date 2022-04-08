@@ -14,9 +14,9 @@ input[type="number"] {
 	-moz-appearance: textfield;
 }
 
-.form {
+/* .form {
 	padding: 30px 40px;
-}
+} */
 
 .inputContainer {
 	margin-bottom: 10px;
