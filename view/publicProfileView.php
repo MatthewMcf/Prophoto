@@ -52,7 +52,7 @@
                     require('homePageCardView.php');
                 }
                 ?>
-                <a href="index.php?action=publicProfView&requested_id=<?=$requestedUser["id"]?>&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 10) ?>"><button id="showMoreCurrent">Show More Cards</button></a>
+                <a href="index.php?action=publicProfView&requested_id=<?=$requestedUser["id"]?>&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 10) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
 
           </div>
         </div>

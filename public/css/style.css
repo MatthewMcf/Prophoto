@@ -819,6 +819,12 @@ label {
 	position: sticky;
 } */
 
+.creditPurchase {
+	color: black;
+}
+.creditPurchase:visited {
+	color: black;
+}
 nav {
 	display: flex;
 	align-items: center;
