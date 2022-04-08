@@ -5,9 +5,8 @@
 	/* height: 200px; */
 }
 .blueBackground {
-	background-color: #1b327e;
+	background-color: #4A516B;
 	width: 100%;
-	padding: 1.5rem 0;
 	/* height: 200px; */
 }
 
@@ -78,12 +77,11 @@
 
 #aboutProPhoto {
 	display: flex;
-	padding: 1rem 0;
 }
 
 #aboutUs {
 	width: 50%;
-	padding: 1rem;
+	padding: 4rem 1rem;
 }
 
 #aboutUs h2 {
@@ -99,7 +97,7 @@
 .aboutUsImage {
 	width: 50%;
 	padding: 1rem;
-	background-image: url(../images/baby-gc36584090_1920.jpg);
+	background-image: url(../images/camera.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

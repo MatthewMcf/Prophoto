@@ -108,7 +108,7 @@ if (!isset($_SESSION)) {
     <div class="container">
         <div id="aboutProPhoto">
             <div id="aboutUs">
-                <h2>About proPhoto</h2>
+                <h2>About ProPhoto</h2>
                 <p>ProPhoto is a photograph purchasing and selling site.</p>
                 <p>By purchasing photos you are supporting photographers around the world and allow them to produce amazing photographs. When purchasing a photograph, you gain full rights to use it however you see fit.</p>
                 <p>Selling your photos through ProPhoto allows to reach a large audience and sell your photographs around the world. It’s a great way to receive an income from something that you love to do.</p>
