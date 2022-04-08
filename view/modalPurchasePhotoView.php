@@ -9,7 +9,7 @@
 <div>Price: <?=$photo["price"] ?> Credits</div>
 <br>
 <div>Continue with the purchase and the photo, in the original size, will be downloaded on your computer</div>
-<button type="submit" class="btnPrimary confirmPurchaseButton">Confirm Puchase</button>
+<button type="submit" class="btnPrimary confirmPurchaseButton">Confirm Purchase</button>
 </form>
  <!--<script src="./public/js/confirmPurchase.js"></script>-->
 
