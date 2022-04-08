@@ -15,7 +15,7 @@
         </div>
         <div id="descriptorContainer">
             <div id="imageTitle">Title: <?= $photo["title"] ?></div>
-            <div id="imageDescription">Description:<?php $photo["description"] ?></div>
+            <div id="imageDescription">Description:<?= $photo["description"] ?></div>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
                 <div class="purchase">
                 <button class="btnPrimary loginButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 
                 </div>
-            <?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'id_picture')) !== FALSE) {
+            <?php } else if ($photo["userID"] == $_SESSION["id"] || array_search($photo["id"], array_column($purchasedImages, 'picture_id')) !== FALSE) {
             } else { ?>
                 <div class="purchase">
                 <button class="btnPrimary purchaseButtonModal" image-id=<?=$photo["id"]?>>purchase</button> 

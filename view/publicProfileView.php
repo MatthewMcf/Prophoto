@@ -60,7 +60,7 @@
 </section>
 <script type="text/javascript" src="./public/js/script.js" defer></script>
 <script type="text/javascript" src="./public/js/Modal.js" defer></script>
-<script type="text/javascript" src="./public/js/card.js" defer></script>
+<!-- <script type="text/javascript" src="./public/js/card.js" defer></script> -->
 
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

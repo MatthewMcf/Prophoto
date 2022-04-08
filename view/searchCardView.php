@@ -18,7 +18,7 @@
             <div class="purchase">
                 <button class="btnPrimary loginButton" image-id=<?= $card["id"] ?>>purchase</button>
             </div>
-        <?php } else if ($card["userID"] == $_SESSION["id"] || array_search($card["id"], array_column($purchasedImages, 'id_picture')) !== FALSE) {
+        <?php } else if ($card["userID"] == $_SESSION["id"] || array_search($card["id"], array_column($purchasedImages, 'picture_id')) !== FALSE) {
         } else { ?>
             <div class="purchase">
                 <button class="btnPrimary purchaseButton" image-id=<?= $card["id"] ?>>purchase</button>

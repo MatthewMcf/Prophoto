@@ -386,8 +386,9 @@ function setModalContentPurchaseCreditsView(e) {
 			document
 				.getElementById("creditPurchaseForm")
 				.addEventListener("submit", (e) => {
-					e.preventDefault();
-					checkInputs();
+					if (!checkInputs()) {
+						e.preventDefault();
+					}
 				});
 			selectCreditAmount();
 		} else if (
