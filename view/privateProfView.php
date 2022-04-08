@@ -71,6 +71,8 @@
                         </div>
                     </div>
                 </div> -->
+            </div>
+            <div class="showMoreDiv">
                 <a href="index.php?action=privateProfView&currUserLimit=<?php echo (isset($_REQUEST["currUserLimit"]) ? intval($_REQUEST["currUserLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
@@ -84,6 +86,8 @@
                     require('homePageCardView.php');
                 }
                 ?>
+            </div>
+            <div class="showMoreDiv">
                 <a href="index.php?action=privateProfView&currBookmarkLimit=<?php echo (isset($_REQUEST["currBookmarkLimit"]) ? intval($_REQUEST["currBookmarkLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
@@ -97,6 +101,8 @@
                     require('homePageCardView.php');
                 }
                 ?>
+            </div>
+            <div class="showMoreDiv">
                 <a href="index.php?action=privateProfView&currPurchasedLimit=<?php echo (isset($_REQUEST["currPurchasedLimit"]) ? intval($_REQUEST["currPurchasedLimit"]) + 10 : 5) ?>"><button class="btnHollow" id="showMoreCurrent">Show More Cards</button></a>
             </div>
         </div>
