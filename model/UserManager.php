@@ -1,6 +1,6 @@
 <?php
-if(!isset($_SESSION)) { 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
 require_once('ImageCreation.php');
 require_once('Manager.php');
@@ -10,9 +10,10 @@ class UserManager extends Manager
     public function __construct()
     {
         parent::__construct();
-    } 
+    }
 
-    public function registerAction($email, $pwd, $username) {
+    public function registerAction($email, $pwd, $username)
+    {
         $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $username = addslashes(htmlspecialchars(htmlentities(trim($username))));
@@ -20,9 +21,9 @@ class UserManager extends Manager
         //First check for existing user
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
         $stmt->bindParam(1, $email, PDO::PARAM_STR);
-        $stmt->execute(); 
+        $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-         
+
         if ($user) {
             //user with this email already exists in our database
             return false;
@@ -34,17 +35,16 @@ class UserManager extends Manager
             $req->execute();
 
             $userID = $this->_connection->lastInsertId();
-            mkdir("./data/".$userID);
-            mkdir("./data/".$userID."/small");
-            mkdir("./data/".$userID."/medium");
-            mkdir("./data/".$userID."/original");
+            mkdir("./data/" . $userID);
+            mkdir("./data/" . $userID . "/small");
+            mkdir("./data/" . $userID . "/medium");
+            mkdir("./data/" . $userID . "/original");
             return true;
         }
-
-
     }
 
-    public function insertUser($google_token, $email, $profile_url) {
+    public function insertUser($google_token, $email, $profile_url)
+    {
         // $google_id = $_POST['google_id'];
         // $email = $_POST['email'];
         $extract = explode("@", $email);
@@ -53,10 +53,10 @@ class UserManager extends Manager
         //First check for existing user
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE email=?");
         $stmt->bindParam(1, $email, PDO::PARAM_STR);
-        $stmt->execute(); 
+        $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-       
+
 
         if ($user) {
             // echo 'found user with email: ' . $email; 
@@ -69,17 +69,25 @@ class UserManager extends Manager
             $insertion->bindParam(2, $email, PDO::PARAM_STR);
             $insertion->bindParam(3, $userName, PDO::PARAM_STR);
             $insertion->bindParam(4, $profile_url, PDO::PARAM_STR);
-    
+
             $status = $insertion->execute();
             $insertion->closeCursor();
+
+            $userID = $this->_connection->lastInsertId();
+            mkdir("./data/" . $userID);
+            mkdir("./data/" . $userID . "/small");
+            mkdir("./data/" . $userID . "/medium");
+            mkdir("./data/" . $userID . "/original");
+
             if (!$status) {
                 throw new Exception('impossible to add account into database', 1234);
             }
         }
     }
 
-    public function loginAction($email, $pwd, $autoconnection) {
-        if(isset($_COOKIE["email"])){
+    public function loginAction($email, $pwd, $autoconnection)
+    {
+        if (isset($_COOKIE["email"])) {
             $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
 
             $req = $this->_connection->prepare("SELECT id, email FROM users WHERE email = :email");
@@ -91,9 +99,9 @@ class UserManager extends Manager
 
             $_SESSION["email"] = $email;
             $_SESSION["id"] = $data["id"];
-            
+
             return true;
-        } else{
+        } else {
             $email = addslashes(htmlspecialchars(htmlentities(trim($email))));
             $pwd = addslashes(htmlspecialchars(htmlentities(trim($pwd))));
 
@@ -103,11 +111,11 @@ class UserManager extends Manager
             ));
             $data = $req->fetch(PDO::FETCH_ASSOC);
             $req->closeCursor();
-            if(password_verify($pwd, $data["pwd"])) {
+            if (password_verify($pwd, $data["pwd"])) {
                 $_SESSION["email"] = $email;
                 $_SESSION["id"] = $data["id"];
-                if(isset($_REQUEST["autoconnection"])){
-                    setcookie('email', $email, time() + 30*24*3600, false, false, false, true);
+                if (isset($_REQUEST["autoconnection"])) {
+                    setcookie('email', $email, time() + 30 * 24 * 3600, false, false, false, true);
                 }
                 return true;
             } else {
@@ -116,10 +124,11 @@ class UserManager extends Manager
         }
     }
 
-    public function getUserInfo($id) {
+    public function getUserInfo($id)
+    {
         $stmt = $this->_connection->prepare("SELECT * FROM users WHERE id=?");
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute(); 
+        $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
@@ -129,9 +138,10 @@ class UserManager extends Manager
         }
     }
 
-    public function getProfilePicturePath($userId = null) {
+    public function getProfilePicturePath($userId = null)
+    {
         if ($userId == null) {
-            $userId = (!empty($_SESSION['id']))? $_SESSION["id"]: -1;
+            $userId = (!empty($_SESSION['id'])) ? $_SESSION["id"] : -1;
         }
         $req = $this->_connection->prepare("SELECT id, profile_url FROM users WHERE id = :id");
         $req->execute(array(
@@ -145,10 +155,11 @@ class UserManager extends Manager
             return "./data/default/profilePicture.jpg";
         }
     }
-    
-    public function setProfilePicture($file) {
-        if(!isset($_SESSION)) { 
-            session_start(); 
+
+    public function setProfilePicture($file)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
         }
         //$currentDir = getcwd();
         $dataDir = "./data/";
@@ -173,7 +184,7 @@ class UserManager extends Manager
             $defaultOnePath = $dataDir . "default/tempOne." . $fileExtension;
             $defaultTwoPath = $dataDir . "default/tempTwo.jpg";
             $uploadPath = $dataDir . $user . "/profilePicture.jpg";
-            
+
             if (isset($fileName)) {
                 if (!in_array($fileExtension, $fileExtensions)) {
                     $errors[] = "JPEG, JPG and PNG images are only supported (maybe GIF in a future update ..)";
@@ -191,14 +202,13 @@ class UserManager extends Manager
                     $objThumbImage->createImage($uploadPath, 200);
                     // delete the unused temporary files
                     unlink($defaultTwoPath);
-                    unlink($defaultOnePath);       
+                    unlink($defaultOnePath);
                     echo "The image " . basename($fileName) . " has been uploaded.";
                     //update profile pic path in database 
                     $stmt = $this->_connection->prepare("UPDATE users SET profile_url = ? WHERE id=?");
                     $stmt->bindParam(1, $uploadPath, PDO::PARAM_STR);
                     $stmt->bindParam(2, $user, PDO::PARAM_STR);
-                    $stmt->execute();                 
-                    
+                    $stmt->execute();
                 } else {
                     foreach ($errors as $error) {
                         echo "The following error occured: " . $error . "\n";
@@ -208,14 +218,16 @@ class UserManager extends Manager
         }
     }
 
-    public function setCredits($id, $num) {
+    public function setCredits($id, $num)
+    {
         $stmt = $this->_connection->prepare("UPDATE users SET balance=balance + ? WHERE id=?");
         $stmt->bindParam(1, $num, PDO::PARAM_INT);
         $stmt->bindParam(2, $id, PDO::PARAM_INT);
-        $stmt->execute(); 
+        $stmt->execute();
     }
 
-    public function setUserInfo($params) {
+    public function setUserInfo($params)
+    {
         $stmt = $this->_connection->prepare("UPDATE `users` SET `display_name`=?,`about_me`=?,`website`=?,`facebook`=?,`instagram`=?,`linkedin`=? WHERE id = ?");
         $stmt->bindParam(1, $params["name"], PDO::PARAM_STR);
         $stmt->bindParam(2, $params["aboutMe"], PDO::PARAM_STR);
@@ -224,6 +236,6 @@ class UserManager extends Manager
         $stmt->bindParam(5, $params["instagram"], PDO::PARAM_STR);
         $stmt->bindParam(6, $params["linkedin"], PDO::PARAM_STR);
         $stmt->bindParam(7, $_SESSION["id"], PDO::PARAM_INT);
-        $stmt->execute(); 
+        $stmt->execute();
     }
 }
